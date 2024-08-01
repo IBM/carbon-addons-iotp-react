@@ -718,12 +718,7 @@ describe('TableCardFormContent', () => {
     await fireEvent.click(screen.queryAllByLabelText('Edit')[1]);
     expect(screen.queryByText('Customize data series')).toBeDefined();
     fireEvent.click(screen.queryByText('Save'));
-    expect(mockOnChange).toHaveBeenCalledWith({
-      ...mockCardConfig,
-      content: {
-        ...mockCardConfig.content,
-      },
-    });
+    expect(mockOnChange).toHaveBeenCalledWith(mockCardConfig);
   });
   it('should set thresholds in dataSection if they exist', async () => {
     const mockOnChange = jest.fn();
