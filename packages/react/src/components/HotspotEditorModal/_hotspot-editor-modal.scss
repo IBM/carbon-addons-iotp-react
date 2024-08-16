@@ -4,7 +4,10 @@
 
 .#{$iot-prefix}--hotspot-editor-modal.#{$iot-prefix}--composed-modal {
   // Only apply to the top level modal, in case there is another modal nested inside the modal
-  & > .#{$prefix}--modal-container > .#{$prefix}--modal-content {
+  &
+    > .#{$prefix}--modal-container
+    > .#{$prefix}--modal-container-body
+    > .#{$prefix}--modal-content {
     $right-side-width: 420px;
     padding-right: 0;
     display: flex;
