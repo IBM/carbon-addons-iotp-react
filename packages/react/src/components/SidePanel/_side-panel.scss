@@ -265,7 +265,6 @@ $duration-moderate-01: 150ms;
   transform: scaleX(0);
   transition: all $duration-moderate-02 ease-in-out $duration-moderate-01;
 
-  .#{$iot-prefix}--sidepanel__toggle-button,
   .#{$iot-prefix}--sidepanel__title,
   .#{$iot-prefix}--sidepanel__subtitle,
   .#{$iot-prefix}--sidepanel__action-bar,
@@ -316,6 +315,11 @@ $duration-moderate-01: 150ms;
     opacity: 1;
     right: 0;
     top: 0;
+  }
+
+  .#{$iot-prefix}--sidepanel__toggle-button button {
+    padding-top: $spacing-02;
+    padding-inline-start: $spacing-05;
   }
 }
 
