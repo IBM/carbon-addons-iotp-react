@@ -1250,6 +1250,7 @@ const DateTimePicker = ({
                           : null
                       }
                       locale={locale}
+                      closeOnSelect={false}
                     >
                       <DatePickerInput
                         labelText=""
