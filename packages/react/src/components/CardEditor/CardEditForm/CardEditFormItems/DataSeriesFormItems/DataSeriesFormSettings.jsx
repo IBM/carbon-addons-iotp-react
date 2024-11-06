@@ -116,7 +116,6 @@ const DataSeriesFormSettings = ({ cardConfig, onChange, i18n }) => {
       <div className={`${baseClassName}--input`}>
         <TextInput
           id={`${id}_decimal-precision`}
-          key={content?.decimalPrecision}
           labelText={mergedI18n.decimalPrecisionLabel}
           light
           type="number"
@@ -135,7 +134,6 @@ const DataSeriesFormSettings = ({ cardConfig, onChange, i18n }) => {
       <div className={`${baseClassName}--input`}>
         <TextInput
           id={`${id}_maximum_data_points`}
-          key={content?.maximumDataPoints}
           labelText={mergedI18n.maximumDataPoints}
           light
           type="number"
