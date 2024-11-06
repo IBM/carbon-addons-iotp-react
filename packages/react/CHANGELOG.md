@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-v4-Carbon11.38](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.0-v4-Carbon11.37...v4.0.0-v4-Carbon11.38) (2024-11-06)
+
+
+### Bug Fixes
+
+* out of focus issue when typing ([#3895](https://github.com/carbon-design-system/carbon-addons-iot-react/issues/3895)) ([85f7ed8](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/85f7ed826ed250599e70e1e1dda7842d090f2d4c))
+
+
+
+
+
 # [4.0.0-v4-Carbon11.37](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.0-v4-Carbon11.36...v4.0.0-v4-Carbon11.37) (2024-10-29)
 
 **Note:** Version bump only for package carbon-addons-iot-react
