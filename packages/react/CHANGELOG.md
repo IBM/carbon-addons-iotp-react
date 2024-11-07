@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-v4-Carbon11.40](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.0-v4-Carbon11.39...v4.0.0-v4-Carbon11.40) (2024-11-07)
+
+
+### Bug Fixes
+
+* button with loader to display at the beggining ([56143df](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/56143df429dad3a572806364e85584b865fe441e))
+* display icon on row action ([9415173](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/9415173fa481080d80ff6911b02ce79cacd4a16d))
+* remove last threshold ([#3876](https://github.com/carbon-design-system/carbon-addons-iot-react/issues/3876)) ([df3baef](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/df3baef43994cf2d9ec4d9dfbaa389e256129d87))
+
+
+
+
+
 # [4.0.0-v4-Carbon11.39](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.0-v4-Carbon11.38...v4.0.0-v4-Carbon11.39) (2024-11-07)
 
 
