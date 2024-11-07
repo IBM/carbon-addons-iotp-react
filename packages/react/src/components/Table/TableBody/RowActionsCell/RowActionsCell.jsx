@@ -158,7 +158,7 @@ class RowActionsCell extends React.Component {
               <Fragment>
                 {visibleActions
                   .filter((action) => !action.isOverflow)
-                  .map(({ id: actionId, labelText, iconDescription, renderIcon, ...others }) => {
+                  .map(({ id: actionId, labelText, iconDescription, ...others }) => {
                     const buttonProps = omit(others, [
                       'isOverflow',
                       'isDelete',
