@@ -1267,6 +1267,37 @@ exports[`Storybook Snapshot tests and console checks Storyshots 2 - Watson IoT E
               className="iot--card-edit-form--input"
             >
               <div
+                className="bx--form-item bx--text-input-wrapper bx--text-input-wrapper--light"
+              >
+                <label
+                  className="bx--label"
+                  htmlFor="table card_maximum_data_points"
+                >
+                  Maximum data points
+                </label>
+                <div
+                  className="bx--text-input__field-outer-wrapper"
+                >
+                  <div
+                    className="bx--text-input__field-wrapper"
+                    data-invalid={null}
+                  >
+                    <input
+                      className="bx--text-input bx--text-input--light bx--text-input--md"
+                      disabled={false}
+                      id="table card_maximum_data_points"
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      type="number"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="iot--card-edit-form--input"
+            >
+              <div
                 className="iot--card-edit-form--input--toggle-field"
               >
                 <span>
@@ -4264,6 +4295,37 @@ exports[`Storybook Snapshot tests and console checks Storyshots 2 - Watson IoT E
                     </label>
                   </div>
                 </fieldset>
+              </div>
+            </div>
+            <div
+              className="iot--card-edit-form--input"
+            >
+              <div
+                className="bx--form-item bx--text-input-wrapper bx--text-input-wrapper--light"
+              >
+                <label
+                  className="bx--label"
+                  htmlFor="table card_maximum_data_points"
+                >
+                  Maximum data points
+                </label>
+                <div
+                  className="bx--text-input__field-outer-wrapper"
+                >
+                  <div
+                    className="bx--text-input__field-wrapper"
+                    data-invalid={null}
+                  >
+                    <input
+                      className="bx--text-input bx--text-input--light bx--text-input--md"
+                      disabled={false}
+                      id="table card_maximum_data_points"
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      type="number"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
             <div
