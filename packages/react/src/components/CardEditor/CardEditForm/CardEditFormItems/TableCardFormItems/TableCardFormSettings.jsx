@@ -2,7 +2,7 @@ import React, { useMemo, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { isEmpty } from 'lodash-es';
 import update from 'immutability-helper';
-import { RadioButton, RadioButtonGroup, Toggle } from '@carbon/react';
+import { RadioButton, RadioButtonGroup, Toggle, TextInput } from '@carbon/react';
 
 import { settings } from '../../../../../constants/Settings';
 import { Dropdown } from '../../../../Dropdown';
@@ -48,6 +48,7 @@ const defaultProps = {
     descending: 'Descending',
     showHeader: 'Show table header',
     allowNavigation: 'Allow navigation to assets',
+    maximumDataPoints: 'Maximum data points',
   },
   availableDimensions: {},
 };
@@ -200,6 +201,23 @@ const TableCardFormSettings = ({ cardConfig, onChange, i18n, translateWithId }) 
           </div>
         </>
       ) : null}
+      <div className={`${baseClassName}--input`}>
+        <TextInput
+          id={`${id}_maximum_data_points`}
+          labelText={mergedI18n.maximumDataPoints}
+          light
+          type="number"
+          onChange={(evt) => {
+            const maximumDataPointsString = evt.target.value;
+            const maximumDataPoints = Number.parseInt(maximumDataPointsString, 10);
+            onChange({
+              ...cardConfig,
+              content: { ...cardConfig.content, maximumDataPoints },
+            });
+          }}
+          value={content?.maximumDataPoints}
+        />
+      </div>
       <div className={`${baseClassName}--input`}>
         <div className={`${baseClassName}--input--toggle-field`}>
           <span>{mergedI18n.showHeader}</span>
