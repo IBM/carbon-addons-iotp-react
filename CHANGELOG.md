@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.154.0-next.40](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v2.154.0-next.39...v2.154.0-next.40) (2024-11-10)
+
+
+### Bug Fixes
+
+* add maximum data point to data table card ([23b4b2e](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/23b4b2ee04e525bce42f14aedeeaf7706aeae8b2))
+
+
+
+
+
 # [2.154.0-next.39](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v2.154.0-next.38...v2.154.0-next.39) (2024-11-10)
 
 **Note:** Version bump only for package ibm-ai-applications
