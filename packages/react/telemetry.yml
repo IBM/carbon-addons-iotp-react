@@ -2,7 +2,7 @@
 
 version: 1
 projectId: 57ff13d6-cb2e-4a9c-8489-a1c7ceea1b16
-endpoint: https://collector-prod.1am6wm210aow.us-south.codeengine.appdomain.cloud/v1/metrics
+endpoint: https://www-api.ibm.com/ibm-telemetry/v1/metrics
 collect:
   jsx:
     elements:
