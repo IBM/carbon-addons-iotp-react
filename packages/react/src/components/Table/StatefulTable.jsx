@@ -102,7 +102,6 @@ const StatefulTable = ({ data: initialData, expandedData, ...other }) => {
       // combine agin without node/element
       return { ...nonElements, nonNodeElements };
     }),
-    ,
     isLoading,
     initialState.pagination,
     initialState.filters,

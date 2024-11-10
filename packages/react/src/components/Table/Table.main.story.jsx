@@ -823,7 +823,7 @@ export const WithRowNesting = () => {
   const {
     selectedTableType,
     hasRowNesting,
-    shouldExpandOnRowClick,
+    // shouldExpandOnRowClick,
     demoHasLoadMore,
     wrapCellText,
   } = getTableKnobs({
