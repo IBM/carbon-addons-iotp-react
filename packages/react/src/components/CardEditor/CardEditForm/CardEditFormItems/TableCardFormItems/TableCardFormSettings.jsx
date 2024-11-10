@@ -5,6 +5,7 @@ import update from 'immutability-helper';
 
 import { settings } from '../../../../../constants/Settings';
 import { Toggle } from '../../../../Toggle';
+import { TextInput } from '../../../../TextInput';
 import { Dropdown } from '../../../../Dropdown';
 import { RadioButton } from '../../../../RadioButton';
 import { RadioButtonGroup } from '../../../../RadioButtonGroup';
@@ -50,6 +51,7 @@ const defaultProps = {
     descending: 'Descending',
     showHeader: 'Show table header',
     allowNavigation: 'Allow navigation to assets',
+    maximumDataPoints: 'Maximum data points',
   },
   availableDimensions: {},
 };
@@ -202,6 +204,23 @@ const TableCardFormSettings = ({ cardConfig, onChange, i18n, translateWithId }) 
           </div>
         </>
       ) : null}
+      <div className={`${baseClassName}--input`}>
+        <TextInput
+          id={`${id}_maximum_data_points`}
+          labelText={mergedI18n.maximumDataPoints}
+          light
+          type="number"
+          onChange={(evt) => {
+            const maximumDataPointsString = evt.target.value;
+            const maximumDataPoints = Number.parseInt(maximumDataPointsString, 10);
+            onChange({
+              ...cardConfig,
+              content: { ...cardConfig.content, maximumDataPoints },
+            });
+          }}
+          value={content?.maximumDataPoints}
+        />
+      </div>
       <div className={`${baseClassName}--input`}>
         <div className={`${baseClassName}--input--toggle-field`}>
           <span>{mergedI18n.showHeader}</span>

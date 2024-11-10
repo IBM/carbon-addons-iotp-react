@@ -156,6 +156,20 @@ describe('TableCardFormSettings', () => {
       })
     );
   });
+  it('handles maximumDataPoints onChange', () => {
+    const mockOnChange = jest.fn();
+    render(<TableCardFormSettings {...commonProps} onChange={mockOnChange} />);
+    const maximumDataPointsInput = screen.getByLabelText('Maximum data points');
+    expect(maximumDataPointsInput).toBeInTheDocument();
+    userEvent.type(maximumDataPointsInput, '2');
+
+    expect(mockOnChange).toHaveBeenCalledWith(
+      expect.objectContaining({
+        content: expect.objectContaining({ maximumDataPoints: 2 }),
+      })
+    );
+  });
+
   it('toggle showHeader should call onChange', () => {
     const mockOnChange = jest.fn();
     render(<TableCardFormSettings {...commonProps} onChange={mockOnChange} />);
