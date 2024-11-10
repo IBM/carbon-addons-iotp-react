@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.154.0-next.39](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v2.154.0-next.38...v2.154.0-next.39) (2024-11-10)
+
+**Note:** Version bump only for package carbon-addons-iot-react
+
+
+
+
+
 # [2.154.0-next.38](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v2.154.0-next.37...v2.154.0-next.38) (2024-11-06)
 
 
