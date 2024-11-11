@@ -147,11 +147,7 @@ const EmptyState = ({
             // TODO: remove deprecated testID in v3.
             data-testid={`${testID || testId}-action`}
           >
-            <Button
-              kind={action.kind}
-              onClick={action.onClick}
-              size={isSmall ? SMALL_SIZE : 'field'}
-            >
+            <Button kind={action.kind} onClick={action.onClick} size={isSmall ? 'sm' : 'md'}>
               {action.label}
             </Button>
           </div>
