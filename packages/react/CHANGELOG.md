@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-v4-Carbon11.44](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.0-v4-Carbon11.43...v4.0.0-v4-Carbon11.44) (2024-11-11)
+
+
+### Bug Fixes
+
+* enable floating styles ([b28502a](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/b28502a0be43c40c8af728339b8c8b9f199a6d5b))
+
+
+
+
+
 # [4.0.0-v4-Carbon11.43](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.0-v4-Carbon11.42...v4.0.0-v4-Carbon11.43) (2024-11-11)
 
 
