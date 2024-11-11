@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Tooltip, Link } from '@carbon/react';
+import { Information } from '@carbon/icons-react';
 
 import { settings } from '../../../../constants/Settings';
 
@@ -28,18 +29,21 @@ const ContentFormItemTitle = ({ title, tooltip }) => {
       <div>
         {tooltip ? (
           <Tooltip
-            direction="left"
+            align="left"
             triggerId={`card-edit-form-${title}`}
             tooltipId={`card-edit-form-${title}`}
+            label={
+              <p>
+                {tooltipText}{' '}
+                {href && linkText ? (
+                  <Link href={href} target="_blank" rel="noopener noreferrer">
+                    {linkText}
+                  </Link>
+                ) : null}
+              </p>
+            }
           >
-            <p>
-              {tooltipText}{' '}
-              {href && linkText ? (
-                <Link href={href} target="_blank" rel="noopener noreferrer">
-                  {linkText}
-                </Link>
-              ) : null}
-            </p>
+            <Information />
           </Tooltip>
         ) : null}
       </div>
