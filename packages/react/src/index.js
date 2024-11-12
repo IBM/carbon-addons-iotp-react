@@ -86,7 +86,16 @@ export { default as TimeSeriesCard } from './components/TimeSeriesCard/TimeSerie
 export { default as ImageCard } from './components/ImageCard/ImageCard';
 export { default as TableCard } from './components/TableCard/TableCard';
 export { default as GaugeCard } from './components/GaugeCard/GaugeCard';
-export { DragAndDrop } from './utils/DragAndDropUtils';
+export {
+  DragAndDrop,
+  DropLocation as DndUtilDropLocation,
+  EditingStyle as DndUtilEditingStyle,
+  editingStyleIsMultiple as DndUtilEditingStyleIsMultiple,
+  moveItemsInList as DndUtilMoveItemsInList,
+  handleEditModeSelect as DndUtilHandleEditModeSelect,
+  handleEditModeIndeterminateIds as DndUtilHandleEditModeIndeterminateIds,
+  mergeRefs as DndUtilMergeRefs,
+} from './utils/DragAndDropUtils';
 export { default as ValueContent } from './components/ValueCard/ValueContent';
 export { default as MeterChartCard } from './components/MeterChartCard/MeterChartCard';
 export { default as SparklineChartCard } from './components/SparklineChartCard/SparklineChartCard';
