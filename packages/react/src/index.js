@@ -140,13 +140,15 @@ export { default as TooltipIcon } from './components/TooltipIcon/TooltipIcon';
 export { default as TooltipDefinition } from './components/TooltipDefinition/TooltipDefinition';
 // Hooks
 export { useDNDProviderElement } from './hooks/useDNDProviderElement';
-export { useSizeObserver } from './hooks/useSizeObserver';
 export {
   hotspotActionTypes,
   hotspotTypes,
   hotspotEditorReducer,
   useHotspotEditorState,
 } from './components/HotspotEditorModal/hooks/hotspotStateHook';
+
+// Internal
+export { useResize } from './internal/UseResizeObserver';
 
 // Carbon proxy
 export {
