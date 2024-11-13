@@ -12,6 +12,10 @@
     border-left: 1px solid $layer-01;
   }
 
+  .#{$iot-prefix}--btn {
+    justify-content: center;
+  }
+
   .#{$prefix}--btn--ghost.#{$prefix}--btn--icon-only {
     color: $icon-primary;
   }

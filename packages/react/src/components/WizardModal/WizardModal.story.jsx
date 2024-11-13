@@ -1,7 +1,7 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { spacing05 } from '@carbon/layout';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import WizardModal from './WizardModal';
 

@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import { action } from '@storybook/addon-actions';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import PageTitleBar from '../PageTitleBar/PageTitleBar';
 import PageWorkArea from '../Page/PageWorkArea';
