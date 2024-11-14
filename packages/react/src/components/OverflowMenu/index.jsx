@@ -609,22 +609,22 @@ export const OverflowMenu = ({
     useAutoPositioning,
   });
 
-  const langDir = useLangDirection();
-
-  if (withCarbonTooltip) {
-    return (
-      <IotOverflowMenu
-        data-testid={testId}
-        {...props}
-        direction={adjustedDirection}
-        flipped={adjustedFlipped}
-        menuOffset={calculateMenuOffset}
-        menuOffsetFlip={calculateMenuOffset}
-        langDir={langDir}
-        buttonLabel={buttonLabel}
-      />
-    );
-  }
+  // TODO - need to find out why not working in Table toolbar menu button.
+  // const langDir = useLangDirection() || 'ltr'
+  // if (withCarbonTooltip) {
+  //   return (
+  //     <IotOverflowMenu
+  //       data-testid={testId}
+  //       {...props}
+  //       direction={adjustedDirection}
+  //       flipped={adjustedFlipped}
+  //       menuOffset={calculateMenuOffset}
+  //       menuOffsetFlip={calculateMenuOffset}
+  //       langDir={'ltr'}
+  //       buttonLabel={buttonLabel}
+  //     />
+  //   );
+  // }
 
   return (
     <CarbonOverflowMenu
