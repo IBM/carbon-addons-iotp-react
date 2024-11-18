@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-v4-Carbon11.51](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.0-v4-Carbon11.50...v4.0.0-v4-Carbon11.51) (2024-11-18)
+
+
+### Bug Fixes
+
+* adding back side-nav style fix ([d21fc82](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/d21fc82b6e2d1e85eca1c95c87ffb909814f45da))
+* color token usage ([0952809](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/09528091d34aa604cc0f6125f15b2a71c9501f17))
+
+
+
+
+
 # [4.0.0-v4-Carbon11.50](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.0-v4-Carbon11.49...v4.0.0-v4-Carbon11.50) (2024-11-15)
 
 **Note:** Version bump only for package carbon-addons-iot-react
