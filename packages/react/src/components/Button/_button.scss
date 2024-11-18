@@ -7,7 +7,6 @@
 @use '../../globals/vars' as *;
 
 .#{$iot-prefix}--btn {
-  justify-content: flex-start;
 
   .#{$prefix}--loading {
     margin-bottom: -$spacing-05;
@@ -21,18 +20,6 @@
   .#{$prefix}--loading__stroke {
     stroke: $gray-50;
   }
-}
-.#{$iot-prefix}--btn.#{$prefix}--btn.#{$prefix}--btn--icon-only svg {
-  position: absolute;
-  right: 1rem;
-  width: 1rem;
-  height: 1rem;
-  flex-shrink: 0;
-}
-
-.#{$prefix}--btn--icon-only > :first-child {
-  margin-block-start: 0;
-  min-inline-size: 0;
 }
 
 .#{$iot-prefix}--btn.#{$prefix}--btn.#{$prefix}--btn--ghost.#{$prefix}--btn--icon-only:not(

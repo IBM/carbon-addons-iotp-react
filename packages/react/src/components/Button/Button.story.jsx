@@ -45,6 +45,7 @@ const props = {
     return {
       className: 'some-class',
       kind: select('Button kind (kind)', kinds, 'primary'),
+      loading: boolean('Loading (loading)', false),
       disabled: boolean('Disabled (disabled)', false),
       size: select('Button size (size)', sizes, 'lg'),
       renderIcon: !iconToUse || iconToUse.svgData ? undefined : iconToUse,
