@@ -35,6 +35,7 @@ const FilterableSideNavMenu = ({ children, isFiltering, testId, className, ...my
       data-testid={testId}
       ref={callbackRef}
       defaultExpanded={isFiltering}
+      isSideNavExpanded
       className={classnames(className, {
         [`${iotPrefix}--side-nav__item--is-filtering`]: isFiltering,
       })}
