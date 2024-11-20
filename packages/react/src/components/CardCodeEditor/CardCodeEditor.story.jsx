@@ -47,6 +47,7 @@ export const Default = () => (
     language={select('Editor language', ['json', 'javascript', 'css'])}
     onCopy={(value) => console.log(value)}
     initialValue="/* write your code here */"
+    editor={select('Editor component', ['monaco', 'codemirror'], 'monaco')}
   />
 );
 
@@ -58,6 +59,7 @@ export const WithPreloadedContent = () => (
     onClose={() => {}}
     onCopy={(value) => console.log(value)}
     initialValue={JSON.stringify(pkgjson, null, 2)}
+    editor={select('Editor component', ['monaco', 'codemirror'], 'monaco')}
   />
 );
 

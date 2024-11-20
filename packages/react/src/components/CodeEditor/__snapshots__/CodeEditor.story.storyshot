@@ -97,48 +97,14 @@ exports[`Storybook Snapshot tests and console checks Storyshots 1 - Watson IoT/C
         Copied
       </span>
     </button>
-    <section
-      style={
+    <div
+      className="cm-theme iot--code-editor-container iot--code-editor-container--disabled"
+      options={
         Object {
-          "display": "flex",
-          "height": "100%",
-          "position": "relative",
-          "textAlign": "initial",
-          "width": "100%",
+          "mode": "css",
         }
       }
-    >
-      <div
-        style={
-          Object {
-            "alignItems": "center",
-            "display": "flex",
-            "height": "100%",
-            "justifyContent": "center",
-            "width": "100%",
-          }
-        }
-      >
-        <div
-          className="bx--snippet bx--skeleton bx--snippet--single"
-        >
-          <div
-            className="bx--snippet-container"
-          >
-            <span />
-          </div>
-        </div>
-      </div>
-      <div
-        className="iot--code-editor-container iot--code-editor-container--disabled"
-        style={
-          Object {
-            "display": "none",
-            "width": "100%",
-          }
-        }
-      />
-    </section>
+    />
   </div>
 </div>
 `;

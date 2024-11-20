@@ -266,6 +266,8 @@ const defaultProps = {
   style: {},
 };
 
+const dateTimePickerId = uuidv4();
+
 const DateTimePicker = ({
   testId,
   defaultValue,
@@ -285,7 +287,7 @@ const DateTimePicker = ({
   i18n,
   light,
   locale,
-  id = uuidv4(),
+  id = dateTimePickerId,
   hasIconOnly,
   menuOffset,
   renderInPortal,

@@ -203,6 +203,8 @@ export const propTypes = {
   style: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
 };
 
+const dateTimePickerId = uuidv4();
+
 export const defaultProps = {
   testId: 'date-time-picker',
   defaultValue: null,
@@ -320,7 +322,7 @@ const DateTimePicker = ({
   i18n,
   light,
   locale,
-  id = uuidv4(),
+  id = dateTimePickerId,
   hasIconOnly,
   menuOffset,
   datePickerType,

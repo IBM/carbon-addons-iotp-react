@@ -118,13 +118,13 @@ exports[`Storybook Snapshot tests and console checks Storyshots 2 - Watson IoT E
             </svg>
           </button>
           <div
-            className="iot--editor-copy-wrapper"
+            className="iot--code-editor-wrapper"
             data-testid="card-code-editor"
           >
             <button
               aria-label={null}
               aria-live="polite"
-              className="iot--editor-copy bx--copy-btn bx--copy"
+              className="iot--code-editor-copy iot--code-editor-copy--light bx--copy-btn bx--copy"
               data-testid="card-code-editor-copy-button"
               onAnimationEnd={[Function]}
               onClick={[Function]}
@@ -190,7 +190,7 @@ exports[`Storybook Snapshot tests and console checks Storyshots 2 - Watson IoT E
                 </div>
               </div>
               <div
-                className="iot--editor-container"
+                className="iot--code-editor-container iot--code-editor-container--light"
                 style={
                   Object {
                     "display": "none",
@@ -367,13 +367,13 @@ exports[`Storybook Snapshot tests and console checks Storyshots 2 - Watson IoT E
             </svg>
           </button>
           <div
-            className="iot--editor-copy-wrapper"
+            className="iot--code-editor-wrapper"
             data-testid="card-code-editor"
           >
             <button
               aria-label={null}
               aria-live="polite"
-              className="iot--editor-copy bx--copy-btn bx--copy"
+              className="iot--code-editor-copy iot--code-editor-copy--light bx--copy-btn bx--copy"
               data-testid="card-code-editor-copy-button"
               onAnimationEnd={[Function]}
               onClick={[Function]}
@@ -439,7 +439,7 @@ exports[`Storybook Snapshot tests and console checks Storyshots 2 - Watson IoT E
                 </div>
               </div>
               <div
-                className="iot--editor-container"
+                className="iot--code-editor-container iot--code-editor-container--light"
                 style={
                   Object {
                     "display": "none",

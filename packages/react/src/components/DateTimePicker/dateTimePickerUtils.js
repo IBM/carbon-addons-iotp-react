@@ -245,7 +245,6 @@ export const useDateTimePickerRef = ({ id, v2 = false }) => {
 
   return [datePickerElem, handleDatePickerRef];
 };
-
 /**
  * A helper to switch focus between start and end times when choosing absolute date/times in the calendar
  *

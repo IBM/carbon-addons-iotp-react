@@ -120,28 +120,40 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+<<<<<<< HEAD
 # [4.0.0-v4-Carbon11.43](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.0-v4-Carbon11.42...v4.0.0-v4-Carbon11.43) (2024-11-11)
-
-
-### Bug Fixes
-
+=======
+# [2.154.0-next.37](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v2.154.0-next.36...v2.154.0-next.37) (2024-10-10)
+<<<<<<< HEAD
 * update tab components in card editor ([7d831fc](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/7d831fcefde9aacca4ac9731b4e4733996c3096a))
+=======
+* adding back style fix that was deleted during merge ([#3889](https://github.com/carbon-design-system/carbon-addons-iot-react/issues/3889)) ([9b2bffd](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/9b2bffdb2d50143d7b6a83a30b25952247302c41))
+>>>>>>> next
 
 
 
 
 
+<<<<<<< HEAD
 # [4.0.0-v4-Carbon11.42](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.0-v4-Carbon11.41...v4.0.0-v4-Carbon11.42) (2024-11-10)
+=======
+# [2.154.0-next.36](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v2.154.0-next.35...v2.154.0-next.36) (2024-10-02)
+>>>>>>> next
 
 
 ### Bug Fixes
 
+<<<<<<< HEAD
 * add maximum data point to data table card ([26d7829](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/26d782926e1bd30cfa5f2d653d029ef28470c2fd))
+=======
+* date time picker ([#3884](https://github.com/carbon-design-system/carbon-addons-iot-react/issues/3884)) ([d16461c](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/d16461c15af40112865c02d96dd458c65ba8329d))
+>>>>>>> next
 
 
 
 
 
+<<<<<<< HEAD
 # [4.0.0-v4-Carbon11.41](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.0-v4-Carbon11.40...v4.0.0-v4-Carbon11.41) (2024-11-10)
 
 **Note:** Version bump only for package carbon-addons-iot-react
@@ -213,43 +225,71 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 # [4.0.0-v4-Carbon11.34](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.0-v4-Carbon11.33...v4.0.0-v4-Carbon11.34) (2024-10-02)
+=======
+# [2.154.0-next.35](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v2.154.0-next.34...v2.154.0-next.35) (2024-10-01)
+>>>>>>> next
 
 
 ### Features
 
+<<<<<<< HEAD
 * Monaco editor load resources from npm ([#3886](https://github.com/carbon-design-system/carbon-addons-iot-react/issues/3886)) ([6299902](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/6299902869febbecd7b535d2434679e30240258e))
+=======
+* Support to CodeEditor new lib ([#3887](https://github.com/carbon-design-system/carbon-addons-iot-react/issues/3887)) ([4aee867](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/4aee867aba203cde305bb99ab1959541fa08be8d))
+>>>>>>> next
 
 
 
 
 
+<<<<<<< HEAD
 # [4.0.0-v4-Carbon11.33](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.0-v4-Carbon11.32...v4.0.0-v4-Carbon11.33) (2024-09-25)
+=======
+# [2.154.0-next.34](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v2.154.0-next.33...v2.154.0-next.34) (2024-08-16)
+>>>>>>> next
 
 
 ### Bug Fixes
 
+<<<<<<< HEAD
 * date time picker v2 style ([6edf30b](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/6edf30bf33853eb551073bf48b57073f5dd0d3ca))
+=======
+* select the inner modal body css ([#3878](https://github.com/carbon-design-system/carbon-addons-iot-react/issues/3878)) ([fe6103e](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/fe6103e998b51327ad989e00831834f0996620f3))
+>>>>>>> next
 
 
 
 
 
+<<<<<<< HEAD
 # [4.0.0-v4-Carbon11.32](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.0-v4-Carbon11.31...v4.0.0-v4-Carbon11.32) (2024-09-06)
+=======
+# [2.154.0-next.33](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v2.154.0-next.32...v2.154.0-next.33) (2024-08-09)
+>>>>>>> next
 
 
 ### Bug Fixes
 
+<<<<<<< HEAD
 * side nav colors added back ([932dc57](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/932dc57d93ab81513e023f6b62a7da3ed8f4814f))
+=======
+* moving flyout menu var to be scoped to flyout-menu ([#3877](https://github.com/carbon-design-system/carbon-addons-iot-react/issues/3877)) ([2e54d53](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/2e54d538920442943e458d49eed93f0a369b7d1c))
+>>>>>>> next
 
 
 
 
 
+<<<<<<< HEAD
 # [4.0.0-v4-Carbon11.31](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.0-v4-Carbon11.30...v4.0.0-v4-Carbon11.31) (2024-08-30)
+=======
+# [2.154.0-next.32](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v2.154.0-next.31...v2.154.0-next.32) (2024-08-01)
+>>>>>>> next
 
 
 ### Bug Fixes
 
+<<<<<<< HEAD
 * adding missing optional chaining ([d7bd829](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/d7bd8298863e09952b52a2deda6fa5dc293da1e7))
 
 
@@ -605,6 +645,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * add tooltip to the tablecard column ([a7d8d7c](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/a7d8d7cecb8eaa5e199d56c88b73b13238d560b6))
 * deploy storybook to github page ([df3f40e](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/df3f40e34b91dbeafe8ca3e8ba154fc22a7332f1))
 * override the default behaviour of handledataitemedit ([85ba9e7](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/85ba9e79d2ea6e3b6c3827e4c67e1026e2df4cb2))
+=======
+* remove last threshold ([#3876](https://github.com/carbon-design-system/carbon-addons-iot-react/issues/3876)) ([35eef3c](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/35eef3c88fa1dedd6c25e0d8eb0d7c532b493d58))
+>>>>>>> next
 
 
 

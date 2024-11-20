@@ -702,13 +702,13 @@ describe('Card', () => {
     userEvent.click(screen.getAllByLabelText('Calendar')[0]);
     userEvent.click(screen.getByText('Custom Range'));
     userEvent.click(screen.getByLabelText('Absolute'));
-    expect(screen.getByText('lun')).toBeVisible();
-    expect(screen.getByText('mar')).toBeVisible();
-    expect(screen.getByText('mer')).toBeVisible();
-    expect(screen.getByText('jeu')).toBeVisible();
-    expect(screen.getByText('ven')).toBeVisible();
-    expect(screen.getByText('sam')).toBeVisible();
-    expect(screen.getByText('dim')).toBeVisible();
+    expect(screen.getByText('lun')).toBeInTheDocument();
+    expect(screen.getByText('mar')).toBeInTheDocument();
+    expect(screen.getByText('mer')).toBeInTheDocument();
+    expect(screen.getByText('jeu')).toBeInTheDocument();
+    expect(screen.getByText('ven')).toBeInTheDocument();
+    expect(screen.getByText('sam')).toBeInTheDocument();
+    expect(screen.getByText('dim')).toBeInTheDocument();
   });
 
   it('card extra actions(single/multiple)', async () => {
