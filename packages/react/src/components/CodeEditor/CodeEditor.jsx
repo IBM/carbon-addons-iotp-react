@@ -5,15 +5,8 @@ import { CodeSnippetSkeleton, CopyButton, Button } from '@carbon/react';
 import PropTypes from 'prop-types';
 import { Upload } from '@carbon/react/icons';
 import classnames from 'classnames';
-// react-codemirror alternative editor for offline envs
-import CodeMirror from '@uiw/react-codemirror';
-import { javascript } from '@codemirror/lang-javascript';
-import { css } from '@codemirror/lang-css';
-import { json } from '@codemirror/lang-json';
 
 import { settings } from '../../constants/Settings';
-
-import { disabled as disabledTheme } from './codemirror-custom-themes';
 
 const { prefix: carbonPrefix, iotPrefix } = settings;
 
@@ -46,8 +39,6 @@ const propTypes = {
   onCodeEditorChange: PropTypes.func,
   /** Boolean to disabled code editor */
   disabled: PropTypes.bool,
-  /** Which editor to use */
-  editor: PropTypes.oneOf(['monaco', 'codemirror']),
   /** All the labels that need translation */
   i18n: PropTypes.shape({
     copyBtnDescription: PropTypes.string,
@@ -66,7 +57,6 @@ const defaultProps = {
   hasUpload: false,
   onCodeEditorChange: null,
   disabled: false,
-  editor: 'monaco',
   i18n: {
     copyBtnDescription: 'Copy content',
     copyBtnFeedBack: 'Copied',
@@ -83,7 +73,6 @@ const CodeEditor = ({
   onCodeEditorChange,
   light,
   disabled,
-  editor,
   i18n,
   testId,
 }) => {
@@ -95,19 +84,8 @@ const CodeEditor = ({
   const [codeEditorValue, setCodeEditorValue] = useState(initialValue);
 
   useEffect(() => {
-    if (editor === 'monaco') {
-      updateEditorAttribute(disabled, editorValue);
-    }
-  }, [disabled, editor]);
-
-  const languageCodeMirror =
-    language === 'css'
-      ? [css()]
-      : language === 'javascript'
-      ? [javascript()]
-      : language === 'json'
-      ? [json()]
-      : [javascript()];
+    updateEditorAttribute(disabled, editorValue);
+  }, [disabled]);
 
   /**
    *
@@ -115,8 +93,8 @@ const CodeEditor = ({
    * @param {object} _monaco - instance of monaco
    */
   // eslint-disable-next-line no-unused-vars
-  const handleEditorDidMount = (instanceEditor, _monaco) => {
-    editorValue.current = instanceEditor;
+  const handleEditorDidMount = (editor, _monaco) => {
+    editorValue.current = editor;
     updateEditorAttribute(disabled, editorValue);
   };
 
@@ -208,44 +186,26 @@ const CodeEditor = ({
           />
         </div>
       )}
-      {editor === 'monaco' ? (
-        <Editor
-          className={classnames(`${iotPrefix}--code-editor-container`, {
-            [`${iotPrefix}--code-editor-container--light`]: light,
-            [`${iotPrefix}--code-editor-container--disabled`]: disabled,
-          })}
-          wrapperClassName={`${iotPrefix}--code-editor-wrapper`}
-          loading={<CodeSnippetSkeleton />}
-          value={codeEditorValue}
-          line={2}
-          language={language}
-          onMount={handleEditorDidMount}
-          onChange={handleEditorChange}
-          options={{
-            minimap: {
-              enabled: false,
-            },
-            autoIndent: true,
-            wordWrap: 'off',
-          }}
-        />
-      ) : (
-        <CodeMirror
-          className={classnames(`${iotPrefix}--code-editor-container`, {
-            [`${iotPrefix}--code-editor-container--light`]: light,
-            [`${iotPrefix}--code-editor-container--disabled`]: disabled,
-          })}
-          height="100%"
-          value={codeEditorValue}
-          extensions={languageCodeMirror}
-          onChange={handleEditorChange}
-          editable={!disabled}
-          theme={disabled ? disabledTheme : 'light'}
-          options={{
-            mode: language,
-          }}
-        />
-      )}
+      <Editor
+        className={classnames(`${iotPrefix}--code-editor-container`, {
+          [`${iotPrefix}--code-editor-container--light`]: light,
+          [`${iotPrefix}--code-editor-container--disabled`]: disabled,
+        })}
+        wrapperClassName={`${iotPrefix}--code-editor-wrapper`}
+        loading={<CodeSnippetSkeleton />}
+        value={codeEditorValue}
+        line={2}
+        language={language}
+        onMount={handleEditorDidMount}
+        onChange={handleEditorChange}
+        options={{
+          minimap: {
+            enabled: false,
+          },
+          autoIndent: true,
+          wordWrap: 'off',
+        }}
+      />
     </div>
   );
 };

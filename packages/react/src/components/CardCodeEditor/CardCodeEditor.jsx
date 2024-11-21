@@ -6,9 +6,9 @@ import classnames from 'classnames';
 
 import ComposedModal from '../ComposedModal';
 import { settings } from '../../constants/Settings';
-import CodeEditor from '../CodeEditor/CodeEditor';
 import Button from '../Button';
 import deprecate from '../../internal/deprecate';
+import CodeEditor from '../CodeEditor/CodeEditor';
 
 const { iotPrefix } = settings;
 
@@ -40,8 +40,6 @@ const propTypes = {
   language: PropTypes.string,
   /** Initial value for the editor */
   initialValue: PropTypes.string,
-  /** Which editor to use */
-  editor: PropTypes.oneOf(['monaco', 'codemirror']),
   // TODO: remove deprecated testID in v3.
   // eslint-disable-next-line react/require-default-props
   testID: deprecate(
@@ -67,7 +65,6 @@ const defaultProps = {
   language: 'json',
   initialValue: null,
   onCopy: null,
-  editor: 'monaco',
   testId: 'card-code-editor',
 };
 
@@ -78,7 +75,6 @@ const CardCodeEditor = ({
   i18n,
   language,
   initialValue,
-  editor,
   // TODO: remove deprecated testID in v3.
   testID,
   testId,
