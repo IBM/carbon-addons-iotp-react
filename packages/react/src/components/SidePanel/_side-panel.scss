@@ -62,6 +62,24 @@ $border-width: 1px;
   }
 }
 
+.#{$iot-prefix}--sidepanel__title .#{$prefix}--toggletip-label {
+  color: $text-primary;
+  @include type-style('heading-03');
+
+  &.#{$iot-prefix}--side-panel-title__condensed {
+    @include type-style('heading-compact-02');
+  }
+
+  &.#{$iot-prefix}--side-panel-title__with-close {
+    padding-right: $spacing-03;
+    margin-right: $spacing-09;
+  }
+}
+
+.#{$prefix}--toggletip.#{$iot-prefix}--sidepanel__title {
+  overflow: inherit;
+}
+
 .#{$iot-prefix}--side-panel-footer {
   min-width: 15.4rem;
   display: flex;
