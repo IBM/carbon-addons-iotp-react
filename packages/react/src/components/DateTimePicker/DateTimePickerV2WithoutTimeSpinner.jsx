@@ -768,7 +768,6 @@ const DateTimePicker = ({
           }),
         }}
         hideTooltip
-        iconDescription={mergedI18n.calendarLabel}
         passive={false}
         triggerId={`test-trigger-${id}`}
         light={light}
