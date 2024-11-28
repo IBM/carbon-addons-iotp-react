@@ -448,7 +448,6 @@ const DateTimePicker = ({
       startTime: null,
     },
   };
-
   const translatedMeridian = {
     AM: mergedI18n.amString,
     am: mergedI18n.amString,
@@ -484,6 +483,7 @@ const DateTimePicker = ({
    */
   const renderValue = (clickedPreset = null) => {
     const value = { ...dateTimePickerBaseValue };
+
     if (isCustomRange) {
       if (customRangeKind === PICKER_KINDS.RELATIVE) {
         value.relative = relativeValue;
@@ -517,6 +517,7 @@ const DateTimePicker = ({
     }
     setCurrentValue(value);
     const parsedValue = parseValue(value, dateTimeMask, mergedI18n.toLabel, hasTimeInput);
+
     setHumanValue(getLocalizedTimeValue(parsedValue.readableValue));
 
     return {
@@ -610,7 +611,6 @@ const DateTimePicker = ({
     const newSingleDate = { ...singleDateValue };
     newSingleDate.start = start;
     newSingleDate.startDate = dayjs(newSingleDate.start).format('MM/DD/YYYY');
-
     setSingleDateValue(newSingleDate);
     setInvalidRangeStartDate(!newSingleDate.startDate);
   };
@@ -714,6 +714,7 @@ const DateTimePicker = ({
 
   useEffect(
     () => {
+      console.log('defaultValue', defaultValue);
       /* istanbul ignore else */
       if (defaultValue || humanValue === null) {
         parseDefaultValue(defaultValue);
@@ -1037,7 +1038,7 @@ const DateTimePicker = ({
         }}
         testId={`${testId}-datepicker-flyout`}
         direction={direction}
-        customFooter={CustomFooter}
+        customFooter={() => {}}
         tooltipFocusTrap={false}
         renderInPortal={renderInPortal}
         useAutoPositioning={false}
@@ -1316,7 +1317,7 @@ const DateTimePicker = ({
                       }}
                       size="sm"
                       testId={testId}
-                      style={{ zIndex: (style.zIndex ?? 0) + 6000 }}
+                      style={{ zIndex: `${(style.zIndex ?? 0) + 10000}` }}
                       is24hours={is24hours}
                     />
                   ) : (
@@ -1327,6 +1328,7 @@ const DateTimePicker = ({
             </div>
           )}
         </div>
+        {CustomFooter()}
       </FlyoutMenu>
     </div>
   );
