@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-v4-Carbon11.62](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.0-v4-Carbon11.61...v4.0.0-v4-Carbon11.62) (2024-11-28)
+
+**Note:** Version bump only for package ibm-ai-applications
+
+
+
+
+
 # [4.0.0-v4-Carbon11.61](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.0-v4-Carbon11.60...v4.0.0-v4-Carbon11.61) (2024-11-28)
 
 **Note:** Version bump only for package ibm-ai-applications
