@@ -714,7 +714,6 @@ const DateTimePicker = ({
 
   useEffect(
     () => {
-      console.log('defaultValue', defaultValue);
       /* istanbul ignore else */
       if (defaultValue || humanValue === null) {
         parseDefaultValue(defaultValue);
