@@ -255,11 +255,11 @@ export const useDateTimePickerFocus = (datePickerElem) => {
   const [focusOnFirstField, setFocusOnFirstField] = useState(true);
 
   useEffect(() => {
-    if (datePickerElem) {
-      if (focusOnFirstField && document.querySelector('#datetimepicker-date-picker-input-start')) {
-        document.querySelector('#datetimepicker-date-picker-input-start').click();
+    if (datePickerElem && datePickerElem.inputField && datePickerElem.toInputField) {
+      if (focusOnFirstField) {
+        datePickerElem.inputField.click();
       } else {
-        document.querySelector('#datetimepicker-date-picker-input-end').click();
+        datePickerElem.toInputField.click();
       }
     }
   }, [datePickerElem, focusOnFirstField]);
