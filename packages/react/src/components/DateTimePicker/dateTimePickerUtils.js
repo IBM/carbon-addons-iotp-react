@@ -266,7 +266,7 @@ export const useDateTimePickerFocus = (datePickerElem) => {
     if (datePickerElem) {
       if (focusOnFirstField && document.querySelector('#datetimepicker-date-picker-input-start')) {
         document.querySelector('#datetimepicker-date-picker-input-start').click();
-      } else if(document.querySelector('#datetimepicker-date-picker-input-end')) {
+      } else if (document.querySelector('#datetimepicker-date-picker-input-end')) {
         document.querySelector('#datetimepicker-date-picker-input-end').click();
       }
     }
