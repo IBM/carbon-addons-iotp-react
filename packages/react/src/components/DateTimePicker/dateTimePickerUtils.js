@@ -262,6 +262,7 @@ export const useDateTimePickerFocus = (datePickerElem) => {
         datePickerElem.toInputField.click();
       }
     }
+    
     if (datePickerElem) {
       if (focusOnFirstField) {
         document.querySelector("#datetimepicker-date-picker-input-start").click()
