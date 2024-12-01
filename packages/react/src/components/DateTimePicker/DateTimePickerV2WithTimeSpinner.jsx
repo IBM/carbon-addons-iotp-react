@@ -1314,7 +1314,7 @@ const DateTimePicker = ({
                         pmString: mergedI18n.pmString,
                       }}
                       size="sm"
-                      testId={testId}
+                      testId={`${testId}--time-picker-dropdown`}
                       style={{ zIndex: `${(style.zIndex ?? 0) + 10000}` }}
                       is24hours={is24hours}
                     />
