@@ -21,10 +21,10 @@ $hoverBgColor: #2c2c2c;
   .#{$prefix}--side-nav__submenu,
   .#{$prefix}--side-nav__link > .#{$prefix}--side-nav__link-text,
   .#{$prefix}--side-nav__item--active .#{$prefix}--side-nav__submenu-title,
-  .#{$prefix}--side-nav__item:not(.#{$prefix}--side-nav__item--active)
+  .#{$prefix}--side-nav__item:not(.cds--side-nav__item--active)
     > .#{$prefix}--side-nav__link:hover
     > span,
-  .#{$prefix}--side-nav__item:not(.#{$prefix}--side-nav__item--active)
+  .#{$prefix}--side-nav__item:not(.cds--side-nav__item--active)
     .#{$prefix}--side-nav__menu-item
     > .#{$prefix}--side-nav__link:hover
     > span,
@@ -125,7 +125,7 @@ $hoverBgColor: #2c2c2c;
   .#{$prefix}--side-nav__submenu:hover + .#{$prefix}--side-nav__menu,
   [aria-expanded='true'].#{$prefix}--side-nav__submenu,
   [aria-expanded='true'].#{$prefix}--side-nav__submenu + .#{$prefix}--side-nav__menu,
-  .#{$prefix}--side-nav__item:not(.#{$prefix}--side-nav__item--active)
+  .#{$prefix}--side-nav__item:not(.cds--side-nav__item--active)
     > .#{$prefix}--side-nav__link:hover {
     background-color: $hoverBgColor;
   }
@@ -207,6 +207,7 @@ html[dir='rtl'] {
       padding-right: $spacing-09 + $spacing-03;
     }
   }
+
   .#{$prefix}--side-nav__link-text {
     padding-left: $spacing-05;
 
@@ -214,6 +215,10 @@ html[dir='rtl'] {
       padding-left: unset;
       padding-right: $spacing-10 + $spacing-03;
     }
+  }
+
+  &:hover {
+    background-color: white;
   }
 }
 
@@ -235,6 +240,9 @@ html[dir='rtl'] {
       padding-right: $spacing-10 + $spacing-06;
     }
   }
+  &:hover {
+    background-color: white;
+  }
 }
 
 .#{$iot-prefix}--side-nav__item--depth-3 {
@@ -254,6 +262,10 @@ html[dir='rtl'] {
       padding-left: unset;
       padding-right: $spacing-09;
     }
+  }
+
+  &:hover {
+    background-color: white;
   }
 }
 
