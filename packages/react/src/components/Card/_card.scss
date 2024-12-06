@@ -25,6 +25,7 @@ $duration-fast-02: 110ms;
   height: var(--card-default-height);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 
   &__selected {
     outline: solid $spacing-01 $button-secondary;
