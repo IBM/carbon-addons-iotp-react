@@ -1,12 +1,17 @@
+@use '../../globals/vars' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/type' as *;
 .#{$iot-prefix}--rule-builder-wrap {
-  background: $ui-01;
-  border: 1px solid $ui-03;
+  background: $layer-01;
+  border: 1px solid $border-subtle;
   display: flex;
   flex-direction: column;
   min-height: 100%;
 
   &--header {
-    border-bottom: 1px solid $ui-03;
+    border-bottom: 1px solid $border-subtle;
     display: flex;
     justify-content: space-between;
     padding: $spacing-05;
@@ -17,7 +22,7 @@
     }
 
     &-title {
-      @include type-style('productive-heading-03');
+      @include type-style('heading-03');
       display: block;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -25,7 +30,7 @@
     }
 
     &-metatext {
-      @include type-style('body-short-01');
+      @include type-style('body-compact-01');
     }
 
     & div:first-child {
@@ -48,9 +53,14 @@
     flex-direction: column;
     padding: $spacing-05;
 
+    .#{$prefix}--tabs {
+      border-bottom: 2px solid #e0e0e0;
+    }
+
     .#{$prefix}--tab-content {
       flex: 1;
-      padding: 0;
+      padding-top: $spacing-06;
+      padding-right: $spacing-12;
     }
 
     .#{$prefix}--accordion {
@@ -59,13 +69,13 @@
 
     .#{$prefix}--accordion__item {
       border-top: 0;
-      border-bottom: 1px solid $ui-03;
+      border-bottom: 1px solid $border-subtle;
 
       &--active {
         border-bottom: 0;
 
         .#{$prefix}--accordion__content {
-          border-top: 1px solid $ui-03;
+          border-top: 1px solid $border-subtle;
           padding: $spacing-05 0;
         }
       }
@@ -85,7 +95,7 @@
     }
 
     .#{$prefix}--accordion__title {
-      @include type-style('productive-heading-02');
+      @include type-style('heading-compact-02');
       margin-left: 0;
     }
   }
@@ -109,7 +119,7 @@
   }
 
   &--footer {
-    border-top: 1px solid $ui-03;
+    border-top: 1px solid $border-subtle;
     display: flex;
     justify-content: flex-end;
     margin: auto 0 0;
@@ -149,7 +159,7 @@
   }
 
   &--user-list__header {
-    background-color: $ui-03;
+    background-color: $border-subtle;
     font-weight: bold;
   }
 

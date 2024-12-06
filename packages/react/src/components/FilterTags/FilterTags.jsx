@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useLayoutEffect, useState, Children } from 'react';
 import PropTypes from 'prop-types';
-import { OverflowMenuItem, OverflowMenu } from 'carbon-components-react';
-import { Close16 } from '@carbon/icons-react';
+import { OverflowMenuItem, OverflowMenu } from '@carbon/react';
+import { Close } from '@carbon/react/icons';
 import classnames from 'classnames';
 
 import { settings } from '../../constants/Settings';
@@ -30,7 +30,7 @@ const DefaultWrapper = React.forwardRef(({ children, i18n, ...props }, ref) => {
 const OverflowTag = ({ children }) => (
   <div className={`${iotPrefix}--filtertags-overflow-item__wrapper`}>
     <span>{children}</span>
-    <Close16 />
+    <Close />
   </div>
 );
 

@@ -74,7 +74,6 @@ const StatefulTable = ({ data: initialData, expandedData, ...other }) => {
   } = state;
 
   const { pagination, toolbar, table, onUserViewModified } = callbackActions;
-
   // Need to initially sort and filter the tables data, but preserve the selectedId.
   useDeepCompareEffect(() => {
     dispatch(
@@ -93,17 +92,29 @@ const StatefulTable = ({ data: initialData, expandedData, ...other }) => {
     // massive and will throw out of memory errors if compared.
     // https://github.com/kentcdodds/use-deep-compare-effect/issues/7
     // https://twitter.com/dan_abramov/status/1104415855612432384
-    initialData,
+    initialData.map((action) => {
+      // extract values object from action
+      const { values, ...nonElements } = action;
+
+      // remove element/node from values object
+      const { node, ...nonNodeElements } = values;
+
+      // combine agin without node/element
+      return { ...nonElements, nonNodeElements };
+    }),
     isLoading,
     initialState.pagination,
     initialState.filters,
     initialState.advancedFilters,
     initialState.toolbar.activeBar,
     // Remove the icon as it's a React.Element which can not be compared
-    initialState.toolbar.batchActions.map((action) => {
-      const { icon, ...nonElements } = action;
-      return nonElements;
-    }),
+
+    initialState.toolbar.batchActions &&
+      initialState.toolbar.batchActions.map((action) => {
+        const { renderIcon, ...nonElements } = action;
+        return nonElements;
+      }),
+
     initialState.toolbar.initialDefaultSearch,
     initialState.toolbar.search,
     initialState.toolbar.isDisabled,
@@ -114,10 +125,11 @@ const StatefulTable = ({ data: initialData, expandedData, ...other }) => {
     initialState.table.sort,
     initialState.table.ordering,
     // Remove the error as it's a React.Element/Node which can not be compared
-    initialState.table.rowActions.map((action) => {
-      const { error, ...nonElements } = action;
-      return nonElements;
-    }),
+    initialState.table.rowActions &&
+      initialState.table.rowActions.map((action) => {
+        const { error, ...nonElements } = action;
+        return nonElements;
+      }),
     initialState.table.expandedIds,
     initialState.table.loadingMoreIds,
     initialState.table.loadingState,

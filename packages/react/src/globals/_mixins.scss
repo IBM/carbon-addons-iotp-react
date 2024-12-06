@@ -1,6 +1,9 @@
-@import '~carbon-components/scss/globals/scss/mixins';
-@import 'vars';
-
+@use '@carbon/react/scss/utilities' as *;
+@use './vars' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/layer' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/components/combo-box' as *;
 @mixin multiline-text-overflow($max-lines: 3, $line-height-rem: 1) {
   overflow: hidden;
 
@@ -19,7 +22,7 @@
 @mixin disabled-icon-button() {
   cursor: not-allowed;
   svg {
-    fill: $disabled;
+    fill: $icon-on-color-disabled;
   }
   &:active,
   &:focus {
@@ -77,10 +80,10 @@
     @content;
     position: sticky;
     overflow: hidden;
-    filter: drop-shadow(1px 0 0 $active-ui);
+    filter: drop-shadow(1px 0 0 $border-disabled);
 
     [dir='rtl'] & {
-      filter: drop-shadow(-1px 0 0 $active-ui);
+      filter: drop-shadow(-1px 0 0 $border-disabled);
     }
   }
 }

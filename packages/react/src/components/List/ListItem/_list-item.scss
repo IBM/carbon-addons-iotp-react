@@ -1,6 +1,11 @@
-@import '../../../globals/vars';
-@import '../list-vars';
-
+@use '../../../globals/vars' as *;
+@use '../list-vars' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/type' as *;
+@use '@carbon/react/scss/components/button' as *;
+@use '@carbon/react/scss/utilities/convert';
 .#{$iot-prefix}--list-item-parent {
   position: relative;
 }
@@ -11,14 +16,14 @@
     overflow: hidden;
     align-items: stretch;
     justify-content: space-between;
-    background: $ui-01;
+    background: $layer-01;
 
     &:hover {
       cursor: grab;
     }
 
     &:active {
-      background: $hover-ui;
+      background: $layer-hover-01;
 
       cursor: grabbing;
     }
@@ -26,7 +31,7 @@
 
   &--drop-targets {
     width: 100%;
-    height: rem(40px);
+    height: convert.to-rem(40px);
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -79,8 +84,8 @@
 
   &--drag-preview {
     position: absolute;
-    background: $inverse-02;
-    color: $text-04;
+    background: $background-inverse;
+    color: $text-on-color;
     padding: $spacing-02 $spacing-04;
     border-radius: 0.125rem;
     opacity: 1;
@@ -89,12 +94,12 @@
   }
 
   &--dragging {
-    background: $hover-ui;
+    background: $layer-hover-01;
     cursor: grabbing;
   }
 
   &:hover {
-    background: $hover-ui;
+    background: $layer-hover-01;
     cursor: grab;
   }
 }
@@ -103,7 +108,7 @@
   border-bottom: 1px solid $list-item-border-color;
   display: flex;
   height: $list-item-height;
-  color: $text-02;
+  color: $text-secondary;
   padding: $spacing-03 $spacing-05;
   align-items: center;
   overflow: hidden;
@@ -117,11 +122,11 @@
   &--handle,
   &--lock {
     flex-shrink: 0;
-    fill: $inverse-02;
+    fill: $background-inverse;
     margin-right: $spacing-04;
 
     &__disabled {
-      fill: $disabled-02;
+      fill: $icon-disabled;
       cursor: not-allowed;
     }
   }
@@ -133,22 +138,22 @@
   }
 
   &--category {
-    @include type-style('productive-heading-01');
-    color: $text-01;
+    @include type-style('heading-compact-01');
+    color: $text-primary;
   }
 
   &__selectable {
     cursor: pointer;
     &:hover {
-      background: $hover-row;
-      color: $text-01;
+      background: $layer-hover-01;
+      color: $text-primary;
     }
   }
 
   &__selected {
     $selected-mark-width: $spacing-02;
     // Box shadow used to avoid mitered corner with the bottom border
-    box-shadow: calc(-1 * #{$selected-mark-width}) 0 $interactive-01;
+    box-shadow: calc(-1 * #{$selected-mark-width}) 0 $button-primary;
     // Can't use inset box-shadow because of bottom border so we need a left margin
     margin-left: $selected-mark-width;
     // Make sure content is unaffected by extra left margin
@@ -158,8 +163,8 @@
       margin-left: $spacing-01;
       padding-left: calc(#{$spacing-05} - #{$spacing-01});
     }
-    color: $text-01;
-    background: $selected-ui;
+    color: $text-primary;
+    background: $layer-selected-01;
   }
 
   &--expand-icon {
@@ -170,14 +175,14 @@
     }
 
     &__disabled {
-      fill: $disabled-02;
-      color: $disabled-02;
+      fill: $icon-disabled;
+      color: $layer-active-01;
       cursor: not-allowed;
     }
   }
 
   &--content {
-    @include type-style('body-short-01');
+    @include type-style('body-compact-01');
     display: flex;
     width: 100%;
     height: 100%;
@@ -220,8 +225,8 @@
         &__large {
           flex-direction: column;
           align-items: unset;
-          @include type-style('productive-heading-01');
-          color: $text-01;
+          @include type-style('heading-compact-01');
+          color: $text-primary;
         }
       }
       &--value {
@@ -230,12 +235,12 @@
         overflow: hidden;
         text-overflow: ellipsis;
         &__large {
-          @include type-style('body-short-01');
-          color: $text-05;
+          @include type-style('body-compact-01');
+          color: $text-helper;
         }
       }
       &__disabled {
-        color: $disabled-02;
+        color: $layer-active-01;
       }
     }
     &--row-actions {

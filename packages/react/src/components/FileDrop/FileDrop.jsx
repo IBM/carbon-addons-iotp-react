@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Filename, FileUploaderButton } from 'carbon-components-react';
+import { Filename, FileUploaderButton } from '@carbon/react';
 
 import { settings } from '../../constants/Settings';
 

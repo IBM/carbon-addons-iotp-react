@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { TextInput, Checkbox } from '@carbon/react';
 
-import { TextInput } from '../../TextInput';
-import { Checkbox } from '../../Checkbox';
 import { settings } from '../../../constants/Settings';
 import { OverridePropTypes } from '../../../constants/SharedPropTypes';
 

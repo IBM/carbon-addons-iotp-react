@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import 'jest-styled-components';
 import '@testing-library/jest-dom';
-import { resetIdCounter } from 'downshift';
+// import { resetIdCounter } from 'downshift';
 
 import * as uniqueHook from '../../src/hooks/useUniqueId';
 
@@ -34,7 +34,7 @@ beforeEach(() => {
   jest.spyOn(uniqueHook, 'useUniqueId').mockImplementation(() => undefined);
 
   // Ensure that downshift's internal ID is always 0, otherwise snapshots will change unnecessarily when unrelated snaps are regenerated.
-  resetIdCounter();
+  // resetIdCounter();
 
   // carbon v10.52 adds matchMedia which needs to be mocked in tests, wrapped in if otherwise breaks ssr test
   if (typeof window !== 'undefined') {

@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import { unstable_Menu as Menu } from 'carbon-components-react';
-import { ChevronDown16, ChevronUp16 } from '@carbon/icons-react';
+import { Menu } from '@carbon/react';
+import { ChevronDown, ChevronUp } from '@carbon/react/icons';
 import classnames from 'classnames';
 import { useLangDirection } from 'use-lang-direction';
 
@@ -91,8 +91,8 @@ const defaultProps = {
   label: null,
   openIconDescription: 'open menu button',
   closeIconDescription: 'close menu button',
-  renderOpenIcon: ChevronDown16,
-  renderCloseIcon: ChevronUp16,
+  renderOpenIcon: ChevronDown,
+  renderCloseIcon: ChevronUp,
   size: 'default',
   kind: 'primary',
 };

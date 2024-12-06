@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import addons from '@storybook/addons';
+import { addons } from '@storybook/addons';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { FORCE_RE_RENDER, STORY_RENDERED, STORY_CHANGED } from '@storybook/core-events';
 import { isEqual } from 'lodash-es';

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { render, screen } from '@testing-library/react';
-import { Add16, Add20, ArrowRight16 } from '@carbon/icons-react';
+import { Add, ArrowRight } from '@carbon/react/icons';
 
 import { settings } from '../../../constants/Settings';
 import { getTableColumns } from '../Table.story.helpers';
@@ -59,7 +59,7 @@ const tableData = Array(20)
     id: `row-${idx}`,
     values: {
       string: getSentence(idx),
-      node: <Add20 />,
+      node: <Add size={20} />,
       date: new Date(100000000000 + 1000000000 * idx * idx).toISOString(),
       select: selectData[idx % 3].id,
       number: idx * idx,
@@ -67,14 +67,14 @@ const tableData = Array(20)
     rowActions: [
       {
         id: 'drilldown',
-        renderIcon: ArrowRight16,
+        renderIcon: ArrowRight,
         iconDescription: 'Drill in',
         labelText: 'Drill in',
         isOverflow: true,
       },
       {
         id: 'Add',
-        renderIcon: Add16,
+        renderIcon: Add,
         iconDescription: 'Add',
         labelText: 'Add',
         isOverflow: true,

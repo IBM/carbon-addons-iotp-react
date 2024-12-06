@@ -1,1 +1,1 @@
-export { Form } from 'carbon-components-react';
+export { Form } from '@carbon/react';

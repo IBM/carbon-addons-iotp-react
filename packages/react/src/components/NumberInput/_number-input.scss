@@ -1,5 +1,7 @@
-@import '~carbon-components/scss/components/number-input/number-input';
-@import '../../globals/vars';
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/components/number-input' as *;
+@use '../../globals/vars' as *;
 
 html[dir='rtl'] {
   // flip the number and number controls

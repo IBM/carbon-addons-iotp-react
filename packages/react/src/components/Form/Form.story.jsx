@@ -86,6 +86,7 @@ const fieldsetRadioProps = {
 
 const searchProps = {
   className: 'some-class',
+  size: 'lg',
 };
 
 const fieldsetSearchProps = {
@@ -124,7 +125,7 @@ const textareaProps = {
   className: 'some-class',
   placeholder: 'Placeholder text',
   id: 'test5',
-  cols: 50,
+  cols: 0,
   rows: 4,
 };
 
@@ -140,10 +141,6 @@ export default {
 
   parameters: {
     component: Form,
-
-    subcomponents: {
-      FormGroup,
-    },
   },
 };
 

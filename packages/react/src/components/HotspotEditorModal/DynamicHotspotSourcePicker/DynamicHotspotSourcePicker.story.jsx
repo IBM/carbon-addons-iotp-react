@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions';
 import { withKnobs, object } from '@storybook/addon-knobs';
 
 import DynamicHotspotSourcePicker from './DynamicHotspotSourcePicker';
-import DynamicHotspotSourcePickerREADME from './DynamicHotspotSourcePickerREADME.mdx';
+// import DynamicHotspotSourcePickerREADME from './DynamicHotspotSourcePickerREADME.mdx'; //carbon 11
 
 const dataItems = [
   {
@@ -21,9 +21,9 @@ export default {
   decorators: [withKnobs],
   parameters: {
     component: DynamicHotspotSourcePicker,
-    docs: {
-      page: DynamicHotspotSourcePickerREADME,
-    },
+    // docs: {
+    //   page: DynamicHotspotSourcePickerREADME,
+    // }, //carbon 11
   },
 };
 

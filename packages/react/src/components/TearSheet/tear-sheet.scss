@@ -1,16 +1,21 @@
+@use '../../globals/vars' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/type' as *;
 .#{$iot-prefix}--tear-sheet {
-  background-color: $ui-01;
+  background-color: $layer-01;
   display: flex;
   flex-direction: column;
   height: 100%;
 
-  & * {
+  & > * {
     max-width: 100%;
   }
 
   &--header {
     padding: $spacing-06 $spacing-11 $spacing-06 $spacing-07;
-    border-bottom: 1px solid $selected-ui;
+    border-bottom: 1px solid $layer-selected-01;
 
     [dir='rtl'] & {
       padding: $spacing-06 $spacing-07 $spacing-06 $spacing-11;
@@ -23,10 +28,10 @@
       padding-bottom: $spacing-03;
     }
     &--description {
-      @include type-style('body-long-01');
-      color: $text-02;
+      @include type-style('body-01');
+      color: $text-secondary;
     }
-    .#{$prefix}--btn.#{$prefix}--btn--icon-only.#{$prefix}--tooltip__trigger {
+    .#{$iot-prefix}--tear-sheet--header__close-btn {
       position: absolute;
       top: 0;
       right: 0;

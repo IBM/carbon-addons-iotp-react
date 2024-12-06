@@ -1,14 +1,16 @@
-@import '../../../../globals/vars';
-
+@use '../../../../globals/vars' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/utilities/convert';
 .#{$iot-prefix}--table-detail-wizard-header--wrapper {
   display: block;
-  border-bottom: rem(1px) solid #dadada8c;
+  border-bottom: convert.to-rem(1px) solid #dadada8c;
 }
 
 .#{$iot-prefix}--table-detail-wizard-header--heading {
   float: left;
   font-size: 1.25rem;
-  line-height: rem(50px);
+  line-height: convert.to-rem(50px);
   vertical-align: middle;
   margin-left: $spacing-05;
 
@@ -24,12 +26,12 @@
   margin-left: auto;
 
   .#{$prefix}--btn--ghost {
-    height: rem(50px);
+    height: convert.to-rem(50px);
   }
 
   .#{$prefix}--btn__icon {
-    margin-left: rem(5px);
-    margin-right: rem(5px);
+    margin-left: convert.to-rem(5px);
+    margin-right: convert.to-rem(5px);
   }
 
   html[dir='rtl'] & {

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TableBody, TableCell, TableRow, SkeletonText } from 'carbon-components-react';
+import { TableBody, TableCell, TableRow, SkeletonText } from '@carbon/react';
 import classnames from 'classnames';
 
 import { settings } from '../../../constants/Settings';

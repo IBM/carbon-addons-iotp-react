@@ -1,1 +1,1 @@
-export { StackedAreaChart } from '@carbon/charts-react';
+export { StackedAreaChart } from '@carbon/react';

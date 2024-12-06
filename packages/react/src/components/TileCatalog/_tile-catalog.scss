@@ -1,13 +1,14 @@
-@import '~carbon-components/scss/globals/scss/vars';
-@import '../../globals/vars';
-
+@use '@carbon/react/scss/config' as *;
+@use '../../globals/vars' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
 .#{$iot-prefix}--tile-catalog {
   display: flex;
   flex-flow: column nowrap;
 }
 
 .#{$iot-prefix}--tile-catalog--header {
-  background: $ui-02;
+  background: $layer-02;
 
   display: flex;
   height: 3rem;

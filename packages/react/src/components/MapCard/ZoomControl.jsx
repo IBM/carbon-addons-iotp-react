@@ -1,5 +1,5 @@
 import React from 'react';
-import { ZoomIn32, ZoomOut32 } from '@carbon/icons-react';
+import { ZoomIn, ZoomOut } from '@carbon/react/icons';
 import PropTypes from 'prop-types';
 
 import Button from '../Button';
@@ -33,11 +33,11 @@ const defaultProps = {
 };
 
 const Zoom = ({ onZoomIn, onZoomOut, i18n, testId, tooltipPosition, smallButtons }) => {
-  const buttonSize = smallButtons ? 'small' : 'field';
+  const buttonSize = smallButtons ? 'sm' : 'md';
   return (
     <div className={`${iotPrefix}--map-zoom`} data-testid={testId}>
       <Button
-        renderIcon={ZoomIn32}
+        renderIcon={(props) => <ZoomIn size={16} {...props} />}
         hasIconOnly
         kind="ghost"
         size={buttonSize}
@@ -47,7 +47,7 @@ const Zoom = ({ onZoomIn, onZoomOut, i18n, testId, tooltipPosition, smallButtons
         testId={`${testId}-zoom-in`}
       />
       <Button
-        renderIcon={ZoomOut32}
+        renderIcon={(props) => <ZoomOut size={16} {...props} />}
         hasIconOnly
         kind="ghost"
         size={buttonSize}

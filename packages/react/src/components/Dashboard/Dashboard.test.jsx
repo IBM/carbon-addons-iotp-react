@@ -1,6 +1,6 @@
 import { mount } from 'enzyme';
 import React from 'react';
-import { Add20 } from '@carbon/icons-react';
+import { Add } from '@carbon/react/icons';
 import { render, screen, waitFor } from '@testing-library/react';
 
 import { CARD_SIZES, CARD_TYPES, COLORS } from '../../constants/LayoutConstants';
@@ -135,7 +135,7 @@ let wrapper = mount(
     layouts={{ lg: [{ id: 'bogus', x: 0, y: 0 }] }}
     actions={[
       { id: 'edit', labelText: 'Edit', icon: 'edit' },
-      { id: 'add', labelText: 'Add', icon: <Add20 /> },
+      { id: 'add', labelText: 'Add', icon: <Add size={20} /> },
       {
         id: 'custom',
         labelText: 'Custom',
@@ -156,7 +156,7 @@ describe('Dashboard', () => {
         layouts={{ lg: [{ id: 'bogus', x: 0, y: 0 }] }}
         actions={[
           { id: 'edit', labelText: 'Edit', icon: 'edit' },
-          { id: 'add', labelText: 'Add', icon: <Add20 /> },
+          { id: 'add', labelText: 'Add', icon: <Add size={20} /> },
           {
             id: 'custom',
             labelText: 'Custom',
@@ -202,7 +202,7 @@ describe('Dashboard', () => {
             layouts={{ lg: [{ id: 'bogus', x: 0, y: 0 }] }}
             actions={[
               { id: 'edit', labelText: 'Edit', icon: 'edit' },
-              { id: 'add', labelText: 'Add', icon: <Add20 /> },
+              { id: 'add', labelText: 'Add', icon: <Add size={20} /> },
             ]}
             cards={cardValues}
             onDashboardAction={onClick}
@@ -219,7 +219,7 @@ describe('Dashboard', () => {
             layouts={{ lg: [{ id: 'bogus', x: 0, y: 0 }] }}
             actions={[
               { id: 'edit', labelText: 'Edit', icon: 'edit' },
-              { id: 'add', labelText: 'Add', icon: <Add20 /> },
+              { id: 'add', labelText: 'Add', icon: <Add size={20} /> },
             ]}
             cards={cardValues}
             onDashboardAction={onClick}
@@ -245,7 +245,7 @@ describe('Dashboard', () => {
         layouts={{ lg: [{ id: 'bogus', x: 0, y: 0 }] }}
         actions={[
           { id: 'edit', labelText: 'Edit', icon: 'edit' },
-          { id: 'add', labelText: 'Add', icon: <Add20 /> },
+          { id: 'add', labelText: 'Add', icon: <Add size={20} /> },
         ]}
         cards={cardValues}
         onDashboardAction={onClick}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 // import userEvent from '@testing-library/user-event';
-import { Edit20 } from '@carbon/icons-react';
+import { Edit } from '@carbon/react/icons';
 
 import { settings } from '../../../constants/Settings';
 
@@ -20,7 +20,7 @@ describe('TableToolbarSVGButton', () => {
         description="description"
         testId="test-button"
         onClick={jest.fn()}
-        renderIcon={Edit20}
+        renderIcon={(props) => <Edit size={20} {...props} />}
       />
     );
 
@@ -60,7 +60,7 @@ describe('TableToolbarSVGButton', () => {
           description="tooltip description"
           testId="test-button"
           onClick={jest.fn()}
-          renderIcon={Edit20}
+          renderIcon={(props) => <Edit size={20} {...props} />}
         />
       </form>
     );
@@ -104,7 +104,7 @@ describe('TableToolbarSVGButton', () => {
           description="tooltip description"
           testId="test-button"
           onClick={jest.fn()}
-          renderIcon={Edit20}
+          renderIcon={(props) => <Edit size={20} {...props} />}
           langDir="rtl"
         />
       </form>

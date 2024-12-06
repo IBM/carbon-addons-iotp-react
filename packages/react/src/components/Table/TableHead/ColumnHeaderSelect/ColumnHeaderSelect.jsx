@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { DragSource, DropTarget } from 'react-dnd';
-import { Draggable16 } from '@carbon/icons-react';
+import { Draggable } from '@carbon/react/icons';
 import classnames from 'classnames';
 
 import Button from '../../../Button';
@@ -36,8 +36,8 @@ const ColumnHeaderSelect = ({
       onClick={() => onClick()}
       role="button"
       data-ishidden={isHidden}
-      renderIcon={Draggable16}
-      size="small"
+      renderIcon={Draggable}
+      size="sm"
       ref={(instance) => {
         if (!isDisabled) {
           connectDragSource(instance);

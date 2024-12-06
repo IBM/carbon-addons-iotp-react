@@ -11,7 +11,7 @@ import { withKnobs, boolean, select, text } from '@storybook/addon-knobs';
 
 import { OverflowMenuItem } from '../OverflowMenuItem';
 
-import OverflowMenuREADME from './OverflowMenu.mdx';
+// import OverflowMenuREADME from './OverflowMenu.mdx'; //carbon 11
 
 import { OverflowMenu } from '.';
 
@@ -24,7 +24,7 @@ const defaultProps = {
   menu: () => ({
     direction: select('Menu direction (direction)', directions, 'bottom'),
     ariaLabel: text('ARIA label (ariaLabel)', 'Menu'),
-    iconDescription: text('Icon description (iconDescription)', ''),
+    iconDescription: text('Icon description (iconDescription)', 'Options'),
     flipped: boolean('Flipped (flipped)', false),
     light: boolean('Light (light)', false),
     selectorPrimaryFocus: text('Primary focus element selector (selectorPrimaryFocus)', ''),
@@ -57,9 +57,9 @@ export default {
       OverflowMenuItem,
     },
 
-    docs: {
-      page: OverflowMenuREADME,
-    },
+    // docs: {
+    //   page: OverflowMenuREADME,
+    // }, carbon 11
   },
 };
 
@@ -166,7 +166,7 @@ export const CustomTrigger = () => (
       ariaLabel: null,
       style: { width: 'auto' },
       // eslint-disable-next-line react/display-name
-      renderIcon: () => <div style={{ padding: '0 1rem' }}>Menu</div>,
+      renderIcon: () => <div style={{ padding: '0 1rem', color: '#161616' }}>Menu</div>,
     }}
   >
     <OverflowMenuItem {...defaultProps.menuItem()} itemText="Option 1" />

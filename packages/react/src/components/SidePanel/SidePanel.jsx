@@ -1,14 +1,10 @@
 import React, { useRef, useMemo, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { Tooltip } from 'carbon-components-react';
 import { debounce } from 'lodash-es';
-import {
-  Close16,
-  ChevronLeft16 as OpenLeft,
-  ChevronRight16 as OpenRight,
-} from '@carbon/icons-react';
+import { Close, ChevronLeft as OpenLeft, ChevronRight as OpenRight } from '@carbon/react/icons';
 
+import { ToggleTip } from '../ToggleTip';
 import { settings } from '../../constants/Settings';
 import useHasTextOverflow from '../../hooks/useHasTextOverflow';
 import Button from '../Button';
@@ -116,7 +112,7 @@ const SidePanel = ({
   const toggleIcon = useMemo(() => {
     return isOpen
       ? {
-          icon: Close16,
+          icon: Close,
           label: mergedI18n.closeIconLabel,
           tooltipPostion: 'left',
           disabled: isBusy,
@@ -141,7 +137,7 @@ const SidePanel = ({
             kind="ghost"
             renderIcon={e.buttonIcon}
             onClick={e.buttonCallback}
-            size="small"
+            size="sm"
             tabIndex={isOpen ? 0 : -1}
           />
         ))) ||
@@ -187,6 +183,13 @@ const SidePanel = ({
     delayedScrollCheck();
   }, [delayedScrollCheck, isScrolling]);
 
+  const truncateString = (str, length) => {
+    if (str.length <= length) {
+      return str;
+    }
+    return `${str.substring(0, length)}...`;
+  };
+
   return (
     <div
       key={`sidePanel--${subtitle}`}
@@ -205,7 +208,7 @@ const SidePanel = ({
         <Button
           testId={`${testId}-toggle-button`}
           hasIconOnly
-          className={`${baseClass}__toggle-button`}
+          wrapperClasses={`${baseClass}__toggle-button`}
           kind="ghost"
           iconDescription={toggleIcon.label}
           renderIcon={toggleIcon.icon}
@@ -216,16 +219,21 @@ const SidePanel = ({
       ) : null}
       <header className={`${baseClass}__header`} aria-hidden={!isOpen}>
         {title && truncatesTitle ? (
-          <Tooltip
+          <ToggleTip
             data-testid={`${testId}-title`}
             ref={titleRef}
             showIcon={false}
-            triggerClassName={`${baseClass}__title`}
-            triggerText={title}
+            className={`${baseClass}__title`}
             tabIndex={isOpen ? 0 : -1}
-          >
-            {title}
-          </Tooltip>
+            content={<>{title}</>}
+            triggerText={
+              isCondensed || isScrolled ? (
+                <>{truncateString(title, 25)}</>
+              ) : (
+                <>{truncateString(title, 50)}</>
+              )
+            }
+          />
         ) : title ? (
           <h2 data-testid={`${testId}-title`} ref={titleRef} className={`${baseClass}__title`}>
             {title}

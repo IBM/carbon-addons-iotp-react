@@ -1,4 +1,7 @@
-@import '../../globals/vars';
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '../../globals/vars' as *;
 
 .#{$iot-prefix}--card--toolbar-date-range-wrapper {
   align-items: center;
@@ -10,9 +13,9 @@
 
 .#{$iot-prefix}--card--toolbar-timerange-label {
   white-space: nowrap;
-  min-height: $carbon--spacing-09;
-  min-width: $carbon--spacing-09;
-  padding: $carbon--spacing-05 $carbon--spacing-03;
+  min-height: $spacing-09;
+  min-width: $spacing-09;
+  padding: $spacing-05 $spacing-03;
   font-size: 0.875rem;
   font-weight: normal;
 
@@ -29,7 +32,7 @@
     outline-offset: -2px;
   }
   &:hover {
-    background: $hover-ui;
+    background: $background-hover;
   }
 }
 
@@ -41,5 +44,5 @@
 }
 
 .#{$iot-prefix}--card--overflow-menuitem-active:not(:hover) {
-  background-color: $active-ui;
+  background-color: $background-active;
 }

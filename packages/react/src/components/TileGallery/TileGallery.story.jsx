@@ -2,13 +2,7 @@
 import React, { Fragment } from 'react';
 import { text, select } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
-import {
-  CheckmarkFilled16,
-  Rocket32,
-  StarFilled16,
-  Activity32,
-  Light32,
-} from '@carbon/icons-react';
+import { CheckmarkFilled, Rocket, StarFilled, Activity, Light } from '@carbon/react/icons';
 import { green40 } from '@carbon/colors';
 import { spacing07 } from '@carbon/layout';
 
@@ -41,8 +35,8 @@ const getContent = () => (
         description="card description"
         moreInfoLink="https://www.ibm.com/br-pt/cloud/internet-of-things?mhsrc=ibmsearch_a&mhq=iot"
         mode="grid"
-        thumbnail={<Rocket32 fill="black" description="Icon" width={50} height={50} />}
-        icon={<CheckmarkFilled16 fill={green40} onClick={action('clicked')} />}
+        thumbnail={<Rocket size={32} fill="black" description="Icon" width={50} height={50} />}
+        icon={<CheckmarkFilled fill={green40} onClick={action('clicked')} />}
         afterContent={overflowComponent}
       />
       <TileGalleryItem
@@ -50,8 +44,8 @@ const getContent = () => (
         description="card description"
         moreInfoLink="https://www.ibm.com/br-pt/cloud/internet-of-things?mhsrc=ibmsearch_a&mhq=iot"
         mode="grid"
-        thumbnail={<Activity32 fill="black" description="Icon" width={50} height={50} />}
-        icon={<CheckmarkFilled16 fill={green40} onClick={action('clicked')} />}
+        thumbnail={<Activity size={32} fill="black" description="Icon" width={50} height={50} />}
+        icon={<CheckmarkFilled fill={green40} onClick={action('clicked')} />}
         afterContent={overflowComponent}
       />
       <TileGalleryItem
@@ -59,8 +53,8 @@ const getContent = () => (
         description="card description"
         moreInfoLink="https://www.ibm.com/br-pt/cloud/internet-of-things?mhsrc=ibmsearch_a&mhq=iot"
         mode="grid"
-        thumbnail={<Light32 fill="black" description="Icon" width={50} height={50} />}
-        icon={<CheckmarkFilled16 fill={green40} onClick={action('clicked')} />}
+        thumbnail={<Light size={32} fill="black" description="Icon" width={50} height={50} />}
+        icon={<CheckmarkFilled fill={green40} onClick={action('clicked')} />}
         afterContent={overflowComponent}
       />
     </TileGallerySection>
@@ -70,8 +64,8 @@ const getContent = () => (
         description="card description"
         moreInfoLink="https://www.ibm.com/br-pt/cloud/internet-of-things?mhsrc=ibmsearch_a&mhq=iot"
         mode="grid"
-        thumbnail={<Light32 fill="black" description="Icon" width={50} height={50} />}
-        icon={<CheckmarkFilled16 fill={green40} onClick={action('clicked')} />}
+        thumbnail={<Light size={32} fill="black" description="Icon" width={50} height={50} />}
+        icon={<CheckmarkFilled fill={green40} onClick={action('clicked')} />}
         afterContent={overflowComponent}
       />
     </TileGallerySection>
@@ -86,25 +80,25 @@ export const galleryData = [
       {
         title: 'Dashboard title',
         description: 'More about your dashboard',
-        icon: <StarFilled16 />,
+        icon: <StarFilled />,
         afterContent: overflowComponent,
-        thumbnail: <Activity32 />,
+        thumbnail: <Activity size={32} />,
         onClick: action('Card Clicked'),
       },
       {
         title: 'Health',
         description: 'More about your dashboard',
-        icon: <StarFilled16 />,
+        icon: <StarFilled />,
         afterContent: overflowComponent,
-        thumbnail: <Light32 />,
+        thumbnail: <Light size={32} />,
         onClick: action('Card Clicked'),
       },
       {
         title: 'Activity',
         description: 'More about your dashboard',
-        icon: <StarFilled16 />,
+        icon: <StarFilled />,
         afterContent: overflowComponent,
-        thumbnail: <Activity32 />,
+        thumbnail: <Activity size={32} />,
         onClick: action('Card Clicked'),
       },
     ],
@@ -116,25 +110,25 @@ export const galleryData = [
       {
         title: 'Dashboard title',
         description: 'More about your dashboard',
-        icon: <StarFilled16 />,
+        icon: <StarFilled />,
         afterContent: overflowComponent,
-        thumbnail: <Activity32 />,
+        thumbnail: <Activity size={32} />,
         onClick: action('Card Clicked'),
       },
       {
         title: 'Dashboard title',
         description: 'More about your dashboard',
-        icon: <StarFilled16 />,
+        icon: <StarFilled />,
         afterContent: overflowComponent,
-        thumbnail: <Light32 />,
+        thumbnail: <Light size={32} />,
         onClick: action('Card Clicked'),
       },
       {
         title: 'Dashboard title',
         description: 'More about your dashboard',
-        icon: <StarFilled16 />,
+        icon: <StarFilled />,
         afterContent: overflowComponent,
-        thumbnail: <Activity32 />,
+        thumbnail: <Activity size={32} />,
         onClick: action('Card Clicked'),
       },
     ],
@@ -179,8 +173,8 @@ export const TileGalleryItemGrid = () => (
     description="card description"
     moreInfoLink="https://www.ibm.com/br-pt/cloud/internet-of-things?mhsrc=ibmsearch_a&mhq=iot"
     mode="grid"
-    thumbnail={<Rocket32 fill="black" description="Icon" width={50} height={50} />}
-    icon={<CheckmarkFilled16 fill={green40} onClick={action('Icon Clicked')} />}
+    thumbnail={<Rocket size={32} fill="black" description="Icon" width={50} height={50} />}
+    icon={<CheckmarkFilled fill={green40} onClick={action('Icon Clicked')} />}
     afterContent={overflowComponent}
     onClick={action('Card Clicked')}
     className="not-active"
@@ -194,7 +188,7 @@ export const TileGalleryItemList = () => (
     title="Test"
     description={<div style={{ backgroundColor: 'black' }}>The first one</div>}
     mode="list"
-    icon={<StarFilled16 fill="black" onClick={action('Icon clicked')} />}
+    icon={<StarFilled fill="black" onClick={action('Icon clicked')} />}
     afterContent={overflowComponent}
     onClick={action('Card Clicked')}
   />
@@ -228,7 +222,7 @@ export const TileGallerySectionWithTileGalleryItemI18N = () => (
           {
             title: text('title', '__Dashboard title__'),
             description: text('description', '__More about your dashboard__'),
-            icon: <StarFilled16 />,
+            icon: <StarFilled />,
             afterContent: (
               <OverflowMenu
                 onClick={(evt) => evt.preventDefault()}
@@ -244,7 +238,7 @@ export const TileGallerySectionWithTileGalleryItemI18N = () => (
                 />
               </OverflowMenu>
             ),
-            thumbnail: <Activity32 />,
+            thumbnail: <Activity size={32} />,
             onClick: action('Card Clicked'),
           },
         ],

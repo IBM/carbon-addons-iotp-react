@@ -1,5 +1,9 @@
-@import '~carbon-components/scss/globals/scss/vars';
-@import '../../globals/vars';
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/colors' as *;
+@use '@carbon/react/scss/components/button' as *;
+@use '@carbon/react/scss/components/structured-list' as *;
+@use '../../globals/vars' as *;
 
 .#{$iot-prefix}--resource-list {
   &.#{$prefix}--structured-list--selection
@@ -14,15 +18,21 @@
     margin: auto 0 auto auto;
 
     svg {
-      fill: $interactive-01;
+      fill: $button-primary;
       margin-left: $spacing-02;
     }
   }
+
+  .#{$prefix}--structured-list-input {
+    visibility: hidden;
+  }
+
   .#{$prefix}--structured-list-row
     .#{$prefix}--structured-list-td
     .#{$iot-prefix}--resource-list__inline-div {
     font-weight: normal;
     padding-left: 0px;
     padding-top: $spacing-02;
+    width: 100%;
   }
 }

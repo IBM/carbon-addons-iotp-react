@@ -1,22 +1,22 @@
-import { ChevronDown32 } from '@carbon/icons-react';
-import { settings } from 'carbon-components';
+import { ChevronDown } from '@carbon/react/icons';
+// import { settings } from 'carbon-components';
 import classnames from 'classnames';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { HeaderMenuItem } from 'carbon-components-react/es/components/UIShell';
+import { HeaderMenuItem } from '@carbon/react';
 
 import { ChildContentPropTypes } from '../HeaderPropTypes';
 import { handleSpecificKeyDown } from '../../../utils/componentUtilityFunctions';
 import Button from '../../Button/Button';
 import { isSafari } from '../../SuiteHeader/suiteHeaderUtils';
 
-const { prefix } = settings;
-
+// const { prefix } = settings; carbon 11
+const prefix = 'cds';
 // eslint-disable-next-line react/prop-types
 const defaultRenderMenuContent = ({ ariaLabel }) => (
   <>
     {ariaLabel}
-    <ChevronDown32 className={`${prefix}--header__menu-arrow`} />
+    <ChevronDown size={32} className={`${prefix}--header__menu-arrow`} />
   </>
 );
 
@@ -148,7 +148,7 @@ class HeaderActionMenu extends React.Component {
 
     return (
       // TODO: CAN WE REMOVE THIS DIV WRAPPER AND ATTACH THE CLASS DIRECTLY
-      <div className={className}>
+      <div aria-expanded={isExpanded} className={className}>
         <Button
           hasIconOnly
           iconDescription={ariaLabel}

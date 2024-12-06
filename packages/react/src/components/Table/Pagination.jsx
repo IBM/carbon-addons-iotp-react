@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Pagination } from 'carbon-components-react';
+import { Pagination } from '@carbon/react';
 import classnames from 'classnames';
 
 import { settings } from '../../constants/Settings';

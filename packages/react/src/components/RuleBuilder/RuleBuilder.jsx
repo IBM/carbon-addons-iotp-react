@@ -1,8 +1,18 @@
 import React, { useCallback, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { Accordion, AccordionItem, Tag, TextInput, Tab, Tabs } from 'carbon-components-react';
-import { Add24 } from '@carbon/icons-react';
+import {
+  Accordion,
+  AccordionItem,
+  Tag,
+  TextInput,
+  Tab,
+  Tabs,
+  TabList,
+  TabPanels,
+  TabPanel,
+} from '@carbon/react';
+import { Add } from '@carbon/react/icons';
 
 import { settings } from '../../constants/Settings';
 import { ToolbarSVGWrapper } from '../Card/CardToolbar';
@@ -269,7 +279,7 @@ const RuleBuilder = ({
             className={`${baseClass}--header-actions-save`}
             testId="rule-builder-save"
             onClick={() => onSave(currentFilter)}
-            size="small"
+            size="sm"
           >
             {mergedI18n.saveLabel}
           </Button>
@@ -277,155 +287,157 @@ const RuleBuilder = ({
       </header>
       <div className={`${baseClass}--body`}>
         <Tabs data-testid={`${testId}-tabs`} className={`${baseClass}--tabs`}>
-          <Tab
-            className={`${baseClass}--tab`}
-            label={mergedI18n.filterTabText}
-            data-testid={`${testId}-editor-tab`}
-          >
-            <Editor
-              defaultRules={currentFilter.filterRules}
-              columns={currentFilter.filterColumns}
-              onChange={handleOnChange}
-              testId={`${testId}-editor`}
-            />
-          </Tab>
-          <Tab
-            className={`${baseClass}--tab`}
-            label={mergedI18n.sharingTabText}
-            data-testid={`${testId}-sharing-tab`}
-          >
-            <Accordion>
-              <AccordionItem title={mergedI18n.detailsAccordionText} open>
-                <TextInput
-                  type="text"
-                  id="rule-builder-title-input"
-                  className={`${baseClass}--title-input`}
-                  labelText={mergedI18n.filterNameLabel}
-                  light
-                  defaultValue={currentFilter.filterTitleText}
-                  placeholder="Untitled 01"
-                  onChange={(e) => handleOnChange(e.target.value, 'TITLE')}
-                  data-testid={`${testId}-title-input`}
-                />
-                <FilterTags
-                  hasOverflow
-                  tagContainer={RuleBuilderTags}
-                  onChange={handleOnChange}
-                  i18n={mergedI18n}
-                  testId={`${testId}-tags`}
-                >
-                  {currentFilter?.filterTags?.map((tag) => (
-                    <Tag
-                      key={`tag-${tag}`}
-                      filter
-                      title={mergedI18n.clearFilterTitle}
-                      style={{
-                        marginRight: '1rem',
+          <TabList aria-label="List of tabs">
+            <Tab className={`${baseClass}--tab`} data-testid={`${testId}-editor-tab`}>
+              {mergedI18n.filterTabText}
+            </Tab>
+            <Tab className={`${baseClass}--tab`} data-testid={`${testId}-sharing-tab`}>
+              {mergedI18n.sharingTabText}
+            </Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel>
+              <Editor
+                defaultRules={currentFilter.filterRules}
+                columns={currentFilter.filterColumns}
+                onChange={handleOnChange}
+                testId={`${testId}-editor`}
+              />
+            </TabPanel>
+            <TabPanel>
+              <Accordion>
+                <AccordionItem title={mergedI18n.detailsAccordionText} open>
+                  <TextInput
+                    type="text"
+                    id="rule-builder-title-input"
+                    className={`${baseClass}--title-input`}
+                    labelText={mergedI18n.filterNameLabel}
+                    light
+                    defaultValue={currentFilter.filterTitleText}
+                    placeholder="Untitled 01"
+                    onChange={(e) => handleOnChange(e.target.value, 'TITLE')}
+                    data-testid={`${testId}-title-input`}
+                  />
+                  <FilterTags
+                    hasOverflow
+                    tagContainer={RuleBuilderTags}
+                    onChange={handleOnChange}
+                    i18n={mergedI18n}
+                    testId={`${testId}-tags`}
+                  >
+                    {currentFilter?.filterTags?.map((tag) => (
+                      <Tag
+                        key={`tag-${tag}`}
+                        filter
+                        title={mergedI18n.clearFilterTitle}
+                        style={{
+                          marginRight: '1rem',
+                        }}
+                        onClose={handleTagClose(tag)}
+                        data-testid={`${testId}-tag-${tag}`}
+                      >
+                        {tag}
+                      </Tag>
+                    )) || []}
+                  </FilterTags>
+                </AccordionItem>
+                <AccordionItem title={mergedI18n.sharingAccordionText} open>
+                  <div className={`${baseClass}--user-container`}>
+                    <StatefulTable
+                      id="edit-table"
+                      testId={`${testId}-edit-users-table`}
+                      secondaryTitle={mergedI18n.editorAccessLabel}
+                      options={{
+                        hasSearch: true,
                       }}
-                      onClose={handleTagClose(tag)}
-                      data-testid={`${testId}-tag-${tag}`}
-                    >
-                      {tag}
-                    </Tag>
-                  )) || []}
-                </FilterTags>
-              </AccordionItem>
-              <AccordionItem title={mergedI18n.sharingAccordionText} open>
-                <div className={`${baseClass}--user-container`}>
-                  <StatefulTable
-                    id="edit-table"
-                    testId={`${testId}-edit-users-table`}
-                    secondaryTitle={mergedI18n.editorAccessLabel}
-                    options={{
-                      hasSearch: true,
-                    }}
-                    view={{
-                      toolbar: {
-                        customToolbarContent: (
-                          <Button
-                            aria-labelledby="add-editors-label"
-                            renderIcon={Add24}
-                            id="add-editors-button"
-                            kind="ghost"
-                            testId="rule-builder-add-edit-users"
-                            onClick={handleAddAccess('edit')}
-                          >
-                            {mergedI18n.addUsersButtonLabel}
-                          </Button>
-                        ),
-                      },
-                      table: {},
-                    }}
-                    data={editUsers.map((user) => ({
-                      id: user.name,
-                      values: {
-                        name: user.name,
-                        type:
-                          Array.isArray(user.users) && user.users.length > 0
-                            ? mergedI18n.groupTypeLabel
-                            : mergedI18n.userTypeLabel,
-                      },
-                    }))}
-                    columns={[
-                      {
-                        id: 'name',
-                        name: mergedI18n.nameColumnLabel,
-                      },
-                      {
-                        id: 'type',
-                        name: mergedI18n.typeColumnLabel,
-                      },
-                    ]}
-                  />
-                  <StatefulTable
-                    id="read-table"
-                    testId={`${testId}-read-users-table`}
-                    secondaryTitle={mergedI18n.readOnlyAccessLabel}
-                    options={{
-                      hasSearch: true,
-                    }}
-                    view={{
-                      toolbar: {
-                        customToolbarContent: (
-                          <Button
-                            aria-labelledby="read-only-access-label"
-                            renderIcon={Add24}
-                            id="add-read-users"
-                            kind="ghost"
-                            testId="rule-builder-add-read-users"
-                            onClick={handleAddAccess('read')}
-                          >
-                            {mergedI18n.addUsersButtonLabel}
-                          </Button>
-                        ),
-                      },
-                      table: {},
-                    }}
-                    data={readUsers.map((user) => ({
-                      id: user.name,
-                      values: {
-                        name: user.name,
-                        type:
-                          Array.isArray(user.users) && user.users.length > 0
-                            ? mergedI18n.groupTypeLabel
-                            : mergedI18n.userTypeLabel,
-                      },
-                    }))}
-                    columns={[
-                      {
-                        id: 'name',
-                        name: mergedI18n.nameColumnLabel,
-                      },
-                      {
-                        id: 'type',
-                        name: mergedI18n.typeColumnLabel,
-                      },
-                    ]}
-                  />
-                </div>
-              </AccordionItem>
-            </Accordion>
-          </Tab>
+                      view={{
+                        toolbar: {
+                          customToolbarContent: (
+                            <Button
+                              aria-labelledby="add-editors-label"
+                              renderIcon={(props) => <Add size={16} {...props} />}
+                              id="add-editors-button"
+                              kind="ghost"
+                              testId="rule-builder-add-edit-users"
+                              onClick={handleAddAccess('edit')}
+                            >
+                              {mergedI18n.addUsersButtonLabel}
+                            </Button>
+                          ),
+                        },
+                        table: {},
+                      }}
+                      data={editUsers.map((user) => ({
+                        id: user.name,
+                        values: {
+                          name: user.name,
+                          type:
+                            Array.isArray(user.users) && user.users.length > 0
+                              ? mergedI18n.groupTypeLabel
+                              : mergedI18n.userTypeLabel,
+                        },
+                      }))}
+                      columns={[
+                        {
+                          id: 'name',
+                          name: mergedI18n.nameColumnLabel,
+                        },
+                        {
+                          id: 'type',
+                          name: mergedI18n.typeColumnLabel,
+                        },
+                      ]}
+                    />
+                    <StatefulTable
+                      id="read-table"
+                      testId={`${testId}-read-users-table`}
+                      secondaryTitle={mergedI18n.readOnlyAccessLabel}
+                      options={{
+                        hasSearch: true,
+                      }}
+                      view={{
+                        toolbar: {
+                          customToolbarContent: (
+                            <Button
+                              aria-labelledby="read-only-access-label"
+                              renderIcon={(props) => <Add size={16} {...props} />}
+                              id="add-read-users"
+                              kind="ghost"
+                              testId="rule-builder-add-read-users"
+                              onClick={handleAddAccess('read')}
+                            >
+                              {mergedI18n.addUsersButtonLabel}
+                            </Button>
+                          ),
+                        },
+                        table: {},
+                      }}
+                      data={readUsers.map((user) => ({
+                        id: user.name,
+                        values: {
+                          name: user.name,
+                          type:
+                            Array.isArray(user.users) && user.users.length > 0
+                              ? mergedI18n.groupTypeLabel
+                              : mergedI18n.userTypeLabel,
+                        },
+                      }))}
+                      columns={[
+                        {
+                          id: 'name',
+                          name: mergedI18n.nameColumnLabel,
+                        },
+                        {
+                          id: 'type',
+                          name: mergedI18n.typeColumnLabel,
+                        },
+                      ]}
+                    />
+                  </div>
+                </AccordionItem>
+              </Accordion>
+            </TabPanel>
+          </TabPanels>
         </Tabs>
       </div>
       <footer className={`${baseClass}--footer`}>

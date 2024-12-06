@@ -2,15 +2,15 @@ import React, { useEffect, useRef } from 'react';
 import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {
-  Cloud32,
-  Cloudy32,
-  Fog32,
-  Hail32,
-  PartlyCloudy32,
-  Rain32,
-  Sun32,
-  ChevronRight32,
-} from '@carbon/icons-react';
+  Cloud,
+  Cloudy,
+  Fog,
+  Hail,
+  PartlyCloudy,
+  Rain,
+  Sun,
+  ChevronRight,
+} from '@carbon/react/icons';
 
 import { settings } from '../../constants/Settings';
 import { CARD_ACTIONS } from '../../constants/LayoutConstants';
@@ -58,17 +58,17 @@ describe('MapCards', () => {
             visibleItemsCount: 4,
             group: [
               {
-                icon: Hail32,
+                icon: Hail,
                 iconDescription: 'Map scroll hail',
                 onClick: jest.fn(),
               },
               {
-                icon: Rain32,
+                icon: Rain,
                 iconDescription: 'Map scroll rain',
                 onClick: jest.fn(),
               },
               {
-                icon: Sun32,
+                icon: Sun,
                 iconDescription: 'Map scroll sun',
                 onClick: jest.fn(),
               },
@@ -102,17 +102,17 @@ describe('MapCards', () => {
             visibleItemsCount: 4,
             group: [
               {
-                icon: Hail32,
+                icon: Hail,
                 iconDescription: 'Map scroll hail',
                 onClick: jest.fn(),
               },
               {
-                icon: Rain32,
+                icon: Rain,
                 iconDescription: 'Map scroll rain',
                 onClick: jest.fn(),
               },
               {
-                icon: Sun32,
+                icon: Sun,
                 iconDescription: 'Map scroll sun',
                 onClick: jest.fn(),
               },
@@ -232,7 +232,7 @@ describe('MapCards', () => {
   it('shows full width legend toggle arrow correct in RTL', () => {
     document.documentElement.setAttribute('dir', 'rtl');
 
-    const { container, rerender } = render(<ChevronRight32 />);
+    const { container, rerender } = render(<ChevronRight size={32} />);
     const chevronRightIconContent = container.querySelector('svg path').getAttribute('d');
 
     rerender(
@@ -418,13 +418,13 @@ describe('MapCards', () => {
     const layeredMapControls = [
       {
         id: 'test-id1',
-        icon: Rain32,
+        icon: Rain,
         iconDescription: 'Rainy',
         onClick: rainyClickCallback,
       },
       {
         id: 'test-id2',
-        icon: Sun32,
+        icon: Sun,
         iconDescription: 'Sunny',
         onClick: sunnyClickCallback,
       },
@@ -482,7 +482,7 @@ describe('MapCards', () => {
     const layeredMapControls = [
       {
         id: 'test-id1',
-        icon: Rain32,
+        icon: Rain,
         iconDescription: 'Rainy',
         onClick: () => {},
         kind: 'icon-selection',
@@ -490,7 +490,7 @@ describe('MapCards', () => {
       },
       {
         id: 'test-id2',
-        icon: Sun32,
+        icon: Sun,
         iconDescription: 'Sunny',
         onClick: () => {},
         kind: 'icon-selection',
@@ -543,13 +543,13 @@ describe('MapCards', () => {
         mapControls={[
           {
             id: 'test-id1',
-            icon: Rain32,
+            icon: Rain,
             iconDescription: 'Rainy',
             onClick: rainyClickCallback,
           },
           {
             id: 'test-id2',
-            icon: Sun32,
+            icon: Sun,
             iconDescription: 'Sunny',
             onClick: sunnyClickCallback,
           },
@@ -585,7 +585,7 @@ describe('MapCards', () => {
         mapControls={[
           {
             id: 'test-id1',
-            icon: Rain32,
+            icon: Rain,
             iconDescription: 'Rainy',
             onClick: () => {},
             kind: 'icon-selection',
@@ -593,7 +593,7 @@ describe('MapCards', () => {
           },
           {
             id: 'test-id2',
-            icon: Sun32,
+            icon: Sun,
             iconDescription: 'Sunny',
             onClick: () => {},
             kind: 'icon-selection',
@@ -632,13 +632,13 @@ describe('MapCards', () => {
             group: [
               {
                 id: 'test-id1',
-                icon: Rain32,
+                icon: Rain,
                 iconDescription: 'Rainy',
                 onClick: rainyClickCallback,
               },
               {
                 id: 'test-id2',
-                icon: Sun32,
+                icon: Sun,
                 iconDescription: 'Sunny',
                 onClick: sunnyClickCallback,
               },
@@ -688,7 +688,7 @@ describe('MapCards', () => {
             group: [
               {
                 id: 'test-id1',
-                icon: Rain32,
+                icon: Rain,
                 iconDescription: 'Rainy',
                 onClick: rainyClickCallback,
                 kind: 'icon-selection',
@@ -696,7 +696,7 @@ describe('MapCards', () => {
               },
               {
                 id: 'test-id2',
-                icon: Sun32,
+                icon: Sun,
                 iconDescription: 'Sunny',
                 onClick: sunnyClickCallback,
                 kind: 'icon-selection',
@@ -759,38 +759,38 @@ describe('MapCards', () => {
             visibleItemsCount,
             group: [
               {
-                icon: Hail32,
+                icon: Hail,
                 iconDescription: 'Map scroll hail',
                 onClick: onClickCallback,
               },
               {
-                icon: Rain32,
+                icon: Rain,
                 iconDescription: 'Map scroll rain',
                 onClick: onClickCallback,
               },
               {
-                icon: Fog32,
+                icon: Fog,
                 iconDescription: 'Map scroll fog',
                 onClick: onClickCallback,
               },
               {
-                icon: Cloudy32,
+                icon: Cloudy,
                 iconDescription: 'Map scroll cloudy',
                 onClick: onClickCallback,
               },
               {
-                icon: Cloud32,
+                icon: Cloud,
                 iconDescription: 'Map scroll cloud',
                 onClick: onClickCallback,
               },
               {
-                icon: PartlyCloudy32,
+                icon: PartlyCloudy,
                 iconDescription: 'Map scroll partly cloudy',
                 onClick: onClickCallback,
               },
 
               {
-                icon: Sun32,
+                icon: Sun,
                 iconDescription: 'Map scroll sun',
                 onClick: onClickCallback,
               },
@@ -871,12 +871,12 @@ describe('MapCards', () => {
             visibleItemsCount,
             group: [
               {
-                icon: Hail32,
+                icon: Hail,
                 iconDescription: 'Map scroll hail',
                 onClick: onClickCallback,
               },
               {
-                icon: Rain32,
+                icon: Rain,
                 iconDescription: 'Map scroll rain',
                 onClick: onClickCallback,
               },
@@ -957,32 +957,32 @@ describe('MapCards', () => {
             visibleItemsCount,
             group: [
               {
-                icon: Hail32,
+                icon: Hail,
                 iconDescription: 'Map scroll hail',
               },
               {
-                icon: Rain32,
+                icon: Rain,
                 iconDescription: 'Map scroll rain',
               },
               {
-                icon: Fog32,
+                icon: Fog,
                 iconDescription: 'Map scroll fog',
               },
               {
-                icon: Cloudy32,
+                icon: Cloudy,
                 iconDescription: 'Map scroll cloudy',
               },
               {
-                icon: Cloud32,
+                icon: Cloud,
                 iconDescription: 'Map scroll cloud',
               },
               {
-                icon: PartlyCloudy32,
+                icon: PartlyCloudy,
                 iconDescription: 'Map scroll partly cloudy',
               },
 
               {
-                icon: Sun32,
+                icon: Sun,
                 iconDescription: 'Map scroll sun',
               },
             ],

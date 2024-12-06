@@ -22,7 +22,7 @@ if (args['--help']) {
   process.exit(0);
 }
 
-const storyPackages = ['angular', 'react'];
+const storyPackages = ['react'];
 
 let packageToRun = args._[0];
 

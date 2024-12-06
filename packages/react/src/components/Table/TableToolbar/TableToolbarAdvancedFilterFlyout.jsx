@@ -1,4 +1,4 @@
-import { Close16, Filter20 } from '@carbon/icons-react';
+import { Close, Filter } from '@carbon/react/icons';
 import {
   Button,
   ComboBox,
@@ -10,7 +10,10 @@ import {
   TextInput,
   DatePicker,
   DatePickerInput,
-} from 'carbon-components-react';
+  TabList,
+  TabPanels,
+  TabPanel,
+} from '@carbon/react';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import classnames from 'classnames';
 import { memoize, isEqual } from 'lodash-es';
@@ -265,9 +268,10 @@ const TableToolbarAdvancedFilterFlyout = ({
     <FlyoutMenu
       testId="advanced-filter-flyout"
       iconDescription={toolbarIconLabelText}
+      className={`${iotPrefix}--table-toolbar__advanced-filters-button-wrapper`}
       direction={FlyoutMenuDirection.BottomEnd}
       disabled={isDisabled}
-      renderIcon={Filter20}
+      renderIcon={(props) => <Filter size={16} {...props} />}
       hideTooltip={false}
       light
       isOpen={advancedFilterFlyoutOpen}
@@ -296,98 +300,133 @@ const TableToolbarAdvancedFilterFlyout = ({
       }}
     >
       <Tabs className={`${iotPrefix}--advanced-filter__tab-container`}>
-        <Tab label={simpleFiltersTabLabel} title={simpleFiltersTabLabel}>
-          {ordering
-            .filter((column) => {
-              const fullColumn = columns.find((item) => column.columnId === item.id);
-              return !column.isHidden && fullColumn?.isFilterable === true;
-            })
-            .reduce((chunks, item, index) => {
-              const newChunks = [...chunks];
-              const chunkIndex = Math.floor(index / 2);
+        <TabList>
+          <Tab title={simpleFiltersTabLabel}>{simpleFiltersTabLabel}</Tab>
+          <Tab title={advancedFiltersTabLabel}>{advancedFiltersTabLabel}</Tab>
+        </TabList>
+        <TabPanels>
+          <TabPanel>
+            {ordering
+              .filter((column) => {
+                const fullColumn = columns.find((item) => column.columnId === item.id);
+                return !column.isHidden && fullColumn?.isFilterable === true;
+              })
+              .reduce((chunks, item, index) => {
+                const newChunks = [...chunks];
+                const chunkIndex = Math.floor(index / 2);
 
-              if (!chunks[chunkIndex]) {
-                newChunks[chunkIndex] = [];
-              }
+                if (!chunks[chunkIndex]) {
+                  newChunks[chunkIndex] = [];
+                }
 
-              newChunks[chunkIndex] = [...newChunks[chunkIndex], item];
+                newChunks[chunkIndex] = [...newChunks[chunkIndex], item];
 
-              return newChunks;
-            }, [])
-            .map((aRow, rowIndex) => {
-              return (
-                <div
-                  key={`simple-filter-row-${rowIndex}`}
-                  className={`${iotPrefix}--filter-flyout__simple-row`}
-                >
-                  {aRow.map((aColumn, columnIndex) => {
-                    const column = columns.find((item) => aColumn.columnId === item.id);
-                    const columnFilterValue = filterState?.simple[column.id];
-                    const filterColumnOptions = (options) => {
-                      options.sort((a, b) => {
-                        return a.text.localeCompare(b.text, { sensitivity: 'base' });
-                      });
-                      return options;
-                    };
-                    const memoizeColumnOptions = memoize(filterColumnOptions); // TODO: this memoize isn't really working, should refactor to a higher column level
-                    if (column.isDate) {
-                      return (
-                        <FormItem
-                          key={`simple-filter-item-${rowIndex}-${columnIndex}`}
-                          className={`${iotPrefix}--filter-flyout__simple-field`}
-                        >
-                          <DatePicker
-                            key={`datepicker-${rowIndex}-${columnIndex}-${columnFilterValue}`}
-                            datePickerType="single"
-                            locale={column?.dateOptions?.locale || 'en'}
-                            dateFormat={column?.dateOptions?.dateFormat || 'Y-m-d'}
-                            id={`column-${rowIndex}-${columnIndex}`}
-                            value={filterState?.simple?.[column.id]}
-                            onChange={(evt) => {
-                              setFilterState((prev) => {
-                                return {
-                                  ...prev,
-                                  simple: {
-                                    ...prev.simple,
-                                    [column.id]: evt[0],
-                                  },
-                                };
-                              });
-                            }}
-                          >
-                            <DatePickerInput
-                              className={`${iotPrefix}--lelele`}
-                              placeholder={column.placeholderText || 'enter a date'}
-                              labelText={column.name}
-                              id={`column-${rowIndex}-${columnIndex}`}
-                            />
-                          </DatePicker>
-                        </FormItem>
-                      );
-                    }
-                    if (column.options) {
-                      if (column.isMultiselect) {
+                return newChunks;
+              }, [])
+              .map((aRow, rowIndex) => {
+                return (
+                  <div
+                    key={`simple-filter-row-${rowIndex}`}
+                    className={`${iotPrefix}--filter-flyout__simple-row`}
+                  >
+                    {aRow.map((aColumn, columnIndex) => {
+                      const column = columns.find((item) => aColumn.columnId === item.id);
+                      const columnFilterValue = filterState?.simple[column.id];
+                      const filterColumnOptions = (options) => {
+                        options.sort((a, b) => {
+                          return a.text.localeCompare(b.text, { sensitivity: 'base' });
+                        });
+                        return options;
+                      };
+                      const memoizeColumnOptions = memoize(filterColumnOptions); // TODO: this memoize isn't really working, should refactor to a higher column level
+                      if (column.isDate) {
                         return (
-                          <FilterableMultiSelect
+                          <FormItem
+                            key={`simple-filter-item-${rowIndex}-${columnIndex}`}
                             className={`${iotPrefix}--filter-flyout__simple-field`}
-                            key={`multiselect-${rowIndex}-${columnIndex}-${columnFilterValue}`}
-                            id={`column-${rowIndex}-${columnIndex}`}
+                          >
+                            <DatePicker
+                              key={`datepicker-${rowIndex}-${columnIndex}-${columnFilterValue}`}
+                              datePickerType="single"
+                              locale={column?.dateOptions?.locale || 'en'}
+                              dateFormat={column?.dateOptions?.dateFormat || 'Y-m-d'}
+                              id={`column-${rowIndex}-${columnIndex}`}
+                              value={filterState?.simple?.[column.id]}
+                              onChange={(evt) => {
+                                setFilterState((prev) => {
+                                  return {
+                                    ...prev,
+                                    simple: {
+                                      ...prev.simple,
+                                      [column.id]: evt[0],
+                                    },
+                                  };
+                                });
+                              }}
+                            >
+                              <DatePickerInput
+                                className={`${iotPrefix}--lelele`}
+                                placeholder={column.placeholderText || 'enter a date'}
+                                labelText={column.name}
+                                id={`column-${rowIndex}-${columnIndex}`}
+                              />
+                            </DatePicker>
+                          </FormItem>
+                        );
+                      }
+                      if (column.options) {
+                        if (column.isMultiselect) {
+                          return (
+                            <FilterableMultiSelect
+                              className={`${iotPrefix}--filter-flyout__simple-field`}
+                              key={`multiselect-${rowIndex}-${columnIndex}-${columnFilterValue}`}
+                              id={`column-${rowIndex}-${columnIndex}`}
+                              aria-label={filterAria}
+                              placeholder={column.placeholderText || 'Choose an option'}
+                              translateWithId={handleTranslation}
+                              items={memoizeColumnOptions(column.options)}
+                              label={column.placeholderText || 'Choose an option'}
+                              itemToString={itemToString('text')}
+                              titleText={column.name}
+                              initialSelectedItems={getMultiSelectItems(column, columnFilterValue)}
+                              onChange={(evt) => {
+                                const { selectedItems } = evt;
+                                setFilterState((prev) => {
+                                  return {
+                                    ...prev,
+                                    simple: {
+                                      ...prev.simple,
+                                      [column.id]: selectedItems.map(getMultiselectFilterValue),
+                                    },
+                                  };
+                                });
+                              }}
+                            />
+                          );
+                        }
+                        return (
+                          <ComboBox
+                            className={`${iotPrefix}--filter-flyout__simple-field`}
+                            key={`combobox-${rowIndex}-${columnIndex}-${columnFilterValue}`}
+                            id={`column-${columnIndex}`}
                             aria-label={filterAria}
-                            placeholder={column.placeholderText || 'Choose an option'}
                             translateWithId={handleTranslation}
                             items={memoizeColumnOptions(column.options)}
-                            label={column.placeholderText || 'Choose an option'}
                             itemToString={itemToString('text')}
+                            initialSelectedItem={{
+                              id: columnFilterValue,
+                              text: getAppliedFilterText(column, columnFilterValue),
+                            }}
+                            placeholder={column.placeholderText || 'Choose an option'}
                             titleText={column.name}
-                            initialSelectedItems={getMultiSelectItems(column, columnFilterValue)}
                             onChange={(evt) => {
-                              const { selectedItems } = evt;
+                              const { selectedItem } = evt;
                               setFilterState((prev) => {
                                 return {
                                   ...prev,
                                   simple: {
                                     ...prev.simple,
-                                    [column.id]: selectedItems.map(getMultiselectFilterValue),
+                                    [column.id]: getFilterValue(selectedItem),
                                   },
                                 };
                               });
@@ -395,126 +434,97 @@ const TableToolbarAdvancedFilterFlyout = ({
                           />
                         );
                       }
-                      return (
-                        <ComboBox
-                          className={`${iotPrefix}--filter-flyout__simple-field`}
-                          key={`combobox-${rowIndex}-${columnIndex}-${columnFilterValue}`}
-                          id={`column-${columnIndex}`}
-                          aria-label={filterAria}
-                          translateWithId={handleTranslation}
-                          items={memoizeColumnOptions(column.options)}
-                          itemToString={itemToString('text')}
-                          initialSelectedItem={{
-                            id: columnFilterValue,
-                            text: getAppliedFilterText(column, columnFilterValue),
-                          }}
-                          placeholder={column.placeholderText || 'Choose an option'}
-                          titleText={column.name}
-                          onChange={(evt) => {
-                            const { selectedItem } = evt;
-                            setFilterState((prev) => {
-                              return {
-                                ...prev,
-                                simple: {
-                                  ...prev.simple,
-                                  [column.id]: getFilterValue(selectedItem),
-                                },
-                              };
-                            });
-                          }}
-                        />
-                      );
-                    }
 
-                    return (
-                      <FormItem
-                        key={`simple-filter-item-${rowIndex}-${columnIndex}`}
-                        className={`${iotPrefix}--filter-flyout__simple-field`}
-                      >
-                        <TextInput
-                          id={column.id}
-                          labelText={column.name}
-                          placeholder={column.placeholderText || 'Type and hit enter to apply'}
-                          title={filterState?.[column.id] || column.placeholderText}
-                          onChange={(event) => {
-                            const { value } = event.target;
-                            setFilterState((prev) => {
-                              return {
-                                ...prev,
-                                simple: {
-                                  ...prev.simple,
-                                  [column.id]: value,
-                                },
-                              };
-                            });
-                          }}
-                          defaultValue={filterState?.simple?.[column.id]}
-                        />
-                        {filterState?.simple?.[column.id] ? (
-                          <div
-                            role="button"
-                            className={classnames(`${prefix}--list-box__selection`, {
-                              [`${iotPrefix}--clear-filters-button--disabled`]: isDisabled,
-                            })}
-                            tabIndex={isDisabled ? '-1' : '0'}
-                            onClick={(event) => {
-                              if (!isDisabled) {
-                                handleClearFilter(event, column);
-                              }
+                      return (
+                        <FormItem
+                          key={`simple-filter-item-${rowIndex}-${columnIndex}`}
+                          className={`${iotPrefix}--filter-flyout__simple-field`}
+                        >
+                          <TextInput
+                            id={column.id}
+                            labelText={column.name}
+                            placeholder={column.placeholderText || 'Type and hit enter to apply'}
+                            title={filterState?.[column.id] || column.placeholderText}
+                            onChange={(event) => {
+                              const { value } = event.target;
+                              setFilterState((prev) => {
+                                return {
+                                  ...prev,
+                                  simple: {
+                                    ...prev.simple,
+                                    [column.id]: value,
+                                  },
+                                };
+                              });
                             }}
-                            onKeyDown={(event) =>
-                              handleEnterKeyDown(event, () => {
+                            defaultValue={filterState?.simple?.[column.id]}
+                          />
+                          {filterState?.simple?.[column.id] ? (
+                            <div
+                              role="button"
+                              className={classnames(`${prefix}--list-box__selection`, {
+                                [`${iotPrefix}--clear-filters-button--disabled`]: isDisabled,
+                              })}
+                              tabIndex={isDisabled ? '-1' : '0'}
+                              onClick={(event) => {
                                 if (!isDisabled) {
                                   handleClearFilter(event, column);
                                 }
-                              })
-                            }
-                            title={clearFilterAria}
-                          >
-                            <Close16 description={clearFilterAria} />
-                          </div>
-                        ) : null}
-                      </FormItem>
-                    );
-                  })}
-                </div>
-              );
-            })}
-        </Tab>
-        <Tab label={advancedFiltersTabLabel} title={advancedFiltersTabLabel}>
-          <MultiSelect
-            id="advanced-filter-multiselect"
-            titleText={
-              <>
-                {advancedFilterLabelText}{' '}
-                <Button
-                  className={`${iotPrefix}--advanced-filter__inline-button`}
-                  kind="ghost"
-                  onClick={onCreateAdvancedFilter}
-                >
-                  {createNewAdvancedFilterText}
-                </Button>
-              </>
-            }
-            onChange={(e) => {
-              onChangeAdvancedFilter(e);
-              setFilterState((prev) => {
-                return {
-                  ...prev,
-                  advanced: {
-                    filterIds: e.selectedItems?.map((advFilter) => advFilter.filterId) ?? [],
-                  },
-                };
-              });
-            }}
-            itemToString={itemToString('filterTitleText')}
-            items={advancedFilters ?? []}
-            initialSelectedItems={advancedFilters?.filter((advFilter) =>
-              selectedAdvancedFilterIds.includes(advFilter.filterId)
-            )}
-            label={advancedFilterPlaceholderText}
-          />
-        </Tab>
+                              }}
+                              onKeyDown={(event) =>
+                                handleEnterKeyDown(event, () => {
+                                  if (!isDisabled) {
+                                    handleClearFilter(event, column);
+                                  }
+                                })
+                              }
+                              title={clearFilterAria}
+                            >
+                              <Close description={clearFilterAria} />
+                            </div>
+                          ) : null}
+                        </FormItem>
+                      );
+                    })}
+                  </div>
+                );
+              })}
+          </TabPanel>
+          <TabPanel>
+            <MultiSelect
+              id="advanced-filter-multiselect"
+              titleText={
+                <>
+                  {advancedFilterLabelText}{' '}
+                  <Button
+                    className={`${iotPrefix}--advanced-filter__inline-button`}
+                    kind="ghost"
+                    onClick={onCreateAdvancedFilter}
+                  >
+                    {createNewAdvancedFilterText}
+                  </Button>
+                </>
+              }
+              onChange={(e) => {
+                onChangeAdvancedFilter(e);
+                setFilterState((prev) => {
+                  return {
+                    ...prev,
+                    advanced: {
+                      filterIds: e.selectedItems?.map((advFilter) => advFilter.filterId) ?? [],
+                    },
+                  };
+                });
+              }}
+              itemToString={itemToString('filterTitleText')}
+              items={advancedFilters ?? []}
+              initialSelectedItems={advancedFilters?.filter((advFilter) =>
+                selectedAdvancedFilterIds.includes(advFilter.filterId)
+              )}
+              label={advancedFilterPlaceholderText}
+            />
+          </TabPanel>
+        </TabPanels>
       </Tabs>
     </FlyoutMenu>
   );

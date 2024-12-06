@@ -1,11 +1,15 @@
-@import '../../globals/vars';
-@import '~carbon-components/scss/globals/scss/layout';
-
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '../../globals/vars' as *;
+@use '@carbon/react/scss/layout' as *;
+@use '@carbon/react/scss/type' as *;
+@use '../../globals/mixins' as *;
 $tooltipSize: $spacing-07;
 $lineHeightSize: 1.375em;
 
 .#{$iot-prefix}--card--title {
-  align-items: flex-start;
+  align-items: center;
   display: flex;
   flex-wrap: wrap;
   // min-width value is required to ensure flex child with text properly truncates
@@ -23,6 +27,16 @@ $lineHeightSize: 1.375em;
   & + *:not(.#{$iot-prefix}--card--toolbar) {
     margin-left: $spacing-05;
   }
+
+  &--text .#{$prefix}--toggletip-label {
+    @include type-style('heading-compact-02');
+    color: $text-primary;
+  }
+}
+.#{$iot-prefix}--card--subtitle {
+  &--text .#{$prefix}--toggletip-label {
+    @include type-style('label-01');
+  }
 }
 
 .#{$iot-prefix}--card--header--tooltip {
@@ -36,8 +50,17 @@ $lineHeightSize: 1.375em;
 .#{$iot-prefix}--card--title--text,
 .#{$iot-prefix}--card--subtitle--text {
   @include multiline-text-overflow(1, $lineHeightSize);
+  overflow: visible;
   word-break: break-all;
   min-width: 3rem;
+  .#{$prefix}--toggletip-label {
+    overflow: hidden;
+    & > div {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
 }
 
 .#{$iot-prefix}--card--title--text--wrapped {
@@ -47,8 +70,8 @@ $lineHeightSize: 1.375em;
 }
 
 .#{$iot-prefix}--card--title--text {
-  @include type-style('productive-heading-02');
-  color: $text-01;
+  @include type-style('heading-compact-02');
+  color: $text-primary;
   max-width: calc(100% - #{$tooltipSize});
 }
 
@@ -68,7 +91,7 @@ p.#{$iot-prefix}--card-title__title-text-tooltip-full-title {
 
 .#{$iot-prefix}--card--subtitle--text {
   @include type-style('label-01');
-  color: $text-02;
+  color: $text-secondary;
   font-weight: normal;
   width: 100%;
   max-height: 1.34em;

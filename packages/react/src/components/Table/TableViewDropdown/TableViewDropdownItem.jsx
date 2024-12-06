@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { View20 } from '@carbon/icons-react';
+import { View } from '@carbon/react/icons';
 
 import { settings } from '../../../constants/Settings';
 
@@ -44,7 +44,7 @@ const TableViewDropdownItem = ({
     >
       {isSelected && !isCompact ? (
         <span className={`${iotPrefix}--view-dropdown__button-prefix`}>
-          <View20 />
+          <View size={20} />
           <span>{`${i18n.view}: `}</span>
         </span>
       ) : null}

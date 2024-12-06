@@ -1,8 +1,8 @@
 import React from 'react';
 import { actions } from '@storybook/addon-actions';
 import { boolean, select } from '@storybook/addon-knobs';
-import { Table, TableContainer, TableBody } from 'carbon-components-react';
-import { Add32, Edit16, Stop16, TrashCan16 } from '@carbon/icons-react';
+import { Table, TableContainer, TableBody } from '@carbon/react';
+import { Add, Edit, Stop, TrashCan } from '@carbon/react/icons';
 
 import TableBodyRow from './TableBodyRow';
 
@@ -51,7 +51,7 @@ export const RowActions = () => (
   <TableBodyRow
     {...tableBodyRowProps}
     isExpanded={boolean('isExpanded', false)}
-    rowActions={[{ id: 'add', renderIcon: Add32, iconDescription: 'Add' }]}
+    rowActions={[{ id: 'add', renderIcon: Add, iconDescription: 'Add' }]}
     options={{
       ...tableBodyRowProps.options,
       hasRowActions: true,
@@ -67,30 +67,30 @@ export const RowActionsWithOverflow = () => (
     {...tableBodyRowProps}
     isExpanded={boolean('isExpanded', false)}
     rowActions={[
-      { id: 'add', renderIcon: Add32, iconDescription: 'Add' },
-      { id: 'edit', renderIcon: Edit16, isOverflow: true, labelText: 'Edit' },
+      { id: 'add', renderIcon: Add, iconDescription: 'Add' },
+      { id: 'edit', renderIcon: Edit, isOverflow: true, labelText: 'Edit' },
       {
         id: 'test1',
-        renderIcon: Stop16,
+        renderIcon: Stop,
         isOverflow: true,
         labelText: 'Test 1',
         hasDivider: true,
       },
       {
         id: 'test2',
-        renderIcon: Stop16,
+        renderIcon: Stop,
         isOverflow: true,
         labelText: 'Test 2',
       },
       {
         id: 'test3',
-        renderIcon: Stop16,
+        renderIcon: Stop,
         isOverflow: true,
         labelText: 'Test 3',
       },
       {
         id: 'delete',
-        renderIcon: TrashCan16,
+        renderIcon: TrashCan,
         isOverflow: true,
         labelText: 'Delete',
         isDelete: true,
@@ -110,7 +110,7 @@ export const IsNotSelectable = () => (
   <TableBodyRow
     {...tableBodyRowProps}
     isSelectable={boolean('isSelectable', false)}
-    rowActions={[{ id: 'add', renderIcon: Add32, iconDescription: 'Add' }]}
+    rowActions={[{ id: 'add', renderIcon: Add, iconDescription: 'Add' }]}
     options={{
       ...tableBodyRowProps.options,
       hasRowActions: true,
@@ -125,7 +125,7 @@ IsNotSelectable.storyName = 'is not selectable';
 export const IsSelectable = () => (
   <TableBodyRow
     {...tableBodyRowProps}
-    rowActions={[{ id: 'add', renderIcon: Add32, iconDescription: 'Add' }]}
+    rowActions={[{ id: 'add', renderIcon: Add, iconDescription: 'Add' }]}
     options={{
       ...tableBodyRowProps.options,
       hasRowActions: true,
@@ -142,7 +142,7 @@ IsNotSelectable.storyName = 'is not selectable';
 export const SingleSelect = () => (
   <TableBodyRow
     {...tableBodyRowProps}
-    rowActions={[{ id: 'add', renderIcon: Add32, iconDescription: 'Add' }]}
+    rowActions={[{ id: 'add', renderIcon: Add, iconDescription: 'Add' }]}
     options={{
       ...tableBodyRowProps.options,
       hasRowActions: true,
@@ -157,7 +157,7 @@ SingleSelect.storyName = 'single selected';
 export const RowActionsRunning = () => (
   <TableBodyRow
     {...tableBodyRowProps}
-    rowActions={[{ id: 'add', renderIcon: Add32, iconDescription: 'Add' }]}
+    rowActions={[{ id: 'add', renderIcon: Add, iconDescription: 'Add' }]}
     options={{
       ...tableBodyRowProps.options,
       hasRowActions: true,
@@ -173,7 +173,7 @@ RowActionsRunning.storyName = 'rowActions running';
 export const RowActionsError = () => (
   <TableBodyRow
     {...tableBodyRowProps}
-    rowActions={[{ id: 'add', renderIcon: Add32, iconDescription: 'Add' }]}
+    rowActions={[{ id: 'add', renderIcon: Add, iconDescription: 'Add' }]}
     options={{
       ...tableBodyRowProps.options,
       hasRowActions: true,

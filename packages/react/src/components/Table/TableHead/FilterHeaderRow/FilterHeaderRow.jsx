@@ -1,13 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {
-  TableHeader,
-  TableRow,
-  FormItem,
-  TextInput,
-  FilterableMultiSelect,
-} from 'carbon-components-react';
-import { Close16 } from '@carbon/icons-react';
+import { TableHeader, TableRow, FormItem, TextInput, FilterableMultiSelect } from '@carbon/react';
+import { Close } from '@carbon/react/icons';
 import { memoize, debounce, isEqual, isNil } from 'lodash-es';
 import classnames from 'classnames';
 import warning from 'warning';
@@ -536,7 +530,7 @@ class FilterHeaderRow extends Component {
                     }
                     title={clearFilterText}
                   >
-                    <Close16 description={clearFilterText} />
+                    <Close description={clearFilterText} />
                   </div>
                 ) : null}
               </FormItem>

@@ -1,1 +1,1 @@
-export { UnorderedList } from 'carbon-components-react';
+export { UnorderedList } from '@carbon/react';

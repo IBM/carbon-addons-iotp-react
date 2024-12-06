@@ -1,1 +1,1 @@
-export { Slider, SliderSkeleton } from 'carbon-components-react';
+export { Slider, SliderSkeleton } from '@carbon/react';

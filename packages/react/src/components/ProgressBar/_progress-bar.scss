@@ -1,12 +1,15 @@
-@import '~carbon-components/scss/components/progress-bar/progress-bar';
-@import '../../globals/vars';
-
+@use '@carbon/react/scss/components/progress-bar' as *;
+@use '../../globals/vars' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/type' as *;
 .#{$iot-prefix}--progress-bar-container {
   position: relative;
 
   .#{$prefix}--progress-bar__label {
-    @include carbon--type-style('productive-heading-01');
-    color: $text-01;
+    @include type-style('heading-compact-01');
+    color: $text-primary;
     margin-right: calc(#{$spacing-10} + #{$spacing-03});
     text-overflow: ellipsis;
     overflow: hidden;
@@ -38,8 +41,8 @@
 }
 
 .#{$iot-prefix}--progress-bar__value-label {
-  @include carbon--type-style('body-short-01');
-  color: $text-01;
+  @include type-style('body-compact-01');
+  color: $text-primary;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -57,10 +60,10 @@
 }
 
 .#{$prefix}--progress-bar__track {
-  background-color: $ui-02;
+  background-color: $layer-02;
 
   .#{$iot-prefix}--progress-bar-container--light & {
-    background-color: $ui-01;
+    background-color: $layer-01;
   }
 }
 

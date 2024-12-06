@@ -2,8 +2,8 @@ import React, { useMemo, useState, useRef, useEffect, useCallback } from 'react'
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import dayjs from 'dayjs';
-import { TextInput } from 'carbon-components-react';
-import { Time16, EditOff16, WarningAltFilled16, WarningFilled16 } from '@carbon/icons-react';
+import { TextInput } from '@carbon/react';
+import { Time, EditOff, WarningAltFilled, WarningFilled } from '@carbon/react/icons';
 import classnames from 'classnames';
 
 import { settings } from '../../constants/Settings';
@@ -347,20 +347,20 @@ const TimePickerDropdown = ({
           : 'default',
       firstIcon:
         invalidState && !readOnly
-          ? WarningFilled16
+          ? WarningFilled
           : warnProp && !readOnly
-          ? WarningAltFilled16
+          ? WarningAltFilled
           : readOnly
-          ? EditOff16
-          : Time16,
+          ? EditOff
+          : Time,
       secondIcon:
         secondaryInvalidState && !readOnly
-          ? WarningFilled16
+          ? WarningFilled
           : secondaryWarnProp && !readOnly
-          ? WarningAltFilled16
+          ? WarningAltFilled
           : readOnly
-          ? EditOff16
-          : Time16,
+          ? EditOff
+          : Time,
       text: !readOnly && invalidState ? invalidText : !readOnly && warnProp ? warnText : helperText,
       secondaryText:
         !readOnly && secondaryInvalidState

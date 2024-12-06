@@ -1,5 +1,5 @@
 import React from 'react';
-import { unstable_ProgressBar as CarbonProgressBar } from 'carbon-components-react';
+import { ProgressBar as CarbonProgressBar } from '@carbon/react';
 import PropTypes from 'prop-types';
 import { blue60 } from '@carbon/colors';
 import classnames from 'classnames';

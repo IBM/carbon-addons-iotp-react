@@ -12,9 +12,8 @@ const types = {
 };
 
 const sizes = {
-  'Extra large size (xxl)': 'xxl',
-  'Extra large size (xl)': 'xl',
-  'Default size': undefined,
+  'Large size (lg)': 'lg',
+  'Default size (md)': 'md',
   'Small size (sm)': 'sm',
 };
 
@@ -45,7 +44,7 @@ const props = {
     className: 'some-class',
     id: 'test2',
     defaultValue: text('Default value (defaultValue)', 'This is not a default value'),
-    size: select('Field size (size)', sizes, undefined) || undefined,
+    size: select('Field size (size)', sizes, 'md') || undefined,
     labelText: text('Label text (labelText)', 'Text Input label'),
     placeholder: text('Placeholder text (placeholder)', 'Placeholder text'),
     light: boolean('Light variant (light)', false),

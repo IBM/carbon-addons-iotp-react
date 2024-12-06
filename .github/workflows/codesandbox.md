@@ -20,7 +20,7 @@ options: --privileged
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - uses: dorny/paths-filter@v3
+      - uses: dorny/paths-filter3
         id: changes
         with:
           filters: |
@@ -34,7 +34,7 @@ options: --privileged
         uses: actions/setup-node@v4
         if: steps.changes.outputs.react == 'true'
         with:
-          node-version: '16.x'
+          node-version: '20.x'
 
       - name: Cache dependencies
         uses: actions/cache@v4

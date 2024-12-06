@@ -2,11 +2,11 @@ import React, { useMemo, useState, useRef, useCallback, useEffect } from 'react'
 import PropTypes from 'prop-types';
 import { merge, pick, uniqueId } from 'lodash-es';
 import useDeepCompareEffect from 'use-deep-compare-effect';
-import { Table as CarbonTable, TableContainer, Tag } from 'carbon-components-react';
+import { Table as CarbonTable, TableContainer, Tag } from '@carbon/react';
 import classnames from 'classnames';
 import { useLangDirection } from 'use-lang-direction';
 import warning from 'warning';
-import { FilterEdit16 } from '@carbon/icons-react';
+import { FilterEdit } from '@carbon/react/icons';
 
 import { defaultFunction } from '../../utils/componentUtilityFunctions';
 import { settings } from '../../constants/Settings';
@@ -494,7 +494,7 @@ export const defaultProps = (baseProps) => ({
       loadingMoreIds: [],
       showMultiSortModal: false,
       multiSortModal: undefined,
-      filterRowIcon: FilterEdit16,
+      filterRowIcon: FilterEdit,
     },
   },
   actions: {
@@ -683,7 +683,7 @@ const Table = (props) => {
     view.toolbar.activeBar,
     // Remove the icon as it's a React.Element which can not be compared
     view.toolbar.batchActions.map((action) => {
-      const { icon, ...nonElements } = action;
+      const { renderIcon, ...nonElements } = action;
       return nonElements;
     }),
     view.toolbar.initialDefaultSearch,

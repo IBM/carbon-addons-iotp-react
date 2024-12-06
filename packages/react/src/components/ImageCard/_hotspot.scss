@@ -1,11 +1,16 @@
 // Part of the css and the colors used come from old StyledComponents code
 // and should be replaced with actual carbon colors and design. See issue 1806
 
-@import '../../globals/vars';
-@import '../../globals/theme';
-
+@use '../../globals/vars' as *;
+@use '../../globals/theme' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/colors' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/type' as *;
+@use '@carbon/react/scss/utilities/box-shadow' as *;
 $selected-border-width: $spacing-01;
-$selected-border: solid $selected-border-width $interactive-04;
+$selected-border: solid $selected-border-width $border-interactive;
 
 // The custom properties --x-pos, --y-pos, --width, --height are set
 // on the container by the react js code. They do not include units.
@@ -26,6 +31,7 @@ $selected-border: solid $selected-border-width $interactive-04;
     box-sizing: border-box;
     border: $selected-border;
     padding: #{$padding};
+    /* stylelint-disable scss/operator-no-newline-after */
     top: calc(
       (var(--y-pos) * 1%) -
         (((var(--height) * 1px) * 0.5) + #{$padding} + #{$selected-border-width})
@@ -35,7 +41,7 @@ $selected-border: solid $selected-border-width $interactive-04;
     );
   }
   &.#{$iot-prefix}--hotspot-container--has-icon {
-    .#{$prefix}--tooltip__label {
+    .#{$prefix}--tooltip-trigger__wrapper {
       border: solid 1px $gray-40;
       cursor: pointer;
       padding: $spacing-02;
@@ -46,7 +52,7 @@ $selected-border: solid $selected-border-width $interactive-04;
     }
   }
 
-  .#{$prefix}--tooltip__label {
+  .#{$prefix}--tooltip-trigger__wrapper {
     display: flex;
     cursor: pointer;
     border-radius: 13px;
@@ -96,7 +102,7 @@ $selected-border: solid $selected-border-width $interactive-04;
     }
 
     h4 {
-      @include type-style('productive-heading-01');
+      @include type-style('heading-compact-01');
       text-align: left;
       padding-bottom: 0;
       line-height: calc(var(--title-font-size) * 1.4px);
@@ -109,13 +115,13 @@ $selected-border: solid $selected-border-width $interactive-04;
       //   ((var(--title-font-size) * 1px) / 16px) * 1rem
       // );
 
-      // stylelint-disable-next-line declaration-property-unit-blacklist
+      // stylelint-disable-next-line declaration-property-unit-disallowed-list
       font-size: calc(var(--title-font-size) * 1px);
 
       // Used to expand the hotspot while the user types into the TextInput
       &.#{$iot-prefix}--hotspot-content-title__visually-hidden {
         visibility: hidden;
-        height: 0px;
+        height: 0;
       }
     }
   }
@@ -133,7 +139,7 @@ $selected-border: solid $selected-border-width $interactive-04;
     $negative-margin-to-overide-parent-padding: calc(-1 * (#{$padding}));
     margin: $negative-margin-to-overide-parent-padding;
 
-    .#{$iot-prefix}--hotspot-content-title-input {
+    input.#{$prefix}--text-input {
       padding: 0 calc(#{$padding} + #{$selected-border-width});
       width: calc(
         (var(--width) * 1px) - (#{$selected-border-width} * 2) - (var(--border-width) * 1px * 2)

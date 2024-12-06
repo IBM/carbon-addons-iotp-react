@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { TableCell, TableRow } from 'carbon-components-react';
+import { TableCell, TableRow } from '@carbon/react';
 import classnames from 'classnames';
 
 import { settings } from '../../../constants/Settings';

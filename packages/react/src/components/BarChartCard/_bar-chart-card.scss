@@ -1,4 +1,6 @@
-@import '../../globals/vars';
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '../../globals/vars' as *;
 
 .#{$iot-prefix}--bar-chart-container {
   width: 100%;

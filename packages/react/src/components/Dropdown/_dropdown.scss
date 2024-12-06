@@ -1,5 +1,9 @@
-@import '~carbon-components/scss/components/dropdown/dropdown';
-
+@use '@carbon/react/scss/components/dropdown';
+@use '@carbon/react/scss/layer' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/colors' as *;
+@use '../../globals/vars' as *;
 .#{$iot-prefix}--dropdown__label {
   display: flex;
   align-items: center;
@@ -19,7 +23,7 @@
     text-overflow: ellipsis;
 
     &--open {
-      color: $active-ui;
+      color: $layer-active-01;
     }
   }
 }

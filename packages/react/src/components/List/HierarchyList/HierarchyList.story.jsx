@@ -1,8 +1,8 @@
 import React, { createElement, useMemo, useState } from 'react';
 import { action } from '@storybook/addon-actions';
 import { text, select, boolean, object, number, array } from '@storybook/addon-knobs';
-import { Add16 } from '@carbon/icons-react';
-import { OverflowMenu, OverflowMenuItem } from 'carbon-components-react';
+import { Add } from '@carbon/react/icons';
+import { OverflowMenu, OverflowMenuItem } from '@carbon/react';
 
 import Button from '../../Button';
 import { EditingStyle, DragAndDrop } from '../../../utils/DragAndDropUtils';
@@ -12,9 +12,9 @@ import HierarchyList from './HierarchyList';
 
 const addButton = (
   <Button
-    renderIcon={Add16}
+    renderIcon={Add}
     hasIconOnly
-    size="small"
+    size="sm"
     iconDescription="Add"
     key="hierarchy-list-button-add"
     onClick={() => action('header button onClick')}

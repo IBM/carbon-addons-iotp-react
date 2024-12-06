@@ -1,1 +1,1 @@
-export { Select, SelectSkeleton } from 'carbon-components-react';
+export { Select, SelectSkeleton } from '@carbon/react';

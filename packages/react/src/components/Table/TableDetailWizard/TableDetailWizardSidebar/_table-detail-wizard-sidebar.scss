@@ -1,16 +1,17 @@
-@import '../../../../globals/vars';
-
+@use '../../../../globals/vars' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/utilities/convert';
 .#{$iot-prefix}--table-detail-wizard-sidebar--header {
   display: flex;
   flex-flow: column nowrap;
-  border-right: rem(1px) solid #dadada8c;
+  border-right: convert.to-rem(1px) solid #dadada8c;
 
   html[dir='rtl'] & {
     border-right: unset;
-    border-left: rem(1px) solid #dadada8c;
+    border-left: convert.to-rem(1px) solid #dadada8c;
   }
 
   .#{$iot-prefix}--progress-indicator {
-    padding: $spacing-05 $spacing-05 $spacing-05 4rem; /* stylelint-disable-line declaration-property-unit-blacklist */
+    padding: $spacing-05 $spacing-05 $spacing-05 4rem; /* stylelint-disable-line declaration-property-unit-disallowed-list */
   }
 }

@@ -1,1 +1,1 @@
-export { CodeSnippet, CodeSnippetSkeleton } from 'carbon-components-react';
+export { CodeSnippet, CodeSnippetSkeleton } from '@carbon/react';

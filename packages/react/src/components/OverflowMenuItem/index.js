@@ -1,1 +1,1 @@
-export { OverflowMenuItem } from 'carbon-components-react';
+export { OverflowMenuItem } from '@carbon/react';

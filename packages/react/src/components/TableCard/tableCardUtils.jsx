@@ -1,6 +1,6 @@
 import React from 'react';
 import { isNil } from 'lodash-es';
-import { Link } from 'carbon-components-react';
+import { Link } from '@carbon/react';
 
 import { formatNumberWithPrecision, getVariables } from '../../utils/cardUtilityFunctions';
 import dayjs from '../../utils/dayjs';

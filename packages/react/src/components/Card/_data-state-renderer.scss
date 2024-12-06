@@ -1,4 +1,11 @@
-@import '../../globals/vars';
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/utilities' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/type' as *;
+@use '@carbon/react/scss/colors' as *;
+@use '../../globals/vars' as *;
+@use '../../globals/mixins' as *;
 
 .#{$iot-prefix}--data-state-container {
   // the custom property (CSS var) is defined in the Card that is using it
@@ -52,7 +59,7 @@
 }
 
 .#{$iot-prefix}--data-state-grid__label {
-  @include type-style('productive-heading-01');
+  @include type-style('heading-compact-01');
   @include text-overflow();
 }
 
@@ -75,16 +82,16 @@
   }
 
   .#{$iot-prefix}--data-state-tooltip__label {
-    @include type-style('productive-heading-01');
+    @include type-style('heading-compact-01');
   }
 }
 
 .#{$iot-prefix}--data-state-default-error-icon {
-  fill: $carbon--red-60;
+  fill: $red-60;
 }
 
 .#{$iot-prefix}--data-state-default-warning-icon {
-  fill: $carbon--yellow-30;
+  fill: $yellow-30;
 }
 
 html[dir='rtl'] .#{$iot-prefix}--data-state-grid {

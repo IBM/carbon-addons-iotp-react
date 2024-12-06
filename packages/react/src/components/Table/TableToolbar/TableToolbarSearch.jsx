@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { TableToolbarSearch as CarbonTableToolbarSearch } from 'carbon-components-react';
+import { TableToolbarSearch as CarbonTableToolbarSearch } from '@carbon/react';
 import classNames from 'classnames';
 
 import { settings } from '../../../constants/Settings';

@@ -9,9 +9,9 @@ import React from 'react';
 import classNames from 'classnames';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, boolean, text } from '@storybook/addon-knobs';
-import { settings } from 'carbon-components';
+import { Checkbox, CheckboxSkeleton } from '@carbon/react';
 
-import { Checkbox, CheckboxSkeleton } from '.';
+import { settings } from '../../constants/Settings';
 
 const { prefix } = settings;
 

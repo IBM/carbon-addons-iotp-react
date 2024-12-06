@@ -1,5 +1,7 @@
-@import '../../globals/vars';
-
+@use '../../globals/vars' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/spacing' as *;
 $title-height: 3rem;
 
 @mixin image-container($max-height, $max-width) {
@@ -18,13 +20,17 @@ $title-height: 3rem;
   $image-max-height: 12rem;
   $image-max-width: 20rem;
 
-  background-color: $ui-01;
+  background-color: $layer-01;
   width: $image-max-width;
   height: calc(#{$image-max-height} + #{$title-height});
   padding: 0;
 
   .#{$iot-prefix}--image-tile__image-container {
     @include image-container($image-max-height, $image-max-width);
+
+    .#{$prefix}--popover-container:not(.#{$prefix}--popover--auto-align) {
+      position: static;
+    }
   }
 }
 
@@ -35,7 +41,7 @@ $title-height: 3rem;
   width: 100%;
   height: $title-height;
   padding: $spacing-03;
-  border-top: 1px solid $ui-03;
+  border-top: 1px solid $layer-accent-01;
 
   &:nth-of-type(1) {
     border-color: transparent;
@@ -56,7 +62,7 @@ $title-height: 3rem;
   }
 
   .#{$iot-prefix}--image-tile__image-container {
-    @include image-container($image-max-height, $image-max-width);
+    // @include image-container($image-max-height, $image-max-width);
   }
 
   .#{$iot-prefix}--image-tile__title {
@@ -69,7 +75,7 @@ $title-height: 3rem;
   height: $title-height;
   display: flex;
   align-items: center;
-  background-color: $ui-01;
+  background-color: $layer-01;
   padding-left: $spacing-05;
   padding-right: $spacing-07; // Make room for check mark when selected
   span {

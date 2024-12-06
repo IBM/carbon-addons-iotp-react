@@ -22,7 +22,7 @@ const TextAreaProps = () => ({
   helperText: text('Helper text (helperText)', 'Optional helper text.'),
   placeholder: text('Placeholder text (placeholder)', 'Placeholder text.'),
   id: 'test2',
-  cols: number('Columns (columns)', 50),
+  cols: number('Columns (columns)', 0),
   rows: number('Rows (rows)', 4),
   onChange: action('onChange'),
   onClick: action('onClick'),
@@ -34,14 +34,14 @@ export default {
 
   parameters: {
     component: TextArea,
-
-    subcomponents: {
-      TextAreaSkeleton,
-    },
   },
 };
 
-export const Default = () => <TextArea {...TextAreaProps()} />;
+export const Default = () => (
+  <div>
+    <TextArea {...TextAreaProps()} />
+  </div>
+);
 
 Default.parameters = {
   info: {

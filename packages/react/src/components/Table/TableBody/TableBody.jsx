@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { TableBody as CarbonTableBody } from 'carbon-components-react';
+import { TableBody as CarbonTableBody } from '@carbon/react';
 import classnames from 'classnames';
 
 import {

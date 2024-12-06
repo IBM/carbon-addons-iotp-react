@@ -1,12 +1,35 @@
-@import '~carbon-components/scss/globals/scss/vars';
-
+@use '@carbon/react/scss/config' as *;
+@use '../../globals/vars' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/colors' as *;
+@use '@carbon/react/scss/type' as *;
+@use '@carbon/react/scss/motion' as *;
+@use '@carbon/react/scss/layer' as *;
+@use '@carbon/react/scss/utilities/text-truncate' as *;
+@use '@carbon/react/scss/components/ui-shell' as *;
 $hoverBgColor: #2c2c2c;
 
 .#{$prefix}--header {
+  $actionMenuItemHoverBgColor: #353535;
+  background-color: $gray-100; // Force dark mode in header even in gray-10 theme
+  border-block-end: 1px solid $gray-80; // Force dark mode in header even in gray-10 theme
   .#{$prefix}--skip-to-content:focus {
     min-width: 240px;
     justify-content: center;
-    border: $spacing-01 solid $ui-01;
+    border: $spacing-01 solid $layer-01;
+  }
+
+  a.#{$prefix}--header__name:focus {
+    border-color: $white-0;
+  }
+  a.#{$prefix}--header__name,
+  a.#{$prefix}--header__name:hover {
+    color: $gray-10; // Force dark mode in header even in gray-10 theme
+  }
+
+  .#{$prefix}--header__menu-trigger > svg {
+    fill: $icon-on-color; // Force dark mode in header even in gray-10 theme
   }
 
   &__menu-toggle {
@@ -19,6 +42,7 @@ $hoverBgColor: #2c2c2c;
     padding-left: $spacing-03;
     min-width: 150px;
     display: inline-flex;
+    color: $layer-01; // Force dark mode in header even in gray-10 theme
 
     > span.#{$prefix}--header__name--prefix {
       white-space: nowrap;
@@ -47,6 +71,7 @@ $hoverBgColor: #2c2c2c;
   }
 
   &__menu-title[data-testid='menuitem'][aria-expanded='true'] + &__menu {
+    display: flex;
     left: auto;
     right: 0;
     [dir='rtl'] & {
@@ -61,7 +86,7 @@ $hoverBgColor: #2c2c2c;
   }
 
   &__menu-item[role='menuitem']:focus {
-    border-color: $ui-01;
+    border-color: $layer-01;
     outline: none;
   }
 
@@ -93,14 +118,18 @@ $hoverBgColor: #2c2c2c;
       }
 
       &__btn {
-        color: $shell-header-text-02;
+        // color: $shell-header-text-02; //$shell-header-text-02; carbon 11
         background-color: $gray-90;
         text-decoration: none;
+        color: $gray-30;
+        &:hover {
+          color: $gray-30;
+        }
       }
     }
 
     &__icon {
-      fill: $ui-01;
+      fill: $layer-01;
     }
 
     .#{$prefix}--header__submenu.#{$prefix}--header-action-btn {
@@ -111,7 +140,7 @@ $hoverBgColor: #2c2c2c;
         padding-left: $spacing-05;
         padding-right: $spacing-05;
         text-decoration: none;
-        color: $shell-header-text-02;
+        // color: $shell-header-text-02; //$shell-header-text-02 carbon 11
       }
     }
 
@@ -122,16 +151,104 @@ $hoverBgColor: #2c2c2c;
       padding-left: $spacing-05;
       padding-right: $spacing-05;
       text-decoration: none;
-      color: $shell-header-text-02;
+      // color: $shell-header-text-02;//$shell-header-text-02 carbon 11
+    }
+  }
+
+  .#{$prefix}--overflow-menu.#{$prefix}--overflow-menu--open,
+  .#{$prefix}--overflow-menu.#{$prefix}--overflow-menu--open .#{$prefix}--overflow-menu__trigger {
+    background-color: $gray-90;
+    &:hover {
+      background-color: $gray-90;
+    }
+  }
+
+  .#{$prefix}--header__action:focus,
+  .#{$prefix}--header__menu-title.iot--btn.#{$prefix}--btn--primary:focus {
+    border-color: $white-0;
+    box-shadow: none;
+    border-width: 1px;
+    background-color: $gray-80;
+  }
+
+  a.#{$prefix}--header__menu-item {
+    background-color: $gray-90;
+    color: $gray-30;
+  }
+
+  .#{$prefix}--header__submenu.#{$prefix}--header-action-btn {
+    .#{$prefix}--popover-container {
+      width: 100%;
+    }
+    &[aria-expanded='true'] > ul.#{$prefix}--header__menu {
+      position: absolute;
+      z-index: 8000;
+      display: flex;
+      flex-direction: column;
+      background-color: $gray-90;
+      box-shadow: 0 4px 8px 0 rgb(0 0 0 / 50%);
+      inset-block-end: 0;
+      inset-inline-start: 0;
+      transform: translateY(100%);
+      left: auto;
+      right: 0;
+      [dir='rtl'] & {
+        left: 0;
+        right: auto;
+      }
+      .#{$prefix}--header__menu-item {
+        &:not(cds--header__menu-title) {
+          padding: 0 $spacing-05;
+        }
+        &:focus {
+          border-color: $white-0;
+          color: $gray-10;
+          outline: none;
+        }
+        &:hover {
+          background-color: $actionMenuItemHoverBgColor;
+          color: $gray-10;
+          svg {
+            fill: $gray-10;
+          }
+        }
+        svg {
+          fill: $gray-30;
+        }
+        & > span {
+          @include text-truncate-end;
+        }
+      }
+    }
+
+    .#{$prefix}--header__menu-item {
+      &:not(svg) {
+        height: $spacing-09;
+        position: relative;
+        display: flex;
+        align-items: center;
+        // color: $shell-header-text-02; //$shell-header-text-02; carbon 11
+        // Used for links that are directly in the menubar to span the full height
+        // height: 100%;
+        // Text styles
+        @include type-style('body-compact-01');
+        // Reset link styles and make sure the text isn't selectable
+        text-decoration: none;
+        user-select: none;
+        // Used for focus styles
+        border: 2px solid transparent;
+        transition: background-color $duration-fast-02, border-color $duration-fast-02,
+          color $duration-fast-02;
+      }
     }
   }
 }
 
 .#{$iot-prefix}--header__subtitle {
-  @include type-style('body-short-01');
-  border-left: $icon-02 1px solid;
+  @include type-style('body-compact-01');
+  border-left: $icon-secondary 1px solid;
   padding: $spacing-01 $spacing-05;
-  color: $disabled-02;
+  color: $gray-30; // Force dark mode in header even in gray-10 theme
   margin-left: $spacing-05;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -143,24 +260,45 @@ $hoverBgColor: #2c2c2c;
   }
 }
 
+.#{$prefix}--header__action {
+  &--active {
+    border-right: 1px solid $gray-80; // Force dark mode in header even in gray-10 theme
+    border-bottom: 1px solid $gray-100; // Force dark mode in header even in gray-10 theme
+    border-left: 1px solid $gray-80; // Force dark mode in header even in gray-10 theme
+    background-color: $gray-100;
+  }
+  &:hover {
+    background-color: $hoverBgColor; // Force dark mode in header even in gray-10 theme
+  }
+
+  &:active {
+    background-color: $gray-80;
+  }
+  &.#{$prefix}--btn.#{$prefix}--btn--icon-only.#{$prefix}--header__action svg {
+    fill: $icon-on-color; // Force dark mode in header even in gray-10 theme
+  }
+}
+
 .#{$prefix}--header-action-btn {
   align-items: center;
   display: inline-flex;
-  height: 3rem;
+  height: $spacing-09;
   justify-content: center;
-  width: 3rem;
+  width: $spacing-09;
   padding: 0;
 
+  &.#{$prefix}--btn.#{$prefix}--btn--icon-only.#{$prefix}--header__action svg {
+    fill: $icon-on-color; // Force dark mode in header even in gray-10 theme
+  }
+
+  .#{$prefix}--btn.#{$prefix}--btn--icon-only.#{$prefix}--header__menu-title svg {
+    margin: 0;
+  }
+
   &.#{$prefix}--btn--primary {
-    background-color: $ui-05;
-
-    &:hover {
-      background-color: $hoverBgColor;
-    }
-
     &.#{$prefix}--btn:focus {
-      outline-color: $ui-01;
-      border-color: $ui-01;
+      outline-color: $layer-01;
+      border-color: $layer-01;
       box-shadow: none;
     }
   }
@@ -175,17 +313,16 @@ $hoverBgColor: #2c2c2c;
     span {
       display: inline;
     }
-  }
-
-  span {
-    display: flex;
+    svg {
+      fill: $icon-on-color; // Force dark mode in header even in gray-10 theme
+    }
   }
 }
 
 .#{$prefix}--header__menu .#{$prefix}--header__menu-item[data-testid='menuitem'] {
   display: flex;
   align-items: center;
-  color: $active-ui;
+  color: $layer-active-01;
   height: 100%;
   font-size: 0.875rem;
   font-weight: 400;
@@ -194,19 +331,19 @@ $hoverBgColor: #2c2c2c;
   text-decoration: none;
   user-select: none;
   border: 2px solid #0000;
-  transition: background-color $duration--fast-02, border-color $duration--fast-02,
-    color $duration--fast-02;
+  transition: background-color $duration-fast-02, border-color $duration-fast-02,
+    color $duration-fast-02;
   justify-content: center;
   padding: 0;
   width: 100%;
 
   &:focus {
-    border-color: $inverse-focus-ui;
+    border-color: $focus-inverse; //$inverse-focus-ui carbon 11
   }
 }
 
 .#{$prefix}--app-switcher {
-  background-color: $ui-01;
+  background-color: $layer-01;
   border: none;
   overflow-y: scroll;
 }
@@ -219,46 +356,28 @@ $hoverBgColor: #2c2c2c;
   }
 }
 
-.#{$prefix}--header__menu-item:not(svg) {
-  position: relative;
-  display: flex;
-  align-items: center;
-  color: $shell-header-text-02;
-  padding: 0 mini-units(2);
-  // Used for links that are directly in the menubar to span the full height
-  height: 100%;
-  // Text styles
-  @include carbon--type-style('body-short-01');
-  // Reset link styles and make sure the text isn't selectable
-  text-decoration: none;
-  user-select: none;
-  // Used for focus styles
-  border: 2px solid transparent;
-  transition: background-color $duration--fast-02, border-color $duration--fast-02,
-    color $duration--fast-02;
-}
-
 button.#{$prefix}--header__menu-item {
   background: none;
   width: 100%;
 
   &:focus {
-    border-color: $inverse-focus-ui;
-    color: $ui-02;
+    border-color: $focus-inverse; //$inverse-focus-ui carbon 11
+    color: $layer-02;
     outline: none;
   }
 }
 
 .#{$prefix}--header__menu-title.#{$iot-prefix}--btn.#{$prefix}--btn--primary {
-  color: $ui-01;
-
+  color: $layer-01;
   &:focus {
-    border-color: $ui-01;
+    border-color: $layer-01;
     box-shadow: none;
     border-width: 1px;
   }
-
+  &[aria-expanded='true'] {
+    background-color: $hoverBgColor;
+  }
   &:hover {
-    background-color: unset;
+    background-color: $hoverBgColor; // Force dark mode in header even in gray-10 theme
   }
 }

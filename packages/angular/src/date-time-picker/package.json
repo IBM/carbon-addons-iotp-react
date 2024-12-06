@@ -1,7 +1,0 @@
-{
-	"ngPackage": {
-		"lib": {
-			"entryFile": "../date-time-picker-index.ts"
-		}
-	}
-}

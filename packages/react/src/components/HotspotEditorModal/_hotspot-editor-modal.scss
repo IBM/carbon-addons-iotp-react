@@ -1,4 +1,6 @@
-@import '../../globals/vars';
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '../../globals/vars' as *;
 
 .#{$iot-prefix}--hotspot-editor-modal.#{$iot-prefix}--composed-modal {
   // Only apply to the top level modal, in case there is another modal nested inside the modal
@@ -10,18 +12,18 @@
     padding-right: 0;
     display: flex;
     & > *:first-child {
-      margin-right: $layout-03;
+      margin-right: $spacing-07;
       flex-grow: 1;
-      max-width: calc(100% - (#{$right-side-width} + (#{$layout-03} * 2)));
+      max-width: calc(100% - (#{$right-side-width} + (#{$spacing-07} * 2)));
     }
     & > *:last-child {
-      margin-right: $layout-03;
+      margin-right: $spacing-07;
       min-width: $right-side-width;
       overflow-y: auto;
     }
 
     .#{$prefix}--tabs {
-      margin-top: $layout-01;
+      margin-top: $spacing-05;
     }
 
     .#{$prefix}--tab-content {

@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { Erase32 } from '@carbon/icons-react';
+import { Erase } from '@carbon/react/icons';
 import classnames from 'classnames';
 
 import { settings } from '../../../constants/Settings';
@@ -118,8 +118,8 @@ const DynamicHotspotSourcePicker = ({
           [`${classname}__clear-button--invisible`]: !selectedSourceIdX || !selectedSourceIdY,
         })}
         kind="ghost"
-        size="small"
-        renderIcon={Erase32}
+        size="sm"
+        renderIcon={(props) => <Erase size={16} {...props} />}
         iconDescription={clearIconDescription}
         tooltipPosition="top"
         tooltipAlignment="end"

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { spacing05, spacing07 } from '@carbon/layout';
 
 const StyledDiv = styled.div`

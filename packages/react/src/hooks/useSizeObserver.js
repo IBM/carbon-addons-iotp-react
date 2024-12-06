@@ -11,22 +11,25 @@ import { browserSupports } from '../utils/componentUtilityFunctions';
  * @returns Array an array containing an object with height and width, and the ref. ie. [{height, width}, ref]
  */
 const useSizeObserver = ({ initialHeight = 0, initialWidth = 0, ref = undefined } = {}) => {
-  if (!browserSupports('ResizeObserver')) {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const {
+    height = initialHeight,
+    width = initialWidth,
+    ref: observerRef,
+  } = useResizeObserver({
+    ref,
+  });
+
+  // Check for ResizeObserver support
+  const supportsResizeObserver = browserSupports('ResizeObserver');
+
+  if (!supportsResizeObserver) {
     warning(
       !__DEV__,
       'The current browser does not support ResizeObserver. You will need to include a ResizeObserver polyfill for this component to function properly.'
     );
     return [{ height: initialHeight, width: initialWidth }, ref];
   }
-
-  const {
-    height = initialHeight,
-    width = initialWidth,
-    ref: observerRef,
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-  } = useResizeObserver({
-    ref,
-  });
 
   return [{ height, width }, observerRef];
 };

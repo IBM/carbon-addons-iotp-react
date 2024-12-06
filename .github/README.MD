@@ -1,6 +1,3 @@
-> [!WARNING]
-> This library no longer has a dedicated development resource maintaining it. When you are able to [migrate to Carbon v11](https://carbondesignsystem.com/migrating/guide/overview/) we recommend you reference the [related component guide](migration.md) and use components from [Carbon for IBM Products](https://carbon-for-ibm-products.netlify.app/?path=/story/overview-welcome--overview) and core [Carbon](https://react.carbondesignsystem.com/).
-
 <p align="center">
   <a href="https://pages.github.ibm.com/ai-applications/design/">
     <img alt="Carbon add-ons for Watson IoT" src="https://user-images.githubusercontent.com/3360588/59875762-3add3180-9367-11e9-8a65-a6cf7efa5061.png" width="100%" />
@@ -47,6 +44,9 @@
 
 **@latest from
 [`master`](https://github.com/carbon-design-system/carbon-addons-iot-react/tree/master)**
+&nbsp; - &nbsp; <a href="https://carbon-design-system.github.io/carbon-addons-iot-react">
+<img valign=middle src="https://img.shields.io/badge/view%20%40latest-storybook-ff4785" alt="view @latest storybook" />
+</a>
 
 ```bash
 # with npm

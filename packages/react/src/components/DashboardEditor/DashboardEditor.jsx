@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { InlineNotification, SkeletonText, ErrorBoundary } from 'carbon-components-react';
+import { InlineNotification, SkeletonText, ErrorBoundary } from '@carbon/react';
 import classnames from 'classnames';
 import warning from 'warning';
 

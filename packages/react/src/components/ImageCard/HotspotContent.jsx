@@ -9,14 +9,14 @@
  */
 import React, { useRef, useState, useMemo } from 'react';
 import { isNil, isEmpty } from 'lodash-es';
-import { Edit20 } from '@carbon/icons-react';
+import { Edit } from '@carbon/react/icons';
+import { TextInput } from '@carbon/react';
 
 import {
   formatNumberWithPrecision,
   findMatchingThresholds,
 } from '../../utils/cardUtilityFunctions';
 import { settings } from '../../constants/Settings';
-import { TextInput } from '../TextInput';
 import { HotspotContentPropTypes } from '../../constants/SharedPropTypes';
 
 import CardIcon from './CardIcon';
@@ -72,11 +72,15 @@ const HotspotContent = ({
     const titleEditableTextVersion = (
       // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions
       <h4 onClick={() => setShowTitleInput(isTitleEditable)} title={titleEditableHintText}>
-        {titleValue !== null && titleValue !== '' ? titleValue : <Edit20 />}
+        {titleValue !== null && titleValue !== '' ? titleValue : <Edit size={20} />}
       </h4>
     );
 
-    const titleFixedTextVersion = <h4 title={title}>{title}</h4>;
+    const titleFixedTextVersion = (
+      <h4 title={title} className={`${iotPrefix}--hotspot-content-fixed-title`}>
+        {title}
+      </h4>
+    );
 
     const titleInputVersion = (
       <>

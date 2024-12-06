@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { TableRow, TableCell, Checkbox, RadioButton } from 'carbon-components-react';
+import { TableRow, TableCell, Checkbox, RadioButton } from '@carbon/react';
 import classnames from 'classnames';
 
 import { settings } from '../../../../constants/Settings';

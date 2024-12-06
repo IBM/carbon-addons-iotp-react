@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { Tooltip, TooltipDefinition } from 'carbon-components-react';
+import { DefinitionTooltip } from '@carbon/react';
 import warning from 'warning';
 
+import { Tooltip } from '../../Tooltip';
 import { settings } from '../../../constants/Settings';
 import { WrapCellTextPropTypes } from '../../../constants/SharedPropTypes';
 
@@ -85,14 +86,15 @@ const TableCellRenderer = ({
 
   const withTooltip = (element, tooltipForExtraInformation) => {
     return tooltip ? (
-      <TooltipDefinition
+      <DefinitionTooltip
         triggerClassName={`${iotPrefix}--table__cell-tooltip`}
         tooltipText={tooltipForExtraInformation}
         id="table-header-tooltip"
         align={tooltipDirection}
+        openOnHover
       >
         {element}
-      </TooltipDefinition>
+      </DefinitionTooltip>
     ) : (
       <Tooltip
         showIcon={false}

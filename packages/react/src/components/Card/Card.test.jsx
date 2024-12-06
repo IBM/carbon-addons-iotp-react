@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { Tree16, Add16 } from '@carbon/icons-react';
+import { Tree, Add } from '@carbon/react/icons';
 
 import { CARD_SIZES, CARD_TITLE_HEIGHT, CARD_ACTIONS } from '../../constants/LayoutConstants';
 import { settings } from '../../constants/Settings';
@@ -119,13 +119,13 @@ describe('Card', () => {
         {...cardProps}
         size={CARD_SIZES.SMALL}
         availableActions={{ range: true, expand: true }}
-        renderExpandIcon={Tree16}
+        renderExpandIcon={Tree}
       />
     );
 
     const button = screen.queryByLabelText('Expand to fullscreen');
 
-    const { container } = render(<Tree16 aria-hidden="true" aria-label="Expand to fullscreen" />);
+    const { container } = render(<Tree aria-hidden="true" aria-label="Expand to fullscreen" />);
 
     expect(button.firstChild).toEqual(container.firstChild.firstChild);
   });
@@ -341,7 +341,7 @@ describe('Card', () => {
         {...cardProps}
         size={CARD_SIZES.SMALL}
         availableActions={{ range: true, expand: true }}
-        renderExpandIcon={Tree16}
+        renderExpandIcon={Tree}
       />
     );
 
@@ -352,7 +352,7 @@ describe('Card', () => {
         {...cardProps}
         size={CARD_SIZES.SMALL}
         availableActions={{ range: true, expand: true }}
-        renderExpandIcon={Tree16}
+        renderExpandIcon={Tree}
         footerContent={() => <Button kind="ghost">Footer Content</Button>}
       />
     );
@@ -716,13 +716,13 @@ describe('Card', () => {
     const mockExtraMultiple = jest.fn();
     const singleExtraAction = {
       id: 'extrasingleaction',
-      icon: Add16,
+      icon: Add,
       iconDescription: 'Add',
       callback: mockExtraSingle,
     };
     const singleExtraDisabledAction = {
       id: 'extrasingleaction',
-      icon: Add16,
+      icon: Add,
       iconDescription: 'Add',
       disabled: true,
       callback: mockExtraSingle,
@@ -857,7 +857,7 @@ describe('Card', () => {
       <Card
         {...cardProps}
         size={CARD_SIZES.LARGE}
-        extraActions={{ ...multiExtraAction, icon: Tree16, iconDescription: null }}
+        extraActions={{ ...multiExtraAction, icon: Tree, iconDescription: null }}
         availableActions={{
           extra: true,
         }}

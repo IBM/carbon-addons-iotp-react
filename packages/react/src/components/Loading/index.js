@@ -1,1 +1,1 @@
-export { Loading } from 'carbon-components-react';
+export { Loading } from '@carbon/react';

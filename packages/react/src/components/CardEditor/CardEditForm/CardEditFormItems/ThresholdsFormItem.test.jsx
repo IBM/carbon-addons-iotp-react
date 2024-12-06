@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { green50 } from '@carbon/colors';
-import { Help24 } from '@carbon/icons-react';
+import { Help } from '@carbon/react/icons';
 
 import { validThresholdIcons, validThresholdColors } from '../../../DashboardEditor/editorUtils';
 
@@ -87,7 +87,7 @@ describe('ThresholdsFormItem', () => {
     render(
       <ThresholdsFormItem
         {...commonProps}
-        selectedIcon={{ carbonIcon: <Help24 />, name: 'Help' }}
+        selectedIcon={{ carbonIcon: <Help size={24} />, name: 'Help' }}
         selectedColor={{ carbonColor: green50, name: 'green50' }}
       />
     );
@@ -109,7 +109,7 @@ describe('ThresholdsFormItem', () => {
           color: null,
         }))}
         icons={validThresholdIcons}
-        selectedIcon={{ carbonIcon: <Help24 />, name: 'Help' }}
+        selectedIcon={{ carbonIcon: <Help size={24} />, name: 'Help' }}
         selectedColor={{ carbonColor: green50, name: 'green50' }}
       />
     );

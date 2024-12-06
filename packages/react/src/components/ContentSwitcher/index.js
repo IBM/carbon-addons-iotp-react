@@ -1,1 +1,1 @@
-export { ContentSwitcher } from 'carbon-components-react';
+export { ContentSwitcher } from '@carbon/react';

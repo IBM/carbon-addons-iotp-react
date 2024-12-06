@@ -1,3 +1,3 @@
-export { BreadcrumbItem, BreadcrumbSkeleton } from 'carbon-components-react';
+export { BreadcrumbItem, BreadcrumbSkeleton } from '@carbon/react';
 
 export default from './Breadcrumb';

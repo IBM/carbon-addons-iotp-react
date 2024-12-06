@@ -6,11 +6,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useState } from 'react';
-import { settings } from 'carbon-components';
+import React from 'react';
 import { withKnobs, select, text, number } from '@storybook/addon-knobs';
-import { OverflowMenuVertical16 } from '@carbon/icons-react';
+import { OverflowMenuVertical } from '@carbon/react/icons';
 
+import { settings } from '../../constants/Settings';
 import Button from '../Button';
 
 import { Tooltip } from '.';
@@ -63,7 +63,7 @@ const props = {
     iconDescription: 'Helpful Information',
     tabIndex: number('Tab index (tabIndex in <Tooltip>)', 0),
     selectorPrimaryFocus: text('Primary focus element selector (selectorPrimaryFocus)', ''),
-    renderIcon: OverflowMenuVertical16,
+    renderIcon: OverflowMenuVertical,
     triggerId: 'customIconOnly',
   }),
 };
@@ -77,32 +77,6 @@ const containerStyles = {
 
 Tooltip.displayName = 'Tooltip';
 
-function UncontrolledTooltipExample() {
-  const [value, setValue] = useState(true);
-  return (
-    <>
-      <Button style={{ padding: '15px 20px', margin: '4px 20px' }} onClick={() => setValue(false)}>
-        Hide
-      </Button>
-      <Button style={{ padding: '15px 20px', margin: '4px 20px' }} onClick={() => setValue(true)}>
-        Show
-      </Button>
-      <div style={{ padding: '15px', margin: '4px 20px' }}>
-        <Tooltip
-          triggerId="uncontrolled"
-          tooltipId="uncontrolled"
-          id="uncontrolled"
-          triggerText={<div>My text wrapped with tooltip</div>}
-          open={value}
-          showIcon={false}
-        >
-          Some text
-        </Tooltip>
-      </div>
-    </>
-  );
-}
-
 export default {
   title: '1 - Watson IoT/Tooltip',
   decorators: [withKnobs],
@@ -115,16 +89,18 @@ export default {
 export const DefaultBottom = () => (
   <div style={containerStyles}>
     <Tooltip {...props.withIcon()} tooltipBodyId="tooltip-body">
-      <p id="tooltip-body">
-        This is some tooltip text. This box shows the maximum amount of text that should appear
-        inside. If more room is needed please use a modal instead.
-      </p>
-      <div className={`${prefix}--tooltip__footer`}>
-        <a href="/" className={`${prefix}--link`}>
-          Learn More
-        </a>
-        <Button size="small">Create</Button>
-      </div>
+      <>
+        <p id="tooltip-body">
+          This is some tooltip text. This box shows the maximum amount of text that should appear
+          inside. If more room is needed please use a modal instead.
+        </p>
+        <div className={`${prefix}--tooltip__footer`}>
+          <a href="/" className={`${prefix}--link`}>
+            Learn More
+          </a>
+          <Button size="sm">Create</Button>
+        </div>
+      </>
     </Tooltip>
   </div>
 );
@@ -144,16 +120,18 @@ DefaultBottom.parameters = {
 export const NoIcon = () => (
   <div style={containerStyles}>
     <Tooltip {...props.withoutIcon()}>
-      <p>
-        This is some tooltip text. This box shows the maximum amount of text that should appear
-        inside. If more room is needed please use a modal instead.
-      </p>
-      <div className={`${prefix}--tooltip__footer`}>
-        <a href="/" className={`${prefix}--link`}>
-          Learn More
-        </a>
-        <Button size="small">Create</Button>
-      </div>
+      <>
+        <p id="tooltip-body">
+          This is some tooltip text. This box shows the maximum amount of text that should appear
+          inside. If more room is needed please use a modal instead.
+        </p>
+        <div className={`${prefix}--tooltip__footer`}>
+          <a href="/" className={`${prefix}--link`}>
+            Learn More
+          </a>
+          <Button size="sm">Create</Button>
+        </div>
+      </>
     </Tooltip>
   </div>
 );
@@ -173,16 +151,18 @@ NoIcon.parameters = {
 export const RenderCustomIcon = () => (
   <div style={containerStyles}>
     <Tooltip {...props.customIcon()}>
-      <p>
-        This is some tooltip text. This box shows the maximum amount of text that should appear
-        inside. If more room is needed please use a modal instead.
-      </p>
-      <div className={`${prefix}--tooltip__footer`}>
-        <a href="/" className={`${prefix}--link`}>
-          Learn More
-        </a>
-        <Button size="small">Create</Button>
-      </div>
+      <>
+        <p id="tooltip-body">
+          This is some tooltip text. This box shows the maximum amount of text that should appear
+          inside. If more room is needed please use a modal instead.
+        </p>
+        <div className={`${prefix}--tooltip__footer`}>
+          <a href="/" className={`${prefix}--link`}>
+            Learn More
+          </a>
+          <Button size="sm">Create</Button>
+        </div>
+      </>
     </Tooltip>
   </div>
 );
@@ -202,16 +182,18 @@ RenderCustomIcon.parameters = {
 export const OnlyCustomIcon = () => (
   <div style={containerStyles}>
     <Tooltip {...props.customIconOnly()}>
-      <p>
-        This is some tooltip text. This box shows the maximum amount of text that should appear
-        inside. If more room is needed please use a modal instead.
-      </p>
-      <div className={`${prefix}--tooltip__footer`}>
-        <a href="/" className={`${prefix}--link`}>
-          Learn More
-        </a>
-        <Button size="small">Create</Button>
-      </div>
+      <>
+        <p id="tooltip-body">
+          This is some tooltip text. This box shows the maximum amount of text that should appear
+          inside. If more room is needed please use a modal instead.
+        </p>
+        <div className={`${prefix}--tooltip__footer`}>
+          <a href="/" className={`${prefix}--link`}>
+            Learn More
+          </a>
+          <Button size="sm">Create</Button>
+        </div>
+      </>
     </Tooltip>
   </div>
 );
@@ -227,10 +209,6 @@ OnlyCustomIcon.parameters = {
       `,
   },
 };
-
-export const UncontrolledTooltip = () => <UncontrolledTooltipExample />;
-
-UncontrolledTooltip.storyName = 'uncontrolled tooltip';
 
 export const AutoPositioningExample = () => {
   return (

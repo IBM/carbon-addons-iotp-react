@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TrashCan16, Edit16 } from '@carbon/icons-react';
+import { TrashCan, Edit } from '@carbon/react/icons';
+import { Tag } from '@carbon/react';
 
-import { Tag } from '../../Tag';
 import { settings } from '../../../constants/Settings';
 import { OverridePropTypes } from '../../../constants/SharedPropTypes';
 import List from '../../List/List';
@@ -25,7 +25,7 @@ const renderButton = (id, onClick, icon, key, iconText) => (
       onClick(id);
     }}
     renderIcon={icon}
-    size="small"
+    size="sm"
     tooltipAlignment="center"
     tooltipPosition="left"
   />
@@ -38,12 +38,12 @@ const getRowActions = (
   const rowActions = [];
   if (isEditable) {
     const editItemKey = `${testID}-row-action-${id}-edit`;
-    const editButton = renderButton(id, onEdit, Edit16, editItemKey, editIconText);
+    const editButton = renderButton(id, onEdit, Edit, editItemKey, editIconText);
     rowActions.push(editButton);
   }
   if (isDeleteable) {
     const deleteItemKey = `${testID}-row-action-${id}-delete`;
-    const deleteButton = renderButton(id, onDelete, TrashCan16, deleteItemKey, deleteIconText);
+    const deleteButton = renderButton(id, onDelete, TrashCan, deleteItemKey, deleteIconText);
     rowActions.push(deleteButton);
   }
   return rowActions;

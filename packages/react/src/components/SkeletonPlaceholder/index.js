@@ -1,1 +1,1 @@
-export { SkeletonPlaceholder } from 'carbon-components-react';
+export { SkeletonPlaceholder } from '@carbon/react';

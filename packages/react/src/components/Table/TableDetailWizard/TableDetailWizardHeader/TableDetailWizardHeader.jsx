@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { Close20 } from '@carbon/icons-react';
+import { Close } from '@carbon/react/icons';
 
 import Button from '../../../Button';
 import { settings } from '../../../../constants/Settings';
@@ -14,7 +14,7 @@ const TableDetailWizardHeader = ({ title, onClose, className }) => (
     <div className={`${iotPrefix}--table-detail-wizard-header--button`}>
       <Button
         kind="ghost"
-        renderIcon={() => <Close20 />}
+        renderIcon={() => <Close size={20} />}
         iconDescription={title}
         onClick={() => onClose()}
       />

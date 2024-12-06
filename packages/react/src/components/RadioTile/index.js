@@ -1,1 +1,1 @@
-export { RadioTile } from 'carbon-components-react';
+export { RadioTile } from '@carbon/react';

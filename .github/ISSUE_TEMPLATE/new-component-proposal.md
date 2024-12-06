@@ -11,7 +11,6 @@ assignees: ''
 ### What package is this for?
 
 - [ ] React
-- [ ] Angular
 
 ### Summary
 

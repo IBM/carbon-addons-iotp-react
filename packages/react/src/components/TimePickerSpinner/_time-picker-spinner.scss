@@ -1,5 +1,9 @@
-@import '../../globals/vars';
-
+@use '../../globals/vars' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/utilities/focus-outline' as *;
+@use '@carbon/react/scss/utilities/convert';
 .#{$iot-prefix}--time-picker__wrapper {
   position: relative;
 
@@ -54,7 +58,7 @@
       align-items: center;
       padding: 0;
       width: 1.7rem;
-      height: rem(18px);
+      height: convert.to-rem(18px);
 
       svg {
         fill: currentColor;
@@ -62,11 +66,11 @@
       }
 
       &.up-icon svg {
-        top: rem(4px);
+        top: convert.to-rem(4px);
       }
 
       &.down-icon svg {
-        top: rem(-4px);
+        top: convert.to-rem(-4px);
       }
 
       &:focus {
@@ -77,12 +81,12 @@
 
       &:hover {
         cursor: pointer;
-        color: $icon-01;
+        color: $icon-primary;
       }
 
       &:disabled {
         cursor: not-allowed;
-        color: $disabled;
+        // color: $disabled; //$disabled
       }
     }
   }

@@ -5,7 +5,7 @@ import {
   ModalHeader,
   Loading,
   InlineNotification,
-} from 'carbon-components-react';
+} from '@carbon/react';
 import PropTypes from 'prop-types';
 import React, { Fragment, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import classnames from 'classnames';

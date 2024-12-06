@@ -1,17 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { keys, matches } from 'carbon-components-react/es/internal/keyboard';
-import {
-  CheckmarkOutline24,
-  CheckmarkOutline16,
-  Warning24,
-  Warning16,
-  RadioButton16,
-  RadioButton24,
-  CircleFilled16,
-  CircleFilled24,
-} from '@carbon/icons-react';
+import { Enter, Space } from '@carbon/react/es/internal/keyboard/keys';
+import { matches } from '@carbon/react/es/internal/keyboard/match';
+import { CheckmarkOutline, Warning, RadioButton, CircleFilled } from '@carbon/react/icons';
 
 import { settings } from '../../constants/Settings';
 
@@ -48,7 +40,7 @@ const ProgressStep = ({
   };
 
   const handleKeyDown = (e) => {
-    if (matches(e, [keys.Enter, keys.Space])) {
+    if (matches(e, [Enter, Space])) {
       handleClick();
     }
   };
@@ -72,9 +64,9 @@ const ProgressStep = ({
 
     if (mainStep) {
       if (completed) {
-        value = <CheckmarkOutline24 />;
+        value = <CheckmarkOutline size={24} />;
       } else if (invalid) {
-        value = <Warning24 />;
+        value = <Warning size={24} />;
       } else {
         const number = (
           <>
@@ -84,19 +76,19 @@ const ProgressStep = ({
           </>
         );
         if (current) {
-          value = <CircleFilled24>{number}</CircleFilled24>;
+          value = <CircleFilled size={24}>{number}</CircleFilled>;
         } else {
-          value = <RadioButton24>{number}</RadioButton24>;
+          value = <RadioButton size={24}>{number}</RadioButton>;
         }
       }
     } else if (completed) {
-      value = <CheckmarkOutline16 />;
+      value = <CheckmarkOutline />;
     } else if (invalid) {
-      value = <Warning16 />;
+      value = <Warning />;
     } else if (current) {
-      value = <CircleFilled16 />;
+      value = <CircleFilled />;
     } else {
-      value = <RadioButton16 />;
+      value = <RadioButton />;
     }
 
     return (

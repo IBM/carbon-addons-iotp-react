@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { TimePicker } from 'carbon-components-react';
-import { CaretDownGlyph, CaretUpGlyph } from '@carbon/icons-react';
+import { TimePicker } from '@carbon/react';
+import { ChevronDown, ChevronUp } from '@carbon/react/icons'; //  CaretDownGlyph, CaretUpGlyph correct icon need to find
 import classnames from 'classnames';
 import { merge } from 'lodash-es';
 
@@ -297,7 +297,7 @@ const TimePickerSpinner = ({
               disabled={disabled}
               data-testid={`${testId}-up-button`}
             >
-              <CaretUpGlyph className="up-icon" />
+              <ChevronUp className="up-icon" />
             </button>
             <button
               type="button"
@@ -314,7 +314,7 @@ const TimePickerSpinner = ({
               disabled={disabled}
               data-testid={`${testId}-down-button`}
             >
-              <CaretDownGlyph className="down-icon" />
+              <ChevronDown className="down-icon" />
             </button>
           </div>
         ) : null}

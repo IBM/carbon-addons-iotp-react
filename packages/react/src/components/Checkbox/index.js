@@ -1,1 +1,1 @@
-export { Checkbox, CheckboxSkeleton } from 'carbon-components-react';
+export { Checkbox, CheckboxSkeleton } from '@carbon/react';

@@ -1,11 +1,11 @@
 import React, { Fragment, useState } from 'react';
 import { action } from '@storybook/addon-actions';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import PageTitleBar from '../PageTitleBar/PageTitleBar';
 import PageWorkArea from '../Page/PageWorkArea';
-import WizardInline from '../WizardInline/StatefulWizardInline';
-import { itemsAndComponents } from '../WizardInline/WizardInline.story';
+// import WizardInline from '../WizardInline/StatefulWizardInline';
+// import { itemsAndComponents } from '../WizardInline/WizardInline.story';
 
 import NavigationBar from './NavigationBar';
 
@@ -48,12 +48,12 @@ const StatefulNavigationBar = () => {
         workArea={
           workAreaOpen ? (
             <PageWorkArea isOpen={workAreaOpen}>
-              <WizardInline
+              {/* <WizardInline
                 title="Sample Wizard"
                 items={itemsAndComponents}
                 onClose={() => setWorkAreaOpen(false)}
                 onSubmit={() => setWorkAreaOpen(false)}
-              />
+              /> */}
             </PageWorkArea>
           ) : null
         }
@@ -75,7 +75,9 @@ export const Normal = () => <NavigationBar {...navBarProps} />;
 
 Normal.storyName = 'normal';
 
-export const StartWithTab2Selected = () => <NavigationBar {...navBarProps} selected={1} />;
+export const StartWithTab2Selected = () => (
+  <NavigationBar {...navBarProps} defaultSelectedIndex={1} />
+);
 
 StartWithTab2Selected.storyName = 'start with tab 2 selected';
 

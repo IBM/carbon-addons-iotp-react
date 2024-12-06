@@ -20,4 +20,4 @@ export {
   TableToolbarContent,
   TableToolbarSearch,
   TableToolbarMenu,
-} from 'carbon-components-react';
+} from '@carbon/react';

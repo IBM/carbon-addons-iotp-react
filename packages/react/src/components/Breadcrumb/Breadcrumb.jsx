@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useRef, Children } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { OverflowMenuHorizontal20 } from '@carbon/icons-react';
-import { Breadcrumb as CarbonBreadcrumb } from 'carbon-components-react';
+import { OverflowMenuHorizontal } from '@carbon/react/icons';
+import { Breadcrumb as CarbonBreadcrumb, OverflowMenuItem } from '@carbon/react';
 
 import { OverflowMenu } from '../OverflowMenu';
-import { OverflowMenuItem } from '../OverflowMenuItem';
 import { useResize } from '../../internal/UseResizeObserver';
 import { settings } from '../../constants/Settings';
 
@@ -126,7 +125,7 @@ const Breadcrumb = ({ children, className, hasOverflow, testId, disableTruncatio
             <span className="breadcrumb--overflow">
               <OverflowMenu
                 data-testid={`${testId}-overflow-menu`}
-                renderIcon={OverflowMenuHorizontal20}
+                renderIcon={(props) => <OverflowMenuHorizontal size={20} {...props} />}
                 menuOptionsClass="breadcrumb--overflow-items"
               >
                 {overflowItems.map((child, i) => (

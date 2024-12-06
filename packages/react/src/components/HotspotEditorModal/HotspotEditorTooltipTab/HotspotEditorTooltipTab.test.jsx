@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { red50, blue50, green50 } from '@carbon/colors';
-import { InformationSquareFilled24, InformationFilled24 } from '@carbon/icons-react';
+import { InformationSquareFilled, InformationFilled } from '@carbon/react/icons';
 
 import HotspotEditorTooltipTab from './HotspotEditorTooltipTab';
 
@@ -16,12 +16,12 @@ describe('HotspotEditorTooltipTab', () => {
   const getIcons = () => [
     {
       id: 'InformationSquareFilled24',
-      icon: InformationSquareFilled24,
+      icon: InformationSquareFilled,
       text: 'Information square filled',
     },
     {
       id: 'InformationFilled24',
-      icon: InformationFilled24,
+      icon: InformationFilled,
       text: 'Information filled',
     },
   ];

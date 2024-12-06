@@ -1,12 +1,13 @@
-import { ClickableTile } from 'carbon-components-react';
+import { ClickableTile } from '@carbon/react';
 import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
-import { g10 } from '@carbon/themes';
-import { Add20 } from '@carbon/icons-react';
+// import { v10 } from '@carbon/themes';  need to upgrade
+import { Add } from '@carbon/react/icons';
 
 import { settings } from '../../constants/Settings';
 
+// const { g10 } = v10;
 const { iotPrefix } = settings;
 const propTypes = {
   /** Title to show on the card */
@@ -27,7 +28,8 @@ const AddCard = ({ onClick, title, className, testId }) => (
     onClick={onClick}
   >
     <p className={`${iotPrefix}-addcard-title`}>{title}</p>
-    <Add20 fill={g10.icon01} description={title} />
+    {/* <Add size={20} fill={g10.icon01} description={title} /> */}
+    <Add size={20} description={title} />
   </ClickableTile>
 );
 

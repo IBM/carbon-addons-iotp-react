@@ -1,1 +1,3 @@
-export { TooltipIcon } from 'carbon-components-react';
+import TooltipIcon from './TooltipIcon';
+
+export default TooltipIcon;

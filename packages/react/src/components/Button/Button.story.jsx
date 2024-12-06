@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, boolean, select, text } from '@storybook/addon-knobs';
-import { settings } from 'carbon-components';
-import { Add16, Search16 } from '@carbon/icons-react';
-import { ButtonSkeleton } from 'carbon-components-react';
+import { Add, Search } from '@carbon/react/icons';
+import { ButtonSkeleton } from '@carbon/react';
+
+import { settings } from '../../constants/Settings';
 
 import Button from './Button';
 
@@ -15,13 +16,13 @@ const { prefix } = settings;
 
 const icons = {
   None: 'None',
-  'Add (Add16 from `@carbon/icons-react`)': 'Add16',
-  'Search (Search16 from `@carbon/icons-react`)': 'Search16',
+  'Add (Add16 from `@carbon/icons-react`)': 'Add',
+  'Search (Search16 from `@carbon/icons-react`)': 'Search',
 };
 
 const iconMap = {
-  Add16,
-  Search16,
+  Add,
+  Search,
 };
 
 const kinds = {
@@ -29,15 +30,14 @@ const kinds = {
   'Secondary button (secondary)': 'secondary',
   'Tertiary button (tertiary)': 'tertiary',
   'Danger button (danger)': 'danger',
+  'Danger ghost button (danger--ghost)': 'danger--ghost',
+  'Danger tertiary button (danger--tertiary)': 'danger--tertiary',
+  'Danger primary button (danger--primary)': 'danger--primary',
   'Ghost button (ghost)': 'ghost',
   'Icon Selection button (ghost)': 'icon-selection',
 };
 
-const sizes = {
-  Default: 'default',
-  Field: 'field',
-  Small: 'small',
-};
+const sizes = ['lg', 'md', 'sm', 'xl', '2xl'];
 
 const props = {
   regular: () => {
@@ -45,8 +45,9 @@ const props = {
     return {
       className: 'some-class',
       kind: select('Button kind (kind)', kinds, 'primary'),
+      loading: boolean('Loading (loading)', false),
       disabled: boolean('Disabled (disabled)', false),
-      size: select('Button size (size)', sizes, 'default'),
+      size: select('Button size (size)', sizes, 'lg'),
       renderIcon: !iconToUse || iconToUse.svgData ? undefined : iconToUse,
       iconDescription: text('Icon description (iconDescription)', 'Button icon'),
       onClick: action('onClick'),
@@ -54,7 +55,7 @@ const props = {
     };
   },
   iconOnly: () => {
-    const iconToUse = iconMap[select('Icon (icon)', icons, 'Add16')];
+    const iconToUse = iconMap[select('Icon (icon)', icons, 'Add')];
     return {
       className: 'some-class',
       kind: select(
@@ -68,7 +69,7 @@ const props = {
         'primary'
       ),
       disabled: boolean('Disabled (disabled)', false),
-      size: select('Button size (size)', sizes, 'default'),
+      size: select('Button size (size)', sizes, 'lg'),
       renderIcon: !iconToUse || iconToUse.svgData ? undefined : iconToUse,
       iconDescription: text('Icon description (iconDescription)', 'Button icon'),
       tooltipPosition: select(
@@ -90,7 +91,7 @@ const props = {
     return {
       className: 'some-class',
       disabled: boolean('Disabled (disabled)', false),
-      size: select('Button size (size)', sizes, 'default'),
+      size: select('Button size (size)', sizes, 'lg'),
       renderIcon: !iconToUse || iconToUse.svgData ? undefined : iconToUse,
       iconDescription: text('Icon description (iconDescription)', 'Button icon'),
       onClick: action('onClick'),
@@ -98,14 +99,15 @@ const props = {
     };
   },
   iconSelection: () => {
-    const iconToUse = iconMap[select('Icon (icon)', icons, 'Add16')];
+    const iconToUse = iconMap[select('Icon (icon)', icons, 'Add')];
+    console.log(iconToUse, 'iconToUse');
     return {
       className: 'some-class',
       kind: 'icon-selection',
       recommended: boolean('Recommended (recommended)', false),
       hasIconOnly: true,
       disabled: boolean('Disabled (disabled)', false),
-      size: select('Button size (size)', sizes, 'default'),
+      size: select('Button size (size)', sizes, 'lg'),
       renderIcon: !iconToUse || iconToUse.svgData ? undefined : iconToUse,
       iconDescription: text('Icon description (iconDescription)', 'Button icon'),
       tooltipPosition: select(
@@ -273,7 +275,7 @@ export const Skeleton = () => (
     &nbsp;
     <ButtonSkeleton href="#" />
     &nbsp;
-    <ButtonSkeleton size="small" />
+    <ButtonSkeleton size="sm" />
   </div>
 );
 

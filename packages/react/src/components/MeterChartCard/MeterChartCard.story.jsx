@@ -6,7 +6,7 @@ import { layout05 } from '@carbon/layout';
 import { CARD_SIZES } from '../../constants/LayoutConstants';
 import { getCardMinSize } from '../../utils/componentUtilityFunctions';
 
-import MeterChartCardREADME from './MeterChartCard.mdx';
+// import MeterChartCardREADME from './MeterChartCard.mdx'; //carbon 11
 import MeterChartCard from './MeterChartCard';
 
 const supportedSizes = Object.keys(CARD_SIZES).filter(
@@ -16,9 +16,9 @@ export default {
   title: '1 - Watson IoT/Card/MeterChartCard',
   parameters: {
     component: MeterChartCard,
-    docs: {
-      page: MeterChartCardREADME,
-    },
+    // docs: {
+    //   page: MeterChartCardREADME,
+    // }, //carbon 11
   },
 };
 

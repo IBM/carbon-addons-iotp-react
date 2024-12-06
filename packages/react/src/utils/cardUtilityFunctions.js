@@ -501,7 +501,7 @@ export const handleTooltip = (
   locale
 ) => {
   dayjs.locale(locale);
-  const data = dataOrHoveredElement?.__data__
+  const data = /* eslint-disable no-underscore-dangle */ dataOrHoveredElement?.__data__
     ? dataOrHoveredElement.__data__ // eslint-disable-line no-underscore-dangle
     : dataOrHoveredElement;
   const timeStamp = Array.isArray(data) ? data[0]?.date?.getTime() : data?.date?.getTime();

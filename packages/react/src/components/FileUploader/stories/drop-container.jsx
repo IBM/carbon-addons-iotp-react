@@ -9,14 +9,15 @@
 
 import React, { useState, useCallback, useEffect } from 'react';
 import classnames from 'classnames';
-import { settings } from 'carbon-components';
-import uid from 'carbon-components-react/es/tools/uniqueId';
+// import { settings } from 'carbon-components';
+import uid from '@carbon/react/es/tools/uniqueId';
 
 import { FileUploaderItem, FileUploaderDropContainer } from '../index';
 import { FormItem } from '../../FormItem';
-import '../FileUploader-story.scss';
+// import '../FileUploader-story.scss'; carbon 11
 
-const { prefix } = settings;
+// const { prefix } = settings; nned to update carbon 11
+const prefix = 'cds';
 
 const ExampleDropContainerApp = (props) => {
   const [files, setFiles] = useState([]);

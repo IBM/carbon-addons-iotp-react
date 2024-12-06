@@ -1,2 +1,2 @@
-@import './table-head-cell.scss';
-@import './table-head.scss';
+@use './table-head-cell.scss' as *;
+@use './table-head.scss' as *;

@@ -1,3 +1,6 @@
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/spacing' as *;
 .list-card {
   height: 100%;
   overflow-y: auto;

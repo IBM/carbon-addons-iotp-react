@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import { Modal } from '../../Modal';
+import { Modal } from '@carbon/react';
 
 const defaultProps = {
   isOpen: false,

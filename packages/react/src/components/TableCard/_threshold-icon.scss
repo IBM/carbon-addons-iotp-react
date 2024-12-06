@@ -1,6 +1,6 @@
-@import '~carbon-components/scss/globals/scss/vars';
-@import '../../globals/vars';
-
+@use '@carbon/react/scss/config' as *;
+@use '../../globals/vars' as *;
+@use '@carbon/react/scss/spacing' as *;
 .#{$iot-prefix}--threshold-icon--wrapper {
   display: flex;
 }

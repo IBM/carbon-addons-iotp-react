@@ -1,3 +1,9 @@
+@use '../../globals/vars' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/motion' as *;
+
 .#{$iot-prefix}--tear-sheet-wrapper {
   top: 0;
   left: 0;
@@ -6,7 +12,7 @@
   opacity: 0;
   z-index: -1;
   position: fixed;
-  transition: all $duration--slow-01 motion(standard, expressive) $duration--slow-01;
+  transition: all $duration-slow-01 motion(standard, expressive) $duration-slow-01;
 
   &--container {
     position: absolute;
@@ -14,7 +20,7 @@
     left: 50%;
     top: 5.5rem;
     transform: translate(-50%, 100vh);
-    transition: all $duration--slow-01 motion(standard, expressive);
+    transition: all $duration-slow-01 motion(standard, expressive);
     height: calc(100vh - 5.5rem);
     width: calc(100% - 8rem);
     opacity: 1;
@@ -30,7 +36,7 @@
       transform: translate(-50%, 100vh);
       width: calc(100% - 9.5rem);
       & * {
-        transition: all $duration--slow-01 motion(standard, expressive);
+        transition: all $duration-slow-01 motion(standard, expressive);
       }
     }
 
@@ -44,10 +50,10 @@
   }
 
   &.#{$iot-prefix}--tear-sheet-wrapper__is-visible {
-    background-color: $overlay-01;
+    background-color: $overlay;
     z-index: 5999;
-    transition: opacity $duration--slow-01 motion(standard, expressive),
-      background-color $duration--slow-02 motion(standard, productive);
+    transition: opacity $duration-slow-01 motion(standard, expressive),
+      background-color $duration-slow-02 motion(standard, productive);
     opacity: 1;
   }
 }

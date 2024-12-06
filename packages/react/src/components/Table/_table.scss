@@ -1,12 +1,23 @@
-@import '~carbon-components/scss/globals/scss/vars';
-@import 'TableHead/table-head';
-@import 'TableFoot/table-foot';
-@import 'TableSkeletonWithHeaders/table-skeleton-with-headers';
-@import 'TableCellRenderer/table-cell-renderer';
-@import 'TableDetailWizard/table-detail-wizard';
-@import 'TableMultiSortModal/table-multi-sort-modal';
-@import '../../globals/vars';
-@import '../../globals/mixins';
+@use '@carbon/react/scss/config' as *;
+@use 'TableHead/table-head' as *;
+@use 'TableFoot/table-foot' as *;
+@use 'TableSkeletonWithHeaders/table-skeleton-with-headers' as *;
+@use 'TableCellRenderer/table-cell-renderer' as *;
+@use 'TableDetailWizard/table-detail-wizard' as *;
+@use 'TableMultiSortModal/table-multi-sort-modal' as *;
+@use '../../globals/vars' as *;
+@use '../../globals/mixins' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/colors' as *;
+@use '@carbon/react/scss/utilities/box-shadow' as *;
+@use '@carbon/react/scss/layer' as *;
+@use '../../globals/mixins' as *;
+@use '@carbon/react/scss/utilities/convert';
+@use '@carbon/react/scss/components/data-table/sort/data-table-sort' as *;
+@use '@carbon/react/scss/components/data-table' as *;
+@use '@carbon/react/scss/components/data-table/action' as *;
 
 table.#{$prefix}--side-nav--data-table {
   white-space: nowrap;
@@ -65,7 +76,7 @@ td.#{$iot-prefix}--table__cell--sortable {
 }
 
 .#{$iot-prefix}-table-container--dropdown-height-fix {
-  background-color: $ui-01;
+  background-color: $layer-01;
   min-height: calc(#{$spacing-10} * 5);
   .#{$prefix}--data-table-content {
     min-height: calc(#{$spacing-10} * 5);
@@ -99,7 +110,7 @@ html[dir='rtl'] {
     justify-content: center;
     flex-direction: column;
     // 3rem since we can't multiply 1px * 3rem in calc
-    // stylelint-disable-next-line declaration-property-unit-blacklist
+    // stylelint-disable-next-line declaration-property-unit-disallowed-list
     padding: Max(calc(48 * var(--is-large-card)), 0px);
     svg {
       margin: $spacing-05 $spacing-05 $spacing-05 0;
@@ -112,9 +123,9 @@ html[dir='rtl'] {
 }
 
 .#{$iot-prefix}--table__advanced-filters-container {
-  background-color: $ui-01;
+  background-color: $layer-01;
   padding: $spacing-02 $spacing-04;
-  border-top: 1px solid $ui-03;
+  border-top: 1px solid $layer-accent-01;
 }
 
 // needed specificity to override .iot--tooltip-svg-wrapper and allow flyout to align
@@ -123,7 +134,7 @@ button.#{$prefix}--btn.#{$iot-prefix}--tooltip-svg-wrapper.#{$prefix}--btn--ghos
   border: 1px solid transparent;
 
   &.#{$iot-prefix}--table-toolbar-button-active {
-    @include box-shadow;
+    @include box-shadow();
   }
 }
 
@@ -149,15 +160,15 @@ button.#{$prefix}--btn.#{$iot-prefix}--tooltip-svg-wrapper.#{$prefix}--btn--ghos
     &,
     td {
       background-color: inherit;
-      color: $text-02;
-      border-bottom-color: $ui-03;
-      border-top-color: $ui-01;
+      color: $text-secondary;
+      border-bottom-color: $layer-accent-01;
+      border-top-color: $layer-01;
     }
   }
 }
 
 .#{$iot-prefix}--table__row--background td {
-  background-color: $ui-03;
+  background-color: $layer-accent-01;
 }
 
 .#{$iot-prefix}--table__row--singly-selected,
@@ -174,8 +185,8 @@ button.#{$prefix}--btn.#{$iot-prefix}--tooltip-svg-wrapper.#{$prefix}--btn--ghos
       top: -1px;
       left: 0;
       height: calc(100% + 1px);
-      width: rem(3px);
-      background-color: $interactive-04;
+      width: convert.to-rem(3px);
+      background-color: $border-interactive;
       border-right: solid 1px $highlight;
     }
   }
@@ -195,8 +206,8 @@ button.#{$prefix}--btn.#{$iot-prefix}--tooltip-svg-wrapper.#{$prefix}--btn--ghos
     left: calc(var(--row-nesting-offset) * -1);
     height: calc(100% + 1px);
     width: var(--row-nesting-offset);
-    background-color: $ui-01;
-    border-right: solid 1px $ui-01;
+    background-color: $layer-01;
+    border-right: solid 1px $layer-01;
   }
 
   &[data-nesting-offset='0'] {
@@ -205,7 +216,7 @@ button.#{$prefix}--btn.#{$iot-prefix}--tooltip-svg-wrapper.#{$prefix}--btn--ghos
     }
   }
   td.bx--table-expand[data-previous-value='collapsed'] {
-    border-bottom: solid 1px $ui-01;
+    border-bottom: solid 1px $layer-01;
   }
 }
 
@@ -237,7 +248,7 @@ button.#{$prefix}--btn.#{$iot-prefix}--tooltip-svg-wrapper.#{$prefix}--btn--ghos
   cursor: pointer;
   td {
     div .#{$prefix}--btn--ghost:hover {
-      background: $ui-03;
+      background: $layer-accent-01;
     }
   }
 }
@@ -246,7 +257,7 @@ button.#{$prefix}--btn.#{$iot-prefix}--tooltip-svg-wrapper.#{$prefix}--btn--ghos
   td.#{$prefix}--table-expand {
     position: relative;
     left: var(--row-nesting-offset);
-    border-bottom: 1px solid $ui-01;
+    border-bottom: 1px solid $layer-01;
 
     [dir='rtl'] & {
       left: unset;
@@ -264,9 +275,9 @@ button.#{$prefix}--btn.#{$iot-prefix}--tooltip-svg-wrapper.#{$prefix}--btn--ghos
       left: calc(-1 * var(--row-nesting-offset));
       height: calc(100% + 1px);
       width: var(--row-nesting-offset);
-      background-color: $ui-01;
-      border-right: solid 1px $ui-01;
-      border-bottom: solid 1px $ui-01;
+      background-color: $layer-01;
+      border-right: solid 1px $layer-01;
+      border-bottom: solid 1px $layer-01;
 
       [dir='rtl'] & {
         left: unset;
@@ -283,7 +294,7 @@ button.#{$prefix}--btn.#{$iot-prefix}--tooltip-svg-wrapper.#{$prefix}--btn--ghos
       height: 1px;
       bottom: -1px;
       width: $spacing-03;
-      border-bottom: solid 1px $ui-01;
+      border-bottom: solid 1px $layer-01;
 
       [dir='rtl'] & {
         left: unset;
@@ -304,7 +315,7 @@ button.#{$prefix}--btn.#{$iot-prefix}--tooltip-svg-wrapper.#{$prefix}--btn--ghos
       height: 1px;
       bottom: -1px;
       width: $spacing-03;
-      border-bottom: solid 1px $ui-01;
+      border-bottom: solid 1px $layer-01;
 
       [dir='rtl'] & {
         left: unset;
@@ -328,7 +339,7 @@ button.#{$prefix}--btn.#{$iot-prefix}--tooltip-svg-wrapper.#{$prefix}--btn--ghos
     td:first-of-type:after {
       left: -($spacing-06);
       width: $spacing-07;
-      border-bottom-color: $ui-03;
+      border-bottom-color: $layer-accent-01;
 
       [dir='rtl'] & {
         left: unset;
@@ -343,7 +354,7 @@ button.#{$prefix}--btn.#{$iot-prefix}--tooltip-svg-wrapper.#{$prefix}--btn--ghos
     td:first-of-type:after {
       left: -($spacing-07);
       width: $spacing-08;
-      border-bottom-color: $ui-03;
+      border-bottom-color: $layer-accent-01;
 
       [dir='rtl'] & {
         left: unset;
@@ -381,10 +392,10 @@ button.#{$prefix}--btn.#{$iot-prefix}--tooltip-svg-wrapper.#{$prefix}--btn--ghos
   &--select {
     @include pin-nth-column(2) {
       z-index: 1;
-      left: rem(52px);
+      left: convert.to-rem(52px);
       [dir='rtl'] & {
         left: unset;
-        right: rem(52px);
+        right: convert.to-rem(52px);
       }
     }
     @include disable-nth-col-border(1);
@@ -396,10 +407,10 @@ button.#{$prefix}--btn.#{$iot-prefix}--tooltip-svg-wrapper.#{$prefix}--btn--ghos
   &--expand {
     @include pin-nth-column(2) {
       z-index: 2;
-      left: rem(40px);
+      left: convert.to-rem(40px);
       [dir='rtl'] & {
         left: unset;
-        right: rem(40px);
+        right: convert.to-rem(40px);
       }
     }
     @include disable-nth-col-border(1);
@@ -416,10 +427,10 @@ button.#{$prefix}--btn.#{$iot-prefix}--tooltip-svg-wrapper.#{$prefix}--btn--ghos
   &--select#{&}--expand {
     @include pin-nth-column(3) {
       z-index: 1;
-      left: rem(92px);
+      left: convert.to-rem(92px);
       [dir='rtl'] & {
         left: unset;
-        right: rem(92px);
+        right: convert.to-rem(92px);
       }
     }
     @include disable-nth-col-border(1);
@@ -433,15 +444,15 @@ button.#{$prefix}--btn.#{$iot-prefix}--tooltip-svg-wrapper.#{$prefix}--btn--ghos
     position: sticky;
     z-index: 1;
     right: 0;
-    filter: drop-shadow(-1px 0 0 $active-ui);
+    // filter: drop-shadow(-1px 0 0 $border-disabled);
 
-    min-width: rem(56px);
-    width: rem(56px); // Needed for fixed/resizable columns that don't respect min-width
+    min-width: convert.to-rem(56px);
+    width: convert.to-rem(56px); // Needed for fixed/resizable columns that don't respect min-width
 
     [dir='rtl'] & {
       right: unset;
       left: 0;
-      filter: drop-shadow(1px 0 0 $active-ui);
+      // filter: drop-shadow(1px 0 0 $border-disabled);
     }
   }
 

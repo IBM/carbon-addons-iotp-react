@@ -1,6 +1,6 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import { Star16, Share16, TrashCan16 } from '@carbon/icons-react';
+import { Star, Share, TrashCan } from '@carbon/react/icons';
 
 import StoryNotice, { experimentalStoryTitle } from '../../internal/StoryNotice';
 
@@ -21,19 +21,19 @@ const actions = [
   {
     actionId: 'favorite',
     actionLabel: 'Favorite',
-    actionIcon: Star16,
+    actionIcon: Star,
     actionCallback: action('favorite'),
   },
   {
     actionId: 'share',
     actionLabel: 'Share',
-    actionIcon: Share16,
+    actionIcon: Share,
     actionCallback: action('share'),
   },
   {
     actionId: 'delete',
     actionLabel: 'Delete',
-    actionIcon: TrashCan16,
+    actionIcon: TrashCan,
     actionCallback: action('delete'),
   },
 ];

@@ -1,5 +1,5 @@
-@import '~carbon-components/scss/components/data-table/data-table';
-
+@use '@carbon/react/scss/components/data-table' as *;
+@use '@carbon/react/scss/layer' as *;
 .table-header-label {
   &-start {
     .#{$prefix}--table-header-label {
@@ -147,6 +147,6 @@ tr.#{$prefix}--parent-row.#{$prefix}--data-table--selected:not(.#{$prefix}--expa
 tr.#{$prefix}--parent-row.#{$prefix}--data-table--selected.#{$prefix}--expandable-row td,
 tr.#{$prefix}--parent-row.#{$prefix}--data-table--selected.#{$prefix}--expandable-row
   td:first-of-type {
-  border-bottom-color: $active-ui;
+  border-bottom-color: $layer-active-01;
   box-shadow: none;
 }

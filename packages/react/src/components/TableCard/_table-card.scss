@@ -1,12 +1,17 @@
-@import '../../globals/vars';
-
+@use '../../globals/vars' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/type' as *;
+@use '@carbon/react/scss/utilities/convert';
+$rem-value: convert.to-rem(35px);
 .#{$iot-prefix}--table-card {
   .#{$iot-prefix}--card--content {
     padding: 0;
   }
   .#{$iot-prefix}--table-toolbar-secondary-title {
     // title needs to match new card title font size and padding
-    @include type-style('productive-heading-02');
+    @include type-style('heading-compact-02');
     padding-top: $spacing-04;
   }
   .#{$iot-prefix}--card--content .#{$iot-prefix}--table-container {
@@ -112,7 +117,7 @@
     height: $spacing-08;
   }
   .#{$prefix}--data-table-content + .#{$prefix}--pagination {
-    border: 1px solid $ui-03;
+    border: 1px solid $layer-accent-01;
   }
 
   .#{$prefix}--toolbar-search-container {
@@ -128,8 +133,8 @@
     height: $spacing-10;
 
     th {
-      padding-top: rem(5px);
-      padding-bottom: rem(10px);
+      padding-top: convert.to-rem(5px);
+      padding-bottom: convert.to-rem(10px);
 
       input {
         height: $spacing-07;
@@ -153,8 +158,8 @@
 
   .#{$prefix}--pagination {
     position: fixed;
-    bottom: rem(25px);
-    width: calc(100% - rem(35px));
+    bottom: convert.to-rem(25px);
+    width: calc(100% - #{$rem-value});
   }
 }
 
@@ -171,7 +176,7 @@
 
   &:not(.#{$iot-prefix}--table-card__table--expanded) {
     .#{$prefix}--data-table-content {
-      max-height: rem(523px);
+      max-height: convert.to-rem(523px);
     }
   }
 }

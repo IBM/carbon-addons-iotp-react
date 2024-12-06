@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { Dropdown } from 'carbon-components-react';
-import { Settings16 } from '@carbon/icons-react';
+import { Dropdown } from '@carbon/react';
+import { Settings } from '@carbon/react/icons';
 
 import { settings } from '../../../constants/Settings';
 import { OverridePropTypes } from '../../../constants/SharedPropTypes';
@@ -104,7 +104,7 @@ const TableViewDropdown = ({
       id: 'manage-views',
       text: i18n.manageViews,
       customAction: onManageViews,
-      icon: Settings16,
+      icon: Settings,
     };
     // Save changes item should only appear if the view has been edited and the current view is not 'View all'
     // 'View all' is equivalent to a "default view", which would not be able to get re-saved. The user should supply

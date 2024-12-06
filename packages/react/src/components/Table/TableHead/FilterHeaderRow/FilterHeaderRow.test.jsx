@@ -1,7 +1,7 @@
 import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { TextInput } from 'carbon-components-react';
+import { TextInput } from '@carbon/react';
 
 import * as utils from '../../../../utils/componentUtilityFunctions';
 import { settings } from '../../../../constants/Settings';

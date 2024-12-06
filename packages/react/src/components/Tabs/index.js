@@ -1,1 +1,1 @@
-export { Tab, Tabs, TabContent, TabsSkeleton } from 'carbon-components-react';
+export { Tab, Tabs, TabContent, TabsSkeleton } from '@carbon/react';

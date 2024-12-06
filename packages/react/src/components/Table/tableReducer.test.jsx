@@ -1,6 +1,6 @@
 import React from 'react';
 import { merge, omit } from 'lodash-es';
-import { Add20 } from '@carbon/icons-react';
+import { Add } from '@carbon/react/icons';
 
 import { fillArrWithRowIds } from '../../utils/tableReducer';
 
@@ -960,7 +960,9 @@ describe('table reducer', () => {
 
 describe('filter, search and sort', () => {
   it('filterData', () => {
-    const mockData = [{ values: { number: 10, node: <Add20 />, string: 'string', null: null } }];
+    const mockData = [
+      { values: { number: 10, node: <Add size={20} />, string: 'string', null: null } },
+    ];
     const mockDataWithMultiselect = [
       {
         values: {
@@ -996,7 +998,7 @@ describe('filter, search and sort', () => {
       {
         values: {
           number: 10,
-          node: <Add20 />,
+          node: <Add size={20} />,
           string: 'string',
           null: null,
           date: dateValue.toISOString().split('T')[0],
@@ -1049,7 +1051,7 @@ describe('filter, search and sort', () => {
       {
         values: {
           number: 10,
-          node: <Add20 />,
+          node: <Add size={20} />,
           string: 'string',
           null: null,
           boolean: true,
@@ -1058,7 +1060,7 @@ describe('filter, search and sort', () => {
       {
         values: {
           number: 30,
-          node: <Add20 />,
+          node: <Add size={20} />,
           string: 'text',
           null: null,
           boolean: false,
@@ -1076,7 +1078,9 @@ describe('filter, search and sort', () => {
   });
 
   it('filterSearchAndSort', () => {
-    const mockData = [{ values: { number: 10, node: <Add20 />, string: 'string', null: null } }];
+    const mockData = [
+      { values: { number: 10, node: <Add size={20} />, string: 'string', null: null } },
+    ];
     expect(filterSearchAndSort(mockData)).toHaveLength(1);
     expect(filterSearchAndSort(mockData, {}, { value: 10 })).toHaveLength(1);
     expect(filterSearchAndSort(mockData, {}, { value: 20 })).toHaveLength(0);
@@ -1089,10 +1093,10 @@ describe('filter, search and sort', () => {
   });
   it('filterSearchAndSort with custom sort function', () => {
     const mockData = [
-      { values: { number: 10, node: <Add20 />, severity: 'High', null: null } },
-      { values: { number: 10, node: <Add20 />, severity: 'Low', null: null } },
+      { values: { number: 10, node: <Add size={20} />, severity: 'High', null: null } },
+      { values: { number: 10, node: <Add size={20} />, severity: 'Low', null: null } },
       {
-        values: { number: 10, node: <Add20 />, severity: 'Medium', null: null },
+        values: { number: 10, node: <Add size={20} />, severity: 'Medium', null: null },
       },
     ];
     const mockSortFunction = jest.fn().mockReturnValue(mockData);
@@ -1110,10 +1114,10 @@ describe('filter, search and sort', () => {
 
   it('filterSearchAndSort with multisort and custom sort function', () => {
     const mockData = [
-      { values: { number: 10, node: <Add20 />, severity: 'High', null: null } },
-      { values: { number: 10, node: <Add20 />, severity: 'Low', null: null } },
+      { values: { number: 10, node: <Add size={20} />, severity: 'High', null: null } },
+      { values: { number: 10, node: <Add size={20} />, severity: 'Low', null: null } },
       {
-        values: { number: 10, node: <Add20 />, severity: 'Medium', null: null },
+        values: { number: 10, node: <Add size={20} />, severity: 'Medium', null: null },
       },
     ];
 

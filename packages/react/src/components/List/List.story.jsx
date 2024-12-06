@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { action } from '@storybook/addon-actions';
 import { boolean, text, object, number } from '@storybook/addon-knobs';
-import { Add16, Edit16, Star16 } from '@carbon/icons-react';
+import { Add, Edit, Star } from '@carbon/react/icons';
 import { cloneDeep } from 'lodash-es';
 
 import Button from '../Button';
@@ -11,7 +11,7 @@ import { Tag } from '../Tag';
 import { EditingStyle, DragAndDrop } from '../../utils/DragAndDropUtils';
 
 import List from './List';
-import ListREADME from './List.mdx';
+// import ListREADME from './List.mdx'; //carbon 11
 
 export const sampleHierarchy = {
   MLB: {
@@ -107,9 +107,9 @@ const buildHierarchy = (obj, renderRowActions, renderIcon, prefix = '', level = 
 
 const headerButton = (
   <Button
-    renderIcon={Add16}
+    renderIcon={Add}
     hasIconOnly
-    size="small"
+    size="sm"
     iconDescription="Add"
     key="expandable-list-button-add"
     onClick={() => action('header button clicked')}
@@ -121,9 +121,9 @@ export default {
 
   parameters: {
     component: List,
-    docs: {
-      page: ListREADME,
-    },
+    // docs: {
+    //   page: ListREADME,
+    // }, //carbon 11
   },
 
   excludeStories: ['sampleHierarchy'],
@@ -353,7 +353,7 @@ export const WithIsLargeRowAndIcon = () => (
           content: {
             value: key,
             secondaryValue: value,
-            icon: <Star16 />,
+            icon: <Star />,
           },
         })
       )}
@@ -379,10 +379,10 @@ export const WithRowActionsSingle = () => (
               <Button
                 key={`${key}-list-item-button-${value}`}
                 style={{ color: 'black' }}
-                renderIcon={Edit16}
+                renderIcon={Edit}
                 hasIconOnly
                 kind="ghost"
-                size="small"
+                size="sm"
                 onClick={() => action('row action clicked')}
                 iconDescription="Edit"
                 tooltipPosition={document.dir === 'ltr' ? 'left' : 'right'}
@@ -445,10 +445,10 @@ export const WithHierarchy = () => (
                 <Button
                   key={`${key}-list-item-button-${level}`}
                   style={{ color: 'black' }}
-                  renderIcon={Edit16}
+                  renderIcon={Edit}
                   hasIconOnly
                   kind="ghost"
-                  size="small"
+                  size="sm"
                   onClick={() => action('row action clicked')}
                   iconDescription="Edit"
                   tooltipPosition={document.dir === 'ltr' ? 'left' : 'right'}
@@ -467,7 +467,7 @@ export const WithHierarchy = () => (
                 </OverflowMenu>,
               ]
             : [],
-        (key, level) => (level === 3 ? <Star16 /> : null)
+        (key, level) => (level === 3 ? <Star /> : null)
       )}
       expandedIds={[
         'MLB',

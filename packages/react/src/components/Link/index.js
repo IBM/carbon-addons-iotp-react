@@ -1,1 +1,1 @@
-export { Link } from 'carbon-components-react';
+export { Link } from '@carbon/react';

@@ -10,25 +10,21 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, boolean, select, text } from '@storybook/addon-knobs';
-
-import { SearchFilterButton } from '../SearchFilterButton';
-import { SearchLayoutButton } from '../SearchLayoutButton';
-
-import { Search, SearchSkeleton } from '.';
+import { Search, SearchSkeleton } from '@carbon/react';
 
 const sizes = {
-  'Regular size (xl)': 'xl',
   'Large size (lg)': 'lg',
+  'Regular size (md)': 'md',
   'Small size (sm)': 'sm',
 };
 
 const props = () => ({
   className: 'some-class',
-  size: select('Size (size)', sizes, 'xl'),
+  size: select('Size (size)', sizes, 'md'),
   light: boolean('Light variant (light)', false),
   disabled: boolean('Disabled (disabled)', false),
   name: text('Form item name (name)', ''),
-  defaultValue: text('Default value (defaultValue)', ''),
+  defaultValue: text('Default value (defaultValue)', 'Sample Search'),
   labelText: text('Label text (labelText)', 'Search'),
   closeButtonLabelText: text(
     'The label text for the close button (closeButtonLabelText)',
@@ -45,12 +41,6 @@ export default {
 
   parameters: {
     component: Search,
-
-    subcomponents: {
-      SearchSkeleton,
-      SearchFilterButton,
-      SearchLayoutButton,
-    },
   },
 };
 
@@ -66,27 +56,9 @@ Default.parameters = {
   },
 };
 
-export const DeprecatedCustomButtons = () => (
-  <div style={{ display: 'flex' }}>
-    <Search {...props()} id="search-1" />
-    <SearchFilterButton onClick={action('onClick')} />
-    <SearchLayoutButton onClick={action('onClick')} />
-  </div>
-);
-
-DeprecatedCustomButtons.storyName = '[Deprecated] custom buttons';
-
-DeprecatedCustomButtons.parameters = {
-  info: {
-    text: `
-        You can control what set of buttons you want.
-      `,
-  },
-};
-
 export const Skeleton = () => (
   <div style={{ width: '200px' }}>
-    <SearchSkeleton />
+    <SearchSkeleton small />
     &nbsp;
     <SearchSkeleton small />
   </div>

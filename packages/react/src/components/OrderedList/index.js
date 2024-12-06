@@ -1,1 +1,1 @@
-export { OrderedList } from 'carbon-components-react';
+export { OrderedList } from '@carbon/react';

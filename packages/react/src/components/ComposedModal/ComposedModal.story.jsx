@@ -1,7 +1,7 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { boolean, object, select, text } from '@storybook/addon-knobs';
-import { OverflowMenu, OverflowMenuItem, Tooltip } from 'carbon-components-react';
+import { OverflowMenu, OverflowMenuItem } from '@carbon/react';
 
 import ComposedModalREADME from './ComposedModal.mdx';
 import ComposedModal from './ComposedModal';
@@ -172,9 +172,6 @@ export const ComposedModalWithOverflowAndTooltip = () => (
     <OverflowMenu title="Test Overflow" iconDescription="Expand">
       <OverflowMenuItem key="default" onClick={action('onClick')} itemText="Click me" />
     </OverflowMenu>
-    <Tooltip triggerId="my test tooltip" triggerText="Trigger Text">
-      Hi there
-    </Tooltip>
   </ComposedModal>
 );
 

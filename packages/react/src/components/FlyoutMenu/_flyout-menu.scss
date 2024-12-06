@@ -1,6 +1,13 @@
-@import '../../globals/vars';
-@import '~carbon-components/scss/globals/scss/layout';
-@import '~carbon-components/scss/globals/scss/helper-mixins';
+// @import '~carbon-components/scss/globals/scss/helper-mixins'; // did not find any suitable style path, need to replace
+@use '../../globals/vars' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/layout' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/colors' as *;
+@use '@carbon/react/scss/utilities/box-shadow' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/type' as *;
+@use '@carbon/react/scss/components/popover' as *;
 
 .#{$iot-prefix}--flyout-menu {
   $shadow-plus-padding: 1.4rem;
@@ -26,76 +33,327 @@
   }
 
   &--body {
-    color: initial;
-    border-radius: 0;
+    .#{$prefix}--popover-content:not(.#{$prefix}--tooltip-content) {
+      color: initial;
+      border-radius: 0;
+      .#{$prefix}--toggletip-content {
+        row-gap: unset;
+        .#{$prefix}--toggletip-actions {
+          column-gap: unset;
+        }
+      }
+    }
 
     &:not(.#{$iot-prefix}--flyout-menu--body__light) {
-      background: $ui-01;
-
-      .#{$prefix}--tooltip__content::after {
-        background-color: $ui-01;
+      :not(.#{$prefix}--tooltip-content) {
+        &.#{$prefix}--popover-content {
+          background: $layer-01;
+        }
+        &.#{$prefix}--popover-content::after {
+          background-color: $layer-01;
+        }
       }
     }
 
     &.#{$iot-prefix}--flyout-menu--body__light {
-      background: $ui-02;
+      :not(.#{$prefix}--tooltip-content) {
+        &.#{$prefix}--popover-content {
+          background: $layer-02;
+        }
 
-      .#{$prefix}--tooltip__content::after {
-        background-color: $ui-02;
+        &.#{$prefix}--popover-content::after {
+          background-color: $layer-02;
+        }
       }
     }
-
-    .#{$prefix}--tooltip__caret {
+    &.#{$prefix}--popover--caret.#{$prefix}--popover--open
+      > .#{$prefix}--popover
+      > .#{$prefix}--popover-caret {
       display: none;
     }
 
-    .#{$prefix}--tooltip__content {
-      position: relative;
+    .#{$prefix}--popover-content {
       max-width: 480px;
     }
 
+    // Align
+    // Manual align
+    &.#{$prefix}--popover--bottom:not(.#{$prefix}--popover--auto-align) {
+      &.#{$iot-prefix}--flyout-menu--body__bottom-start
+        > .#{$prefix}--popover
+        > .#{$prefix}--popover-content {
+        inset-block-end: 0;
+        inset-inline-start: 0;
+        transform: translateY(100%);
+      }
+      &.#{$iot-prefix}--flyout-menu--body__bottom-end
+        > .#{$prefix}--popover
+        > .#{$prefix}--popover-content {
+        inset-block-end: 0;
+        inset-inline-start: 100%;
+        transform: translateY(100%) translateX(-100%);
+      }
+    }
+
+    &.#{$prefix}--popover--top:not(.#{$prefix}--popover--auto-align) {
+      &.#{$iot-prefix}--flyout-menu--body__top-start
+        > .#{$prefix}--popover
+        > .#{$prefix}--popover-content {
+        transform: translateY(-100%);
+        inset-block-start: 0;
+        inset-inline-start: 0;
+      }
+      &.#{$iot-prefix}--flyout-menu--body__top-end
+        > .#{$prefix}--popover
+        > .#{$prefix}--popover-content {
+        transform: translateY(-100%) translateX(-100%);
+        inset-block-start: 0;
+        inset-inline-start: 100%;
+        [dir='rtl'] & {
+          transform: translateY(-100%);
+          inset-block-start: 0;
+          inset-inline-start: 0;
+        }
+      }
+    }
+
+    &.#{$prefix}--popover--right:not(.#{$prefix}--popover--auto-align) {
+      &.#{$iot-prefix}--flyout-menu--body__right-end
+        > .#{$prefix}--popover
+        > .#{$prefix}--popover-content {
+        transform: translateY(-100%);
+        inset-block-start: 100%;
+        inset-inline-start: 100%;
+      }
+      &.#{$iot-prefix}--flyout-menu--body__right-start
+        > .#{$prefix}--popover
+        > .#{$prefix}--popover-content {
+        inset-block-start: 0;
+        inset-inline-start: 100%;
+        transform: unset;
+      }
+    }
+    &.#{$prefix}--popover--left:not(.#{$prefix}--popover--auto-align) {
+      &.#{$iot-prefix}--flyout-menu--body__left-start
+        > .#{$prefix}--popover
+        > .#{$prefix}--popover-content {
+        inset-block-start: 0;
+        inset-inline-end: 100%;
+        transform: unset;
+      }
+      &.#{$iot-prefix}--flyout-menu--body__left-end
+        > .#{$prefix}--popover
+        > .#{$prefix}--popover-content {
+        inset-block-start: 100%;
+        inset-inline-end: 100%;
+        transform: translateY(-100%);
+      }
+    }
+    // Auto align
+    &.#{$prefix}--popover--auto-align {
+      [dir='rtl'] & {
+        // Align button trigger when in RTL, since the popover content is aligned via direct style that can't be overritten
+        &.#{$prefix}--popover--bottom-start .#{$prefix}--popover {
+          transform: translateX(var(--cds-popover-offset));
+          .#{$prefix}--popover-content::after {
+            left: unset;
+            right: 0;
+            top: calc(-1 * var(--cds-popover-offset));
+          }
+        }
+        &.#{$prefix}--popover--bottom-end .#{$prefix}--popover {
+          transform: translateX(var(--cds-popover-offset));
+          .#{$prefix}--popover-content::after {
+            left: 0;
+            right: unset;
+            top: calc(-1 * var(--cds-popover-offset));
+          }
+        }
+        &.#{$prefix}--popover--top-start .#{$prefix}--popover {
+          transform: translateX(calc(-1 * var(--cds-popover-offset)));
+          .#{$prefix}--popover-content::after {
+            left: unset;
+            right: 0;
+            bottom: calc(-1 * var(--cds-popover-offset));
+          }
+        }
+        &.#{$prefix}--popover--top-end .#{$prefix}--popover {
+          transform: translateX(calc(-1 * var(--cds-popover-offset)));
+          .#{$prefix}--popover-content::after {
+            left: 0;
+            right: unset;
+            top: unset;
+            bottom: calc(-1 * var(--cds-popover-offset));
+          }
+        }
+        &.#{$prefix}--popover--right-start .#{$prefix}--popover {
+          transform: translateX(calc(-1 * var(--cds-popover-offset)));
+        }
+        &.#{$prefix}--popover--right-end .#{$prefix}--popover {
+          transform: translateX(calc(-1 * var(--cds-popover-offset)));
+          .#{$prefix}--popover-content::after {
+            left: calc(-1 * var(--cds-popover-offset));
+            right: unset;
+            top: unset;
+            bottom: 0;
+          }
+        }
+        &.#{$prefix}--popover--left-start .#{$prefix}--popover {
+          transform: translateX(var(--cds-popover-offset));
+        }
+        &.#{$prefix}--popover--left-end .#{$prefix}--popover {
+          transform: translateX(var(--cds-popover-offset));
+        }
+      }
+      &.#{$prefix}--popover--caret.#{$prefix}--popover--open
+        > .#{$prefix}--popover
+        > .#{$prefix}--popover-content
+        > .#{$prefix}--popover-caret {
+        // Hide default ToggleTip caret
+        display: none;
+      }
+      &.#{$prefix}--popover--bottom-start,
+      &.#{$prefix}--popover--bottom-end,
+      &.#{$prefix}--popover--top-start,
+      &.#{$prefix}--popover--top-end {
+        & .#{$prefix}--popover-content:not(.#{$prefix}--tooltip-content)::after {
+          // Apply shadow to ::after element when auto aligned connecting menu with trigger
+          @include box-shadow;
+          clip-path: inset(0 -100% 0 -100%);
+          height: var(--cds-popover-offset);
+          width: 3rem;
+        }
+      }
+      &.#{$prefix}--popover--right-start,
+      &.#{$prefix}--popover--right-end,
+      &.#{$prefix}--popover--left-start,
+      &.#{$prefix}--popover--left-end {
+        & .#{$prefix}--popover-content:not(.#{$prefix}--tooltip-content)::after {
+          // Apply shadow to ::after element when auto aligned connecting menu with trigger
+          @include box-shadow;
+          clip-path: inset(-100% 0 -100% 0);
+          width: var(--cds-popover-offset);
+          height: 3rem;
+        }
+      }
+
+      &.#{$prefix}--popover--bottom-start {
+        .#{$prefix}--popover-content::after {
+          top: calc(-1 * var(--cds-popover-offset));
+          left: 0;
+        }
+      }
+      &.#{$prefix}--popover--bottom-end {
+        .#{$prefix}--popover-content::after {
+          right: 0;
+          left: unset;
+          top: calc(-1 * var(--cds-popover-offset));
+        }
+      }
+      &.#{$prefix}--popover--top-start {
+        .#{$prefix}--popover-content::after {
+          left: 0;
+          top: unset;
+          bottom: calc(-1 * var(--cds-popover-offset));
+        }
+      }
+      &.#{$prefix}--popover--top-end {
+        .#{$prefix}--popover-content::after {
+          bottom: calc(-1 * var(--cds-popover-offset));
+          right: 0;
+          left: unset;
+        }
+      }
+      &.#{$prefix}--popover--left-start {
+        .#{$prefix}--popover-content::after {
+          top: 0;
+          right: calc(-1 * var(--cds-popover-offset));
+          left: unset;
+        }
+      }
+      &.#{$prefix}--popover--left-end {
+        .#{$prefix}--popover-content::after {
+          top: unset;
+          bottom: 0;
+          right: calc(-1 * var(--cds-popover-offset));
+          left: unset;
+        }
+      }
+      &.#{$prefix}--popover--right-start {
+        .#{$prefix}--popover-content::after {
+          top: 0;
+          left: calc(-1 * var(--cds-popover-offset));
+        }
+      }
+      &.#{$prefix}--popover--right-end {
+        .#{$prefix}--popover-content::after {
+          top: unset;
+          bottom: 0;
+          left: calc(-1 * var(--cds-popover-offset));
+        }
+      }
+    }
     // Box shadow cover with all its various positons
-    &.#{$iot-prefix}--flyout-menu--body__open .#{$prefix}--tooltip__content::after {
+    &.#{$iot-prefix}--flyout-menu--body__open .#{$prefix}--popover-content::after {
       content: '';
       position: absolute;
       top: -$shadow;
       left: 0;
     }
 
-    &.#{$iot-prefix}--flyout-menu--body__bottom-end .#{$prefix}--tooltip__content::after {
+    &.#{$iot-prefix}--flyout-menu--body__bottom-start .#{$prefix}--popover-content::after {
+      left: 0;
+      top: -$shadow;
+    }
+
+    &.#{$iot-prefix}--flyout-menu--body__bottom-end .#{$prefix}--popover-content::after {
       left: unset;
       right: 0;
     }
 
-    &.#{$iot-prefix}--flyout-menu--body__top-start .#{$prefix}--tooltip__content::after {
+    &.#{$iot-prefix}--flyout-menu--body__top-start:not(.#{$prefix}--popover--auto-align)
+      .#{$prefix}--popover-content::after {
       top: unset;
       bottom: -$shadow;
       left: 0;
+      [dir='rtl'] & {
+        bottom: -$shadow;
+        left: unset;
+        right: 0;
+      }
     }
 
-    &.#{$iot-prefix}--flyout-menu--body__top-end .#{$prefix}--tooltip__content::after {
+    &.#{$iot-prefix}--flyout-menu--body__top-end .#{$prefix}--popover-content::after {
       bottom: -$shadow;
       left: unset;
       right: 0;
       top: unset;
     }
 
-    &.#{$iot-prefix}--flyout-menu--body__left-start .#{$prefix}--tooltip__content::after {
+    &.#{$iot-prefix}--flyout-menu--body__left-start:not(.#{$prefix}--popover--auto-align)
+      .#{$prefix}--popover-content::after {
       left: unset;
       right: -$shadow;
       top: 0;
     }
 
-    &.#{$iot-prefix}--flyout-menu--body__left-end .#{$prefix}--tooltip__content::after {
+    &.#{$iot-prefix}--flyout-menu--body__left-end:not(.#{$prefix}--popover--auto-align)
+      .#{$prefix}--popover-content::after {
       display: none;
     }
 
-    &.#{$iot-prefix}--flyout-menu--body__right-start .#{$prefix}--tooltip__content::after {
+    &.#{$iot-prefix}--flyout-menu--body__right-start:not(.#{$prefix}--popover--auto-align)
+      .#{$prefix}--popover-content::after {
       top: 0;
       left: -$shadow;
+      [dir='rtl'] & {
+        left: unset;
+        right: -$shadow;
+      }
     }
 
-    &.#{$iot-prefix}--flyout-menu--body__right-end .#{$prefix}--tooltip__content::after {
+    &.#{$iot-prefix}--flyout-menu--body__right-end:not(.#{$prefix}--popover--auto-align)
+      .#{$prefix}--popover-content::after {
       top: unset;
       bottom: 0;
       left: -$shadow;
@@ -105,15 +363,9 @@
     &.#{$iot-prefix}--flyout-menu--body__bottom-end,
     &.#{$iot-prefix}--flyout-menu--body__top-start,
     &.#{$iot-prefix}--flyout-menu--body__top-end {
-      .#{$prefix}--tooltip__content::after {
+      .#{$prefix}--popover-content::after {
         width: 3rem;
         height: $shadow;
-
-        // spacers between the button and tooltip are just a smidgen
-        // too short in RTL
-        [dir='rtl'] & {
-          width: 3.125rem;
-        }
       }
     }
 
@@ -121,7 +373,7 @@
     &.#{$iot-prefix}--flyout-menu--body__bottom-end.#{$iot-prefix}--flyout-menu--body__field,
     &.#{$iot-prefix}--flyout-menu--body__top-start.#{$iot-prefix}--flyout-menu--body__field,
     &.#{$iot-prefix}--flyout-menu--body__top-end.#{$iot-prefix}--flyout-menu--body__field {
-      .#{$prefix}--tooltip__content::after {
+      .#{$prefix}--popover-content::after {
         width: 2.5rem;
       }
     }
@@ -130,7 +382,7 @@
     &.#{$iot-prefix}--flyout-menu--body__bottom-end.#{$iot-prefix}--flyout-menu--body__small,
     &.#{$iot-prefix}--flyout-menu--body__top-start.#{$iot-prefix}--flyout-menu--body__small,
     &.#{$iot-prefix}--flyout-menu--body__top-end.#{$iot-prefix}--flyout-menu--body__small {
-      .#{$prefix}--tooltip__content::after {
+      .#{$prefix}--popover-content::after {
         width: 2rem;
       }
     }
@@ -139,7 +391,7 @@
     &.#{$iot-prefix}--flyout-menu--body__left-end,
     &.#{$iot-prefix}--flyout-menu--body__right-start,
     &.#{$iot-prefix}--flyout-menu--body__right-end {
-      .#{$prefix}--tooltip__content::after {
+      .#{$prefix}--popover-content::after {
         width: $shadow;
         height: 3rem;
       }
@@ -149,7 +401,7 @@
     &.#{$iot-prefix}--flyout-menu--body__left-end.#{$iot-prefix}--flyout-menu--body__field,
     &.#{$iot-prefix}--flyout-menu--body__right-start.#{$iot-prefix}--flyout-menu--body__field,
     &.#{$iot-prefix}--flyout-menu--body__right-end.#{$iot-prefix}--flyout-menu--body__field {
-      .#{$prefix}--tooltip__content::after {
+      .#{$prefix}--popover-content::after {
         height: 2.5rem;
       }
     }
@@ -158,7 +410,7 @@
     &.#{$iot-prefix}--flyout-menu--body__left-end.#{$iot-prefix}--flyout-menu--body__small,
     &.#{$iot-prefix}--flyout-menu--body__right-start.#{$iot-prefix}--flyout-menu--body__small,
     &.#{$iot-prefix}--flyout-menu--body__right-end.#{$iot-prefix}--flyout-menu--body__small {
-      .#{$prefix}--tooltip__content::after {
+      .#{$prefix}--popover-content::after {
         height: 2rem;
       }
     }
@@ -167,7 +419,7 @@
   &__shadow-block {
     display: block;
     position: absolute;
-    background: $ui-02;
+    background: $layer-02;
 
     &.bottom-start {
       height: $shadow-plus-padding;
@@ -223,9 +475,11 @@
     height: 0px;
     width: 0px;
   }
-
   &__open {
-    @include box-shadow;
+    .#{$iot-prefix}--flyout-menu--body,
+    .#{$prefix}--popover-content {
+      @include box-shadow;
+    }
   }
 
   &__bottom-container {
@@ -245,9 +499,22 @@
     min-height: 64px;
     width: 100%;
   }
+
+  &__hide-icon-btn-tooltip {
+    // Hide icon button tooltip when no iconDescription is provided
+    .#{$prefix}--popover-content.#{$prefix}--tooltip-content {
+      &,
+      & + .#{$prefix}--popover-caret,
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+  }
 }
 
-.#{$iot-prefix}--flyout-menu--body.#{$prefix}--tooltip {
+.#{$iot-prefix}--flyout-menu--body .#{$prefix}--toggletip-content {
+  @include type-style('body-compact-01');
   min-width: unset;
   max-width: unset;
   padding: 0;
@@ -262,27 +529,27 @@
 }
 
 .#{$iot-prefix}--flyout-menu--trigger-button {
-  color: $icon-01;
+  color: $icon-primary;
 
   &.#{$prefix}--btn.#{$prefix}--btn--icon-only.#{$prefix}--tooltip__trigger svg,
   &.#{$prefix}--btn.#{$prefix}--btn--icon-only.#{$prefix}--tooltip__trigger:hover svg {
     fill: $gray-70;
   }
 
-  .#{$iot-prefix}--flyout-menu:not(.#{$iot-prefix}--flyout-menu__light) & {
-    background-color: $ui-01;
+  &:not(.#{$iot-prefix}--flyout-menu__light) {
+    background-color: $layer-01;
   }
 
-  .#{$iot-prefix}--flyout-menu:not(.#{$iot-prefix}--flyout-menu__open) &:hover {
-    background-color: $hover-ui;
+  &:not(.#{$iot-prefix}--flyout-menu__open) &:hover {
+    background-color: $background-hover;
   }
 
   .#{$iot-prefix}--flyout-menu__light.#{$iot-prefix}--flyout-menu__open &:hover {
-    background-color: $ui-02;
+    background-color: $layer-02;
   }
 
   &:focus {
-    box-shadow: inset 0 0 0 2px $focus, inset 0 0 0 3px $ui-background;
+    box-shadow: inset 0 0 0 2px $focus, inset 0 0 0 3px $background;
   }
 
   .#{$prefix}--btn.#{$prefix}--btn--icon-only.#{$prefix}--tooltip__trigger::before {

@@ -8,7 +8,7 @@ import { getCardMinSize } from '../../utils/componentUtilityFunctions';
 import { getIntervalChartData, chartData } from '../../utils/sample';
 
 import TimeSeriesCard from './TimeSeriesCard';
-import TimeSeriesCardREADME from './TimeSeriesCard.mdx';
+// import TimeSeriesCardREADME from './TimeSeriesCard.mdx'; //carbon 11
 
 const commonProps = {
   id: 'facility-temperature',
@@ -16,12 +16,13 @@ const commonProps = {
 };
 
 export default {
-  title: __DEV__ ? '1 - Watson IoT/Card/⚠️ TimeSeriesCard' : '1 - Watson IoT/Card/TimeSeriesCard',
+  // title: __DEV__ ? '1 - Watson IoT/Card/⚠️ TimeSeriesCard' : '1 - Watson IoT/Card/TimeSeriesCard', //carbon 11
+  title: '1 - Watson IoT/Card/⚠️ TimeSeriesCard',
   parameters: {
     component: TimeSeriesCard,
-    docs: {
-      page: TimeSeriesCardREADME,
-    },
+    // docs: {
+    //   page: TimeSeriesCardREADME,
+    // }, //carbon 11
   },
 };
 

@@ -1,4 +1,10 @@
-@import '../../../globals/vars';
+@use '../../../globals/vars' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/type' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/utilities' as *;
+@use '@carbon/react/scss/components/data-table' as *;
 
 .#{$iot-prefix}--table__cell--truncate .#{$prefix}--tooltip__label {
   // Revert the styles added by the tooltip since we want
@@ -17,7 +23,7 @@
 }
 
 .#{$prefix}--tooltip__trigger.#{$prefix}--tooltip--a11y.#{$iot-prefix}--table__cell-tooltip {
-  @include type-style('productive-heading-01');
+  @include type-style('heading-compact-01');
   display: grid;
   min-width: $spacing-08;
   span {

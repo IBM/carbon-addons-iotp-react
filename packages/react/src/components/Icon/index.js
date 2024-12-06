@@ -1,1 +1,1 @@
-export { Icon, IconSkeleton } from 'carbon-components-react';
+export { Icon, IconSkeleton } from '@carbon/react';

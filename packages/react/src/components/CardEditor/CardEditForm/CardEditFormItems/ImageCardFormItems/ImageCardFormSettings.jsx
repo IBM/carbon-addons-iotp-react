@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { RadioButtonGroup, RadioButton, FormGroup, Toggle } from 'carbon-components-react';
+import { RadioButtonGroup, RadioButton, FormGroup, Toggle } from '@carbon/react';
 import { gray10, gray80, white } from '@carbon/colors';
 
 import { settings } from '../../../../../constants/Settings';

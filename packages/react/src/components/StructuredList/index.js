@@ -6,4 +6,4 @@ export {
   StructuredListInput,
   StructuredListCell,
   StructuredListSkeleton,
-} from 'carbon-components-react';
+} from '@carbon/react';

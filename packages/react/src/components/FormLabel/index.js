@@ -1,1 +1,1 @@
-export { FormLabel } from 'carbon-components-react';
+export { FormLabel } from '@carbon/react';

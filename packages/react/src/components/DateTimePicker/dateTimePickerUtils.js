@@ -198,44 +198,53 @@ export const useDateTimePickerRef = ({ id, v2 = false }) => {
    * and captures it so focus can be restored after the calendar has been re-parented below.
    */
   const handleDatePickerRef = useCallback((node) => {
-    if (document.activeElement?.getAttribute('value') === PICKER_KINDS.ABSOLUTE) {
+    if (
+      node !== null &&
+      node.calendar &&
+      !node.calendar.isOpen &&
+      previousActiveElement.current !== document.activeElement
+    ) {
       previousActiveElement.current = document.activeElement;
+      setDatePickerElem(node);
     }
-
-    setDatePickerElem(node);
   }, []);
-
   useEffect(() => {
-    if (datePickerElem) {
-      // while waiting for https://github.com/carbon-design-system/carbon/issues/5713
-      // the only way to display the calendar inline is to re-parent its DOM to our component
+    const timeout = setTimeout(() => {
+      if (datePickerElem?.calendar && datePickerElem.calendar.isOpen !== undefined) {
+        datePickerElem.calendar.open();
+        // while waiting for https://github.com/carbon-design-system/carbon/issues/5713
+        // the only way to display the calendar inline is to re-parent its DOM to our component
 
-      if (v2) {
-        const dp = document.getElementById(`${id}-${iotPrefix}--date-time-picker__datepicker`);
-        dp.appendChild(datePickerElem.cal.calendarContainer);
-      } else {
-        const wrapper = document.getElementById(`${id}-${iotPrefix}--date-time-picker__wrapper`);
+        if (v2) {
+          const dp = document.getElementById(`${id}-${iotPrefix}--date-time-picker__datepicker`);
+          dp.appendChild(datePickerElem.calendar.calendarContainer);
+        } else {
+          const wrapper = document.getElementById(`${id}-${iotPrefix}--date-time-picker__wrapper`);
 
-        if (typeof wrapper !== 'undefined' && wrapper !== null) {
-          const dp = document
-            .getElementById(`${id}-${iotPrefix}--date-time-picker__wrapper`)
-            .getElementsByClassName(`${iotPrefix}--date-time-picker__datepicker`)[0];
-          dp.appendChild(datePickerElem.cal.calendarContainer);
+          if (typeof wrapper !== 'undefined' && wrapper !== null) {
+            const dp = document
+              .getElementById(`${id}-${iotPrefix}--date-time-picker__wrapper`)
+              .getElementsByClassName(`${iotPrefix}--date-time-picker__datepicker`)[0];
+            dp.appendChild(datePickerElem.calendar.calendarContainer);
+          }
+        }
+
+        // if we were focused on the Absolute radio button previously, restore focus to it.
+        /* istanbul ignore if */
+        if (previousActiveElement.current) {
+          previousActiveElement.current.focus();
+          previousActiveElement.current = null;
         }
       }
+    }, 0);
 
-      // if we were focused on the Absolute radio button previously, restore focus to it.
-      /* istanbul ignore if */
-      if (previousActiveElement.current) {
-        previousActiveElement.current.focus();
-        previousActiveElement.current = null;
-      }
-    }
+    return () => {
+      clearTimeout(timeout);
+    };
   }, [datePickerElem, id, v2]);
 
   return [datePickerElem, handleDatePickerRef];
 };
-
 /**
  * A helper to switch focus between start and end times when choosing absolute date/times in the calendar
  *
@@ -462,11 +471,11 @@ export const useRelativeDateTimeValue = ({ defaultInterval, defaultRelativeTo })
   };
 
   // on change functions that trigger a relative value update
-  const onRelativeLastNumberChange = (event) => {
-    const valid = !event.imaginaryTarget.getAttribute('data-invalid');
+  const onRelativeLastNumberChange = (event, { value }) => {
+    const valid = !event.currentTarget.getAttribute('data-invalid');
     setRelativeLastNumberInvalid(!valid);
     if (valid) {
-      changeRelativePropertyValue('lastNumber', Number(event.imaginaryTarget.value));
+      changeRelativePropertyValue('lastNumber', Number(value));
     }
   };
   const onRelativeLastIntervalChange = (event) => {

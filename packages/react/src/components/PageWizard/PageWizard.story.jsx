@@ -2,8 +2,8 @@
 import React, { useState } from 'react';
 import { action } from '@storybook/addon-actions';
 import { boolean, number, text } from '@storybook/addon-knobs';
-import { Button, Form, FormGroup, FormItem, Link, TextInput } from 'carbon-components-react';
-import { InformationFilled20 } from '@carbon/icons-react';
+import { Button, Form, FormGroup, FormItem, Link, TextInput } from '@carbon/react';
+import { InformationFilled } from '@carbon/react/icons';
 
 import PageTitleBar from '../PageTitleBar/PageTitleBar';
 
@@ -494,7 +494,7 @@ export const WithAdditionalFooterContent = () => (
                 letterSpacing: 0,
               }}
             >
-              <InformationFilled20 style={{ marginRight: '0.5rem' }} />
+              <InformationFilled size={20} style={{ marginRight: '0.5rem' }} />
               {text('Additional footer content', 'Additional footer content')}
             </div>
           }

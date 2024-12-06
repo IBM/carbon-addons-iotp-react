@@ -1,5 +1,8 @@
-@import '../../globals/vars';
-
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '../../globals/vars' as *;
+@use '@carbon/react/scss/utilities/convert';
 .#{$iot-prefix}--card--toolbar {
   margin: 0;
   display: flex;
@@ -15,7 +18,7 @@
   &__overflow-menu {
     min-width: 10rem;
     width: unset;
-    max-width: rem(350px); // 350px mobile screen width
+    max-width: convert.to-rem(350px); // 350px mobile screen width
 
     & .#{$prefix}--overflow-menu-options__btn {
       max-width: unset;
@@ -24,7 +27,7 @@
 }
 
 .#{$iot-prefix}--card--toolbar-action {
-  color: $ui-05;
+  color: $border-inverse;
   border-width: 2px;
   display: flex;
   height: 2rem;
@@ -34,8 +37,8 @@
   width: 2rem;
 
   &:hover {
-    background-color: $hover-ui;
-    color: $ui-05;
+    background-color: $background-hover;
+    color: $border-inverse;
   }
 
   &:focus {
@@ -45,7 +48,7 @@
   }
 
   svg {
-    fill: $icon-02;
+    fill: $icon-secondary;
   }
 
   svg.#{$prefix}--overflow-menu__icon {
@@ -73,7 +76,7 @@
   margin: 0;
 
   :hover {
-    background: $hover-ui;
+    background: $background-hover;
   }
 
   &:active {

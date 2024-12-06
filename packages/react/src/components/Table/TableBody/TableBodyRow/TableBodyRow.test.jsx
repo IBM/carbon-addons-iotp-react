@@ -1,7 +1,7 @@
 import React from 'react';
 import { fireEvent, render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { Add32 } from '@carbon/icons-react';
+import { Add } from '@carbon/react/icons';
 
 import { settings } from '../../../../constants/Settings';
 
@@ -659,7 +659,7 @@ describe('TableBodyRow', () => {
         {...tableRowProps}
         options={{ hasRowActions: true, wrapCellText: 'always', truncateCellText: true }}
         tableActions={{ onClearRowError, onApplyRowAction: jest.fn() }}
-        rowActions={[{ id: 'addAction', renderIcon: Add32, iconDescription: 'See more' }]}
+        rowActions={[{ id: 'addAction', renderIcon: Add, iconDescription: 'See more' }]}
         rowActionsError={{
           title: 'an-error',
           message: 'it-did-occur',

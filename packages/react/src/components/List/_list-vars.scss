@@ -1,3 +1,6 @@
-$list-item-height: rem(40px);
-$list-item-height-large: rem(64px);
-$list-item-border-color: $ui-03;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/utilities/convert';
+$list-item-height: convert.to-rem(40px);
+$list-item-height-large: convert.to-rem(64px);
+$list-item-border-color: $layer-accent-01;

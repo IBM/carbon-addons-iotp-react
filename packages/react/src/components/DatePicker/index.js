@@ -1,1 +1,1 @@
-export { DatePicker, DatePickerSkeleton } from 'carbon-components-react';
+export { DatePicker, DatePickerSkeleton } from '@carbon/react';

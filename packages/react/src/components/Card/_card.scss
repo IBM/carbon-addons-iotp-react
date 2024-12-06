@@ -1,13 +1,22 @@
-@import '../../globals/vars';
-@import '~carbon-components/scss/globals/scss/layout';
-@import './card-range-picker';
-@import './card-toolbar';
-@import './card-title';
-@import './data-state-renderer';
-@import '../../globals/mixins';
-
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '../../globals/vars' as *;
+@use '@carbon/react/scss/layout' as *;
+@use './card-range-picker' as *;
+@use './card-toolbar' as *;
+@use './card-title' as *;
+@use './data-state-renderer' as *;
+@use '../../globals/mixins' as *;
+@use '@carbon/react/scss/components/button' as *;
+@use '@carbon/react/scss/components/tile' as *;
+@use '@carbon/react/scss/components/data-table' as *;
+@use '@carbon/charts/scss' as *;
 // delcare variables
 $iot-header-padding: $spacing-05;
+$duration-moderate-02: 240ms;
+$duration-moderate-01: 150ms;
+$duration-fast-02: 110ms;
 
 .#{$iot-prefix}--card--wrapper {
   background: white;
@@ -19,13 +28,13 @@ $iot-header-padding: $spacing-05;
   overflow: hidden;
 
   &__selected {
-    outline: solid $spacing-01 $interactive-02;
+    outline: solid $spacing-01 $button-secondary;
     box-sizing: border-box;
   }
 }
 
 .#{$iot-prefix}--card--resizing {
-  outline: $spacing-01 solid $interactive-02;
+  outline: $spacing-01 solid $button-secondary;
   box-sizing: border-box;
 }
 
@@ -81,7 +90,7 @@ $iot-header-padding: $spacing-05;
 
 .#{$iot-prefix}--card--footer--wrapper {
   align-items: center;
-  border-top: 1px solid $ui-03;
+  border-top: 1px solid $layer-accent-01;
   display: flex;
   height: $spacing-08;
   overflow: hidden;
@@ -101,10 +110,25 @@ $iot-header-padding: $spacing-05;
 
 // Change background for charts in Cards
 .#{$iot-prefix}--card .#{$prefix}--chart-holder {
-  background-color: $ui-01;
+  background-color: $layer-02;
 }
 
 // Needed to allow the overflow menu to overlay the expanded card correctly
 .#{$prefix}--modal .#{$iot-prefix}--card--overflow {
   z-index: 10000;
+}
+
+.#{$iot-prefix}--card--toolbar-svg-wrapper {
+  padding: 0;
+}
+
+.#{$prefix}--tile--clickable {
+  border: 1px solid transparent;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 8rem;
+  min-width: 8.5rem;
+  max-width: 18.75rem;
+  max-height: 15.625rem;
 }

@@ -1,1 +1,1 @@
-export { SelectItem } from 'carbon-components-react';
+export { SelectItem } from '@carbon/react';

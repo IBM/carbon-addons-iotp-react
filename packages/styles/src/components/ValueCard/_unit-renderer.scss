@@ -1,8 +1,0 @@
-@import '../../globals/vars';
-
-.#{$iot-prefix}--value-card__attribute-unit {
-  @include type-style('productive-heading-03');
-  padding-left: $spacing-02;
-  padding-bottom: $spacing-02;
-  white-space: nowrap;
-}

@@ -16,8 +16,8 @@ import { TimePickerSelect } from '../TimePickerSelect';
 import { TimePicker } from '.';
 
 const sizes = {
-  'Extra large size (xl)': 'xl',
-  'Default size': undefined,
+  'Extra large size (lg)': 'lg',
+  'Default size': 'md',
   'Small size (sm)': 'sm',
 };
 
@@ -37,7 +37,7 @@ const props = {
       'A valid value is required'
     ),
     maxLength: number('Maximum length (maxLength in <TimePicker>)', 5),
-    size: select('Field size (size)', sizes, undefined) || undefined,
+    size: select('Field size (size)', sizes, 'md') || undefined,
     onClick: action('onClick'),
     onChange: action('onChange'),
     onBlur: action('onBlur'),

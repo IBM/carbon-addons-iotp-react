@@ -1,8 +1,11 @@
-@import '~carbon-components/scss/globals/scss/vars';
-
+@use '@carbon/react/scss/config' as *;
+@use '../../globals/vars' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/colors' as *;
+@use '@carbon/react/scss/components/button' as *;
 .#{$iot-prefix}--file-drop {
   &__selected-file {
-    background-color: rgba(85, 150, 230, 0.1);
+    background-color: rgba(85, 150, 230, 0.1) !important;
   }
 
   &__link-button {
@@ -11,7 +14,7 @@
     padding: 0;
     font: inherit;
     outline: none;
-    color: $interactive-01;
+    color: $button-primary;
     cursor: pointer;
     margin-left: 0.25rem;
     text-decoration: underline;

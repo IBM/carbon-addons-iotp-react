@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { RadioButton } from 'carbon-components-react';
+import { RadioButton } from '@carbon/react';
 
 import { settings } from '../../../../constants/Settings';
 

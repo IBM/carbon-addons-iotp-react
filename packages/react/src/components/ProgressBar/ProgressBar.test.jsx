@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { CheckmarkFilled16, WarningAltFilled16, WarningFilled16 } from '@carbon/icons-react';
+import { CheckmarkFilled, WarningAltFilled, WarningFilled } from '@carbon/react/icons';
 
 import { settings } from '../../constants/Settings';
 
@@ -21,7 +21,7 @@ describe('ProgressBar', () => {
         label="A progress label"
         value={40}
         inline
-        renderIcon={() => <WarningFilled16 aria-label="warning filled 16" />}
+        renderIcon={() => <WarningFilled aria-label="warning filled 16" />}
       />
     );
 
@@ -43,7 +43,7 @@ describe('ProgressBar', () => {
       <ProgressBar
         label="A progress label"
         value={40}
-        renderIcon={() => <WarningFilled16 aria-label="warning filled 16" />}
+        renderIcon={() => <WarningFilled aria-label="warning filled 16" />}
       />
     );
     expect(screen.getByTestId('progress-bar-icon')).toBeVisible();
@@ -58,7 +58,7 @@ describe('ProgressBar', () => {
         renderIconByName={(name) => {
           switch (name) {
             case 'warning':
-              return <WarningFilled16 aria-label="warning filled 16" />;
+              return <WarningFilled aria-label="warning filled 16" />;
             default:
               return null;
           }
@@ -76,18 +76,18 @@ describe('ProgressBar', () => {
         comparison: '<',
         value: 40,
         color: 'green',
-        icon: CheckmarkFilled16,
+        icon: CheckmarkFilled,
       },
       {
         comparison: (value) => value >= 50 && value <= 75,
         color: 'yellow',
-        icon: (props) => <WarningAltFilled16 {...props} />,
+        icon: (props) => <WarningAltFilled {...props} />,
       },
       {
         comparison: '>',
         value: 75,
         color: 'red',
-        icon: () => <WarningFilled16 aria-label="warning-filled-16" fill="purple" />,
+        icon: () => <WarningFilled aria-label="warning-filled-16" fill="purple" />,
       },
     ];
 
@@ -120,7 +120,7 @@ describe('ProgressBar', () => {
           fill: 'red',
           stroke: 'white',
         },
-        icon: WarningFilled16,
+        icon: WarningFilled,
       },
     ];
 

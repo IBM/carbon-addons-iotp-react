@@ -1,4 +1,6 @@
-@import '../../globals/vars';
+@use '../../globals/vars' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
 
 .#{$iot-prefix}--list-builder__container {
   width: 100%;

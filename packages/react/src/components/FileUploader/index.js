@@ -5,4 +5,4 @@ export {
   FileUploaderDropContainer,
   FileUploaderItem,
   FileUploaderSkeleton,
-} from 'carbon-components-react';
+} from '@carbon/react';

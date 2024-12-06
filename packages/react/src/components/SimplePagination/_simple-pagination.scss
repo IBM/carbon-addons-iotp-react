@@ -1,12 +1,15 @@
-@import '~carbon-components/scss/globals/scss/vars';
-@import '../../globals/vars';
-
+@use '@carbon/react/scss/config' as *;
+@use '../../globals/vars' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/colors' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/utilities/convert';
 .#{$iot-prefix}-simple-pagination-container {
   display: flex;
   height: $spacing-09;
   width: 100%;
-  border: rem(1px) solid $ui-03;
-  background-color: $ui-01;
+  border: convert.to-rem(1px) solid $border-subtle; //$ui-01
+  background-color: $layer-01;
 }
 
 .#{$iot-prefix}-simple-pagination-page-bar {
@@ -32,15 +35,15 @@
     outline: none;
   }
   &:hover {
-    background-color: $ui-01;
+    background-color: $layer-01;
   }
   cursor: not-allowed;
 }
 
 .#{$iot-prefix}-simple-pagination-caret {
-  fill: $icon-01;
+  fill: $icon-primary;
 }
 
 .#{$iot-prefix}-simple-pagination-caret-disabled {
-  fill: $disabled-02;
+  fill: $icon-disabled;
 }

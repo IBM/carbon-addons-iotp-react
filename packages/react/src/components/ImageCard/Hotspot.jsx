@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import { Tooltip } from 'carbon-components-react';
+import { Tooltip } from '@carbon/react';
 import { g10 } from '@carbon/themes';
 
 import { settings } from '../../constants/Settings';
@@ -131,17 +131,16 @@ const Hotspot = ({
       {type === 'fixed' || type === 'dynamic' ? (
         <Tooltip
           {...others}
-          triggerText={iconToRender}
-          showIcon={false}
-          triggerId={id}
-          tooltipId={id}
-          onChange={(evt) => {
+          autoAlign
+          label={content}
+          align="bottom"
+          onClick={(evt) => {
             if (evt.type === 'click' && onClick) {
               onClick(evt, { x, y });
             }
           }}
         >
-          {content}
+          {iconToRender}
         </Tooltip>
       ) : isTextType ? (
         // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions

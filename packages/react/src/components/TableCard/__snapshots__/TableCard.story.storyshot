@@ -404,13 +404,29 @@ exports[`Storybook Snapshot tests and console checks Storyshots 1 - Watson IoT/C
                         width=""
                       >
                         <span
-                          className="bx--table-header-label"
+                          className="bx--tooltip--definition bx--tooltip--a11y"
+                          onMouseEnter={[Function]}
+                          onMouseLeave={[Function]}
                         >
-                          <span
-                            className=""
-                            title="Count"
+                          <button
+                            aria-describedby="table-header-tooltip"
+                            className="bx--tooltip__trigger bx--tooltip--a11y bx--tooltip__trigger--definition iot--table__cell-tooltip bx--tooltip--bottom bx--tooltip--align-start"
+                            onBlur={[Function]}
+                            onFocus={[Function]}
+                            type="button"
                           >
-                            Count
+                            <span
+                              className=""
+                            >
+                              Count
+                            </span>
+                          </button>
+                          <span
+                            className="bx--assistive-text"
+                            id="table-header-tooltip"
+                            role="tooltip"
+                          >
+                            Counting tooltip
                           </span>
                         </span>
                         <svg
@@ -5185,13 +5201,29 @@ exports[`Storybook Snapshot tests and console checks Storyshots 1 - Watson IoT/C
                         width="250px"
                       >
                         <span
-                          className="bx--table-header-label"
+                          className="bx--tooltip--definition bx--tooltip--a11y"
+                          onMouseEnter={[Function]}
+                          onMouseLeave={[Function]}
                         >
-                          <span
-                            className=""
-                            title="Count"
+                          <button
+                            aria-describedby="table-header-tooltip"
+                            className="bx--tooltip__trigger bx--tooltip--a11y bx--tooltip__trigger--definition iot--table__cell-tooltip bx--tooltip--bottom bx--tooltip--align-start"
+                            onBlur={[Function]}
+                            onFocus={[Function]}
+                            type="button"
                           >
-                            Count
+                            <span
+                              className=""
+                            >
+                              Count
+                            </span>
+                          </button>
+                          <span
+                            className="bx--assistive-text"
+                            id="table-header-tooltip"
+                            role="tooltip"
+                          >
+                            Counting tooltip
                           </span>
                         </span>
                         <svg
@@ -6765,13 +6797,29 @@ exports[`Storybook Snapshot tests and console checks Storyshots 1 - Watson IoT/C
                         width=""
                       >
                         <span
-                          className="bx--table-header-label"
+                          className="bx--tooltip--definition bx--tooltip--a11y"
+                          onMouseEnter={[Function]}
+                          onMouseLeave={[Function]}
                         >
-                          <span
-                            className=""
-                            title="Count"
+                          <button
+                            aria-describedby="table-header-tooltip"
+                            className="bx--tooltip__trigger bx--tooltip--a11y bx--tooltip__trigger--definition iot--table__cell-tooltip bx--tooltip--bottom bx--tooltip--align-start"
+                            onBlur={[Function]}
+                            onFocus={[Function]}
+                            type="button"
                           >
-                            Count
+                            <span
+                              className=""
+                            >
+                              Count
+                            </span>
+                          </button>
+                          <span
+                            className="bx--assistive-text"
+                            id="table-header-tooltip"
+                            role="tooltip"
+                          >
+                            Counting tooltip
                           </span>
                         </span>
                         <svg
@@ -11168,13 +11216,29 @@ exports[`Storybook Snapshot tests and console checks Storyshots 1 - Watson IoT/C
                         width=""
                       >
                         <span
-                          className="bx--table-header-label"
+                          className="bx--tooltip--definition bx--tooltip--a11y"
+                          onMouseEnter={[Function]}
+                          onMouseLeave={[Function]}
                         >
-                          <span
-                            className=""
-                            title="Count"
+                          <button
+                            aria-describedby="table-header-tooltip"
+                            className="bx--tooltip__trigger bx--tooltip--a11y bx--tooltip__trigger--definition iot--table__cell-tooltip bx--tooltip--bottom bx--tooltip--align-start"
+                            onBlur={[Function]}
+                            onFocus={[Function]}
+                            type="button"
                           >
-                            Count
+                            <span
+                              className=""
+                            >
+                              Count
+                            </span>
+                          </button>
+                          <span
+                            className="bx--assistive-text"
+                            id="table-header-tooltip"
+                            role="tooltip"
+                          >
+                            Counting tooltip
                           </span>
                         </span>
                         <svg
@@ -16916,13 +16980,29 @@ exports[`Storybook Snapshot tests and console checks Storyshots 1 - Watson IoT/C
                         width=""
                       >
                         <span
-                          className="bx--table-header-label"
+                          className="bx--tooltip--definition bx--tooltip--a11y"
+                          onMouseEnter={[Function]}
+                          onMouseLeave={[Function]}
                         >
-                          <span
-                            className=""
-                            title="Count"
+                          <button
+                            aria-describedby="table-header-tooltip"
+                            className="bx--tooltip__trigger bx--tooltip--a11y bx--tooltip__trigger--definition iot--table__cell-tooltip bx--tooltip--bottom bx--tooltip--align-start"
+                            onBlur={[Function]}
+                            onFocus={[Function]}
+                            type="button"
                           >
-                            Count
+                            <span
+                              className=""
+                            >
+                              Count
+                            </span>
+                          </button>
+                          <span
+                            className="bx--assistive-text"
+                            id="table-header-tooltip"
+                            role="tooltip"
+                          >
+                            Counting tooltip
                           </span>
                         </span>
                         <svg

@@ -1,1 +1,1 @@
-export { RadioButton, RadioButtonSkeleton } from 'carbon-components-react';
+export { RadioButton, RadioButtonSkeleton } from '@carbon/react';

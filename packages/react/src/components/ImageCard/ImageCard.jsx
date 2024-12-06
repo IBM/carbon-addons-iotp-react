@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { isNil, pick } from 'lodash-es';
-import { Image32, Warning24 } from '@carbon/icons-react';
+import { Image, Warning } from '@carbon/react/icons';
 
 import { ImageCardPropTypes, CardPropTypes } from '../../constants/CardPropTypes';
 import { CARD_SIZES, CARD_ACTIONS } from '../../constants/LayoutConstants';
@@ -55,7 +55,7 @@ const defaultProps = {
           ...iconProps,
           title: matchingThresholdIcon.name,
         })
-      : React.createElement(Warning24, {
+      : React.createElement(Warning, {
           ...iconProps,
           title: 'Warning',
         });
@@ -218,7 +218,7 @@ const ImageCard = ({
                   data-testid={`${testID || testId}-empty`}
                   className={`${iotPrefix}--image-card__empty`}
                 >
-                  <Image32 width={250} height={250} fill="gray" />
+                  <Image size={32} width={250} height={250} fill="gray" />
                 </div>
               )}
             </div>

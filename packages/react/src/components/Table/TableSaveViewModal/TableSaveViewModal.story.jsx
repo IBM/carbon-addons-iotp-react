@@ -1,11 +1,11 @@
 import React, { Fragment, useState, createElement } from 'react';
 import { action } from '@storybook/addon-actions';
 import { boolean, select, text } from '@storybook/addon-knobs';
-import { AccordionItem, Accordion } from 'carbon-components-react';
+import { AccordionItem, Accordion } from '@carbon/react';
 
 import { TextArea } from '../../TextArea';
 
-import TableSaveViewModalREADME from './TableSaveViewModal.mdx';
+// import TableSaveViewModalREADME from './TableSaveViewModal.mdx'; //carbon 11
 import TableSaveViewModal from './TableSaveViewModal';
 
 export default {
@@ -13,9 +13,9 @@ export default {
 
   parameters: {
     component: TableSaveViewModal,
-    docs: {
-      page: TableSaveViewModalREADME,
-    },
+    // docs: {
+    //   page: TableSaveViewModalREADME,
+    // }, //carbon 11
   },
 };
 

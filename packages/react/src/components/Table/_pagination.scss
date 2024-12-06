@@ -1,4 +1,8 @@
-@import '../../globals/vars';
+@use '../../globals/vars' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/components/data-table' as *;
 
 .#{$iot-prefix}--pagination {
   overflow-x: hidden;
@@ -9,7 +13,7 @@
     }
 
     .#{$prefix}--select-input {
-      border-right: 1px solid $ui-03;
+      border-right: 1px solid $layer-accent-01;
     }
 
     .#{$prefix}--select__page-number .#{$prefix}--select-input {
@@ -73,13 +77,13 @@ html[dir='rtl'] {
   }
 
   .#{$prefix}--pagination .#{$prefix}--select__item-count .#{$prefix}--select-input {
-    border-left: 0.0625rem solid $ui-03;
+    border-left: 0.0625rem solid $layer-accent-01;
     border-right: none;
   }
 
   .#{$prefix}--pagination .#{$prefix}--select__page-number .#{$prefix}--select-input {
     border-left: none;
-    border-right: 0.0625rem solid $ui-03;
+    border-right: 0.0625rem solid $layer-accent-01;
   }
 
   .#{$prefix}--pagination__left .#{$prefix}--pagination__text {

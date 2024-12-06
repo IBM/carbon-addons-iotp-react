@@ -1,5 +1,8 @@
-@import '../../globals/vars';
-
+@use '../../globals/vars' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/motion' as *;
 .#{$iot-prefix}--gauge-container {
   display: flex;
   flex-wrap: wrap;
@@ -19,7 +22,7 @@
   width: var(--gauge-size);
 
   text {
-    fill: $text-02;
+    fill: $text-secondary;
   }
 }
 
@@ -34,7 +37,7 @@
   stroke-dasharray: 0 var(--stroke-dash-array);
   transform: rotate(-90deg);
   transform-origin: center;
-  transition: all $duration--moderate-01 ease-in;
+  transition: all $duration-moderate-01 ease-in;
 
   .#{$iot-prefix}--gauge__loaded & {
     stroke-dasharray: var(--stroke-dash) var(--stroke-dash-array);
@@ -81,14 +84,14 @@
   }
 
   &__up {
-    color: $support-02;
+    color: $support-success;
 
     & p::before {
       border-bottom: 0.3rem solid;
     }
   }
   &__down {
-    color: $support-01;
+    color: $support-error;
 
     & p::before {
       border-top: 0.3rem solid;

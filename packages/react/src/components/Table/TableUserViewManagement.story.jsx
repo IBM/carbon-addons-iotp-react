@@ -8,7 +8,7 @@ import FullWidthWrapper from '../../internal/FullWidthWrapper';
 
 import Table from './Table';
 import StatefulTable from './StatefulTable';
-import TableUserViewManagementREADME from './mdx/TableUserViewManagement.mdx';
+// import TableUserViewManagementREADME from './mdx/TableUserViewManagement.mdx'; //carbon 11
 import { getTableData, getTableColumns, getTableActions } from './Table.story.helpers';
 import TableViewDropdown from './TableViewDropdown/TableViewDropdown';
 import TableSaveViewModal from './TableSaveViewModal/TableSaveViewModal';
@@ -23,9 +23,9 @@ export default {
 
   parameters: {
     component: Table,
-    docs: {
-      page: TableUserViewManagementREADME,
-    },
+    // docs: {
+    //   page: TableUserViewManagementREADME,
+    // },
   },
 };
 

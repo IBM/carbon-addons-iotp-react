@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Dropdown } from 'carbon-components-react';
+import { Dropdown } from '@carbon/react';
 import {
   purple70,
   cyan50,

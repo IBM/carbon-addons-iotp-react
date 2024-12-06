@@ -1,13 +1,15 @@
-@import '../../globals/vars';
-
+@use '../../globals/vars' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/spacing' as *;
 /* stylelint-disable-next-line */
 ai-table {
   tr.table-row:not(:first-of-type) {
-    border-top: 2px solid $ui-01;
+    border-top: 2px solid $layer-01;
   }
 
   th:not(:last-of-type) {
-    border-right: 2px solid $ui-01;
+    border-right: 2px solid $layer-01;
 
     &.table-selection-column {
       border-right: none;

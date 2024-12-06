@@ -1,6 +1,11 @@
-@import '~carbon-components/scss/globals/scss/vars';
-@import '~carbon-components/scss/globals/scss/typography';
-
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/type' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/colors' as *;
+@use '@carbon/react/scss/motion' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/layer' as *;
+@use '@carbon/react/scss/utilities/convert';
 // StatefulTileGallery extra content
 .extra-content {
   display: flex;
@@ -48,7 +53,7 @@
       border-top: none;
     }
     .#{$prefix}--accordion__heading {
-      border-bottom: rem(1px) solid $ui-03;
+      border-bottom: convert.to-rem(1px) solid $layer-accent-01;
     }
 
     &--items {
@@ -63,18 +68,18 @@
   text-decoration: none;
   margin-right: $spacing-05;
   flex-basis: 30%;
-  height: rem(128px);
-  min-width: rem(256px);
-  width: rem(256px);
+  height: convert.to-rem(128px);
+  min-width: convert.to-rem(256px);
+  width: convert.to-rem(256px);
   position: relative;
   margin-top: $spacing-05;
   box-shadow: none;
-  border: solid rem(1px) $ui-background;
+  border: solid convert.to-rem(1px) $background;
   padding: $spacing-05;
 
   .options {
     flex: 0;
-    color: $text-01;
+    color: $text-primary;
     .#{$prefix}--overflow-menu {
       height: $spacing-07;
       margin-right: -$spacing-03;
@@ -92,15 +97,15 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow-x: hidden;
-    color: $active-ui;
+    color: $layer-active-01;
   }
   small {
-    color: $text-01;
+    color: $text-primary;
   }
   .title-card {
     white-space: nowrap;
     text-overflow: ellipsis;
-    color: $carbon--black-100;
+    color: $black-100; //$carbon--black-100;
     font-weight: bold;
     flex: 1;
     padding-right: $spacing-05;
@@ -108,13 +113,13 @@
   }
   &.#{$prefix}--tile--clickable:hover,
   .tile-list-title:hover {
-    background: $carbon--white-0;
+    background: $white-0; //$carbon--white-0;
   }
   .overflow-menu {
     margin-top: -$spacing-03;
     margin-left: auto;
     .#{$prefix}--overflow-menu:hover {
-      background-color: $hover-selected-ui;
+      background-color: $layer-accent-hover-01;
     }
   }
   &.#{$prefix}--link:hover {
@@ -126,13 +131,13 @@
     flex: 0 0 31.25rem;
     box-shadow: none;
     border-bottom: 0.0625rem solid rgb(223, 227, 230);
-    background: $ui-01;
+    background: $layer-01;
     cursor: pointer;
     pointer-events: auto;
     touch-action: auto;
 
     &:hover {
-      background: $ui-03;
+      background: $layer-accent-01;
       border-color: transparent;
     }
     .title-card {
@@ -141,7 +146,7 @@
     .description-card {
       span {
         padding-left: $spacing-07;
-        color: $ui-04;
+        color: $border-strong-01;
       }
     }
   }
@@ -156,7 +161,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: $ui-02;
+      background: $layer-02;
       margin-bottom: 0.9375rem;
       position: relative;
       width: 100%;
@@ -164,7 +169,7 @@
     }
     .thumbnail {
       display: block;
-      padding-left: rem(5px);
+      padding-left: convert.to-rem(5px);
     }
     .description-card {
       position: absolute;
@@ -174,13 +179,13 @@
       transform: translate(-50%, -50%);
       width: 100%;
       height: 100%;
-      transition: $duration--slow-01 ease;
+      transition: $duration-slow-01 ease;
       opacity: 0;
       display: flex;
       align-items: center;
       justify-content: center;
       span {
-        color: $ui-background;
+        color: $background;
       }
     }
     .description-card:hover {

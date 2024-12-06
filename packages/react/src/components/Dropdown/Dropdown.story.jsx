@@ -2,16 +2,16 @@ import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, boolean, select, text } from '@storybook/addon-knobs';
 import {
-  ChartColumnFloating32,
-  ChartLineData32,
-  ChartBubble32,
-  ChartVennDiagram32,
-  TableSplit32,
-  QqPlot32,
-  ChartEvaluation32,
-  ChartSunburst32,
-  Diagram32,
-} from '@carbon/icons-react';
+  ChartColumnFloating,
+  ChartLineData,
+  ChartBubble,
+  ChartVennDiagram,
+  TableSplit,
+  QqPlot,
+  ChartEvaluation,
+  ChartSunburst,
+  Diagram,
+} from '@carbon/react/icons';
 
 import Dropdown from './Dropdown';
 
@@ -20,47 +20,47 @@ import { DropdownSkeleton } from '.';
 export const items = [
   {
     id: 'option-0',
-    icon: ChartColumnFloating32,
+    icon: ChartColumnFloating,
     text: 'Column Chart',
   },
   {
     id: 'option-1',
-    icon: ChartBubble32,
+    icon: ChartBubble,
     text: 'Bubble Chart',
   },
   {
     id: 'option-2',
-    icon: ChartVennDiagram32,
+    icon: ChartVennDiagram,
     text: 'Venn Diagram',
   },
   {
     id: 'option-3',
-    icon: ChartEvaluation32,
+    icon: ChartEvaluation,
     text: 'Evaluation Chart',
   },
   {
     id: 'option-4',
-    icon: ChartLineData32,
+    icon: ChartLineData,
     text: 'Line Chart',
   },
   {
     id: 'option-5',
-    icon: TableSplit32,
+    icon: TableSplit,
     text: 'Option 5',
   },
   {
     id: 'option-6',
-    icon: QqPlot32,
+    icon: QqPlot,
     text: 'QQ Plot',
   },
   {
     id: 'option-7',
-    icon: ChartSunburst32,
+    icon: ChartSunburst,
     text: 'Sunburst Chart',
   },
   {
     id: 'option-8',
-    icon: Diagram32,
+    icon: Diagram,
     text: 'Diagram',
   },
 ];

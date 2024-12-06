@@ -2,14 +2,14 @@ import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { boolean, select, withKnobs } from '@storybook/addon-knobs';
 import { gray50, red50, green50, blue50 } from '@carbon/colors';
-import { InformationSquareFilled24, InformationFilled24 } from '@carbon/icons-react';
+import { InformationSquareFilled, InformationFilled } from '@carbon/react/icons';
 
 import { CARD_SIZES, CARD_TYPES } from '../../constants/LayoutConstants';
 import StoryNotice, { experimentalStoryTitle } from '../../internal/StoryNotice';
 
 import landscape from './landscape.jpg';
 import HotspotEditorModal from './HotspotEditorModal';
-import HotspotEditorModalREADME from './HotspotEditorModalREADME.mdx';
+// import HotspotEditorModalREADME from './HotspotEditorModalREADME.mdx'; //carbon 11
 
 export const Experimental = () => <StoryNotice componentName="ColorDropdown" experimental />;
 Experimental.storyName = experimentalStoryTitle;
@@ -31,12 +31,12 @@ const commonActions = {
 const selectableIcons = [
   {
     id: 'InformationSquareFilled24',
-    icon: InformationSquareFilled24,
+    icon: InformationSquareFilled,
     text: 'Information square filled',
   },
   {
     id: 'InformationFilled24',
-    icon: InformationFilled24,
+    icon: InformationFilled,
     text: 'Information filled',
   },
 ];
@@ -109,10 +109,10 @@ export default {
   decorators: [withKnobs],
   parameters: {
     component: HotspotEditorModal,
-    docs: {
-      inlineStories: false,
-      page: HotspotEditorModalREADME,
-    },
+    // docs: {
+    //   inlineStories: false,
+    //   page: HotspotEditorModalREADME,
+    // },
   },
 };
 

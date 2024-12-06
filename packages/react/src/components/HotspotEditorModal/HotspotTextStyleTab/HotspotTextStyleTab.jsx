@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { merge } from 'lodash-es';
-import { NumberInput } from 'carbon-components-react';
+import { NumberInput } from '@carbon/react';
 import {
-  TrashCan32,
-  InformationFilled24,
-  TextBold16 as TextBold,
-  TextItalic16 as TextItalic,
-  TextUnderline16 as TextUnderline,
-} from '@carbon/icons-react';
+  TrashCan,
+  InformationFilled,
+  TextBold,
+  TextItalic,
+  TextUnderline,
+} from '@carbon/react/icons';
 
 import { settings } from '../../../constants/Settings';
 import IconSwitch from '../../IconSwitch/IconSwitch';
@@ -211,7 +211,7 @@ const HotspotTextStyleTab = ({
 
   const renderInfoMessage = () => (
     <div className={`${iotPrefix}--hotspot-editor--text-info-message`}>
-      <InformationFilled24 />
+      <InformationFilled size={24} />
       <p>{infoMessageText}</p>
     </div>
   );
@@ -233,7 +233,7 @@ const HotspotTextStyleTab = ({
                 data-testid="hotspot-bold"
                 selected={bold}
                 text={boldLabelText}
-                renderIcon={TextBold}
+                renderIcon={() => <TextBold size="16" />}
                 index={0}
                 light={light}
               />
@@ -244,7 +244,7 @@ const HotspotTextStyleTab = ({
                 data-testid="hotspot-italic"
                 selected={italic}
                 text={italicLabelText}
-                renderIcon={TextItalic}
+                renderIcon={() => <TextItalic size="16" />}
                 index={1}
                 light={light}
               />
@@ -255,7 +255,7 @@ const HotspotTextStyleTab = ({
                 data-testid="hotspot-underline"
                 selected={underline}
                 text={underlineLabelText}
-                renderIcon={TextUnderline}
+                renderIcon={() => <TextUnderline size="16" />}
                 index={2}
                 light={light}
               />
@@ -285,7 +285,6 @@ const HotspotTextStyleTab = ({
                 max={maxFontSize}
                 value={fontSize}
                 step={1}
-                light={light}
                 label={fontSizeLabelText}
                 invalidText={fontSizeInvalidText}
                 onChange={(event) => {
@@ -374,7 +373,7 @@ const HotspotTextStyleTab = ({
           <div className={`${iotPrefix}--hotspot-text-style-tab__delete-button-container`}>
             <Button
               kind="ghost"
-              renderIcon={TrashCan32}
+              renderIcon={(props) => <TrashCan size={32} {...props} />}
               iconDescription={deleteButtonIconDescription}
               onClick={onDelete}
             >

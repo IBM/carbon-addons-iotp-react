@@ -1,16 +1,21 @@
-@import '../../../globals/vars';
-@import '../list-vars';
-
+@use '../../../globals/vars' as *;
+@use '../list-vars' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/colors' as *;
+@use '@carbon/react/scss/type' as *;
+@use '@carbon/react/scss/utilities/convert';
 .#{$iot-prefix}--list-header {
   display: flex;
   align-items: center;
-  background: $ui-01;
+  background: $layer-01;
   padding: $spacing-04 $spacing-05;
-  border-bottom: 1px solid $ui-03;
-  height: rem(56px);
+  border-bottom: 1px solid $layer-accent-01;
+  height: convert.to-rem(56px);
   column-gap: $spacing-05;
   &--title {
-    @include type-style('productive-heading-02');
+    @include type-style('heading-compact-02');
     flex: 1;
   }
 
@@ -33,7 +38,7 @@
     }
 
     .#{$prefix}--search .#{$prefix}--search-input {
-      background: $ui-01;
+      background: $layer-01;
       border-bottom-color: $list-item-border-color;
       padding: 0 $spacing-09;
     }

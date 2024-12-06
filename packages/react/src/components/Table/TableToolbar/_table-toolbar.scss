@@ -1,9 +1,16 @@
-@import '../../../globals/vars';
-@import '../../../globals/mixins';
-@import './table-toolbar-svg-button';
-@import './advanced-filter-flyout';
-@import './table-toolbar-search';
+@use '../../../globals/vars' as *;
+@use '../../../globals/mixins' as *;
+@use './table-toolbar-svg-button' as *;
+@use './advanced-filter-flyout' as *;
+@use './table-toolbar-search' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/type' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '../../../globals/mixins' as *;
+@use '@carbon/react/scss/components/data-table' as *;
 
+$duration-fast-02: 110ms;
 div.#{$prefix}--toolbar-action.#{$prefix}--toolbar-search-container-expandable {
   > div.#{$prefix}--search.#{$prefix}--search--sm.table-toolbar-search {
     flex-grow: 2;
@@ -12,7 +19,7 @@ div.#{$prefix}--toolbar-action.#{$prefix}--toolbar-search-container-expandable {
 
 .#{$iot-prefix}--table-toolbar-secondary-title {
   padding: $spacing-05;
-  @include type-style('productive-heading-01');
+  @include type-style('heading-compact-01');
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -25,6 +32,33 @@ div.#{$prefix}--toolbar-action.#{$prefix}--toolbar-search-container-expandable {
 
 .#{$prefix}--table-toolbar {
   height: $spacing-09;
+  position: relative;
+  display: flex;
+  width: 100%;
+  min-height: 3rem;
+  background-color: $layer-01;
+}
+
+.#{$prefix}--batch-actions {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #0f62fe;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  pointer-events: none;
+  -webkit-transform: translate3d(0, 48px, 0);
+  transform: translate3d(0, 48px, 0);
+  transition: transform $duration-fast-02 cubic-bezier(0.2, 0, 0.38, 0.9),
+    clip-path $duration-fast-02 cubic-bezier(0.2, 0, 0.38, 0.9),
+    opacity $duration-fast-02 cubic-bezier(0.2, 0, 0.38, 0.9),
+    -webkit-transform $duration-fast-02 cubic-bezier(0.2, 0, 0.38, 0.9),
+    -webkit-clip-path $duration-fast-02 cubic-bezier(0.2, 0, 0.38, 0.9);
+  will-change: transform;
 }
 
 .#{$iot-prefix}--table-toolbar-content {
@@ -33,6 +67,8 @@ div.#{$prefix}--toolbar-action.#{$prefix}--toolbar-search-container-expandable {
   // Z-index higher than 1 is needed to have Dropdown components correctly show
   // the listbox on top of the relatively positioned table columns and resize handle.
   z-index: 2;
+  display: flex;
+  justify-content: flex-end;
 
   .#{$prefix}--toolbar-search-container-active .#{$prefix}--search-input {
     border-bottom: 0;
@@ -132,16 +168,16 @@ html[dir='rtl'] {
   &.#{$prefix}--overflow-menu--open,
   &.#{$prefix}--overflow-menu--open:hover,
   &:hover {
-    background-color: $hover-primary;
+    // background-color: $hover-primary;//$$hover-primary;
   }
 
   &:focus {
-    outline: 2px solid $ui-01;
+    outline: 2px solid $layer-01;
     outline-offset: -($spacing-01);
   }
 
   &.#{$iot-prefix}--overflow-menu-icon.#{$iot-prefix}--tooltip-svg-wrapper .#{$prefix}--btn__icon {
-    fill: $ui-01;
+    fill: $layer-01;
   }
 
   // hide the divider between overflow menu and cancel on hover
@@ -153,13 +189,13 @@ html[dir='rtl'] {
 
     &.#{$iot-prefix}--overflow-menu-icon.#{$iot-prefix}--tooltip-svg-wrapper
       svg.#{$prefix}--btn__icon {
-      fill: $ui-01;
+      fill: $layer-01;
     }
   }
 }
 
 .#{$iot-prefix}--table-overflow-batch-actions__menu {
   &:after {
-    background-color: $hover-primary;
+    // background-color: $hover-primary; // $hover-primary
   }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Minimize20 } from '@carbon/icons-react';
+import { Minimize } from '@carbon/react/icons';
 
 import Minimap, { MinimapPropTypes } from './Minimap';
 
@@ -58,7 +58,7 @@ const ImageControls = ({
         {draggable && (
           <>
             <button type="button" style={buttonStyle} onClick={onZoomToFit}>
-              <Minimize20 aria-label={zoomToFit} />
+              <Minimize size={20} aria-label={zoomToFit} />
             </button>
             <br />
           </>

@@ -116,7 +116,7 @@ module.exports = {
   ],
   testURL: 'http://localhost',
   transform: {
-    '^.+\\.story\\.jsx?$': '@storybook/addon-storyshots/injectFileName',
+    // '^.+\\.story\\.jsx?$': '@storybook/addon-storyshots/injectFileName',
     '^.+\\.jsx?$': 'babel-jest',
     '^.+\\.s?css$': '<rootDir>/config/jest/cssTransform.js',
     '^(?!.*\\.(js|jsx|css|json)$)': '<rootDir>/config/jest/fileTransform.js',
@@ -133,6 +133,6 @@ module.exports = {
   moduleNameMapper: {
     // rewrite carbon-components(-react) es imports to lib/cjs imports because jest doesn't support es modules
     '@carbon/icons-react/es/(.*)': '@carbon/icons-react/lib/$1',
-    'carbon-components-react/es/(.*)': 'carbon-components-react/lib/$1',
+    '@carbon/react/es/(.*)': '@carbon/react/lib/$1',
   },
 };

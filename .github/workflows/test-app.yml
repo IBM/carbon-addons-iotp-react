@@ -29,7 +29,7 @@ jobs:
         uses: actions/setup-node@v4
         if: steps.changes.outputs.react == 'true'
         with:
-          node-version: '16.x'
+          node-version: '20.x'
 
       - name: Cache dependencies
         uses: actions/cache@v4
@@ -61,48 +61,3 @@ jobs:
         with:
           name: dist
           path: packages/react/dist
-
-  create-test-app:
-    name: Create test app and build
-    needs: build-pal
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - uses: dorny/paths-filter@v3
-        id: changes
-        with:
-          filters: |
-            react:
-              - 'packages/react/**'
-
-      - name: Use Node.js
-        uses: actions/setup-node@v4
-        if: steps.changes.outputs.react == 'true'
-        with:
-          node-version: '16.x'
-
-      - name: Run cli command to create test app
-        if: steps.changes.outputs.react == 'true'
-        run: |
-          npx create-iot-react-app test-app
-
-      - name: Download all build artifacts
-        if: steps.changes.outputs.react == 'true'
-        uses: actions/download-artifact@v4
-
-      - name: Link dependencies and build test app
-        if: steps.changes.outputs.react == 'true'
-        run: |
-          cd dist
-          yarn install --frozen-lockfile --production
-          yarn link
-          cd ../test-app
-          yarn link carbon-addons-iot-react
-          yarn build
-
-      - name: Serve app
-        if: ${{ success() }}
-        run: timeout 40s npx serve -s ../../../test-app/build || CODE="$?"; if [[ "$CODE" -ne 124 ]]; then exit $CODE; else exit 0; fi

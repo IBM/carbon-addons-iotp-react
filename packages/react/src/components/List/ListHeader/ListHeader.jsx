@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
+import { Search } from '@carbon/react';
 
-import { Search } from '../../Search';
 import { settings } from '../../../constants/Settings';
 import { handleSpecificKeyDown } from '../../../utils/componentUtilityFunctions';
 
@@ -67,7 +67,7 @@ const ListHeader = ({ title, buttons, search, i18n, testId }) => {
             onBlur={hasFastSearch ? undefined : handleSearch}
             onKeyDown={handleSpecificKeyDown(['Enter'], handleSearch)}
             onClear={() => handleSearch({ target: { value: '' } })}
-            size="lg"
+            size="md"
             value={search.value}
             labelText={i18n.searchPlaceHolderText}
             data-testid={`${testId}-search-input`}

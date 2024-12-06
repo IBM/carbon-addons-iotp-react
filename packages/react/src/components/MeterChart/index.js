@@ -1,1 +1,1 @@
-export { MeterChart } from '@carbon/charts-react';
+export { MeterChart } from '@carbon/react';

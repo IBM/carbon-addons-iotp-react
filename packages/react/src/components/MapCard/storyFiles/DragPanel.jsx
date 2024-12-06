@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useDrag } from 'react-dnd';
 
-import './drag-panel.scss';
+// import './drag-panel.scss'; carbon 11
 
 const propTypes = {
   id: PropTypes.string.isRequired,

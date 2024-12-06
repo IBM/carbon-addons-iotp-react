@@ -1,3 +1,5 @@
+@use '@carbon/react/scss/config' as *;
+@use '../../globals/vars' as *;
 .#{$iot-prefix}--filtertags-container {
   &__wrap {
     white-space: nowrap;

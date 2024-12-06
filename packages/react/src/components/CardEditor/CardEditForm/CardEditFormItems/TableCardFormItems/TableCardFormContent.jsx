@@ -1,9 +1,10 @@
 import React, { useState, useMemo, useCallback } from 'react';
 import PropTypes from 'prop-types';
-import { Edit16, Subtract16 } from '@carbon/icons-react';
+import { Edit, Subtract } from '@carbon/react/icons';
 import { isEmpty, omit } from 'lodash-es';
 import { v4 as uuidv4 } from 'uuid';
 import hash from 'object-hash';
+import { MultiSelect } from '@carbon/react';
 
 import { settings } from '../../../../../constants/Settings';
 import {
@@ -14,7 +15,6 @@ import {
 } from '../../../../DashboardEditor/editorUtils';
 import Button from '../../../../Button';
 import List from '../../../../List/List';
-import { MultiSelect } from '../../../../MultiSelect';
 import ComboBox from '../../../../ComboBox';
 import DataSeriesFormItemModal from '../DataSeriesFormItemModal';
 import ContentFormItemTitle from '../ContentFormItemTitle';
@@ -347,10 +347,10 @@ const TableCardFormContent = ({
           rowActions: () => [
             <Button
               key={`data-item-${dataItem.dataSourceId}`}
-              renderIcon={Edit16}
+              renderIcon={Edit}
               hasIconOnly
               kind="ghost"
-              size="small"
+              size="sm"
               onClick={() => handleEditButton(dataItem)}
               iconDescription={mergedI18n.edit}
               tooltipPosition="left"
@@ -358,10 +358,10 @@ const TableCardFormContent = ({
             />,
             <Button
               key={`data-item-${dataItem.dataSourceId}_remove`}
-              renderIcon={Subtract16}
+              renderIcon={Subtract}
               hasIconOnly
               kind="ghost"
-              size="small"
+              size="sm"
               onClick={() => handleRemoveButton(dataItem)}
               iconDescription={mergedI18n.remove}
               tooltipPosition="left"

@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
 import React, { useEffect, useState, useMemo, useRef, useCallback } from 'react';
 import classnames from 'classnames';
-import { Information16, Edit16 } from '@carbon/icons-react';
-import { Breadcrumb, BreadcrumbItem, Tooltip, SkeletonText, Tabs } from 'carbon-components-react';
+import { Information, Edit } from '@carbon/react/icons';
+import { Breadcrumb, BreadcrumbItem, SkeletonText, Tabs } from '@carbon/react';
 import { throttle } from 'lodash-es';
 
+import { ToggleTip } from '../ToggleTip';
 import { settings } from '../../constants/Settings';
 import deprecate from '../../internal/deprecate';
 import Button from '../Button';
@@ -273,25 +274,23 @@ const PageTitleBar = ({
     () => (
       <>
         {description && (collapsed || condensed) ? (
-          <Tooltip
+          <ToggleTip
             tabIndex={0}
-            triggerText=""
-            triggerId="tooltip"
-            tooltipId="tooltip"
-            renderIcon={Information16}
             iconDescription={tooltipIconDescription}
             data-testid={`${testId}-tooltip`}
+            showIcon
+            content={typeof description === 'string' ? <p>{description}</p> : <>{description}</>}
           >
-            {typeof description === 'string' ? <p>{description}</p> : description}
-          </Tooltip>
+            <Information />
+          </ToggleTip>
         ) : null}
         {editable ? (
           <Button
             className="page-title-bar-title--edit"
             kind="ghost"
-            size="field"
+            size="md"
             hasIconOnly
-            renderIcon={Edit16}
+            renderIcon={Edit}
             title={editIconDescription}
             iconDescription={editIconDescription}
             tooltipAlignment="center"
@@ -381,17 +380,21 @@ const PageTitleBar = ({
                       <>
                         {title}
                         {description ? (
-                          <Tooltip
+                          <ToggleTip
                             tabIndex={0}
-                            triggerText=""
-                            triggerId="tooltip"
-                            tooltipId="tooltip"
-                            renderIcon={Information16}
+                            showIcon
                             iconDescription={tooltipIconDescription}
                             data-testid={`${testId}-tooltip`}
+                            content={
+                              typeof description === 'string' ? (
+                                <p>{description}</p>
+                              ) : (
+                                <>{description}</>
+                              )
+                            }
                           >
-                            {typeof description === 'string' ? <p>{description}</p> : description}
-                          </Tooltip>
+                            <Information />
+                          </ToggleTip>
                         ) : null}
                       </>
                     </BreadcrumbItem>

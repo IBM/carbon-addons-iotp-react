@@ -1,8 +1,11 @@
-@import '../../../globals/vars';
-@import '../mixins';
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '../../../globals/vars' as *;
+@use '../mixins' as *;
 
 .#{$iot-prefix}--hotspot-editor-tooltip-tab {
-  background-color: $ui-01;
+  background-color: $layer-01;
   padding: $spacing-03 0;
 }
 

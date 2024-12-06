@@ -6,10 +6,10 @@
  */
 
 import React from 'react';
-import { Filter16 } from '@carbon/icons-react';
+import { Filter } from '@carbon/react/icons';
 import { withKnobs, select, text } from '@storybook/addon-knobs';
 
-import { TooltipIcon } from '.';
+import TooltipIcon from './TooltipIcon';
 
 const directions = {
   'Top (top)': 'top',
@@ -24,10 +24,25 @@ const alignments = {
   'End (end)': 'end',
 };
 
+const kind = {
+  primary: 'primary',
+  secondary: 'secondary',
+  ghost: 'ghost',
+  tertiary: 'tertiary',
+};
+
+const size = {
+  large: 'lg',
+  medium: 'md',
+  small: 'sm',
+};
+
 const props = () => ({
   direction: select('Tooltip direction (direction)', directions, 'bottom'),
   align: select('Tooltip alignment (align)', alignments, 'center'),
   tooltipText: text('Tooltip content (tooltipText)', 'Filter'),
+  kind: select('Tooltip icon kind', kind),
+  size: select('Tooltip icon size', size),
 });
 
 export default {
@@ -41,7 +56,7 @@ export default {
 
 export const Default = () => (
   <TooltipIcon {...props()}>
-    <Filter16 />
+    <Filter />
   </TooltipIcon>
 );
 

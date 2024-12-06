@@ -1,6 +1,6 @@
-@import '~carbon-components/scss/components/combo-box/combo-box';
-@import '../../globals/vars';
-@import '../../globals/mixins';
+@use '@carbon/react/scss/components/combo-box';
+@use '../../globals/vars' as *;
+@use '../../globals/mixins' as *;
 
 .#{$iot-prefix}--combobox {
   display: flex;

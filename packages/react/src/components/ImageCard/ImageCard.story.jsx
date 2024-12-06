@@ -2,7 +2,7 @@ import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { text, select, object, boolean } from '@storybook/addon-knobs';
 import { omit } from 'lodash-es';
-import { Bee16, Checkmark16 } from '@carbon/icons-react';
+import { Bee, Checkmark } from '@carbon/react/icons';
 import { spacing03, spacing06 } from '@carbon/layout';
 
 import { CARD_SIZES } from '../../constants/LayoutConstants';
@@ -216,13 +216,13 @@ export const CustomRenderIconByName = () => {
         size={size}
         renderIconByName={(name, props = {}) =>
           name === 'arrowDown' ? (
-            <Bee16 {...props}>
+            <Bee {...props}>
               <title>{props.title}</title>
-            </Bee16>
+            </Bee>
           ) : name === 'arrowUp' ? (
-            <Checkmark16 {...props}>
+            <Checkmark {...props}>
               <title>{props.title}</title>
-            </Checkmark16>
+            </Checkmark>
           ) : (
             <span>Unknown</span>
           )

@@ -8,10 +8,10 @@ $hoverBgColor: #3d3d3d;
   ////////////////////////////////////////
   .#{$prefix}--side-nav__menu-item + .#{$prefix}--side-nav__item > .#{$prefix}--side-nav__submenu {
     font-weight: 400;
-    padding-left: mini-units(9);
+    padding-left: 4.5rem;
 
     & + .#{$prefix}--side-nav__menu .#{$prefix}--side-nav__link {
-      padding-left: mini-units(13);
+      padding-left: 6.5rem;
     }
   }
 

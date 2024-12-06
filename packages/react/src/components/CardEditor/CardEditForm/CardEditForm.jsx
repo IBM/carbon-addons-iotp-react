@@ -1,9 +1,9 @@
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
+import { Tabs, Tab, TabList, TabPanels, TabPanel } from '@carbon/react';
 
 import { CARD_DIMENSIONS, CARD_TYPES } from '../../../constants/LayoutConstants';
 import { settings } from '../../../constants/Settings';
-import { Tabs, Tab } from '../../Tabs';
 import {
   DashboardEditorActionsPropTypes,
   DataItemsPropTypes,
@@ -166,38 +166,44 @@ const CardEditForm = ({
 
   return (
     <div className={baseClassName}>
-      <Tabs scrollIntoView={false}>
-        <Tab label={mergedI18n.contentTabLabel}>
-          <CardEditFormContent
-            cardConfig={cardConfig}
-            onChange={onChange}
-            isSummaryDashboard={isSummaryDashboard}
-            i18n={mergedI18n}
-            dataItems={dataItems}
-            availableDimensions={availableDimensions}
-            getValidDataItems={getValidDataItems}
-            getValidTimeRanges={getValidTimeRanges}
-            currentBreakpoint={currentBreakpoint}
-            dataSeriesItemLinks={dataSeriesItemLinks}
-            onFetchDynamicDemoHotspots={onFetchDynamicDemoHotspots}
-            actions={actions}
-          />
-        </Tab>
-        {!isCustomCardWithNoSettings ? (
-          <Tab label={mergedI18n.settingsTabLabel}>
-            <CardEditFormSettings
-              availableDimensions={availableDimensions}
+      <Tabs>
+        <TabList contained fullWidth>
+          <Tab>{mergedI18n.contentTabLabel}</Tab>
+          {!isCustomCardWithNoSettings ? <Tab>{mergedI18n.settingsTabLabel}</Tab> : null}
+        </TabList>
+        <TabPanels>
+          <TabPanel>
+            <CardEditFormContent
               cardConfig={cardConfig}
               onChange={onChange}
+              isSummaryDashboard={isSummaryDashboard}
               i18n={mergedI18n}
+              dataItems={dataItems}
+              availableDimensions={availableDimensions}
               getValidDataItems={getValidDataItems}
               getValidTimeRanges={getValidTimeRanges}
               currentBreakpoint={currentBreakpoint}
               dataSeriesItemLinks={dataSeriesItemLinks}
               onFetchDynamicDemoHotspots={onFetchDynamicDemoHotspots}
+              actions={actions}
             />
-          </Tab>
-        ) : null}
+          </TabPanel>
+          {!isCustomCardWithNoSettings ? (
+            <TabPanel>
+              <CardEditFormSettings
+                availableDimensions={availableDimensions}
+                cardConfig={cardConfig}
+                onChange={onChange}
+                i18n={mergedI18n}
+                getValidDataItems={getValidDataItems}
+                getValidTimeRanges={getValidTimeRanges}
+                currentBreakpoint={currentBreakpoint}
+                dataSeriesItemLinks={dataSeriesItemLinks}
+                onFetchDynamicDemoHotspots={onFetchDynamicDemoHotspots}
+              />
+            </TabPanel>
+          ) : null}
+        </TabPanels>
       </Tabs>
     </div>
   );

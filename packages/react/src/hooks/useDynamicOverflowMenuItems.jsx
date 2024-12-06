@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
+import { OverflowMenuItem } from '@carbon/react';
 
-import { OverflowMenuItem } from '../components/OverflowMenuItem';
 import { renderTableOverflowItemText } from '../components/Table/tableUtilities';
 
 /**

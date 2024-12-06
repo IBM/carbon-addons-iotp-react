@@ -2,10 +2,9 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ButtonSkeleton } from 'carbon-components-react';
+import { ButtonSkeleton, SkeletonText } from '@carbon/react';
 
 import Button from '../../Button';
-import { SkeletonText } from '../../SkeletonText';
 import { settings } from '../../../constants/Settings';
 import { handleSpecificKeyDown } from '../../../utils/componentUtilityFunctions';
 
@@ -72,7 +71,7 @@ const SuiteHeaderProfile = ({
           >
             <Button
               kind="secondary"
-              size="small"
+              size="sm"
               testId={`${testId}--profile`}
               onClick={onProfileClick}
               onKeyDown={handleSpecificKeyDown(['Enter', ' '], onProfileClick)}

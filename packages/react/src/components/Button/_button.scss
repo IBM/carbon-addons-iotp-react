@@ -1,11 +1,13 @@
-@import '~carbon-components/scss/components/button/button';
-@import '../../globals/vars';
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/colors' as *;
+@use '@carbon/react/scss/components/button' as *;
+@use '@carbon/react/scss/utilities/convert';
+@use '../../globals/vars' as *;
 
 .#{$iot-prefix}--btn {
-  justify-content: flex-start;
-
   .#{$prefix}--loading {
-    margin-top: -$spacing-05;
     margin-bottom: -$spacing-05;
     margin-right: $spacing-03;
 
@@ -15,14 +17,14 @@
     }
   }
   .#{$prefix}--loading__stroke {
-    stroke: $carbon--gray-50;
+    stroke: $gray-50;
   }
 }
 
 .#{$iot-prefix}--btn.#{$prefix}--btn.#{$prefix}--btn--ghost.#{$prefix}--btn--icon-only:not(
     .#{$iot-prefix}--btn-icon-selection--selected
   ).#{$iot-prefix}--btn-icon-selection--recommended {
-  border: 1px solid $support-02;
+  border: 1px solid $support-success;
 }
 
 .#{$iot-prefix}--btn:not(.#{$iot-prefix}--btn-icon-selection--selected)
@@ -32,7 +34,7 @@
   right: 0;
   border-width: $spacing-04 0 0 $spacing-04;
   border-style: solid;
-  border-color: $support-02 transparent;
+  border-color: $support-success transparent;
 }
 
 .#{$iot-prefix}--btn.#{$prefix}--btn--field:not(.#{$iot-prefix}--btn-icon-selection--selected)
@@ -52,22 +54,22 @@
 .#{$iot-prefix}--btn.#{$prefix}--btn.#{$prefix}--btn--ghost.#{$prefix}--btn--icon-only.#{$iot-prefix}--btn-icon-selection
   svg
   path {
-  fill: $icon-01;
+  fill: $icon-primary;
   outline-color: transparent;
 }
 
 .#{$iot-prefix}--btn.#{$prefix}--btn.#{$prefix}--btn--ghost.#{$prefix}--btn--icon-only.#{$iot-prefix}--btn-icon-selection.#{$iot-prefix}--btn-icon-selection--selected
   svg
   path {
-  fill: $interactive-01;
+  fill: $button-primary;
   outline-color: transparent;
 }
 
 [dir='rtl'] {
   .#{$iot-prefix}--btn:not(.#{$prefix}--btn--icon-only) {
     text-align: right;
-    /* stylelint-disable-next-line declaration-property-unit-blacklist, copied from carbon and inverted */
-    padding: calc(0.875rem - 3px) 15px calc(0.875rem - 3px) 63px;
+    /* stylelint-disable-next-line declaration-property-unit-disallowed-list, copied from carbon and inverted */
+    padding: 0.875rem 15px 0.875rem 63px;
   }
 
   .#{$prefix}--btn .#{$prefix}--btn__icon {
@@ -75,21 +77,21 @@
     right: initial;
   }
 
-  // The padding $spacing-05 was added globally to all ghost button sizes at some point,
-  // but it should probably only be applied to the default size so we have added exceptions here
-  // once we found they were needed in order not to break any existing functionality.
-  // For Carbon v.11 when the button sizes are adjusted we should take the oportunity to
-  // see if we can remove this global ghost padding.
-  .#{$iot-prefix}--btn.#{$prefix}--btn--ghost {
-    &:not(.#{$prefix}--btn--sm.#{$prefix}--btn--icon-only):not(
-        .#{$iot-prefix}--menu-button__trigger
-      ) {
-      padding-left: $spacing-05;
-      padding-right: $spacing-05;
-    }
-  }
+  // // The padding $spacing-05 was added globally to all ghost button sizes at some point,
+  // // but it should probably only be applied to the default size so we have added exceptions here
+  // // once we found they were needed in order not to break any existing functionality.
+  // // For Carbon v.11 when the button sizes are adjusted we should take the oportunity to
+  // // see if we can remove this global ghost padding.
+  // .#{$iot-prefix}--btn.#{$prefix}--btn--ghost {
+  //   &:not(.#{$prefix}--btn--sm.#{$prefix}--btn--icon-only):not(
+  //       .#{$iot-prefix}--menu-button__trigger
+  //     ) {
+  //     padding-left: $spacing-05;
+  //     padding-right: $spacing-05;
+  //   }
+  // }
 
   .#{$prefix}--btn-set .#{$prefix}--btn:last-of-type:not(:focus) {
-    box-shadow: rem(1px) 0 0 0 $button-separator;
+    box-shadow: convert.to-rem(1px) 0 0 0 $button-separator;
   }
 }

@@ -1,4 +1,7 @@
-@import '../../globals/vars';
+@use '../../globals/vars' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
 
 .#{$iot-prefix}--select-users-modal {
   .#{$prefix}--modal-container .#{$prefix}--modal-content {
@@ -6,7 +9,7 @@
   }
 
   .#{$iot-prefix}--list {
-    background-color: $ui-01;
+    background-color: $layer-01;
     height: 100%;
   }
 
@@ -15,7 +18,7 @@
   }
 
   .#{$prefix}--search-input {
-    background-color: $ui-background;
+    background-color: $background;
   }
   .#{$iot-prefix}--list-header--search,
   .#{$iot-prefix}--list-header-container,

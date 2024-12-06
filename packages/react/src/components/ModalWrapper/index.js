@@ -1,1 +1,1 @@
-export { ModalWrapper } from 'carbon-components-react';
+export { ModalWrapper } from '@carbon/react';

@@ -7,8 +7,8 @@
  */
 
 import React from 'react';
-import { CheckmarkFilled16 } from '@carbon/icons-react';
-import { settings } from 'carbon-components';
+import { CheckmarkFilled } from '@carbon/react/icons';
+// import { settings } from 'carbon-components';
 
 import {
   StructuredListWrapper,
@@ -20,7 +20,7 @@ import {
   StructuredListSkeleton,
 } from '.';
 
-const { prefix } = settings;
+const { prefix } = 'cds';
 
 export default {
   title: '3 - Carbon/StructuredList',
@@ -97,12 +97,12 @@ export const Selection = () => {
           defaultChecked={!i || null}
         />
         <StructuredListCell>
-          <CheckmarkFilled16
+          <CheckmarkFilled
             className={`${prefix}--structured-list-svg`}
             aria-label="select an option"
           >
             <title>select an option</title>
-          </CheckmarkFilled16>
+          </CheckmarkFilled>
         </StructuredListCell>
       </StructuredListRow>
     ));

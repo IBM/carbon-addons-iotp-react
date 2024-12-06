@@ -1,5 +1,9 @@
-@import '../../../globals/vars';
-
+@use '../../../globals/vars' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/colors' as *;
+@use '@carbon/react/scss/utilities' as *;
 .#{$iot-prefix}--view-dropdown__container {
   padding: 0 $spacing-05;
   margin: auto 0;
@@ -18,7 +22,7 @@
 }
 
 .#{$iot-prefix}--view-dropdown__edited-text {
-  color: $carbon--gray-50;
+  color: $gray-50;
 }
 
 .#{$iot-prefix}--view-dropdown__item {
@@ -30,15 +34,15 @@
 }
 
 .#{$iot-prefix}--view-dropdown__item-link {
-  color: $link-01;
+  color: $link-primary;
   // compensate for carbon selected checkbox space that is not needed since these
   // link-items with custom actions will not actually be
   margin-right: -$spacing-06;
 }
 
 .#{$iot-prefix}--view-dropdown__item-link-icon {
-  color: $link-01;
-  fill: $link-01;
+  color: $link-primary;
+  fill: $link-primary;
   margin-left: $spacing-03;
   flex-shrink: 0;
 }

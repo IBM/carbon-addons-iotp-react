@@ -1,5 +1,5 @@
-import { SelectableTile } from 'carbon-components-react';
-import { TrashCan16 } from '@carbon/icons-react';
+import { SelectableTile } from '@carbon/react';
+import { TrashCan } from '@carbon/react/icons';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -75,7 +75,7 @@ const ImageTile = ({
         {onDelete ? (
           <Button
             className={`${iotPrefix}--image-tile__title__delete`}
-            renderIcon={TrashCan16}
+            renderIcon={TrashCan}
             hasIconOnly
             iconDescription={deleteButtonLabel}
             kind="ghost"

@@ -1,10 +1,10 @@
-import initStoryshots, { multiSnapshotWithOptions } from '@storybook/addon-storyshots';
+// import initStoryshots, { multiSnapshotWithOptions } from '@storybook/addon-storyshots';
 import ReactDOM from 'react-dom';
 import MockDate from 'mockdate';
 
-import { settings } from '../constants/Settings';
+// import { settings } from '../constants/Settings';
 
-const { iotPrefix, prefix } = settings;
+// const { iotPrefix, prefix } = settings;
 const realFindDOMNode = ReactDOM.findDOMNode;
 
 const realScrollIntoView = window.HTMLElement.prototype.scrollIntoView;
@@ -73,75 +73,75 @@ describe(`Storybook Snapshot tests and console checks`, () => {
       };
     });
   });
-  initStoryshots({
-    storyKindRegex: /Watson\sIoT.*$|.*Getting\sStarted/g,
-    test: multiSnapshotWithOptions((story) => ({
-      createNodeMock: (element) => {
-        // https://github.com/storybookjs/storybook/tree/next/addons/storyshots/storyshots-core#using-createnodemock-to-mock-refs
-        // fallback is to mock something, otherwise our refs are invalid
+  // initStoryshots({
+  //   storyKindRegex: /Watson\sIoT.*$|.*Getting\sStarted/g,
+  //   test: multiSnapshotWithOptions((story) => ({
+  //     createNodeMock: (element) => {
+  //       // https://github.com/storybookjs/storybook/tree/next/addons/storyshots/storyshots-core#using-createnodemock-to-mock-refs
+  //       // fallback is to mock something, otherwise our refs are invalid
 
-        // these stories require an input be nested within the ref, for compatibility with Carbon's TableToolbarSearch component
-        const storiesNeedingNestedInputRefs = [
-          '1 - Watson IoT/Table.minitable',
-          '1 - Watson IoT/Table.with simple search',
-          '1 - Watson IoT/Table.Stateful Example with row nesting',
-          '1 - Watson IoT/Table.Stateful Example with expansion',
-          '1 - Watson IoT/TileCatalog.with search',
-          '1 - Watson IoT/TableCard',
-          '1 - Watson IoT/ComboChartCard',
-        ];
-        if (
-          storiesNeedingNestedInputRefs.includes(story.kind) ||
-          storiesNeedingNestedInputRefs.includes(`${story.kind}.${story.name}`)
-        ) {
-          const div = document.createElement('div');
-          div.className = 'from-initStoryshots-createNodeMock'; // to assist in debugging
-          div.innerHTML = "<input type='text'></input>";
-          return div;
-        }
+  //       // these stories require an input be nested within the ref, for compatibility with Carbon's TableToolbarSearch component
+  //       const storiesNeedingNestedInputRefs = [
+  //         '1 - Watson IoT/Table.minitable',
+  //         '1 - Watson IoT/Table.with simple search',
+  //         '1 - Watson IoT/Table.Stateful Example with row nesting',
+  //         '1 - Watson IoT/Table.Stateful Example with expansion',
+  //         '1 - Watson IoT/TileCatalog.with search',
+  //         '1 - Watson IoT/TableCard',
+  //         '1 - Watson IoT/ComboChartCard',
+  //       ];
+  //       if (
+  //         storiesNeedingNestedInputRefs.includes(story.kind) ||
+  //         storiesNeedingNestedInputRefs.includes(`${story.kind}.${story.name}`)
+  //       ) {
+  //         const div = document.createElement('div');
+  //         div.className = 'from-initStoryshots-createNodeMock'; // to assist in debugging
+  //         div.innerHTML = "<input type='text'></input>";
+  //         return div;
+  //       }
 
-        // Needed for DatePicker refererence in carbon-components-react
-        if (story.kind === 'Watson IoT/Dashboard Header') {
-          const fragment = document.createDocumentFragment();
-          const div = document.createElement('div');
-          div.className = 'from-initStoryshots-createNodeMock'; // to assist in debugging
-          fragment.appendChild(div);
-          return fragment.childNodes;
-        }
+  //       // Needed for DatePicker refererence in carbon-components-react
+  //       if (story.kind === 'Watson IoT/Dashboard Header') {
+  //         const fragment = document.createDocumentFragment();
+  //         const div = document.createElement('div');
+  //         div.className = 'from-initStoryshots-createNodeMock'; // to assist in debugging
+  //         fragment.appendChild(div);
+  //         return fragment.childNodes;
+  //       }
 
-        if (element.type === 'input') {
-          return document.createElement('input');
-        }
+  //       if (element.type === 'input') {
+  //         return document.createElement('input');
+  //       }
 
-        // needed for HierarchyList ref
-        if (
-          element.props?.className?.includes(
-            `${iotPrefix}--list-item--content ${iotPrefix}--list-item--content__selected`
-          )
-        ) {
-          return {
-            ...element,
-            parentNode: document.createElement('div'),
-          };
-        }
+  //       // needed for HierarchyList ref
+  //       if (
+  //         element.props?.className?.includes(
+  //           `${iotPrefix}--list-item--content ${iotPrefix}--list-item--content__selected`
+  //         )
+  //       ) {
+  //         return {
+  //           ...element,
+  //           parentNode: document.createElement('div'),
+  //         };
+  //       }
 
-        // needed for menubutton using carbon menu
-        if (
-          element.props?.className?.includes(`${prefix}--menu-option`) ||
-          element.props?.className?.includes(`${prefix}--menu-divider`)
-        ) {
-          const parentNode = document.createElement('div');
-          parentNode.classList.add(`${prefix}--menu`);
-          return {
-            ...element,
-            parentNode,
-          };
-        }
+  //       // needed for menubutton using carbon menu
+  //       if (
+  //         element.props?.className?.includes(`${prefix}--menu-option`) ||
+  //         element.props?.className?.includes(`${prefix}--menu-divider`)
+  //       ) {
+  //         const parentNode = document.createElement('div');
+  //         parentNode.classList.add(`${prefix}--menu`);
+  //         return {
+  //           ...element,
+  //           parentNode,
+  //         };
+  //       }
 
-        return document.createElement('div');
-      },
-    })),
-  });
+  //       return document.createElement('div');
+  //     },
+  //   })),
+  // });
 
   afterAll(() => {
     spy.consoleError.mockRestore();

@@ -1,34 +1,34 @@
+@use '../../globals/vars' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
 .#{$iot-prefix}--code-editor {
   &-container {
-    background-color: $ui-01;
+    background-color: $layer-01;
     height: 100%;
     overflow: hidden;
     min-height: 3.5rem;
     padding-top: $spacing-05;
     // case it's light and disabled
     .cm-gutters {
-      background-color: $ui-01;
+      background-color: $layer-01;
     }
   }
   &-container--light {
-    background-color: $ui-background;
-    .cm-gutters,
-    .cm-content {
-      background-color: $ui-background;
-    }
+    background-color: $background;
   }
   &-container--disabled {
-    background-color: $disabled-02;
+    background-color: $layer-active-01;
     .view-lines.monaco-mouse-cursor-text {
-      background-color: $disabled-02;
+      background-color: $layer-active-01;
       > div > span > * {
-        color: $disabled-03;
+        color: $icon-on-color-disabled; //$disabled-03;
       }
     }
     // case it's light and disabled
     .cm-gutters,
     .cm-content {
-      background-color: $disabled-02;
+      background-color: $text-disabled;
     }
   }
 
@@ -45,34 +45,42 @@
       background-color: transparent;
     }
   }
+
   &-copy {
-    background-color: $ui-01;
-    position: absolute;
-    inset-inline-start: calc(100% - 2.5rem);
-    top: 0;
+    background-color: $layer-01;
     z-index: 1;
-  }
-  &-copy--light {
-    background-color: $ui-background;
-  }
-  &-copy--disabled-container {
-    background-color: $active-ui;
   }
 
-  &-upload.bx--btn.bx--btn--icon-only {
-    background-color: $ui-01;
+  &-copy-wrapper {
     position: absolute;
-    inset-inline-start: calc(100% - 5.03rem);
     top: 0;
+    right: 0;
+  }
+
+  &-upload-wrapper {
+    position: absolute;
+    top: 0;
+    right: $spacing-08;
+  }
+
+  &-copy--light {
+    background-color: $background;
+  }
+  &-copy--disabled-container {
+    background-color: $border-disabled;
+  }
+
+  &-upload.cds--btn.cds--btn--icon-only {
+    background-color: $layer-01;
     z-index: 1;
   }
-  &-upload--light.bx--btn.bx--btn--icon-only {
-    background-color: $ui-background;
+  &-upload--light.cds--btn.cds--btn--icon-only {
+    background-color: $background;
     &:hover {
-      background-color: $hover-ui;
+      background-color: $layer-hover-01;
     }
   }
-  &-upload--disabled.bx--btn.bx--btn--icon-only {
-    background-color: $disabled-02;
+  &-upload--disabled.cds--btn.cds--btn--icon-only {
+    background-color: $layer-active-01;
   }
 }

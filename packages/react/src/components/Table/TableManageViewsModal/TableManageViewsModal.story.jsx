@@ -1,7 +1,7 @@
 import React, { useState, createElement } from 'react';
 import { action } from '@storybook/addon-actions';
 import { boolean, select } from '@storybook/addon-knobs';
-import { TrashCan16, Edit16, Copy16 } from '@carbon/icons-react';
+import { TrashCan, Edit, Copy } from '@carbon/react/icons';
 
 import Button from '../../Button';
 import { Tag } from '../../Tag';
@@ -144,7 +144,7 @@ export const WithCustomRowActionsCustomRenderingAndNoPagination = () => {
       kind="ghost"
       onClick={() => onClick(id)}
       renderIcon={icon}
-      size="small"
+      size="sm"
       tooltipAlignment="center"
       tooltipPosition="left"
     />
@@ -153,13 +153,13 @@ export const WithCustomRowActionsCustomRenderingAndNoPagination = () => {
   const getCustomRowActions = ({ id, isEditable, isDeleteable, isClonable }) => {
     const rowActions = [];
     if (isEditable) {
-      rowActions.push(renderButton(id, action('onEdit'), Edit16, 'editItemKey', 'Edit'));
+      rowActions.push(renderButton(id, action('onEdit'), Edit, 'editItemKey', 'Edit'));
     }
     if (isDeleteable) {
-      rowActions.push(renderButton(id, action('onDelete'), TrashCan16, 'deleteKey', 'Delete'));
+      rowActions.push(renderButton(id, action('onDelete'), TrashCan, 'deleteKey', 'Delete'));
     }
     if (isClonable) {
-      rowActions.push(renderButton(id, action('onClone'), Copy16, 'copyKey', 'Copy'));
+      rowActions.push(renderButton(id, action('onClone'), Copy, 'copyKey', 'Copy'));
     }
     return rowActions;
   };

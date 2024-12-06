@@ -11,7 +11,7 @@ import options from './storyFiles/mapOptions';
 import MapboxExample from './storyFiles/MapboxExample';
 import MapboxDragPanelExample from './storyFiles/MapboxDragPanelExample';
 import OpenLayersExample from './storyFiles/OpenLayersExample';
-import MapCardREADME from './MapCard.mdx';
+// import MapCardREADME from './MapCard.mdx';
 
 export const Experimental = () => <StoryNotice componentName="MapCard" experimental />;
 Experimental.storyName = experimentalStoryTitle;
@@ -113,9 +113,9 @@ export default {
   decorators: [withKnobs, React.createElement],
   parameters: {
     component: MapboxStory,
-    docs: {
-      page: MapCardREADME,
-    },
+    // docs: {
+    //   page: MapCardREADME,
+    // }, //carbon 11
     storyshots: { disable: true },
   },
 };

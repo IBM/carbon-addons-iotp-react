@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-pascal-case */
 import React from 'react';
-import { boolean, text, select, number, object } from '@storybook/addon-knobs';
+import { boolean, text, select, object } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import { spacing06 } from '@carbon/layout';
 
@@ -69,7 +69,7 @@ export const Default = () => {
         i18n={object('i18n', {
           invalidText: 'The date time entered is invalid',
         })}
-        style={{ zIndex: number('zIndex', 100) }}
+        style={{ zIndex: text('zIndex', '100') }}
       />
     </div>
   );

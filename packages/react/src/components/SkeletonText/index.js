@@ -1,1 +1,1 @@
-export { SkeletonText } from 'carbon-components-react';
+export { SkeletonText } from '@carbon/react';

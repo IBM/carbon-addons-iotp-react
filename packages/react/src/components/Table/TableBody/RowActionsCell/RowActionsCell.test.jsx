@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { Add32, Edit16 } from '@carbon/icons-react';
+import { Add, Edit } from '@carbon/react/icons';
 
 import { settings } from '../../../../constants/Settings';
 
@@ -23,7 +23,7 @@ describe('RowActionsCell', () => {
 
   it('click handler', () => {
     const tableRow = document.createElement('tr');
-    const actions = [{ id: 'addAction', renderIcon: Add32, iconDescription: 'See more' }];
+    const actions = [{ id: 'addAction', renderIcon: Add, iconDescription: 'See more' }];
     render(<RowActionsCell {...commonRowActionsProps} actions={actions} />, {
       container: document.body.appendChild(tableRow),
     });
@@ -57,8 +57,8 @@ describe('RowActionsCell', () => {
   it('overflow menu trigger has ID', () => {
     const tableRow = document.createElement('tr');
     const actions = [
-      { id: 'add', renderIcon: Add32, iconDescription: 'See more' },
-      { id: 'edit', renderIcon: Edit16, isOverflow: true, labelText: 'Edit' },
+      { id: 'add', renderIcon: Add, iconDescription: 'See more' },
+      { id: 'edit', renderIcon: Edit, isOverflow: true, labelText: 'Edit' },
     ];
     render(<RowActionsCell {...commonRowActionsProps} actions={actions} />, {
       container: document.body.appendChild(tableRow),
@@ -81,7 +81,7 @@ describe('RowActionsCell', () => {
     const tableRow = document.createElement('tr');
     const action = {
       id: 'addAction',
-      renderIcon: Add32,
+      renderIcon: Add,
       iconDescription: 'See more',
       labelText: 'Drill in to find out more',
     };
@@ -151,7 +151,7 @@ describe('RowActionsCell', () => {
   describe('RowActionsError', () => {
     it('should show errors and be dismissable when onClearError is given', () => {
       const tableRow = document.createElement('tr');
-      const actions = [{ id: 'addAction', renderIcon: Add32, iconDescription: 'See more' }];
+      const actions = [{ id: 'addAction', renderIcon: Add, iconDescription: 'See more' }];
       const onClearError = jest.fn();
       render(
         <RowActionsCell
@@ -188,7 +188,7 @@ describe('RowActionsCell', () => {
 
     it('should only show "dismiss" button if there is an onClearError prop', () => {
       const tableRow = document.createElement('tr');
-      const actions = [{ id: 'addAction', renderIcon: Add32, iconDescription: 'See more' }];
+      const actions = [{ id: 'addAction', renderIcon: Add, iconDescription: 'See more' }];
       render(
         <RowActionsCell
           id="test"
@@ -219,7 +219,7 @@ describe('RowActionsCell', () => {
 
     it('should only show "learn more" link if there is a learnMoreURL prop', () => {
       const tableRow = document.createElement('tr');
-      const actions = [{ id: 'addAction', renderIcon: Add32, iconDescription: 'See more' }];
+      const actions = [{ id: 'addAction', renderIcon: Add, iconDescription: 'See more' }];
       const onClearError = jest.fn();
       render(
         <RowActionsCell
@@ -285,7 +285,7 @@ describe('RowActionsCell', () => {
 
     it('action container background knows when overflow menu is open (in order to stay visible)', () => {
       const tableRow = document.createElement('tr');
-      const actions = [{ id: 'edit', renderIcon: Edit16, isOverflow: true, labelText: 'Edit' }];
+      const actions = [{ id: 'edit', renderIcon: Edit, isOverflow: true, labelText: 'Edit' }];
       const { container } = render(
         <RowActionsCell {...commonRowActionsProps} actions={actions} />,
         {
@@ -324,7 +324,7 @@ describe('RowActionsCell', () => {
         {
           disabled: false,
           id: 'edit',
-          renderIcon: Edit16,
+          renderIcon: Edit,
           isOverflow: true,
           labelText: 'Edit',
         },

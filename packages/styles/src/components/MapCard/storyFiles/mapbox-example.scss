@@ -1,9 +1,0 @@
-@import '../../../globals/vars';
-// Without this external style the logo and attribution texts won't be correctly displayed
-@import url('https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css');
-
-.#{$iot-prefix}--map {
-  .mapboxgl-canvas-container {
-    height: 100%;
-  }
-}

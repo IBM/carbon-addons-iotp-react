@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { action } from '@storybook/addon-actions';
 import { select } from '@storybook/addon-knobs';
-import Add from '@carbon/icons-react/es/add/32';
+import { Add } from '@carbon/react/icons';
 
 import FullWidthWrapper from '../../internal/FullWidthWrapper';
 
@@ -11,7 +11,7 @@ import CatalogContent from './CatalogContent';
 const longDescription =
   'Really long string with lots of lots of text too much to show on one line and when it wraps it might cause some interesting issues especially if it starts vertically wrapping outside of tile bounds at the bottom of the tile';
 
-const tileRenderFunction = ({ values }) => <CatalogContent {...values} icon={<Add />} />;
+const tileRenderFunction = ({ values }) => <CatalogContent {...values} icon={<Add size={32} />} />;
 
 export const commonTileCatalogProps = {
   title: 'My Tile Catalog',

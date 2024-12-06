@@ -1,4 +1,9 @@
-@import '../../../globals/vars';
+@use '../../../globals/vars' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/components/data-table' as *;
+
 .#{$iot-prefix}--table-skeleton-with-headers--table-row {
   pointer-events: none;
   &:hover td {
@@ -12,14 +17,14 @@
 
   &--head {
     td {
-      background-color: $ui-03;
+      background-color: $layer-accent-01;
     }
 
     .#{$prefix}--skeleton__text {
-      background: $ui-04;
+      background: $border-strong-01;
 
       &:before {
-        background: $text-03;
+        background: $text-placeholder; //$text-03
       }
     }
   }

@@ -9,7 +9,7 @@
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { ArrowUp16 as Arrow, ArrowsVertical16 as Arrows } from '@carbon/icons-react';
+import { ArrowUp, ArrowDown, ArrowsVertical as Arrows } from '@carbon/react/icons';
 
 import { settings } from '../../../constants/Settings';
 import { handleSpecificKeyDown } from '../../../utils/componentUtilityFunctions';
@@ -142,15 +142,28 @@ const TableHeader = React.forwardRef(function TableHeader(
         ) : (
           children
         )}
-        <Arrow
-          className={`${prefix}--table-sort__icon`}
-          aria-label={t('carbon.table.header.icon.description', {
-            header: children,
-            sortDirection,
-            isSortHeader,
-            sortStates,
-          })}
-        />
+        {sortDirection === sortStates.ASC ? (
+          <ArrowUp
+            className={`${prefix}--table-sort__icon`}
+            aria-label={t('carbon.table.header.icon.description', {
+              header: children,
+              sortDirection,
+              isSortHeader,
+              sortStates,
+            })}
+          />
+        ) : null}
+        {sortDirection === sortStates.DESC ? (
+          <ArrowDown
+            className={`${prefix}--table-sort__icon`}
+            aria-label={t('carbon.table.header.icon.description', {
+              header: children,
+              sortDirection,
+              isSortHeader,
+              sortStates,
+            })}
+          />
+        ) : null}
         <Arrows
           className={`${prefix}--table-sort__icon-unsorted`}
           aria-label={t('carbon.table.header.icon.description', {

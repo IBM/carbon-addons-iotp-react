@@ -1,1 +1,1 @@
-export { Switch } from 'carbon-components-react';
+export { Switch } from '@carbon/react';

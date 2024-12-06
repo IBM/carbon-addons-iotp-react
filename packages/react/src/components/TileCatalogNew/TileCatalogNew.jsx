@@ -1,12 +1,6 @@
 import React, { useState } from 'react';
-import {
-  Select,
-  SelectItem,
-  TableToolbarSearch,
-  SkeletonText,
-  Tile,
-} from 'carbon-components-react';
-import { Bee32 } from '@carbon/icons-react';
+import { Select, SelectItem, TableToolbarSearch, SkeletonText, Tile } from '@carbon/react';
+import { Bee } from '@carbon/react/icons';
 import PropTypes from 'prop-types';
 
 import { settings } from '../../constants/Settings';
@@ -158,6 +152,7 @@ const TileCatalogNew = ({
               <TableToolbarSearch
                 placeholder={i18n.searchPlaceHolderText}
                 onChange={onSearch}
+                size="md"
                 className={`${iotPrefix}--tile-catalog--tile-canvas--header--search`}
                 data-testid={`${testId}-search-input`}
               />
@@ -187,7 +182,7 @@ const TileCatalogNew = ({
               className={`${iotPrefix}--tile-catalog--empty-tile`}
             >
               <>
-                <Bee32 />
+                <Bee size={32} />
                 <p>{error || i18n.error}</p>
               </>
             </Tile>

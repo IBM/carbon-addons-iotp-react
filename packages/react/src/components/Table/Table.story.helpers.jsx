@@ -4,11 +4,18 @@ import { cloneDeep } from 'lodash-es';
 import { action } from '@storybook/addon-actions';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { boolean, text, select, object } from '@storybook/addon-knobs';
-import { Add20, TrashCan16, BeeBat16, Activity16, ViewOff16, Error16 } from '@carbon/icons-react';
-import Arrow from '@carbon/icons-react/es/arrow--right/16';
-import Add from '@carbon/icons-react/es/add/16';
-import Edit from '@carbon/icons-react/es/edit/16';
-import { ComboBox, DatePickerInput, NumberInput } from 'carbon-components-react';
+import {
+  Add as AddIcon,
+  TrashCan,
+  BeeBat,
+  Activity,
+  ViewOff,
+  Error,
+  DrillDown,
+  Add,
+  Edit,
+} from '@carbon/react/icons';
+import { ComboBox, DatePickerInput, NumberInput } from '@carbon/react';
 
 import { Checkbox } from '../Checkbox';
 import { TextInput } from '../TextInput';
@@ -401,7 +408,7 @@ export const getTableToolbarActions = () => [
   {
     id: 'long-icon',
     labelText: 'A really long text that should be truncated with an icon',
-    renderIcon: () => <BeeBat16 />,
+    renderIcon: () => <BeeBat />,
     disabled: false,
     isOverflow: true,
   },
@@ -411,7 +418,7 @@ export const getTableToolbarActions = () => [
     isDelete: true,
     hasDivider: true,
     isOverflow: true,
-    renderIcon: TrashCan16,
+    renderIcon: TrashCan,
   },
   {
     id: 'hidden',
@@ -422,7 +429,7 @@ export const getTableToolbarActions = () => [
   {
     id: 'toggle',
     labelText: 'Toggle something',
-    renderIcon: () => <ViewOff16 />,
+    renderIcon: () => <ViewOff />,
     isActive: true,
   },
 ];
@@ -437,7 +444,7 @@ export const getNewRow = (idx, suffix = '', withActions = false) => ({
     number: idx % 3 === 0 ? null : idx * idx,
     status: getStatus(idx),
     boolean: getBoolean(idx),
-    node: <Add20 />,
+    node: <AddIcon size={20} />,
     object: { id: getString(idx, 5) },
   },
   isDraggable: true,
@@ -445,13 +452,13 @@ export const getNewRow = (idx, suffix = '', withActions = false) => ({
     ? [
         {
           id: 'drilldown',
-          renderIcon: Arrow,
+          renderIcon: <DrillDown size={16} />,
           iconDescription: 'Drill in',
           labelText: 'Drill in',
         },
         {
           id: 'Add',
-          renderIcon: Add,
+          renderIcon: <Add size={16} />,
           iconDescription: 'Add',
           labelText: 'Add',
           isOverflow: true,
@@ -481,7 +488,7 @@ export const getTableDataWithEmptySelectFilter = () =>
 
 export const getDrillDownRowAction = () => ({
   id: 'drilldown',
-  renderIcon: Arrow,
+  renderIcon: DrillDown,
   iconDescription: 'Drill in',
   labelText: 'Drill in to find out more after observing',
 });
@@ -507,7 +514,7 @@ export const getOverflowAddRowAction = () => ({
 
 export const getOverflowDeleteRowAction = () => ({
   id: 'delete',
-  renderIcon: TrashCan16,
+  renderIcon: TrashCan,
   labelText: 'Delete',
   isOverflow: true,
   iconDescription: 'Delete',
@@ -544,7 +551,6 @@ export const getRowActions = (index) =>
     getOverflowDeleteRowAction(),
     getOverflowTextOnlyRowAction(),
   ].filter((i) => i);
-
 export const addRowAction = (row, hasSingleRowEdit, index) => ({
   ...row,
   rowActions: getRowActions(index).map((rowAction) =>
@@ -632,13 +638,13 @@ export const getBatchActions = () => {
     {
       id: 'delete',
       labelText: 'Delete',
-      renderIcon: TrashCan16,
+      renderIcon: TrashCan,
       iconDescription: 'Delete Item',
     },
     {
       id: 'createActivity',
       labelText: 'Create activity',
-      renderIcon: Activity16,
+      renderIcon: Activity,
       iconDescription: 'Create activity from item',
     },
     {
@@ -653,7 +659,7 @@ export const getBatchActions = () => {
     {
       id: 'reject',
       labelText: 'Reject',
-      renderIcon: Error16,
+      renderIcon: Error,
       iconDescription: 'Reject these items',
       isOverflow: true,
     },
@@ -677,7 +683,7 @@ export const getBatchActions = () => {
       id: 'expunge',
       labelText: 'Expunge these records',
       iconDescription: 'Expunge these records from the database',
-      renderIcon: TrashCan16,
+      renderIcon: TrashCan,
       isOverflow: true,
       hasDivider: true,
       isDelete: true,
@@ -754,7 +760,7 @@ const convertUTCDateToLocalDate = (date) => {
   const localDate = new Date(date.getTime() - date.getTimezoneOffset() * 60 * 1000);
   return localDate.toISOString().slice(0, 10);
 };
-
+// eslint-disable-next-line react/prop-types
 export const getEditDataFunction =
   (onDataChange) =>
   // eslint-disable-next-line react/prop-types

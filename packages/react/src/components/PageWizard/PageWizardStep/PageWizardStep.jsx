@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { InlineNotification } from 'carbon-components-react';
+import { InlineNotification } from '@carbon/react';
 import classnames from 'classnames';
 
 import { settings } from '../../../constants/Settings';

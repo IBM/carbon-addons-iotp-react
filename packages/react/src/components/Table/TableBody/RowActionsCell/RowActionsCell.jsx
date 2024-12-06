@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { TableCell, Loading } from 'carbon-components-react';
+import { TableCell, Loading, OverflowMenuItem } from '@carbon/react';
 import classnames from 'classnames';
 import { omit } from 'lodash-es';
 
@@ -8,7 +8,6 @@ import Button from '../../../Button';
 import { settings } from '../../../../constants/Settings';
 import { RowActionPropTypes, RowActionErrorPropTypes } from '../../TablePropTypes';
 import { OverflowMenu } from '../../../OverflowMenu';
-import { OverflowMenuItem } from '../../../OverflowMenuItem';
 import { renderTableOverflowItemText } from '../../tableUtilities';
 
 import RowActionsError from './RowActionsError';
@@ -121,7 +120,6 @@ class RowActionsCell extends React.Component {
     const overflowActions = visibleActions.filter((action) => action.isOverflow);
     const hasOverflow = overflowActions.length > 0;
     const firstSelectableItemIndex = overflowActions.findIndex((action) => !action.disabled);
-
     return showSingleRowEditButtons ? (
       <TableCell
         key={`${id}-single-row-edit-buttons`}
@@ -160,22 +158,30 @@ class RowActionsCell extends React.Component {
               <Fragment>
                 {visibleActions
                   .filter((action) => !action.isOverflow)
-                  .map(({ id: actionId, labelText, iconDescription, ...others }) => (
-                    <Button
-                      {...omit(others, ['isOverflow', 'isDelete', 'isEdit', 'hasDivider'])}
-                      iconDescription={labelText || iconDescription}
-                      key={`${tableId}-${id}-row-actions-button-${actionId}`}
-                      testId={`${tableId}-${id}-row-actions-button-${actionId}`}
-                      kind="ghost"
-                      hasIconOnly={!labelText}
-                      tooltipPosition="left"
-                      tooltipAlignment="end"
-                      size="small"
-                      onClick={(e) => this.onClick(e, id, actionId, onApplyRowAction)}
-                    >
-                      {labelText}
-                    </Button>
-                  ))}
+                  .map(({ id: actionId, labelText, iconDescription, ...others }) => {
+                    const buttonProps = omit(others, [
+                      'isOverflow',
+                      'isDelete',
+                      'isEdit',
+                      'hasDivider',
+                    ]);
+                    return (
+                      <Button
+                        {...buttonProps}
+                        iconDescription={labelText || iconDescription}
+                        key={`${tableId}-${id}-row-actions-button-${actionId}`}
+                        testId={`${tableId}-${id}-row-actions-button-${actionId}`}
+                        kind="ghost"
+                        hasIconOnly={!labelText}
+                        tooltipPosition="left"
+                        tooltipAlignment="end"
+                        size="sm"
+                        onClick={(e) => this.onClick(e, id, actionId, onApplyRowAction)}
+                      >
+                        {labelText}
+                      </Button>
+                    );
+                  })}
                 {hasOverflow ? (
                   <OverflowMenu
                     id={`${tableId}-${id}-row-actions-cell-overflow`}

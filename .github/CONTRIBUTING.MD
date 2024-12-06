@@ -20,7 +20,7 @@ With that all in place, you're ready to start contributing!
 
 ### Working with the monorepo
 
-The PAL is structured as a set of packages versioned and deployed together - `carbon-addons-iot-react`, `@ai-apps/angular`, and `@ai-apps/components`. Each one of these packages live in the `packages` directory, for example, `carbon-addons-iot-react` lives in the `packages/react` directory.
+The PAL is structured as a set of packages versioned and deployed together - `carbon-addons-iot-react`, and `@ai-apps/components`. Each one of these packages live in the `packages` directory, for example, `carbon-addons-iot-react` lives in the `packages/react` directory.
 
 To work on a package you must make sure to change into the correct directory - `cd packages/react` - otherwise package specific commands, or packages added via `yarn add`, will be run and added to the global scope and may conflict with other packages.
 

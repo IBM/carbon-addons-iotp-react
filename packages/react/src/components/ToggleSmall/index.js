@@ -1,1 +1,1 @@
-export { ToggleSmall, ToggleSmallSkeleton } from 'carbon-components-react';
+export { ToggleSmall, ToggleSmallSkeleton } from '@carbon/react';

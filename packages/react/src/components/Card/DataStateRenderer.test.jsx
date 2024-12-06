@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { Bee16 } from '@carbon/icons-react';
+import { Bee } from '@carbon/react/icons';
 
 import { settings } from '../../constants/Settings';
 import { CARD_DATA_STATE, CARD_SIZES } from '../../constants/LayoutConstants';
@@ -28,9 +28,9 @@ describe('ValueCard', () => {
     const size = CARD_SIZES.SMALL;
     const myDataState = getDataStateProp();
     myDataState.icon = (
-      <Bee16 style={{ fill: 'orange' }}>
+      <Bee style={{ fill: 'orange' }}>
         <title>App supplied icon</title>
-      </Bee16>
+      </Bee>
     );
     const wrapper = mount(<DataStateRenderer dataState={myDataState} size={size} />);
     expect(wrapper.find('svg title').text()).toEqual('App supplied icon');

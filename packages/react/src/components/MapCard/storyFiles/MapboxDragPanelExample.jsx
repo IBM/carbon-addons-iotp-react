@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 
 import MapCard from '../MapCard';
 
-import './mapbox-example.scss';
+// import './mapbox-example.scss'; carbon 11
 import DragPanel from './DragPanel';
 
 mapboxgl.accessToken =

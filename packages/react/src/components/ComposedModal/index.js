@@ -1,3 +1,3 @@
-export { ModalHeader, ModalBody, ModalFooter } from 'carbon-components-react';
+export { ModalHeader, ModalBody, ModalFooter } from '@carbon/react';
 
 export default from './ComposedModal';

@@ -10,18 +10,13 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, boolean, number, select, text } from '@storybook/addon-knobs';
+import { Accordion, AccordionItem, AccordionSkeleton } from '@carbon/react';
 
 import Button from '../Button';
-
-import { Accordion, AccordionItem, AccordionSkeleton } from '.';
 
 export default {
   title: '3 - Carbon/Accordion',
   component: Accordion,
-  subcomponents: {
-    AccordionItem,
-    AccordionSkeleton,
-  },
   decorators: [withKnobs],
 };
 
@@ -68,15 +63,15 @@ const props = {
 };
 
 const sizes = {
-  'Extra large size (xl)': 'xl',
-  'Default size': undefined,
+  'Large size (lg)': 'lg',
+  'Default size (md)': 'md',
   'Small size (sm)': 'sm',
 };
 
 export const playground = () => (
   <Accordion
     disabled={boolean('Disable entire Accordion (disabled)', false)}
-    size={select('Accordion heading size (size)', sizes, undefined) || undefined}
+    size={select('Accordion heading size (size)', sizes, 'md') || undefined}
     align={select('Accordion heading alignment (align)', ['start', 'end'], 'end')}
   >
     <AccordionItem

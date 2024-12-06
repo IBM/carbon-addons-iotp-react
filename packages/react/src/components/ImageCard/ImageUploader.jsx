@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { FileUploaderDropContainer, TextInput, InlineNotification } from 'carbon-components-react';
-import { Image32 } from '@carbon/icons-react';
+import { FileUploaderDropContainer, TextInput, InlineNotification } from '@carbon/react';
+import { Image } from '@carbon/react/icons';
 import classnames from 'classnames';
 
 import { settings } from '../../constants/Settings';
@@ -188,13 +188,13 @@ const ImageUploader = ({
       ) : (
         <>
           <FileUploaderDropContainer
-            size="field"
+            size="md"
             labelText=""
             onAddFiles={handleOnChange}
             data-testid={`${testId}-file-drop-container`}
           />
           <div className={`${iotPrefix}--image-uploader-icon`}>
-            <Image32 />
+            <Image size={32} />
           </div>
           <div className={`${iotPrefix}--image-uploader-content`}>
             <h2 className={`${iotPrefix}--image-uploader-drop-label-text`}>

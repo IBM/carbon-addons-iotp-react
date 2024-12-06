@@ -2,7 +2,7 @@ import { act, render, screen, waitFor, within, fireEvent } from '@testing-librar
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom/extend-expect';
 import React from 'react';
-import Chip from '@carbon/icons-react/es/chip/24';
+import { Chip } from '@carbon/react/icons';
 import MockDate from 'mockdate';
 
 import { settings } from '../../constants/Settings';
@@ -113,7 +113,7 @@ describe('SuiteHeader', () => {
           links: [
             {
               isEnabled: true,
-              icon: Chip,
+              icon: <Chip size={24} />,
               metaData: {
                 label: 'Devices',
                 href: 'https://google.com',
@@ -151,7 +151,7 @@ describe('SuiteHeader', () => {
           links: [
             {
               isEnabled: true,
-              icon: Chip,
+              icon: <Chip size={24} />,
               metaData: {
                 label: 'Devices',
                 href: 'https://google.com',
@@ -552,7 +552,7 @@ describe('SuiteHeader', () => {
           links: [
             {
               isEnabled: true,
-              icon: Chip,
+              icon: <Chip size={24} />,
               metaData: {
                 label: 'Devices',
                 href: 'https://google.com',
@@ -644,6 +644,7 @@ describe('SuiteHeader', () => {
               <span id="chip-icon">
                 <Chip
                   fill="white"
+                  size={24}
                   description="chip-icon"
                   className={`${prefix}--header__menu-item ${prefix}--header__menu-title`}
                 />
@@ -690,6 +691,7 @@ describe('SuiteHeader', () => {
               <span id="chip-icon">
                 <Chip
                   fill="white"
+                  size={24}
                   description="chip-icon"
                   className={`${prefix}--header__menu-item ${prefix}--header__menu-title`}
                 />
@@ -737,6 +739,7 @@ describe('SuiteHeader', () => {
               <span id="chip-icon">
                 <Chip
                   fill="white"
+                  size={24}
                   description="chip-icon"
                   className={`${prefix}--header__menu-item ${prefix}--header__menu-title`}
                 />
@@ -783,6 +786,7 @@ describe('SuiteHeader', () => {
               <span id="chip-icon">
                 <Chip
                   fill="white"
+                  size={24}
                   description="chip-icon"
                   className={`${prefix}--header__menu-item ${prefix}--header__menu-title`}
                 />
@@ -825,7 +829,7 @@ describe('SuiteHeader', () => {
             label: 'chip',
             btnContent: (
               <span id="chip-icon">
-                <Chip fill="white" description="chip-icon" />
+                <Chip fill="white" size={24} description="chip-icon" />
               </span>
             ),
             childContent: [
@@ -865,7 +869,7 @@ describe('SuiteHeader', () => {
             label: 'chip',
             btnContent: (
               <span id="chip-icon">
-                <Chip fill="white" description="chip-icon" />
+                <Chip fill="white" size={24} description="chip-icon" />
               </span>
             ),
             childContent: [
@@ -906,7 +910,7 @@ describe('SuiteHeader', () => {
             label: 'chip',
             btnContent: (
               <span id="chip-icon">
-                <Chip fill="white" description="chip-icon" />
+                <Chip fill="white" size={24} description="chip-icon" />
               </span>
             ),
             childContent: [
@@ -946,7 +950,7 @@ describe('SuiteHeader', () => {
             label: 'chip',
             btnContent: (
               <span id="chip-icon">
-                <Chip fill="white" description="chip-icon" />
+                <Chip fill="white" size={24} description="chip-icon" />
               </span>
             ),
             childContent: [
@@ -989,7 +993,7 @@ describe('SuiteHeader', () => {
             label: 'chip',
             btnContent: (
               <span id="chip-icon">
-                <Chip fill="white" description="chip-icon" />
+                <Chip fill="white" size={24} description="chip-icon" />
               </span>
             ),
             childContent: [
@@ -1040,6 +1044,7 @@ describe('SuiteHeader', () => {
                 <Chip
                   fill="white"
                   description="chip-icon"
+                  size={24}
                   className={`${prefix}--header__menu-item ${prefix}--header__menu-title`}
                 />
               </span>
@@ -1325,7 +1330,7 @@ describe('SuiteHeader', () => {
           links: [
             {
               isEnabled: true,
-              icon: Chip,
+              icon: <Chip size={24} />,
               metaData: {
                 label: 'Devices',
                 href: 'https://google.com',
@@ -1350,7 +1355,7 @@ describe('SuiteHeader', () => {
           links: [
             {
               isEnabled: true,
-              icon: Chip,
+              icon: <Chip size={24} />,
               metaData: {
                 label: 'Devices',
                 href: 'https://google.com',
@@ -1414,7 +1419,7 @@ describe('SuiteHeader', () => {
             {
               isEnabled: true,
               isActive: true,
-              icon: Chip,
+              icon: <Chip size={24} />,
               metaData: {
                 label: 'Mobile',
               },

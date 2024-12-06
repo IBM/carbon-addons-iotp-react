@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { TextInput } from 'carbon-components-react';
+import { TextInput } from '@carbon/react';
 import PropTypes from 'prop-types';
 
 import { settings } from '../../constants/Settings';

@@ -1,1 +1,1 @@
-export { Tag, TagSkeleton } from 'carbon-components-react';
+export { Tag, TagSkeleton } from '@carbon/react';

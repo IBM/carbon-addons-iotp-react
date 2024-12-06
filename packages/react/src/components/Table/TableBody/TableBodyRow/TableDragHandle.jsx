@@ -1,4 +1,4 @@
-import { Draggable16 } from '@carbon/icons-react';
+import { Draggable } from '@carbon/react/icons';
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 
@@ -34,7 +34,7 @@ const TableDragHandle = forwardRef(function TableDragHandle({ onStartDrag, rowId
         onStartDrag(e, rowId);
       }}
     >
-      <Draggable16 />
+      <Draggable />
     </div>
   );
 });

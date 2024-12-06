@@ -1,17 +1,14 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import { Tooltip } from 'carbon-components-react';
 
+import { ToggleTip } from '../ToggleTip';
 import useHasTextOverflow from '../../hooks/useHasTextOverflow';
 import { usePopoverPositioning } from '../../hooks/usePopoverPositioning';
 import { getTooltipMenuOffset } from '../Tooltip';
 import { settings } from '../../constants/Settings';
 
 const { iotPrefix } = settings;
-
-const SCROLL_EVENT_TIMEOUT = 50;
-const isEngagingEventType = (type) => type === 'click' || type === 'keydown';
 
 const propTypes = {
   id: PropTypes.string.isRequired,
@@ -52,9 +49,6 @@ export const CardTitle = (
 ) => {
   const titleRef = useRef();
   const subTitleRef = useRef();
-  const titleTimeoutRef = useRef();
-  const subtitleTimeoutRef = useRef();
-  const infoTimeoutRef = useRef();
   const truncatesTitle = useHasTextOverflow(titleRef, title);
   const hasExternalTitleTextTooltip = titleTextTooltip;
   const hasTitleTooltipFromTruncation = truncatesTitle && !titleTextTooltip;
@@ -69,127 +63,17 @@ export const CardTitle = (
     isOverflowMenu: true, // Needed to preserve default direction (bottom)
   });
 
-  const [tooltipsState, setTooltipsState] = useState({
-    title: false,
-    subtitle: false,
-    info: false,
-  });
-
-  const handleTitleTooltipState = useCallback((evt, { open }) => {
-    /* istanbul ignore else */
-    if (isEngagingEventType(evt.type)) {
-      setTooltipsState((prevState) => ({
-        ...prevState,
-        title: open,
-      }));
-    }
-  }, []);
-
-  const handleSubtitleTooltipState = useCallback((evt, { open }) => {
-    /* istanbul ignore else */
-    if (isEngagingEventType(evt.type)) {
-      setTooltipsState((prevState) => ({
-        ...prevState,
-        subtitle: open,
-      }));
-    }
-  }, []);
-
-  const handleInfoTooltipState = useCallback((evt, { open }) => {
-    /* istanbul ignore else */
-    if (isEngagingEventType(evt.type)) {
-      setTooltipsState((prevState) => ({
-        ...prevState,
-        info: open,
-      }));
-    }
-  }, []);
-
-  // below statements are ignored due to window event listeners (tested in cypress)
-  /* istanbul ignore next */
-  const handleTitleScroll = useCallback(() => {
-    setTooltipsState((prevState) => ({
-      ...prevState,
-      title: false,
-    }));
-  }, []);
-
-  /* istanbul ignore next */
-  const handleSubtitleScroll = useCallback(() => {
-    setTooltipsState((prevState) => ({
-      ...prevState,
-      subtitle: false,
-    }));
-  }, []);
-
-  /* istanbul ignore next */
-  const handleInfoScroll = useCallback(() => {
-    setTooltipsState((prevState) => ({
-      ...prevState,
-      info: false,
-    }));
-  }, []);
-
-  /* istanbul ignore next */
-  useEffect(() => {
-    if (tooltipsState.title) {
-      titleTimeoutRef.current = setTimeout(() => {
-        window.addEventListener('scroll', handleTitleScroll);
-      }, SCROLL_EVENT_TIMEOUT);
-    } else {
-      window.removeEventListener('scroll', handleTitleScroll);
-    }
-    return () => {
-      window.removeEventListener('scroll', handleTitleScroll);
-      clearTimeout(titleTimeoutRef.current);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [tooltipsState.title]);
-
-  /* istanbul ignore next */
-  useEffect(() => {
-    if (tooltipsState.subtitle) {
-      subtitleTimeoutRef.current = setTimeout(() => {
-        window.addEventListener('scroll', handleSubtitleScroll);
-      }, SCROLL_EVENT_TIMEOUT);
-    } else {
-      window.removeEventListener('scroll', handleSubtitleScroll);
-    }
-
-    return () => {
-      window.removeEventListener('scroll', handleSubtitleScroll);
-      clearTimeout(subtitleTimeoutRef.current);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [tooltipsState.subtitle]);
-
-  /* istanbul ignore next */
-  useEffect(() => {
-    if (tooltipsState.info) {
-      infoTimeoutRef.current = setTimeout(() => {
-        window.addEventListener('scroll', handleInfoScroll);
-      }, SCROLL_EVENT_TIMEOUT);
-    } else {
-      window.removeEventListener('scroll', handleInfoScroll);
-    }
-
-    return () => {
-      window.removeEventListener('scroll', handleInfoScroll);
-      clearTimeout(infoTimeoutRef.current);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [tooltipsState.info]);
-
   const renderMainTitle = () =>
     hasTitleTooltipFromTruncation || hasExternalTitleTextTooltip ? (
-      <Tooltip
+      <ToggleTip
         align={adjustedAlignment}
         menuOffset={calculateMenuOffset}
         direction={adjustedDirection}
         data-testid={`${testId}-title-tooltip`}
-        ref={titleRef}
+        useAutoPositioning
+        toggleTipLabelRef={titleRef}
         showIcon={false}
-        triggerClassName={classnames(
+        className={classnames(
           `${iotPrefix}--card--title--text__overflow`,
           `${iotPrefix}--card--title--text`,
           `${iotPrefix}--card-heading-clickable`,
@@ -201,30 +85,29 @@ export const CardTitle = (
           }
         )}
         triggerText={title}
-        open={tooltipsState.title}
-        onChange={handleTitleTooltipState}
-      >
-        {hasExternalTitleTextTooltip ? (
-          <>
-            {truncatesTitle && (
-              <p
-                data-testid={`${testId}-title-tooltip-full-title`}
-                className={`${iotPrefix}--card-title__title-text-tooltip-full-title`}
+        content={
+          hasExternalTitleTextTooltip ? (
+            <>
+              {truncatesTitle && (
+                <p
+                  data-testid={`${testId}-title-tooltip-full-title`}
+                  className={`${iotPrefix}--card-title__title-text-tooltip-full-title`}
+                >
+                  {title}
+                </p>
+              )}
+              <div
+                data-testid={`${testId}-title-tooltip-conten-node`}
+                className={`${iotPrefix}--card-title__title-text-tooltip-content`}
               >
-                {title}
-              </p>
-            )}
-            <div
-              data-testid={`${testId}-title-tooltip-conten-node`}
-              className={`${iotPrefix}--card-title__title-text-tooltip-content`}
-            >
-              {titleTextTooltip}
-            </div>
-          </>
-        ) : (
-          title
-        )}
-      </Tooltip>
+                {titleTextTooltip}
+              </div>
+            </>
+          ) : (
+            title
+          )
+        }
+      />
     ) : (
       <div
         ref={titleRef}
@@ -239,14 +122,15 @@ export const CardTitle = (
 
   const renderSubTitle = () =>
     !subtitle ? null : hasSubTitleTooltip ? (
-      <Tooltip
+      <ToggleTip
         align={adjustedAlignment}
         menuOffset={calculateMenuOffset}
         direction={adjustedDirection}
         data-testid={`${testId}-subtitle`}
-        ref={subTitleRef}
+        toggleTipLabelRef={subTitleRef}
+        useAutoPositioning
         showIcon={false}
-        triggerClassName={classnames(
+        className={classnames(
           `${iotPrefix}--card--subtitle--text`,
           `${iotPrefix}--card-heading-clickable`,
           {
@@ -254,11 +138,8 @@ export const CardTitle = (
           }
         )}
         triggerText={subtitle}
-        open={tooltipsState.subtitle}
-        onChange={handleSubtitleTooltipState}
-      >
-        {subtitle}
-      </Tooltip>
+        content={subtitle}
+      />
     ) : (
       <div
         ref={subTitleRef}
@@ -279,19 +160,17 @@ export const CardTitle = (
     >
       {renderMainTitle()}
       {hasInfoIconTooltip && (
-        <Tooltip
+        <ToggleTip
           data-testid={`${testId}-tooltip`}
           triggerId={`card-tooltip-trigger-${id}`}
+          useAutoPositioning
           tooltipId={`card-tooltip-${id}`}
           triggerClassName={`${iotPrefix}--card--header--tooltip`}
           id={`card-tooltip-${id}`} // https://github.com/carbon-design-system/carbon/pull/6744
           triggerText=""
           iconDescription={titleTooltipIconDescription}
-          open={tooltipsState.info}
-          onChange={handleInfoTooltipState}
-        >
-          {infoIconTooltip}
-        </Tooltip>
+          content={infoIconTooltip}
+        />
       )}
       {renderSubTitle()}
     </span>

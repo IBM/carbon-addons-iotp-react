@@ -1,7 +1,7 @@
 import React, { useMemo, useCallback } from 'react';
-import { OverflowMenu, OverflowMenuItem, Link } from 'carbon-components-react';
+import { OverflowMenu, OverflowMenuItem, Link } from '@carbon/react';
 import { isNil, uniqBy, cloneDeep, capitalize, isFinite } from 'lodash-es';
-import { OverflowMenuVertical16 } from '@carbon/icons-react';
+import { OverflowMenuVertical } from '@carbon/react/icons';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 
@@ -142,7 +142,7 @@ const TableCard = ({
       <OverflowMenu
         className={`${iotPrefix}--table-card--overflow-menu`}
         renderIcon={() => (
-          <OverflowMenuVertical16
+          <OverflowMenuVertical
             fill="#5a6872"
             description={mergedI18n.overflowMenuIconDescription}
           />

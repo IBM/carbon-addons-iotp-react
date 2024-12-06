@@ -1,1 +1,1 @@
-export { DangerButton } from 'carbon-components-react';
+export { DangerButton } from '@carbon/react';

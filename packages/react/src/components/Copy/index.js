@@ -1,1 +1,1 @@
-export { Copy } from 'carbon-components-react';
+export { Copy } from '@carbon/react';

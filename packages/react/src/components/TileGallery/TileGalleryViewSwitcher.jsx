@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ContentSwitcher, Switch } from 'carbon-components-react';
+import { ContentSwitcher, Switch } from '@carbon/react';
 
 const propTypes = {
   /** Callback from when content switcher is changes */

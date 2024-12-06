@@ -1,8 +1,9 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { WarningAlt16 } from '@carbon/icons-react';
-import { Tooltip, Button } from 'carbon-components-react';
+import { WarningAlt } from '@carbon/react/icons';
+import { Button } from '@carbon/react';
 
+import { Tooltip } from '../../../Tooltip';
 import { settings } from '../../../../constants/Settings';
 import { RowActionErrorPropTypes } from '../../TablePropTypes';
 
@@ -47,7 +48,7 @@ const RowActionsError = ({
         triggerId="tooltip-error"
         tooltipId="tooltip"
         renderIcon={React.forwardRef((props, ref) => (
-          <WarningAlt16 ref={ref} />
+          <WarningAlt ref={ref} />
         ))}
       >
         <div className={`${iotPrefix}--row-actions-error--tooltip`}>

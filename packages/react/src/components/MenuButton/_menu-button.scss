@@ -1,37 +1,46 @@
-@import '~carbon-components/scss/components/menu/menu';
-@import '../../globals/vars';
-@import './menu-button-shadow-blocker';
-
+@use '@carbon/react/scss/components/menu' as *;
+@use '../../globals/vars' as *;
+@use './menu-button-shadow-blocker' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/utilities/box-shadow' as *;
+@use '@carbon/react/scss/layer' as *;
+@use '@carbon/react/scss/components/button' as *;
 .#{$iot-prefix}--menu-button {
   .#{$iot-prefix}--menu-button__primary + .#{$iot-prefix}--menu-button__secondary {
-    border-left: 1px solid $ui-01;
+    border-left: 1px solid $layer-01;
+  }
+
+  .#{$iot-prefix}--btn {
+    justify-content: center;
   }
 
   .#{$prefix}--btn--ghost.#{$prefix}--btn--icon-only {
-    color: $icon-01;
+    color: $icon-primary;
   }
 
   &--open {
     .#{$iot-prefix}--menu-button__trigger {
       &.#{$prefix}--btn--primary {
-        background-color: $active-primary;
+        background-color: $button-primary-active;
       }
       &.#{$prefix}--btn--secondary {
-        background-color: $active-secondary;
+        background-color: $button-secondary-active;
       }
       &.#{$prefix}--btn--tertiary {
-        background-color: $active-tertiary;
-        color: $text-04;
+        background-color: $button-tertiary-active;
+        color: $text-on-color;
       }
       &.#{$prefix}--btn--ghost {
-        background-color: $active-ui; // There is no $active-ghost sass variable
-        color: $link-02;
+        background-color: $border-disabled;
+        color: $link-secondary;
       }
     }
 
     .#{$prefix}--btn--ghost.#{$prefix}--btn--icon-only {
-      background-color: $ui-01;
-      @include box-shadow;
+      background-color: $layer-01;
+      @include box-shadow();
     }
   }
 }

@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { Grid20, List20 } from '@carbon/icons-react';
+import { Grid, List } from '@carbon/react/icons';
 import { omit, isEqual } from 'lodash-es';
-import { Modal } from 'carbon-components-react';
+import { Modal, Search, ContentSwitcher } from '@carbon/react';
 
 import { settings } from '../../constants/Settings';
 import ComposedModal from '../ComposedModal';
 import IconSwitch from '../IconSwitch/IconSwitch';
-import { Search } from '../Search';
-import { ContentSwitcher } from '../ContentSwitcher';
 import { ComposedModalPropTypes } from '../ComposedModal/ComposedModal';
 import { usePrevious } from '../../hooks/usePrevious';
 
@@ -222,7 +220,7 @@ const ImageGalleryModal = ({
                 name={GRID}
                 size="large"
                 text={gridButtonText}
-                renderIcon={Grid20}
+                renderIcon={(props) => <Grid size={20} {...props} />}
                 index={0}
                 data-testid={`${testId}-grid-switch`}
               />
@@ -230,7 +228,7 @@ const ImageGalleryModal = ({
                 name={LIST}
                 size="large"
                 text={listButtonText}
-                renderIcon={List20}
+                renderIcon={(props) => <List size={20} {...props} />}
                 index={1}
                 data-testid={`${testId}-list-switch`}
               />

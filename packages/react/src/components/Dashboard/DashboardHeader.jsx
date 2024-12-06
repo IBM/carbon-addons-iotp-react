@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { SkeletonText } from 'carbon-components-react';
+import { SkeletonText } from '@carbon/react';
 import warning from 'warning';
 
 import icons, { bundledIconNames } from '../../utils/bundledIcons';

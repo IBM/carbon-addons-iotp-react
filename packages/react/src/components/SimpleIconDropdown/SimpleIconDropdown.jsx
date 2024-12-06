@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Dropdown } from 'carbon-components-react';
+import { Dropdown } from '@carbon/react';
 
 import { validThresholdIcons } from '../DashboardEditor/editorUtils';
 import { settings } from '../../constants/Settings';

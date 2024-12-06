@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { SkeletonText, Tabs, Tab } from 'carbon-components-react';
+import { SkeletonText, Tabs, Tab } from '@carbon/react';
 import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 

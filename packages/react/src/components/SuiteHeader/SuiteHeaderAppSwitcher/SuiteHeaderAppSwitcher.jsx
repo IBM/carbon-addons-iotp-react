@@ -3,7 +3,7 @@
 
 import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
-import { ArrowRight16, Bee32 } from '@carbon/icons-react';
+import { ArrowRight, Bee } from '@carbon/react/icons';
 
 import { settings } from '../../../constants/Settings';
 import Button from '../../Button';
@@ -108,7 +108,7 @@ const SuiteHeaderAppSwitcher = ({
               testId={`${testId}--all-applications`}
               onClick={handleAllApplicationRoute}
               onKeyDown={handleSpecificKeyDown(['Enter', 'Space'], handleAllApplicationRoute)}
-              renderIcon={ArrowRight16}
+              renderIcon={ArrowRight}
               tabIndex={tabIndex}
               href={allApplicationsLink}
               rel="noopener noreferrer"
@@ -145,7 +145,7 @@ const SuiteHeaderAppSwitcher = ({
       {mergedApplications?.length === 0 ? (
         <div className={`${baseClassName}--no-app`} role="listitem">
           <div className="bee-icon-container">
-            <Bee32 />
+            <Bee size={32} />
             <div className="bee-shadow" />
           </div>
           <span>{mergedI18n.requestAccess}</span>

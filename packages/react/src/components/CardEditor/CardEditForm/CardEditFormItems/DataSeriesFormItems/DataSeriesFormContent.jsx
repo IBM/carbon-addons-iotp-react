@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useCallback, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { Edit16, Subtract16 } from '@carbon/icons-react';
+import { Edit, Subtract } from '@carbon/react/icons';
 import { omit, isEmpty } from 'lodash-es';
 import { v4 as uuidv4 } from 'uuid';
 import hash from 'object-hash';
@@ -417,10 +417,10 @@ const DataSeriesFormItem = ({
             rowActions: () => [
               <Button
                 key={`data-item-${dataItem.dataSourceId}_edit`}
-                renderIcon={Edit16}
+                renderIcon={Edit}
                 hasIconOnly
                 kind="ghost"
-                size="small"
+                size="sm"
                 onClick={() => handleEditButton(dataItem, i)}
                 iconDescription={mergedI18n.edit}
                 tooltipPosition="left"
@@ -428,10 +428,10 @@ const DataSeriesFormItem = ({
               />,
               <Button
                 key={`data-item-${dataItem.dataSourceId}_remove`}
-                renderIcon={Subtract16}
+                renderIcon={Subtract}
                 hasIconOnly
                 kind="ghost"
-                size="small"
+                size="sm"
                 onClick={() => handleRemoveButton(dataItem)}
                 iconDescription={mergedI18n.remove}
                 tooltipPosition="left"

@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo, useRef, useEffect, useState } from 'react';
-import { SkeletonText } from 'carbon-components-react';
+import { SkeletonText } from '@carbon/react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import warning from 'warning';

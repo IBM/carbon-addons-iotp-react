@@ -1,7 +1,7 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { text, select, object, boolean } from '@storybook/addon-knobs';
-import { SettingsAdjust16 } from '@carbon/icons-react';
+import { SettingsAdjust } from '@carbon/react/icons';
 import { cloneDeep } from 'lodash-es';
 
 import { CARD_SIZES } from '../../constants/LayoutConstants';
@@ -283,7 +283,7 @@ export const AdvancedCustomisationUsingOverrides = () => {
                     direction={FlyoutMenuDirection.BottomEnd}
                     buttonProps={{
                       size: 'default',
-                      renderIcon: SettingsAdjust16,
+                      renderIcon: SettingsAdjust,
                     }}
                     triggerId="test-flyout-id"
                     transactional

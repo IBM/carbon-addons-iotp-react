@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from '@cypress/react';
-import { BreadcrumbItem } from 'carbon-components-react';
+import { BreadcrumbItem } from '@carbon/react';
 
 import Breadcrumb from './Breadcrumb';
 

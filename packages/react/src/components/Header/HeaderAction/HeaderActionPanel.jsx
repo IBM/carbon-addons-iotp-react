@@ -1,9 +1,9 @@
 import React, { useEffect, useMemo, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { settings } from 'carbon-components';
+// import { settings } from 'carbon-components';
 import classnames from 'classnames';
-import { HeaderGlobalAction, HeaderPanel } from 'carbon-components-react/es/components/UIShell';
-import { Close16 } from '@carbon/icons-react';
+import { HeaderGlobalAction, HeaderPanel } from '@carbon/react';
+import { Close } from '@carbon/react/icons';
 import { white } from '@carbon/colors';
 
 import { APP_SWITCHER } from '../headerConstants';
@@ -11,8 +11,8 @@ import { handleSpecificKeyDown } from '../../../utils/componentUtilityFunctions'
 import { HeaderActionPropTypes } from '../HeaderPropTypes';
 import { isSafari } from '../../SuiteHeader/suiteHeaderUtils';
 
-const { prefix: carbonPrefix } = settings;
-
+// const { prefix: carbonPrefix } = settings; // need to upgrade carbon 11
+const carbonPrefix = 'bx';
 const propTypes = {
   ...HeaderActionPropTypes,
   /** unique id for the action panel */
@@ -111,7 +111,7 @@ const HeaderActionPanel = ({
         {renderLabel ? (
           item.label
         ) : isExpanded && (inOverflow || showCloseIconWhenPanelExpanded) ? (
-          <Close16 fill={white} description={mergedI18n.closeMenu} />
+          <Close fill={white} description={mergedI18n.closeMenu} />
         ) : (
           item.btnContent
         )}

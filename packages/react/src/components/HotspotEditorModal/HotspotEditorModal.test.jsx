@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent, screen, waitFor, within } from '@testing-library/react';
 import { gray50, red50, green50, blue50 } from '@carbon/colors';
-import { InformationSquareFilled24, InformationFilled24 } from '@carbon/icons-react';
+import { InformationSquareFilled, InformationFilled } from '@carbon/react/icons';
 import userEvent from '@testing-library/user-event';
 
 import { CARD_SIZES, CARD_TYPES } from '../../constants/LayoutConstants';
@@ -72,12 +72,12 @@ const getSelectableColors = () => [
 const getSelectableIcons = () => [
   {
     id: 'InformationSquareFilled24',
-    icon: InformationSquareFilled24,
+    icon: InformationSquareFilled,
     text: 'Information square filled',
   },
   {
     id: 'InformationFilled24',
-    icon: InformationFilled24,
+    icon: InformationFilled,
     text: 'Information filled',
   },
 ];

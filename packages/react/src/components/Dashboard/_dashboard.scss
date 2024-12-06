@@ -1,7 +1,10 @@
-@import '~react-grid-layout/css/styles';
-@import '~react-resizable/css/styles';
-@import '../../globals/vars';
-
+@use '~react-grid-layout/css/styles' as *;
+@use '~react-resizable/css/styles' as *;
+@use '../../globals/vars' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/components/button' as *;
 .dashboard {
   &--header {
     align-items: flex-start;
@@ -36,7 +39,7 @@
 
     & > p,
     div {
-      color: $text-02;
+      color: $text-secondary;
     }
   }
 
@@ -64,5 +67,5 @@
 
 .react-grid-item.react-grid-placeholder {
   background: none;
-  border: 3px dashed $active-secondary;
+  border: 3px dashed $button-secondary-active;
 }

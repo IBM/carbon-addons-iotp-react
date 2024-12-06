@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, object } from '@storybook/addon-knobs';
 import { EscalatorDown } from '@carbon/pictograms-react';
-import { Basketball32, Code24 } from '@carbon/icons-react';
-import { TextInput, Select, SelectItem } from 'carbon-components-react';
+import { Basketball, Code } from '@carbon/react/icons';
+import { TextInput, Select, SelectItem } from '@carbon/react';
 
 import munichBuilding from '../ImageCard/MunichBuilding.png';
 import {
@@ -210,8 +210,8 @@ export const WithNoCardDefinedGalleryViewAndCustomCards = () => (
       ]}
       icons={{
         VALUE: <EscalatorDown />,
-        CUSTOM: <Code24 />,
-        ALERT: <Basketball32 />,
+        CUSTOM: <Code size={24} />,
+        ALERT: <Basketball size={32} />,
       }}
       onShowGallery={action('onShowGallery')}
       onChange={action('onChange')}

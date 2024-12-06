@@ -6,7 +6,7 @@ import { layout05 } from '@carbon/layout';
 import { CARD_SIZES } from '../../constants/LayoutConstants';
 import { getCardMinSize } from '../../utils/componentUtilityFunctions';
 
-import SparklineChartCardREADME from './SparklineChartCard.mdx';
+// import SparklineChartCardREADME from './SparklineChartCard.mdx'; //carbon 11
 import SparklineChartCard from './SparklineChartCard';
 
 const supportedSizes = Object.keys(CARD_SIZES).filter(
@@ -16,9 +16,9 @@ export default {
   title: '1 - Watson IoT/Card/SparklineChartCard',
   parameters: {
     component: SparklineChartCard,
-    docs: {
-      page: SparklineChartCardREADME,
-    },
+    // docs: {
+    //   page: SparklineChartCardREADME,
+    // }, //carbon 11
   },
 };
 

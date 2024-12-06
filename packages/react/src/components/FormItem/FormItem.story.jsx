@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { FormItem, NumberInput } from 'carbon-components-react';
+import { FormItem, NumberInput } from '@carbon/react';
 
 export default {
   title: '3 - Carbon/FormItem',

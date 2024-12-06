@@ -31,9 +31,9 @@ if [[ $GITHUB_REF =~ "master" ]]; then
 fi
 
 # if we're on the next branch, check if we're up to date, otherwise kill the build
-if [[ $GITHUB_REF =~ "next" ]]; then
-  currentRef=$(git rev-parse next) # sha of the local branch
-  headRef=$(git rev-parse origin/next) # sha of the remote branch
+if [[ $GITHUB_REF =~ "v4-Carbon11" ]]; then
+  currentRef=$(git rev-parse v4-Carbon11) # sha of the local branch
+  headRef=$(git rev-parse origin/v4-Carbon11) # sha of the remote branch
   if [[ $currentRef == $headRef ]]; then
     echo "up to date"
   else
@@ -52,11 +52,11 @@ if [[ $GITHUB_REF =~ "master" ]]; then
   lerna publish from-git --dist-tag latest --yes
 fi
 
-if [[ $GITHUB_REF =~ "next" ]]; then
+if [[ $GITHUB_REF =~ "v4-Carbon11" ]]; then
   # version a prerelease to the `next` dist-tag with the `next` preid
-  lerna version --conventional-commits --conventional-prerelease --preid next --create-release github --yes
+  lerna version --conventional-commits --conventional-prerelease --preid v4-Carbon11 --create-release github --yes
   # publish the packages that were just versioned
-  lerna publish from-git --dist-tag next --yes
+  lerna publish from-git --dist-tag v4-Carbon11 --yes
 fi
 
 # just to be sure we exit cleanly

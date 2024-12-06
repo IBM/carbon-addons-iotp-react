@@ -4,12 +4,18 @@
 import React, { createElement, useEffect, useState } from 'react';
 import { text, object, boolean, select } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
-import { ScreenOff16, Switcher24, Home24, RecentlyViewed24, Apps24 } from '@carbon/icons-react';
-import Group from '@carbon/icons-react/es/group/24';
-import NotificationOn from '@carbon/icons-react/es/notification/24';
-import Bee from '@carbon/icons-react/es/bee/24';
-import Car from '@carbon/icons-react/es/car/24';
-import Chat from '@carbon/icons-react/es/chat/24';
+import {
+  ScreenOff,
+  Switcher,
+  Home,
+  RecentlyViewed,
+  Apps,
+  Group,
+  NotificationFilled,
+  Car,
+  Chat,
+  Bee,
+} from '@carbon/react/icons';
 import { partition } from 'lodash-es';
 
 import { settings } from '../../constants/Settings';
@@ -144,13 +150,13 @@ const globalApplications = [
 const customActionItems = [
   {
     label: 'aHiddenIcon',
-    btnContent: <ScreenOff16 id="hidden-button" fill="white" description="hidden-button-icon" />,
+    btnContent: <ScreenOff id="hidden-button" fill="white" description="hidden-button-icon" />,
   },
   {
     label: 'bell',
     btnContent: (
       <span id="bell-icon">
-        <NotificationOn id="notification-button" fill="white" description="Icon" />
+        <NotificationFilled id="notification-button" size={24} fill="white" description="Icon" />
       </span>
     ),
     onClick: action('bell clicked'),
@@ -162,6 +168,7 @@ const customActionItems = [
       <span id="bee-icon">
         <Bee
           fill="white"
+          size={24}
           description="Icon"
           className={`${prefix}--header__menu-item ${prefix}--header__menu-title`}
         />
@@ -199,7 +206,7 @@ const customActionItems = [
         content: (
           <span id="an-email">
             JohnDoe@ibm.com
-            <Chat fill="white" description="Icon" />
+            <Chat fill="white" size={24} description="Icon" />
           </span>
         ),
       },
@@ -209,7 +216,7 @@ const customActionItems = [
     label: 'car',
     btnContent: (
       <span id="car-icon">
-        <Car fill="white" description="Icon" />
+        <Car fill="white" description="Icon" size={24} />
       </span>
     ),
     childContent: [
@@ -244,7 +251,7 @@ const customActionItems = [
         content: (
           <span id="another-email">
             JohnDoe@ibm.com
-            <Chat fill="white" description="Icon" />
+            <Chat fill="white" size={24} description="Icon" />
           </span>
         ),
       },
@@ -557,7 +564,7 @@ export const HeaderWithSideNav = () => {
   useEffect(() => {
     setLinksState([
       {
-        icon: Home24,
+        icon: Home,
         isEnabled: true,
         isPinned: true,
         metaData: {
@@ -569,7 +576,7 @@ export const HeaderWithSideNav = () => {
       },
       {
         isEnabled: true,
-        icon: Switcher24,
+        icon: Switcher,
         metaData: {
           label: 'Dashboards',
           element: 'button',
@@ -628,7 +635,7 @@ export const HeaderWithSideNav = () => {
       },
       demoMostRecentLinks
         ? {
-            icon: Apps24,
+            icon: Apps,
             isEnabled: true,
             metaData: {
               onClick: action('menu click'),
@@ -672,7 +679,7 @@ export const HeaderWithSideNav = () => {
 
     setRecentLinksState([
       {
-        icon: RecentlyViewed24,
+        icon: RecentlyViewed,
         isEnabled: true,
         metaData: {
           onClick: action('menu click'),

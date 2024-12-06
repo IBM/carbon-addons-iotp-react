@@ -1,1 +1,1 @@
-export { Search, SearchSkeleton } from 'carbon-components-react';
+export { Search, SearchSkeleton } from '@carbon/react';

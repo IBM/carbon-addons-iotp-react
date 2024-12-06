@@ -1,5 +1,6 @@
-@import '~carbon-components/scss/components/tag/tag';
-
+@use '@carbon/react/scss/components/tag' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
 html[dir='rtl'] {
   .#{$prefix}--tag--filter {
     padding-right: $spacing-03;

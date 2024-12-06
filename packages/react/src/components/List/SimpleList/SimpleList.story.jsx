@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Add16, Close16, Edit16 } from '@carbon/icons-react';
+import { Add, Close, Edit } from '@carbon/react/icons';
 import { boolean, select, text, number } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import { spacing03 } from '@carbon/layout';
-import { Button, OverflowMenu, OverflowMenuItem } from 'carbon-components-react';
+import { Button, OverflowMenu, OverflowMenuItem } from '@carbon/react';
 
 import { DragAndDrop, EditingStyle } from '../../../utils/DragAndDropUtils';
 
@@ -28,30 +28,30 @@ const getRowActions = (dir) => () =>
   [
     <Button
       key="simple-list-action-edit"
-      renderIcon={Edit16}
+      renderIcon={Edit}
       hasIconOnly
       kind="ghost"
-      size="small"
+      size="sm"
       onClick={() => action('edit')()}
       iconDescription="Edit"
       tooltipPosition={dir !== 'rtl' ? 'left' : 'right'}
     />,
     <Button
       key="simple-list-action-add"
-      renderIcon={Add16}
+      renderIcon={Add}
       hasIconOnly
       kind="ghost"
-      size="small"
+      size="sm"
       onClick={() => action('add')()}
       iconDescription="Add"
       tooltipPosition={dir !== 'rtl' ? 'left' : 'right'}
     />,
     <Button
       key="simple-list-action-close"
-      renderIcon={Close16}
+      renderIcon={Close}
       hasIconOnly
       kind="ghost"
-      size="small"
+      size="sm"
       onClick={() => action('close')()}
       iconDescription="Close"
       tooltipPosition={dir !== 'rtl' ? 'left' : 'right'}
@@ -129,29 +129,29 @@ const getFatRowListItemsWithOverflowMenu = (num) =>
 const buttonsToRender = (dir) => [
   <Button
     key="simple-list-header-edit"
-    renderIcon={Edit16}
+    renderIcon={Edit}
     hasIconOnly
     kind="ghost"
-    size="small"
+    size="sm"
     onClick={() => {}}
     iconDescription="Edit"
     tooltipPosition={dir !== 'rtl' ? 'left' : 'right'}
   />,
   <Button
     key="simple-list-header-close"
-    renderIcon={Close16}
+    renderIcon={Close}
     hasIconOnly
     kind="secondary"
-    size="small"
+    size="sm"
     onClick={() => {}}
     iconDescription="Close"
     tooltipPosition={dir !== 'rtl' ? 'left' : 'right'}
   />,
   <Button
     key="simple-list-header-add"
-    renderIcon={Add16}
+    renderIcon={Add}
     hasIconOnly
-    size="small"
+    size="sm"
     iconDescription="Add"
     tooltipPosition={dir !== 'rtl' ? 'left' : 'right'}
   />,

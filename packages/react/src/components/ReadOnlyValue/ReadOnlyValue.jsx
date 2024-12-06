@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import { SkeletonText } from 'carbon-components-react';
+import { SkeletonText } from '@carbon/react';
 
 import { settings } from '../../constants/Settings';
 

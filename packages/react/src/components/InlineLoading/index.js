@@ -1,1 +1,1 @@
-export { InlineLoading } from 'carbon-components-react';
+export { InlineLoading } from '@carbon/react';

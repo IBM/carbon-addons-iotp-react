@@ -1,6 +1,178 @@
 //-------------------------
 // 🌍 Global
 //-------------------------
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/compat/themes' as compat;
+@use '@carbon/react/scss/themes';
+@forward '@carbon/react/scss/theme' with (
+  $fallback: compat.$g10,
+  $theme: themes.$g10
+);
+@use '@carbon/react/scss/theme';
+@use '@carbon/react/scss/type' as *;
+@use '@carbon/styles/scss/fonts' as *;
+@use 'globals/feature-flags' as *;
+@use 'globals/vars' as *;
+@use 'globals/colors' as *;
+@use 'globals/theme' as *;
+@use 'globals/mixins' as *;
+@use 'globals/layout' as *;
+@use 'globals/spacing' as *;
+@use 'globals/typography' as *;
+@use 'globals/import-once' as *;
+@use 'globals/css--reset' as *;
+@use 'globals/css--font-face' as *;
+@use 'globals/css--helpers' as *;
+@use 'globals/css--body' as *;
+@use 'globals/grid' as *;
+@use 'globals/charts' as *;
+
+//-------------------------------------
+// 🔬 Experimental
+//-------------------------------------
+@use 'components/ColorDropdown/color-dropdown' as *;
+@use 'components/FlyoutMenu/flyout-menu' as *;
+@use 'components/HotspotEditorModal/HotspotEditorTooltipTab/hotspot-editor-tooltip-tab' as *;
+@use 'components/HotspotEditorModal/hotspot-editor-modal' as *;
+@use 'components/HotspotEditorModal/HotspotTextStyleTab/hotspot-text-style-tab' as *;
+@use 'components/HotspotEditorModal/DynamicHotspotSourcePicker/dynamic-hotspot-source-picker' as *;
+@use 'components/SimpleIconDropdown/simple-icon-dropdown' as *;
+@use 'components/RuleBuilder/rule-builder' as *;
+@use 'components/MapCard/legend' as *;
+@use 'components/MapCard/map-card' as *;
+@use 'components/MapCard/scrolling-controls' as *;
+@use 'components/MapCard/zoom-control' as *;
+@use 'components/MapCard/storyFiles/drag-panel.scss' as *;
+@use 'components/MapCard/storyFiles/mapbox-example.scss' as *;
+@use 'components/MapCard/storyFiles/open-layers-example.scss' as *;
+//-------------------------------------
+// carbon-addons-iot-react components
+//-------------------------------------
+@use 'components/AddCard/add-card' as *;
+@use 'components/Accordion/accordion' as *;
+@use 'components/BarChartCard/bar-chart-card' as *;
+@use 'components/Button/button' as *;
+@use 'components/Breadcrumb/breadcrumb' as *;
+@use 'components/Card/card' as *;
+@use 'components/CardEditor/card-editor' as *;
+@use 'components/CardEditor/CardEditForm/card-edit-form' as *;
+@use 'components/CodeSnippet/code-snippet' as *;
+@use 'components/ComposedModal/composed-modal' as *;
+@use 'components/CardCodeEditor/card-code-editor' as *;
+@use 'components/CopyButton/copy-button' as *;
+@use 'components/Checkbox/checkbox' as *;
+@use 'components/Dropdown/dropdown' as *;
+@use 'components/Dashboard/dashboard' as *;
+@use 'components/Dashboard/dashboard-grid' as *;
+@use 'components/DashboardEditor/dashboard-editor' as *;
+@use 'components/DatePicker/date-picker' as *;
+@use 'components/DateTimePicker/date-time-picker' as *;
+@use 'components/DateTimePicker/date-time-pickerv2' as *;
+@use 'components/EmptyState/emptystate' as *;
+@use 'components/FileDrop/file-drop' as *;
+@use 'components/FilterTags/filter-tags' as *;
+@use 'components/FileUploader/file-uploader' as *;
+@use 'components/Form/form' as *;
+@use 'components/GaugeCard/gauge-card' as *;
+@use 'components/Header/header' as *;
+@use 'components/OverflowMenu/overflow-menu' as *;
+@use 'components/HotspotEditorModal/HotspotTextStyleTab/hotspot-text-style-tab' as *;
+@use 'components/IconDropdown/icon-dropdown' as *;
+@use 'components/ContentSwitcher/content-switcher' as *;
+@use 'components/IconSwitch/icon-switch' as *;
+@use 'components/ImageCard/image-card' as *;
+@use 'components/ImageCard/image-uploader' as *;
+@use 'components/ImageCard/hotspot' as *;
+@use 'components/ImageCard/hotspot-content' as *;
+@use 'components/ImageGalleryModal/image-gallery-modal' as *;
+@use 'components/ImageGalleryModal/image-tile' as *;
+@use 'components/InlineLoading/inline-loading' as *;
+@use 'components/ListCard/listCard' as *;
+@use 'components/List/list' as *;
+@use 'components/Link/link' as *;
+@use 'components/ListBuilder/list-builder' as *;
+@use 'components/RadioButton/radio-button' as *;
+@use 'components/TimePicker/time-picker' as *;
+@use 'components/TimePicker/list-spinner' as *;
+@use 'components/TimePicker/time-picker-dropdown' as *;
+@use 'components/TearSheet/tear-sheet-wrapper' as *;
+@use 'components/TearSheet/tear-sheet' as *;
+@use 'components/TextArea/text-area' as *;
+@use 'components/List/ListItem/list-item' as *;
+@use 'components/List/ListHeader/list-header' as *;
+@use 'components/Loading/loading' as *;
+@use 'components/MapCard/map-card' as *;
+@use 'components/List/HierarchyList/hierarchy-list' as *;
+@use 'components/MenuButton/menu-button' as *;
+@use 'components/Notification/inline-notification' as *;
+@use 'components/Notification/toast-notification' as *;
+@use 'components/NumberInput/number-input' as *;
+@use 'components/OrderedList/orderedList' as *;
+@use 'components/PageTitleBar/page-title-bar' as *;
+@use 'components/PageWizard/page-wizard' as *;
+@use 'components/PieChartCard/pie-chart-card' as *;
+@use 'components/ProgressBar/progress-bar' as *;
+@use 'components/Pagination/pagination' as *;
+@use 'components/PaginationNav/pagination-nav' as *;
+@use 'components/ProgressIndicator/progress-indicator' as *;
+@use 'components/RuleBuilder/rulebuilder' as *;
+@use 'components/ResourceList/resourcelist' as *;
+@use 'components/SelectUsersModal/select-users-modal' as *;
+@use 'components/Search/search' as *;
+@use 'components/Slider/slider' as *;
+@use 'components/SideNav/side-nav' as *;
+@use 'components/SimplePagination/simple-pagination' as *;
+@use 'components/SuiteHeader/suite-header' as *;
+@use 'components/StructuredList/structured-list' as *;
+@use 'components/Skeleton/skeleton' as *;
+@use 'components/Table/TableToolbar/table-toolbar' as *;
+@use 'components/Tag/tag' as *;
+@use 'components/Table/pagination' as *;
+@use 'components/Table/TableBody/table-dnd' as *;
+@use 'components/Table/TableBody/RowActionsCell/row-actions-cell' as *;
+@use 'components/Table/TableBody/TableBodyRow/table-expand-row' as *;
+@use 'components/Table/table' as *;
+@use 'components/Tabs/tabs' as *;
+@use 'components/TableMultiline/table.scss' as *;
+@use 'components/Table/TableViewDropdown/table-view-dropdown' as *;
+@use 'components/Table/TableSaveViewModal/table-save-view-modal' as *;
+@use 'components/Table/TableManageViewsModal/table-manage-views-modal' as *;
+@use 'components/Table/TableManageViewsModal/table-manage-views-list' as *;
+@use 'components/Table/TableColumnCustomizationModal/table-column-customization-modal' as *;
+@use 'components/TableCard/threshold-icon' as *;
+@use 'components/TableCard/table-card' as *;
+@use 'components/Tag/tag' as *;
+@use 'components/TextInput/text-input' as *;
+@use 'components/Tooltip/tooltip' as *;
+@use 'components/Tile/tile' as *;
+@use 'components/TileCatalogNew/tile-catalog' as *;
+@use 'components/TileCatalog/tile-catalog' as *;
+@use 'components/TileCatalog/tile-group' as *;
+@use 'components/TileCatalog/catalog-content' as *;
+@use 'components/TileGallery/tile-gallery' as *;
+@use 'components/Toggle/toggle' as *;
+@use 'components/TimePickerSpinner/time-picker-spinner' as *;
+@use 'components/TimeSeriesCard/time-series-card' as *;
+@use 'components/ValueCard/value-card' as *;
+@use 'components/ValueCard/attribute' as *;
+@use 'components/ValueCard/unit-renderer' as *;
+@use 'components/ValueCard/value-renderer' as *;
+@use 'components/WizardInline/wizard-inline' as *;
+@use 'components/WizardModal/wizard-modal' as *;
+@use 'components/ComboChartCard/combo-chart-card' as *;
+@use 'components/ReadOnlyValue/read-only-value' as *;
+@use 'components/SparklineChartCard/sparkline-chart-card' as *;
+@use 'components/StackedAreaChartCard/stacked-area-chart-card' as *;
+@use 'components/MeterChartCard/meter-chart-card' as *;
+@use 'components/SidePanel/side-panel' as *;
+@use 'components/CodeEditor/code-editor' as *;
+@use 'components/Modal/modal' as *;
+@use 'components/MultiSelect/multi-select' as *;
+@use 'components/OverflowMenu/overflow-menu' as *;
+
+:root {
+  @include theme.theme();
+}
 
 /// If true, includes font face mixins in `_css--font-face.scss` depending on the `css--plex` feature flag
 /// @access public
@@ -54,28 +226,8 @@ $css--use-experimental-grid: false !default;
 /// @deprecated (For v10) v10 always uses `@carbon/grid`
 $css--use-experimental-grid-fallback: false !default;
 
-/// Set the theme to Gray 10
-@import '~@carbon/themes/scss/themes';
-$carbon--theme: $carbon--theme--g10;
-// Use the gray 10 theme
-@include carbon--theme();
-
-@import 'globals/feature-flags';
-@import 'globals/vars';
-@import 'globals/colors';
-@import 'globals/theme';
-@import 'globals/mixins';
-@import 'globals/layout';
-@import 'globals/spacing';
-@import 'globals/typography';
-@import 'globals/import-once';
-@import 'globals/css--reset';
-@import 'globals/css--font-face';
-@import 'globals/css--helpers';
-@import 'globals/css--body';
-@import 'globals/grid';
-@import 'globals/charts';
-
+// Apply the theme globally
+// @include theme.apply($carbon--theme);
 //-------------------------
 // ⚠️ Manage deprecations
 //-------------------------
@@ -104,71 +256,13 @@ $deprecations--reasons: ();
 /// @group global-deprecate
 $deprecations--message: 'Deprecated code was found, this code will be removed before the next release of Carbon.';
 
-//-------------------------
-// 🍕 Carbon Components
-//-------------------------
-
-@import 'components/Checkbox/checkbox';
-@import 'components/CopyButton/copy-button';
-@import 'components/FileUploader/file-uploader';
-@import 'components/ComboBox/combo-box';
-@import 'components/NumberInput/number-input';
-@import 'components/RadioButton/radio-button';
-@import 'components/Search/search';
-@import 'components/Select/select';
-@import 'components/TextInput/text-input';
-@import 'components/TextArea/text-area';
-@import 'components/Toggle/toggle';
-@import 'components/Form/form';
-@import 'components/Link/link';
-@import 'components/ListBox/list-box';
-@import 'components/DataTable/data-table';
-@import 'components/StructuredList/structured-list';
-@import 'components/CodeSnippet/code-snippet';
-@import 'components/OverflowMenu/overflow-menu';
-@import 'components/ContentSwitcher/content-switcher';
-@import 'components/DatePicker/date-picker';
-@import 'components/Dropdown/dropdown';
-@import 'components/Loading/loading';
-@import 'components/Modal/modal';
-@import 'components/MultiSelect/multi-select';
-@import 'components/Notification/inline-notification';
-@import 'components/Notification/toast-notification';
-@import 'components/Tooltip/tooltip';
-@import 'components/Tabs/tabs';
-@import 'components/Tag/tag';
-@import 'components/Pagination/pagination';
-@import 'components/Accordion/accordion';
-@import 'components/Breadcrumb/breadcrumb';
-@import 'components/Toolbar/toolbar';
-@import 'components/TimePicker/time-picker';
-@import 'components/Slider/slider';
-@import 'components/Tile/tile';
-@import 'components/Skeleton/skeleton';
-@import 'components/InlineLoading/inline-loading';
-@import 'components/PaginationNav/pagination-nav';
-@import 'components/UIShell/ui-shell';
-@import 'components/List/carbon-list';
-@import 'components/Table/TableBody/TableBodyLoadMoreRow/table-body-load-more-row';
-@import 'components/ResourceList/resourcelist';
-
-//-------------------------------------
-// 🔬 Experimental
-//-------------------------------------
-@import 'components/ColorDropdown/color-dropdown';
-@import 'components/FlyoutMenu/flyout-menu';
-@import 'components/HotspotEditorModal/HotspotEditorTooltipTab/hotspot-editor-tooltip-tab';
-@import 'components/HotspotEditorModal/hotspot-editor-modal';
-@import 'components/HotspotEditorModal/DynamicHotspotSourcePicker/dynamic-hotspot-source-picker';
-@import 'components/SimpleIconDropdown/simple-icon-dropdown';
-@import 'components/RuleBuilder/rule-builder';
-
 //-------------------------------------
 // 🙈 Hidden (Not exposed on website)
 //-------------------------------------
 
 // Cycle through all the deprecation reasons, if any exist, that have been
 // accumulated through the @import process.
+//stylelint-disable scss/no-global-function-names
 @if (length($deprecations--reasons) > 0) {
   $deprecations--message: '';
   @each $reason in $deprecations--reasons {
@@ -177,91 +271,3 @@ $deprecations--message: 'Deprecated code was found, this code will be removed be
 
   @warn $deprecations--message;
 }
-
-//-------------------------------------
-// carbon-addons-iot-react components
-//-------------------------------------
-@import 'components/AddCard/add-card';
-@import 'components/BarChartCard/bar-chart-card';
-@import 'components/Button/button';
-@import 'components/Card/card';
-@import 'components/CardEditor/card-editor';
-@import 'components/CardEditor/CardEditForm/card-edit-form';
-@import 'components/ComposedModal/composed-modal';
-@import 'components/ComposedStructuredList/composed-structured-list';
-@import 'components/CardCodeEditor/card-code-editor';
-@import 'components/Dashboard/dashboard';
-@import 'components/Dashboard/dashboard-grid';
-@import 'components/DashboardEditor/dashboard-editor';
-@import 'components/DateTimePicker/date-time-picker';
-@import 'components/DateTimePicker/date-time-pickerv2';
-@import 'components/EmptyState/emptystate';
-@import 'components/FileDrop/file-drop';
-@import 'components/FilterTags/filter-tags';
-@import 'components/GaugeCard/gauge-card';
-@import 'components/Header/header';
-@import 'components/HotspotEditorModal/HotspotTextStyleTab/hotspot-text-style-tab';
-@import 'components/IconDropdown/icon-dropdown';
-@import 'components/IconSwitch/icon-switch';
-@import 'components/ImageCard/image-card';
-@import 'components/ImageCard/image-uploader';
-@import 'components/ImageCard/hotspot';
-@import 'components/ImageCard/hotspot-content';
-@import 'components/ImageGalleryModal/image-gallery-modal';
-@import 'components/ImageGalleryModal/image-tile';
-@import 'components/ListCard/listCard';
-@import 'components/List/list';
-@import 'components/ListBuilder/list-builder';
-@import 'components/TimePicker/list-spinner';
-@import 'components/TimePicker/time-picker-dropdown';
-@import 'components/TearSheet/tear-sheet-wrapper';
-@import 'components/TearSheet/tear-sheet';
-@import 'components/List/ListItem/list-item';
-@import 'components/List/ListHeader/list-header';
-@import 'components/MapCard/map-card';
-@import 'components/List/HierarchyList/hierarchy-list';
-@import 'components/MenuButton/menu-button';
-@import 'components/PageTitleBar/page-title-bar';
-@import 'components/PageWizard/page-wizard';
-@import 'components/PieChartCard/pie-chart-card';
-@import 'components/ProgressBar/progress-bar';
-@import 'components/ProgressIndicator/progress-indicator';
-@import 'components/RuleBuilder/rulebuilder';
-@import 'components/SelectUsersModal/select-users-modal';
-@import 'components/SideNav/side-nav';
-@import 'components/SimplePagination/simple-pagination';
-@import 'components/SuiteHeader/suite-header';
-@import 'components/Table/TableToolbar/table-toolbar';
-@import 'components/Table/pagination';
-@import 'components/Table/TableBody/table-dnd';
-@import 'components/Table/TableBody/RowActionsCell/row-actions-cell';
-@import 'components/Table/TableBody/TableBodyRow/table-expand-row';
-@import 'components/Table/table';
-@import 'components/TableMultiline/table.scss';
-@import 'components/Table/TableViewDropdown/table-view-dropdown';
-@import 'components/Table/TableSaveViewModal/table-save-view-modal';
-@import 'components/Table/TableManageViewsModal/table-manage-views-modal';
-@import 'components/Table/TableManageViewsModal/table-manage-views-list';
-@import 'components/Table/TableColumnCustomizationModal/table-column-customization-modal';
-@import 'components/TableCard/threshold-icon';
-@import 'components/TableCard/table-card';
-@import 'components/TileCatalogNew/tile-catalog';
-@import 'components/TileCatalog/tile-catalog';
-@import 'components/TileCatalog/tile-group';
-@import 'components/TileCatalog/catalog-content';
-@import 'components/TileGallery/tile-gallery';
-@import 'components/TimePickerSpinner/time-picker-spinner';
-@import 'components/TimeSeriesCard/time-series-card';
-@import 'components/ValueCard/value-card';
-@import 'components/ValueCard/attribute';
-@import 'components/ValueCard/unit-renderer';
-@import 'components/ValueCard/value-renderer';
-@import 'components/WizardInline/wizard-inline';
-@import 'components/WizardModal/wizard-modal';
-@import 'components/ComboChartCard/combo-chart-card';
-@import 'components/ReadOnlyValue/read-only-value';
-@import 'components/SparklineChartCard/sparkline-chart-card';
-@import 'components/StackedAreaChartCard/stacked-area-chart-card';
-@import 'components/MeterChartCard/meter-chart-card';
-@import 'components/SidePanel/side-panel';
-@import 'components/CodeEditor/code-editor';

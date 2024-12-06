@@ -1,1 +1,1 @@
-export { Modal } from 'carbon-components-react';
+export { Modal } from '@carbon/react';

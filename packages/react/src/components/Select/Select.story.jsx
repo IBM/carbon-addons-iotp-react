@@ -16,8 +16,8 @@ import { SelectItemGroup } from '../SelectItemGroup';
 import { Select, SelectSkeleton } from '.';
 
 const sizes = {
-  'Extra large size (xl)': 'xl',
-  'Default size': undefined,
+  'Large size (lg)': 'lg',
+  'Default size (md)': 'md',
   'Small size (sm)': 'sm',
 };
 

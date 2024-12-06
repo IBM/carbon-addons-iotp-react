@@ -1,5 +1,5 @@
 import React from 'react';
-import { BreadcrumbItem } from 'carbon-components-react';
+import { BreadcrumbItem } from '@carbon/react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 

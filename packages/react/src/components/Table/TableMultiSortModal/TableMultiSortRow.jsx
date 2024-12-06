@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
-import { Add16, Draggable16, Subtract16 } from '@carbon/icons-react';
-import { Select, SelectItem } from 'carbon-components-react';
+import { Add, Draggable, Subtract } from '@carbon/react/icons';
+import { Select, SelectItem } from '@carbon/react';
 import PropTypes from 'prop-types';
 import { useDrag, useDrop } from 'react-dnd';
 import classnames from 'classnames';
@@ -140,7 +140,7 @@ export const TableMultiSortRow = ({
         title={i18n.multiSortDragHandle}
         data-testid={`drag-handle-${columnId}`}
       >
-        <Draggable16 />
+        <Draggable />
       </div>
       <Select
         data-testid={`${testId}-column-select`}
@@ -177,7 +177,7 @@ export const TableMultiSortRow = ({
       </Select>
       <Button
         hasIconOnly
-        renderIcon={Add16}
+        renderIcon={Add}
         kind="ghost"
         tooltipPosition="top"
         iconDescription={i18n.multiSortAddColumn}
@@ -187,7 +187,7 @@ export const TableMultiSortRow = ({
       />
       <Button
         hasIconOnly
-        renderIcon={Subtract16}
+        renderIcon={Subtract}
         kind="ghost"
         tooltipPosition="top"
         iconDescription={i18n.multiSortRemoveColumn}

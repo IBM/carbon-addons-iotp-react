@@ -1,3 +1,8 @@
+@use '../../globals/vars' as *;
+@use '@carbon/react/scss/motion' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/utilities/box-shadow' as *;
 .#{$iot-prefix}--map-scroll-controls {
   &__container {
     margin-bottom: 1rem;
@@ -11,16 +16,16 @@
     overflow-y: hidden;
   }
   &__btn {
-    background: white;
-    border-bottom: 1px solid $ui-03;
+    background: white !important;
+    border-bottom: 1px solid $layer-accent-01;
   }
 
   &__scroll-btn {
-    border-bottom: 1px solid $ui-03;
+    border-bottom: 1px solid $layer-accent-01;
     &:disabled,
     &:disabled:hover {
       background: white;
-      border-bottom: 1px solid $ui-03;
+      border-bottom: 1px solid $layer-accent-01;
       &:last-child {
         border-bottom: inherit;
       }

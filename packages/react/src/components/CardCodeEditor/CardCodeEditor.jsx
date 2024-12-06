@@ -1,14 +1,14 @@
 import React, { useState, useMemo } from 'react';
-import { InlineNotification } from 'carbon-components-react';
-import { Popup16 } from '@carbon/icons-react';
+import { InlineNotification } from '@carbon/react';
+import { Popup } from '@carbon/react/icons';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import ComposedModal from '../ComposedModal';
 import { settings } from '../../constants/Settings';
-import CodeEditor from '../CodeEditor/CodeEditor';
 import Button from '../Button';
 import deprecate from '../../internal/deprecate';
+import CodeEditor from '../CodeEditor/CodeEditor';
 
 const { iotPrefix } = settings;
 
@@ -40,8 +40,6 @@ const propTypes = {
   language: PropTypes.string,
   /** Initial value for the editor */
   initialValue: PropTypes.string,
-  /** Which editor to use */
-  editor: PropTypes.oneOf(['monaco', 'codemirror']),
   // TODO: remove deprecated testID in v3.
   // eslint-disable-next-line react/require-default-props
   testID: deprecate(
@@ -67,7 +65,6 @@ const defaultProps = {
   language: 'json',
   initialValue: null,
   onCopy: null,
-  editor: 'monaco',
   testId: 'card-code-editor',
 };
 
@@ -78,7 +75,6 @@ const CardCodeEditor = ({
   i18n,
   language,
   initialValue,
-  editor,
   // TODO: remove deprecated testID in v3.
   testID,
   testId,
@@ -123,7 +119,7 @@ const CardCodeEditor = ({
       <Button
         className={`${iotPrefix}--editor-expand`}
         hasIconOnly
-        renderIcon={Popup16}
+        renderIcon={Popup}
         iconDescription={mergedI18n.expandBtnLabel}
         onClick={handleOnExpand}
         kind="ghost"
@@ -141,13 +137,11 @@ const CardCodeEditor = ({
           data-testid={`${testID || testId}-notification`}
         />
       )}
-
       <CodeEditor
         language={language}
         onCopy={onCopy}
         initialValue={initialValue}
         onCodeEditorChange={(value) => setEditorValue(value)}
-        editor={editor}
         light
         i18n={mergedI18n}
         testId={testID || testId}

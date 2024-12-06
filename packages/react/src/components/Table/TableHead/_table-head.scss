@@ -1,9 +1,18 @@
-@import '../../../globals/vars';
-@import '~carbon-components/scss/globals/scss/layout';
-@import 'column-resize';
-@import 'ColumnHeaderRow/column-header-row';
-@import 'FilterHeaderRow/filter-header-row';
-@import 'ColumnGrouping/column-grouping';
+@use '../../../globals/vars' as *;
+@use '@carbon/react/scss/layout' as *;
+@use 'column-resize' as *;
+
+@use 'ColumnGrouping/column-grouping' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/colors' as *;
+@use '@carbon/react/scss/components/button' as *;
+@use '../../../globals/mixins' as *;
+@use '@carbon/react/scss/components/data-table' as *;
+@use 'ColumnHeaderRow/column-header-row' as *;
+@use 'FilterHeaderRow/filter-header-row' as *;
+@use '@carbon/react/scss/components/data-table/sort' as *;
 
 .#{$prefix}--data-table {
   th {
@@ -16,6 +25,10 @@
     &.#{$iot-prefix}--table-head--table-header {
       vertical-align: middle;
     }
+  }
+
+  th[aria-sort] {
+    padding-left: 1rem;
   }
 
   // override sort icons, so they stay in the middle, at xl size, too.
@@ -138,15 +151,15 @@
   .lightweight {
     tr:last-of-type {
       th {
-        border-bottom: solid 2px $interactive-02;
+        border-bottom: solid 2px $button-secondary;
       }
     }
     th {
-      background-color: $ui-01;
+      background-color: $layer-01;
       .#{$prefix}--table-sort {
-        background-color: $ui-01;
+        background-color: $layer-01;
         &:hover {
-          background-color: $ui-03;
+          background-color: $layer-accent-01;
         }
       }
     }

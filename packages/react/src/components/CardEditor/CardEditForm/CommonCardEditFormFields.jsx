@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { isEmpty } from 'lodash-es';
+import { TextArea, TextInput } from '@carbon/react';
 
 import {
   CARD_SIZES,
@@ -8,8 +9,6 @@ import {
   ALLOWED_CARD_SIZES_PER_TYPE,
 } from '../../../constants/LayoutConstants';
 import { settings } from '../../../constants/Settings';
-import { TextArea } from '../../TextArea';
-import { TextInput } from '../../TextInput';
 import { Dropdown } from '../../Dropdown';
 import { timeRangeToJSON } from '../../DashboardEditor/editorUtils';
 

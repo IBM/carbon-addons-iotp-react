@@ -1,1 +1,5 @@
-@import '~carbon-components/scss/components/file-uploader/file-uploader';
+@use '@carbon/react/scss/components/file-uploader' as *;
+@use '@carbon/react/scss/config' as *;
+.#{$prefix}--file__selected-file {
+  width: 288px;
+}

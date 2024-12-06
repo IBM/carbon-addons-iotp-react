@@ -1,5 +1,9 @@
-@import '~carbon-components/scss/components/breadcrumb/breadcrumb';
-@import '../../globals/vars';
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/components/breadcrumb' as *;
+@use '@carbon/react/scss/components/overflow-menu' as *;
+@use '../../globals/vars' as *;
 
 .#{$prefix}--breadcrumb {
   display: flex;
@@ -34,7 +38,7 @@
     width: auto;
 
     & svg {
-      fill: $link-01;
+      fill: $link-primary;
       border-bottom: 1px solid transparent;
     }
 
@@ -43,7 +47,7 @@
     }
 
     &:hover svg {
-      border-color: $link-01;
+      border-color: $link-primary;
     }
 
     &.#{$prefix}--overflow-menu--open {
@@ -77,13 +81,17 @@
     background-color: $field-02;
 
     &:hover {
-      background-color: $hover-ui;
+      background-color: $layer-hover-01;
     }
   }
 
   .#{$prefix}--overflow-menu-options__btn {
     text-decoration: none;
   }
+}
+
+.breadcrumb--overflow-items.#{$prefix}--overflow-menu-options {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 html[dir='rtl'] .breadcrumb--container {

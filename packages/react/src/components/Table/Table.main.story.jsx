@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { action } from '@storybook/addon-actions';
 import { object, select, boolean, text, number } from '@storybook/addon-knobs';
 import { cloneDeep, debounce, merge, uniqueId } from 'lodash-es';
-import { ToastNotification, BreadcrumbItem } from 'carbon-components-react';
-import { SettingsAdjust16 } from '@carbon/icons-react';
+import { ToastNotification, BreadcrumbItem } from '@carbon/react';
+import { SettingsAdjust } from '@carbon/react/icons';
 
 import StoryNotice from '../../internal/StoryNotice';
 import Button from '../Button';
@@ -14,22 +14,22 @@ import FlyoutMenu, { FlyoutMenuDirection } from '../FlyoutMenu/FlyoutMenu';
 import { csvDownloadHandler } from '../../utils/componentUtilityFunctions';
 import Breadcrumb from '../Breadcrumb/Breadcrumb';
 
-import TableREADME from './mdx/Table.mdx';
-import SortingREADME from './mdx/Sorting.mdx';
-import DragAndDropREADME from './mdx/DragAndDrop.mdx';
-import RowExpansionREADME from './mdx/RowExpansion.mdx';
-import SelectionAndBatchActionsREADME from './mdx/SelectionAndBatchActions.mdx';
-import InlineActionsREADME from './mdx/InlineActions.mdx';
-import RowNestingREADME from './mdx/RowNesting.mdx';
-import FilteringREADME from './mdx/Filtering.mdx';
-import AggregationsREADME from './mdx/Aggregations.mdx';
-import SearchingREADME from './mdx/Searching.mdx';
-import StatesREADME from './mdx/States.mdx';
-import PaginationREADME from './mdx/Pagination.mdx';
-import ToolbarREADME from './mdx/Toolbar.mdx';
-import EditDataREADME from './mdx/EditData.mdx';
-import PinnedHeaderAndFooterREADME from './mdx/PinnedHeaderAndFooter.mdx';
-import PinnedColumnREADME from './mdx/PinnedColumn.mdx';
+// import TableREADME from './mdx/Table.mdx'; //carbon 11
+// import SortingREADME from './mdx/Sorting.mdx'; //Carbon 11
+// import DragAndDropREADME from './mdx/DragAndDrop.mdx'; //carbon11
+// import RowExpansionREADME from './mdx/RowExpansion.mdx';
+// import SelectionAndBatchActionsREADME from './mdx/SelectionAndBatchActions.mdx';
+// import InlineActionsREADME from './mdx/InlineActions.mdx';
+// import RowNestingREADME from './mdx/RowNesting.mdx';
+// import FilteringREADME from './mdx/Filtering.mdx';
+// import AggregationsREADME from './mdx/Aggregations.mdx';
+// import SearchingREADME from './mdx/Searching.mdx';
+// import StatesREADME from './mdx/States.mdx';
+// import PaginationREADME from './mdx/Pagination.mdx';
+// import ToolbarREADME from './mdx/Toolbar.mdx';
+// import EditDataREADME from './mdx/EditData.mdx';
+// import PinnedHeaderAndFooterREADME from './mdx/PinnedHeaderAndFooter.mdx';
+// import PinnedColumnREADME from './mdx/PinnedColumn.mdx';
 import Table from './Table';
 import StatefulTable from './StatefulTable';
 import {
@@ -72,14 +72,13 @@ import { PIN_COLUMN } from './tableUtilities';
 
 // Dataset used to speed up stories using row edit
 const storyTableData = getTableData();
-
 export default {
   title: '1 - Watson IoT/Table',
   parameters: {
     component: Table,
-    docs: {
-      page: TableREADME,
-    },
+    // docs: {
+    //   page: TableREADME,
+    // },
   },
 };
 
@@ -221,7 +220,7 @@ export const Playground = () => {
         This is shallow demo implementation of the row edit functionality. Data modifications are
         not saved.
       </div>
-      <Button key="cancel" size="small" kind="tertiary" onClick={() => setShowRowEditBar(false)}>
+      <Button key="cancel" size="sm" kind="tertiary" onClick={() => setShowRowEditBar(false)}>
         Cancel demo
       </Button>
     </div>
@@ -230,7 +229,7 @@ export const Playground = () => {
   const singleRowEditButtons = (
     <Button
       key="cancel"
-      size="small"
+      size="sm"
       kind="tertiary"
       onClick={() => {
         setRowActionsState([...getRowActionStates()]);
@@ -264,7 +263,6 @@ export const Playground = () => {
       numberOfRows,
     ]
   );
-
   const onRowLoadMore = (parentId) => {
     action('onRowLoadMore')(parentId);
     setTimeout(() => {
@@ -656,9 +654,9 @@ export function WithDragAndDrop() {
 WithDragAndDrop.storyName = 'With drag and drop rows';
 WithDragAndDrop.parameters = {
   component: Table,
-  docs: {
-    page: DragAndDropREADME,
-  },
+  // docs: {
+  //   page: DragAndDropREADME,
+  // },
 };
 
 export const WithSorting = () => {
@@ -707,9 +705,9 @@ export const WithSorting = () => {
 WithSorting.storyName = 'With sorting';
 WithSorting.parameters = {
   component: Table,
-  docs: {
-    page: SortingREADME,
-  },
+  // docs: {
+  //   page: SortingREADME,
+  // },
 };
 
 export const WithSearching = () => {
@@ -731,7 +729,7 @@ export const WithSearching = () => {
   });
 
   const MyTable = selectedTableType === 'StatefulTable' ? StatefulTable : Table;
-  const data = getTableData().slice(0, 50);
+  const data = storyTableData;
   const columns = getTableColumns();
 
   const defaultValue = text(
@@ -767,9 +765,9 @@ export const WithSearching = () => {
 WithSearching.storyName = 'With searching';
 WithSearching.parameters = {
   component: Table,
-  docs: {
-    page: SearchingREADME,
-  },
+  // docs: {
+  //   page: SearchingREADME,
+  // },
 };
 
 export const WithRowExpansion = () => {
@@ -816,16 +814,16 @@ export const WithRowExpansion = () => {
 WithRowExpansion.storyName = 'With row expansion';
 WithRowExpansion.parameters = {
   component: Table,
-  docs: {
-    page: RowExpansionREADME,
-  },
+  // docs: {
+  //   page: RowExpansionREADME,
+  // },
 };
 
 export const WithRowNesting = () => {
   const {
     selectedTableType,
     hasRowNesting,
-    shouldExpandOnRowClick,
+    // shouldExpandOnRowClick,
     demoHasLoadMore,
     wrapCellText,
   } = getTableKnobs({
@@ -842,15 +840,17 @@ export const WithRowNesting = () => {
   const initiallyExpandedIds = object('Expanded ids (view.table.expandedIds)', ['row-1']);
   const demoDeepNesting = !hasRowNesting.hasSingleNestedHierarchy;
   const MyTable = selectedTableType === 'StatefulTable' ? StatefulTable : Table;
-  const initialData = getTableData()
-    .slice(0, 10)
-    .map((row, index) => {
-      return addChildRows(row, index, demoDeepNesting);
-    })
-    .map((row) => ({
-      ...row,
-      hasLoadMore: demoHasLoadMore,
-    }));
+  const initialData =
+    storyTableData &&
+    storyTableData
+      .slice(0, 10)
+      .map((row, index) => {
+        return addChildRows(row, index, demoDeepNesting);
+      })
+      .map((row) => ({
+        ...row,
+        hasLoadMore: demoHasLoadMore,
+      }));
   const columns = getTableColumns();
   const actions = getTableActions();
 
@@ -892,7 +892,7 @@ export const WithRowNesting = () => {
       data={data}
       options={{
         hasRowNesting,
-        shouldExpandOnRowClick,
+        //   shouldExpandOnRowClick,
         wrapCellText,
       }}
       view={{
@@ -908,9 +908,9 @@ export const WithRowNesting = () => {
 WithRowNesting.storyName = 'With row nesting';
 WithRowNesting.parameters = {
   component: Table,
-  docs: {
-    page: RowNestingREADME,
-  },
+  // docs: {
+  //   page: RowNestingREADME,
+  // },
 };
 
 export const WithAggregations = () => {
@@ -952,9 +952,9 @@ export const WithAggregations = () => {
 WithAggregations.storyName = 'With aggregations';
 WithAggregations.parameters = {
   component: Table,
-  docs: {
-    page: AggregationsREADME,
-  },
+  // docs: {
+  //   page: AggregationsREADME,
+  // },
 };
 
 export const WithFiltering = () => {
@@ -1162,9 +1162,9 @@ export const WithFiltering = () => {
 WithFiltering.storyName = 'With filtering';
 WithFiltering.parameters = {
   component: Table,
-  docs: {
-    page: FilteringREADME,
-  },
+  // docs: {
+  //   page: FilteringREADME,
+  // },
 };
 
 export const WithCustomInputFiltering = () => {
@@ -1260,9 +1260,9 @@ export const WithCustomInputFiltering = () => {
 WithCustomInputFiltering.storyName = 'With custom input filtering';
 WithCustomInputFiltering.parameters = {
   component: Table,
-  docs: {
-    page: FilteringREADME,
-  },
+  // docs: {
+  //   page: FilteringREADME,
+  // },
 };
 
 export const WithSelectionAndBatchActions = () => {
@@ -1330,79 +1330,87 @@ export const WithSelectionAndBatchActions = () => {
 WithSelectionAndBatchActions.storyName = 'With selection and batch actions';
 WithSelectionAndBatchActions.parameters = {
   component: Table,
-  docs: {
-    page: SelectionAndBatchActionsREADME,
-  },
+  // docs: {
+  //   page: SelectionAndBatchActionsREADME,
+  // },
 };
 
 export const WithInlineActions = () => {
-  const { selectedTableType, hasRowActions } = getTableKnobs({
-    knobsToCreate: ['selectedTableType', 'hasRowActions'],
-    getDefaultValue: () => true,
-  });
-
-  const rowActions = [
-    objectWithSubstitution('Row actions for row-0 (data[0].rowActions)', [getDrillDownRowAction()]),
-    objectWithSubstitution('Row actions for row-1 (data[1].rowActions)', [
-      getDrillDownRowAction(),
-      getOverflowTextOnlyRowAction(),
-      getHiddenOverflowRowAction(),
-    ]),
-    objectWithSubstitution('Row actions for row-2 (data[2].rowActions)', [
-      getOverflowEditRowAction(),
-      getOverflowAddRowAction(),
-      getOverflowDeleteRowAction(),
-    ]),
-    objectWithSubstitution('Row actions for row-3 (data[3].rowActions)', [
-      getHiddenRowAction(),
-      getHiddenOverflowRowAction(),
-    ]),
-    null,
-    null,
-    null,
-    null,
-    null,
-    objectWithSubstitution('Row actions for row-9 (data[9].rowActions)', [
-      getOverflowEditRowAction(),
-      getOverflowAddRowAction(),
-      getOverflowDeleteRowAction(),
-    ]),
-  ];
-
-  const rowActionsState = object(
-    'State of the row actions (view.table.rowActions)',
-    getRowActionStates()
-  );
-
-  const MyTable = selectedTableType === 'StatefulTable' ? StatefulTable : Table;
-  const data = getTableData()
-    .slice(0, 10)
-    .map((row, index) => {
-      if (hasRowActions) {
-        return { ...row, rowActions: rowActions[index] ?? [] };
-      }
-      return row;
+  const WithInlineActionsTable = () => {
+    const { selectedTableType, hasRowActions } = getTableKnobs({
+      knobsToCreate: ['selectedTableType', 'hasRowActions'],
+      getDefaultValue: () => true,
     });
-  const columns = getTableColumns();
 
-  return (
-    <MyTable
-      actions={getTableActions()}
-      columns={columns}
-      data={data}
-      options={{
-        hasRowActions,
-      }}
-      view={{ table: { rowActions: rowActionsState } }}
-    />
-  );
+    const rowActions = [
+      objectWithSubstitution('Row actions for row-0 (data[0].rowActions)', [
+        getDrillDownRowAction(),
+      ]),
+      objectWithSubstitution('Row actions for row-1 (data[1].rowActions)', [
+        getDrillDownRowAction(),
+        getOverflowTextOnlyRowAction(),
+        getHiddenOverflowRowAction(),
+      ]),
+      objectWithSubstitution('Row actions for row-2 (data[2].rowActions)', [
+        getOverflowEditRowAction(),
+        getOverflowAddRowAction(),
+        getOverflowDeleteRowAction(),
+      ]),
+      objectWithSubstitution('Row actions for row-3 (data[3].rowActions)', [
+        getHiddenRowAction(),
+        getHiddenOverflowRowAction(),
+      ]),
+      null,
+      null,
+      null,
+      null,
+      null,
+      objectWithSubstitution('Row actions for row-9 (data[9].rowActions)', [
+        getOverflowEditRowAction(),
+        getOverflowAddRowAction(),
+        getOverflowDeleteRowAction(),
+      ]),
+    ];
+
+    const rowActionsState = object(
+      'State of the row actions (view.table.rowActions)',
+      getRowActionStates()
+    );
+
+    // const MyTable = selectedTableType === 'StatefulTable' ? StatefulTable : Table;
+    const MyTable = useMemo(() => {
+      return selectedTableType === 'StatefulTable' ? StatefulTable : Table;
+    }, [selectedTableType]);
+    const data = getTableData()
+      .slice(0, 10)
+      .map((row, index) => {
+        if (hasRowActions) {
+          return { ...row, rowActions: rowActions[index] ?? [] };
+        }
+        return row;
+      });
+    const columns = getTableColumns();
+
+    return (
+      <MyTable
+        // actions={getTableActions()}
+        columns={columns}
+        data={data}
+        options={{
+          hasRowActions,
+        }}
+        view={{ table: { rowActions: rowActionsState } }}
+      />
+    );
+  };
+  return <WithInlineActionsTable />;
 };
 WithInlineActions.storyName = 'With inline actions';
 WithInlineActions.parameters = {
   component: Table,
-  docs: {
-    page: InlineActionsREADME,
-  },
+  // docs: {
+  //   page: InlineActionsREADME,
+  // },
 };
 
 export const WithPinnedHeaderAndFooter = () => {
@@ -1473,9 +1481,9 @@ export const WithPinnedHeaderAndFooter = () => {
 WithPinnedHeaderAndFooter.storyName = 'With pinned header and footer';
 WithPinnedHeaderAndFooter.parameters = {
   component: Table,
-  docs: {
-    page: PinnedHeaderAndFooterREADME,
-  },
+  // docs: {
+  //   page: PinnedHeaderAndFooterREADME,
+  // },
 };
 
 export const WithMainViewStates = () => {
@@ -1545,9 +1553,9 @@ export const WithMainViewStates = () => {
 WithMainViewStates.storyName = 'With main view states';
 WithMainViewStates.parameters = {
   component: Table,
-  docs: {
-    page: StatesREADME,
-  },
+  // docs: {
+  //   page: StatesREADME,
+  // },
 };
 
 export const WithPagination = () => {
@@ -1606,9 +1614,9 @@ export const WithPagination = () => {
 WithPagination.storyName = 'With pagination';
 WithPagination.parameters = {
   component: Table,
-  docs: {
-    page: PaginationREADME,
-  },
+  // docs: {
+  //   page: PaginationREADME,
+  // },
 };
 
 export const WithToolbar = () => {
@@ -1641,7 +1649,7 @@ export const WithToolbar = () => {
       key="custom-content-2"
       direction={FlyoutMenuDirection.BottomEnd}
       iconDescription="Toggle flyout Menu"
-      buttonProps={{ size: 'default', renderIcon: SettingsAdjust16 }}
+      buttonProps={{ size: 'default', renderIcon: SettingsAdjust }}
       onApply={action('Flyout Menu Apply Clicked')}
       onCancel={action('Flyout Menu Cancel Clicked')}
       hideTooltip={false}
@@ -1698,9 +1706,9 @@ export const WithToolbar = () => {
 WithToolbar.storyName = 'With toolbar';
 WithToolbar.parameters = {
   component: Table,
-  docs: {
-    page: ToolbarREADME,
-  },
+  // docs: {
+  //   page: ToolbarREADME,
+  // },
 };
 
 export const WithPinnedColumn = () => {
@@ -1748,9 +1756,9 @@ export const WithPinnedColumn = () => {
 WithPinnedColumn.storyName = 'With pinned column';
 WithPinnedColumn.parameters = {
   component: Table,
-  docs: {
-    page: PinnedColumnREADME,
-  },
+  // docs: {
+  //   page: PinnedColumnREADME,
+  // },
 };
 
 export const WithDataEditing = () => {
@@ -1840,10 +1848,10 @@ export const WithDataEditing = () => {
 
   const saveCancelButtons = (
     <div style={{ display: 'flex', gap: '0.5rem' }}>
-      <Button key="cancel" size="small" kind="tertiary" onClick={onCancelRowEdit}>
+      <Button key="cancel" size="sm" kind="tertiary" onClick={onCancelRowEdit}>
         Cancel
       </Button>
-      <Button key="save" size="small" onClick={onSaveRowEdit} disabled={isPristine}>
+      <Button key="save" size="sm" onClick={onSaveRowEdit} disabled={isPristine}>
         Save
       </Button>
     </div>
@@ -1884,7 +1892,7 @@ export const WithDataEditing = () => {
             style={{ color: 'white', marginLeft: '12px' }}
             kind="ghost"
             onClick={onUndoRowEdit}
-            size="small"
+            size="sm"
             type="button"
           >
             Undo edits
@@ -1938,9 +1946,9 @@ export const WithDataEditing = () => {
 WithDataEditing.storyName = 'With data editing';
 WithDataEditing.parameters = {
   component: Table,
-  docs: {
-    page: EditDataREADME,
-  },
+  // docs: {
+  //   page: EditDataREADME,
+  // },
 };
 
 export const WithAsynchronousDataSource = () => {
@@ -1950,7 +1958,7 @@ export const WithAsynchronousDataSource = () => {
 WithAsynchronousDataSource.storyName = 'With asynchronous data source';
 WithAsynchronousDataSource.parameters = {
   component: Table,
-  docs: {
-    page: TableREADME,
-  },
+  // docs: {
+  //   page: TableREADME,
+  // },
 };

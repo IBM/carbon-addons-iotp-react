@@ -1,5 +1,10 @@
-@import '../../globals/vars';
-
+@use '../../globals/vars' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/components/content-switcher' as *;
+@use '../../globals/mixins' as *;
+@use '@carbon/react/scss/components/modal/' as *;
 $top-section-height: 6.25rem;
 $border-radius: 0.25rem;
 
@@ -9,10 +14,10 @@ $border-radius: 0.25rem;
   }
   &.#{$iot-prefix}--composed-modal.#{$iot-prefix}--composed-modal--large {
     .#{$prefix}--modal-container {
-      background-color: $ui-02;
+      background-color: $layer-02;
       overflow: hidden;
       height: 80%;
-      $min-width: calc(100% - #{$layout-02});
+      $min-width: calc(100% - #{$spacing-06}); //$layout-02 to $spacing-06
       min-width: $min-width;
       max-width: $min-width;
 

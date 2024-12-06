@@ -6,7 +6,7 @@ import { layout05 } from '@carbon/layout';
 import { CARD_SIZES } from '../../constants/LayoutConstants';
 import { getCardMinSize } from '../../utils/componentUtilityFunctions';
 
-import StackedAreaChartCardREADME from './StackedAreaChartCard.mdx';
+// import StackedAreaChartCardREADME from './StackedAreaChartCard.mdx'; //carbon 11
 import StackedAreaChartCard from './StackedAreaChartCard';
 
 const supportedSizes = Object.keys(CARD_SIZES).filter(
@@ -16,9 +16,9 @@ export default {
   title: '1 - Watson IoT/Card/StackedAreaChartCard',
   parameters: {
     component: StackedAreaChartCard,
-    docs: {
-      page: StackedAreaChartCardREADME,
-    },
+    // docs: {
+    //   page: StackedAreaChartCardREADME,
+    // }, //carbon 11
   },
 };
 

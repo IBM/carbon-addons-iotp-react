@@ -2,7 +2,7 @@ import React, { createElement, useMemo, useState } from 'react';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import { isEmpty } from 'lodash-es';
-import { ArrowRight16, CloseOutline16, Subtract16 } from '@carbon/icons-react';
+import { ArrowRight, CloseOutline, Subtract } from '@carbon/react/icons';
 
 import StoryNotice, { experimentalStoryTitle } from '../../internal/StoryNotice';
 import Button from '../Button/Button';
@@ -155,7 +155,7 @@ export const StatefulExampleWithCheckboxes = () => {
       items={items}
       itemsSearchValue={searchValue}
       selectedItems={selected}
-      removeIcon={CloseOutline16}
+      removeIcon={CloseOutline}
       useCheckboxes={boolean('useCheckboxes', true)}
     />
   );
@@ -283,10 +283,10 @@ export const ComplexNestedExample = () => {
             style={{ color: 'black' }}
             role="button"
             aria-label="Add user"
-            renderIcon={ArrowRight16}
+            renderIcon={ArrowRight}
             hasIconOnly
             kind="ghost"
-            size="small"
+            size="sm"
             onClick={() => handleAdd(user)}
             iconDescription="Add user"
           />,
@@ -307,10 +307,10 @@ export const ComplexNestedExample = () => {
               key={`${username}-list-item-button-${depth}`}
               style={{ color: 'black' }}
               aria-label="Remove user"
-              renderIcon={Subtract16}
+              renderIcon={Subtract}
               hasIconOnly
               kind="ghost"
-              size="small"
+              size="sm"
               onClick={() => handleRemove(user)}
               iconDescription="Remove user"
             />,

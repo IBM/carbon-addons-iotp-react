@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Dropdown } from 'carbon-components-react';
-import { Add32, Subtract32, TextNewLine32 } from '@carbon/icons-react';
+import { Dropdown } from '@carbon/react';
+import { Add, Subtract, TextNewLine } from '@carbon/react/icons';
 import PropTypes from 'prop-types';
 
 import { settings } from '../../constants/Settings';
@@ -272,7 +272,7 @@ const Rule = ({ rule, onAddRule, onRemoveRule, onChange, columns, i18n }) => {
       <div className={`${iotPrefix}--rule-builder-rule__actions`}>
         <Button
           hasIconOnly
-          renderIcon={Subtract32}
+          renderIcon={(props) => <Subtract size={16} {...props} />}
           kind="ghost"
           tooltipPosition="top"
           iconDescription="Remove rule"
@@ -281,7 +281,7 @@ const Rule = ({ rule, onAddRule, onRemoveRule, onChange, columns, i18n }) => {
         />
         <Button
           hasIconOnly
-          renderIcon={Add32}
+          renderIcon={(props) => <Add size={16} {...props} />}
           kind="ghost"
           tooltipPosition="top"
           iconDescription="Add new rule"
@@ -290,7 +290,7 @@ const Rule = ({ rule, onAddRule, onRemoveRule, onChange, columns, i18n }) => {
         />
         <Button
           hasIconOnly
-          renderIcon={TextNewLine32}
+          renderIcon={(props) => <TextNewLine size={16} {...props} />}
           kind="ghost"
           tooltipPosition="top"
           iconDescription="Add new rule group"

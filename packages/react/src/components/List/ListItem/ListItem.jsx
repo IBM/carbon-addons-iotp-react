@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { DragSource } from 'react-dnd';
 import classnames from 'classnames';
-import { Draggable16, ChevronUp16, ChevronDown16, Locked16 } from '@carbon/icons-react';
+import { Draggable, ChevronUp, ChevronDown, Locked } from '@carbon/react/icons';
 import PropTypes from 'prop-types';
 import warning from 'warning';
 
@@ -192,9 +192,9 @@ const ListItem = ({
         onKeyPress={(event) => event.key === 'Enter' && handleExpansionClick(event)}
       >
         {expanded ? (
-          <ChevronUp16 aria-label={`${mergedI18n.close}-icon`} />
+          <ChevronUp aria-label={`${mergedI18n.close}-icon`} />
         ) : (
-          <ChevronDown16 aria-label={`${mergedI18n.expand}-icon`} />
+          <ChevronDown aria-label={`${mergedI18n.expand}-icon`} />
         )}
       </div>
     ) : null;
@@ -269,10 +269,10 @@ const ListItem = ({
 
   const dragIcon = () =>
     isLocked ? (
-      <Locked16 className={classnames(`${iotPrefix}--list-item--lock`)} />
+      <Locked className={classnames(`${iotPrefix}--list-item--lock`)} />
     ) : editingStyle ? (
       <div title={mergedI18n.dragHandle}>
-        <Draggable16
+        <Draggable
           className={classnames(`${iotPrefix}--list-item--handle`, {
             [`${iotPrefix}--list-item--handle__disabled`]: disabled,
           })}

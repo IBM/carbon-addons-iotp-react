@@ -1,6 +1,16 @@
 import React, { useEffect, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { ContentSwitcher, Switch, Tabs, Tab, InlineNotification } from 'carbon-components-react';
+import {
+  ContentSwitcher,
+  Switch,
+  Tabs,
+  Tab,
+  TabList,
+  TabPanels,
+  TabPanel,
+  InlineNotification,
+  InlineLoading,
+} from '@carbon/react';
 import { pick, sortBy } from 'lodash-es';
 import update from 'immutability-helper';
 import { gray50, red50, green50, blue50 } from '@carbon/colors';
@@ -9,7 +19,6 @@ import warning from 'warning';
 import { HotspotIconPropType, ColorPropType } from '../../constants/SharedPropTypes';
 import ImageHotspots from '../ImageCard/ImageHotspots';
 import ComposedModal from '../ComposedModal';
-import { InlineLoading } from '../InlineLoading';
 import { settings } from '../../constants/Settings';
 import {
   validThresholdIcons,
@@ -499,35 +508,39 @@ const HotspotEditorModal = ({
           />
         ) : (
           <Tabs selected={0}>
-            <Tab label={fixedTypeTooltipTabLabelText}>
-              <HotspotEditorTooltipTab
-                showDeleteButton={!(selectedHotspot?.type === hotspotTypes.DYNAMIC)}
-                showInfoMessage={!selectedHotspot}
-                hotspotIcons={imageHotspotsIcons}
-                hotspotIconFillColors={hotspotIconFillColors}
-                formValues={selectedHotspot}
-                onChange={updateHotspotTooltip}
-                onDelete={deleteSelectedHotspot}
-                i18n={{
-                  deleteButtonLabelText,
-                  deleteButtonIconDescriptionText,
-                  titleInputLabelText,
-                  titleInputPlaceholderText,
-                  descriptionTextareaLabelText,
-                  descriptionTextareaPlaceholderText,
-                  iconDropdownLabelText,
-                  iconDropdownTitleText,
-                  colorDropdownLabelText,
-                  colorDropdownTitleText,
-                  infoMessageText: fixedTypeTooltipInfoText,
-                }}
-                translateWithId={translateWithId}
-                testId={`${testId}-tooltip-tab`}
-              />
-            </Tab>
-            <Tab disabled={hasNonEditableContent} label={fixedTypeDataSourceTabLabelText}>
-              {hasNonEditableContent ? null : renderDataSourceTab()}
-            </Tab>
+            <TabList>
+              <Tab>{fixedTypeTooltipTabLabelText}</Tab>
+              <Tab disabled={hasNonEditableContent}>{fixedTypeDataSourceTabLabelText}</Tab>
+            </TabList>
+            <TabPanels>
+              <TabPanel>
+                <HotspotEditorTooltipTab
+                  showDeleteButton={!(selectedHotspot?.type === hotspotTypes.DYNAMIC)}
+                  showInfoMessage={!selectedHotspot}
+                  hotspotIcons={imageHotspotsIcons}
+                  hotspotIconFillColors={hotspotIconFillColors}
+                  formValues={selectedHotspot}
+                  onChange={updateHotspotTooltip}
+                  onDelete={deleteSelectedHotspot}
+                  i18n={{
+                    deleteButtonLabelText,
+                    deleteButtonIconDescriptionText,
+                    titleInputLabelText,
+                    titleInputPlaceholderText,
+                    descriptionTextareaLabelText,
+                    descriptionTextareaPlaceholderText,
+                    iconDropdownLabelText,
+                    iconDropdownTitleText,
+                    colorDropdownLabelText,
+                    colorDropdownTitleText,
+                    infoMessageText: fixedTypeTooltipInfoText,
+                  }}
+                  translateWithId={translateWithId}
+                  testId={`${testId}-tooltip-tab`}
+                />
+              </TabPanel>
+              <TabPanel>{hasNonEditableContent ? null : renderDataSourceTab()}</TabPanel>
+            </TabPanels>
           </Tabs>
         )}
       </>
@@ -537,44 +550,48 @@ const HotspotEditorModal = ({
   const renderTextHotspotPage = () => {
     return (
       <Tabs selected={0} data-testid={`${testId}-hotspot-text-tabs`}>
-        <Tab label={textStyleLabelText}>
-          <HotspotTextStyleTab
-            maxBorderWidth={maxBorderWidth}
-            maxFontSize={maxFontSize}
-            maxOpacity={maxOpacity}
-            minOpacity={minOpacity}
-            minBorderWidth={minBorderWidth}
-            fontColors={fontColors}
-            backgroundColors={backgroundColors}
-            borderColors={borderColors}
-            formValues={selectedHotspot}
-            onChange={updateTextHotspotStyle}
-            onDelete={deleteSelectedHotspot}
-            showInfoMessage={!selectedHotspot}
-            i18n={{
-              boldLabelText,
-              infoMessageText: textTypeStyleInfoText,
-              italicLabelText,
-              underlineLabelText,
-              fontColorLabelText,
-              fontSizeLabelText,
-              fontSizeInvalidText,
-              backgroundLabelText,
-              fillOpacityLabelText,
-              fillOpacityInvalidText,
-              borderLabelText,
-              borderWidthLabelText,
-              borderWidthInvalidText,
-              deleteButtonLabelText,
-              deleteButtonIconDescription,
-              selectAColor,
-            }}
-            translateWithId={translateWithId}
-          />
-        </Tab>
-        <Tab disabled={hasNonEditableContent} label={textTypeDataSourceTabLabelText}>
-          {hasNonEditableContent ? null : renderDataSourceTab()}
-        </Tab>
+        <TabList>
+          <Tab>{textStyleLabelText}</Tab>
+          <Tab disabled={hasNonEditableContent}>{textTypeDataSourceTabLabelText}</Tab>
+        </TabList>
+        <TabPanels>
+          <TabPanel>
+            <HotspotTextStyleTab
+              maxBorderWidth={maxBorderWidth}
+              maxFontSize={maxFontSize}
+              maxOpacity={maxOpacity}
+              minOpacity={minOpacity}
+              minBorderWidth={minBorderWidth}
+              fontColors={fontColors}
+              backgroundColors={backgroundColors}
+              borderColors={borderColors}
+              formValues={selectedHotspot}
+              onChange={updateTextHotspotStyle}
+              onDelete={deleteSelectedHotspot}
+              showInfoMessage={!selectedHotspot}
+              i18n={{
+                boldLabelText,
+                infoMessageText: textTypeStyleInfoText,
+                italicLabelText,
+                underlineLabelText,
+                fontColorLabelText,
+                fontSizeLabelText,
+                fontSizeInvalidText,
+                backgroundLabelText,
+                fillOpacityLabelText,
+                fillOpacityInvalidText,
+                borderLabelText,
+                borderWidthLabelText,
+                borderWidthInvalidText,
+                deleteButtonLabelText,
+                deleteButtonIconDescription,
+                selectAColor,
+              }}
+              translateWithId={translateWithId}
+            />
+          </TabPanel>
+          <TabPanel>{hasNonEditableContent ? null : renderDataSourceTab()}</TabPanel>
+        </TabPanels>
       </Tabs>
     );
   };

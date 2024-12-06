@@ -1,9 +1,10 @@
-@import '../../../../globals/vars';
-
+@use '../../../../globals/vars' as *;
+@use '@carbon/react/scss/type' as *;
+@use '@carbon/react/scss/components/data-table' as *;
 .#{$iot-prefix}--load-more-cell {
   &--content.#{$iot-prefix}--btn {
-    @include type-style('body-short-01');
-    color: $interactive-01;
+    @include type-style('body-compact-01');
+    color: $button-primary;
     min-width: 100%;
     display: flex;
     justify-content: center;

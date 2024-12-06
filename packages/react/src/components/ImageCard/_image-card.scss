@@ -1,4 +1,5 @@
-@import '~carbon-components/scss/globals/scss/vars';
+@use '@carbon/react/scss/config' as *;
+@use '../../globals/vars' as *;
 
 .#{$iot-prefix}--image-card {
   &__wrapper {

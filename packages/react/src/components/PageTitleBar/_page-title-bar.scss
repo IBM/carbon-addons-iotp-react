@@ -1,11 +1,16 @@
-@import '../../globals/vars';
-@import '../../globals/typography';
-
+@use '../../globals/vars' as *;
+@use '../../globals/typography' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/motion' as *;
+@use '@carbon/react/scss/colors' as *;
+@use '@carbon/react/scss/type' as *;
 @mixin condensed-style() {
   @include make-sticky();
-  background: rgba($ui-01, var(--scroll-transition-progress));
-  border-bottom: 1px solid rgba($ui-03, var(--scroll-transition-progress));
-  transition: all $duration--fast-02;
+  background: rgba($white-0, var(--scroll-transition-progress));
+  border-bottom: 1px solid rgba($gray-20, var(--scroll-transition-progress));
+  transition: all $duration-fast-02;
 }
 
 @mixin make-sticky() {
@@ -88,7 +93,7 @@
       margin-left: $spacing-05;
     }
 
-    transition: opacity $duration--moderate-02;
+    transition: opacity $duration-moderate-02;
 
     .page-title-bar--condensed-static & {
       @include condensed-style();
@@ -108,7 +113,7 @@
       grid-area: actions-condensed;
       padding-right: 0;
       opacity: 1;
-      transition: opacity $duration--moderate-02;
+      transition: opacity $duration-moderate-02;
     }
 
     // Fade out the action buttons and scroll them underneath the backdrop
@@ -140,8 +145,8 @@
       z-index: 1;
       display: grid;
       content: '';
-      background: rgba($ui-01, var(--scroll-transition-progress));
-      border-bottom: 1px solid rgba($ui-03, var(--scroll-transition-progress));
+      background: rgba($white-0, var(--scroll-transition-progress));
+      border-bottom: 1px solid rgba($gray-20, var(--scroll-transition-progress));
     }
   }
 
@@ -161,14 +166,14 @@
     .page-title-bar--dynamic & {
       @include make-sticky();
       overflow: hidden;
-      transition: all $duration--fast-02;
+      transition: all $duration-fast-02;
       border-bottom: 1px solid transparent;
     }
 
     .page-title-bar--dynamic--during &,
     .page-title-bar--dynamic--after & {
       padding-bottom: $spacing-04;
-      transition: all $duration--fast-02;
+      transition: all $duration-fast-02;
       z-index: 900;
       max-height: $spacing-08;
     }
@@ -193,14 +198,21 @@
     .page-title-bar-breadcrumb-current {
       --breadcrumb-scroll-distance: 20px;
       white-space: nowrap;
-      overflow: hidden;
       text-overflow: ellipsis;
-      transition: opacity $duration--fast-01 linear, transform $duration--fast-01 linear;
+      transition: opacity $duration-fast-01 linear, transform $duration-fast-01 linear;
       margin-left: 0;
 
-      // Add 1px of padding to prevent tooltip outline from getting cropped
-      .#{$prefix}--tooltip__label {
-        padding-right: 1px;
+      .#{$prefix}--toggletip {
+        margin-left: $spacing-03;
+        padding-right: 1px; // Add 1px of padding to prevent tooltip outline from getting cropped
+
+        .#{$prefix}--popover-content {
+          white-space: normal;
+
+          .#{$prefix}--toggletip-content {
+            row-gap: 0;
+          }
+        }
       }
 
       // hide the `/` after the breadcrumb for the current item
@@ -220,6 +232,7 @@
 
       .page-title-bar--dynamic--during &,
       .page-title-bar--dynamic--after & {
+        /* stylelint-disable scss/operator-no-newline-after */
         transform: translateY(
           calc(
             var(--breadcrumb-scroll-distance) -
@@ -278,10 +291,9 @@
       align-items: center;
       display: flex;
       white-space: nowrap;
-      overflow: hidden;
 
       h2 {
-        @include type-style('productive-heading-04');
+        @include type-style('heading-04');
         // need to match the 40x40px icons that could render in
         height: $spacing-08;
         white-space: nowrap;
@@ -290,21 +302,17 @@
         width: auto;
       }
 
-      & #tooltip {
-        fill: $icon-01;
-      }
-
-      .#{$prefix}--tooltip__label {
-        height: 100%;
-        width: $spacing-08;
-      }
-
-      .#{$prefix}--tooltip__trigger {
+      .#{$prefix}--toggletip {
         margin-left: 0;
         padding-left: $spacing-04;
         padding-right: $spacing-04;
-        height: calc(100% - 2px); // make room for outline
-        width: calc(#{$spacing-08} - 1px);
+
+        .#{$prefix}--popover-content {
+          white-space: normal;
+          .#{$prefix}--toggletip-content {
+            row-gap: 0;
+          }
+        }
 
         svg {
           width: $spacing-05;
@@ -337,7 +345,7 @@
   &-description {
     display: grid;
     grid-area: description;
-    @include type-style('body-long-01');
+    @include type-style('body-01');
     margin-top: $spacing-02;
     max-width: 40rem;
     padding-left: $spacing-07;
@@ -367,14 +375,14 @@
     margin-top: $spacing-06;
 
     &.page-title-bar-content--active {
-      .#{$prefix}--tabs--scrollable {
-        transition: all $duration--fast-02 ease-in;
-        background: $ui-01;
-        border-bottom: 1px solid $ui-03;
+      .#{$prefix}--tabs {
+        transition: all $duration-fast-02 ease-in;
+        background: $layer-01;
+        border-bottom: 1px solid $layer-accent-01;
       }
     }
 
-    .#{$prefix}--tabs--scrollable {
+    .#{$prefix}--tabs {
       padding-left: $spacing-05;
       margin-left: -($spacing-07);
       width: calc(100% + #{$spacing-10});
@@ -386,7 +394,7 @@
         margin-right: -($spacing-07);
       }
 
-      .#{$prefix}--tabs--scrollable__nav-link {
+      .#{$prefix}--tabs__nav-link {
         text-align: left;
 
         [dir='rtl'] & {
@@ -421,7 +429,7 @@
   }
 
   &.page-title-bar--condensed-static {
-    .#{$prefix}--tabs--scrollable {
+    .#{$prefix}--tabs {
       @include make-sticky();
     }
   }

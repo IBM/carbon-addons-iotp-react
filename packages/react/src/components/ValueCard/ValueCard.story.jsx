@@ -1,6 +1,6 @@
 import React from 'react';
 import { text, select, object, boolean, number } from '@storybook/addon-knobs';
-import { Bee16, Checkmark16, WarningFilled16 } from '@carbon/icons-react';
+import { Bee, Checkmark, WarningFilled } from '@carbon/react/icons';
 import { action } from '@storybook/addon-actions';
 
 import { CARD_SIZES, CARD_DATA_STATE } from '../../constants/LayoutConstants';
@@ -8,16 +8,16 @@ import { getCardMinSize } from '../../utils/componentUtilityFunctions';
 import { getDataStateProp } from '../Card/Card.story';
 
 import ValueCard from './ValueCard';
-import ValueCardREADME from './ValueCard.mdx';
+// import ValueCardREADME from './ValueCard.mdx'; //carbon 11
 
 export default {
   title: '1 - Watson IoT/Card/ValueCard',
 
   parameters: {
     component: ValueCard,
-    docs: {
-      page: ValueCardREADME,
-    },
+    // docs: {
+    //   page: ValueCardREADME,
+    // },
   },
 };
 
@@ -131,17 +131,17 @@ export const WithLinkAndMeasurementUnit = () => {
         id="appPoints-overage"
         renderIconByName={(name, props = {}) =>
           name === 'bee' ? (
-            <Bee16 {...props}>
+            <Bee {...props}>
               <title>{props.title}</title>
-            </Bee16>
+            </Bee>
           ) : name === 'checkmark' ? (
-            <Checkmark16 {...props}>
+            <Checkmark {...props}>
               <title>{props.title}</title>
-            </Checkmark16>
+            </Checkmark>
           ) : name === 'warning' ? (
-            <WarningFilled16 {...props}>
+            <WarningFilled {...props}>
               <title>{props.title}</title>
-            </WarningFilled16>
+            </WarningFilled>
           ) : (
             <span>Unknown</span>
           )
@@ -223,13 +223,13 @@ export const WithThresholds = () => {
         id="facilitycard"
         renderIconByName={(name, props = {}) =>
           name === 'bee' ? (
-            <Bee16 {...props}>
+            <Bee {...props}>
               <title>{props.title}</title>
-            </Bee16>
+            </Bee>
           ) : name === 'checkmark' ? (
-            <Checkmark16 {...props}>
+            <Checkmark {...props}>
               <title>{props.title}</title>
-            </Checkmark16>
+            </Checkmark>
           ) : (
             <span>Unknown</span>
           )
@@ -592,9 +592,9 @@ export const DataStateNoDataMediumScrollPage = () => {
       </button>
     ),
     icon: boolean('use custom icon', false) ? (
-      <Bee16 style={{ fill: 'orange' }}>
+      <Bee style={{ fill: 'orange' }}>
         <title>App supplied icon</title>
-      </Bee16>
+      </Bee>
     ) : undefined,
   };
 

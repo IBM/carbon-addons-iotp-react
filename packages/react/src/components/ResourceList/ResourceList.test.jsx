@@ -1,5 +1,5 @@
 import React from 'react';
-import Edit16 from '@carbon/icons-react';
+import Edit16 from '@carbon/react/icons';
 import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 

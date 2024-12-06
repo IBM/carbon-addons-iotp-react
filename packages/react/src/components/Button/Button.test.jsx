@@ -1,8 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { Loading } from 'carbon-components-react';
+import { Loading } from '@carbon/react';
 import { render, screen } from '@testing-library/react';
-import { Add16 } from '@carbon/icons-react';
+import { Add } from '@carbon/react/icons';
 
 import { settings } from '../../constants/Settings';
 
@@ -16,7 +16,7 @@ const commonProps = {
 
 const iconSelectionCommonProps = {
   kind: 'icon-selection',
-  renderIcon: Add16,
+  renderIcon: Add,
   iconDescription: 'Button icon',
 };
 

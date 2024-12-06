@@ -1,1 +1,1 @@
-export { SecondaryButton } from 'carbon-components-react';
+export { SecondaryButton } from '@carbon/react';

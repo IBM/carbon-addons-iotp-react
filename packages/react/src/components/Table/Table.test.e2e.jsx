@@ -1,8 +1,8 @@
 import React from 'react';
 import { mount } from '@cypress/react';
 import { onlyOn } from '@cypress/skip-test';
-import { Button } from 'carbon-components-react';
-import { ArrowRight16, TrashCan16 } from '@carbon/icons-react';
+import { Button } from '@carbon/react';
+import { ArrowRight, TrashCan } from '@carbon/react/icons';
 
 import { settings } from '../../constants/Settings';
 
@@ -60,7 +60,7 @@ describe('Table visual regression tests', () => {
             hasSingleRowEdit: true,
             wrapCellText: 'always',
           }}
-          size="xl"
+          size="2xl"
           view={{
             aggregations: {
               label: 'Total:',
@@ -119,13 +119,13 @@ describe('Table visual regression tests', () => {
                   <Button
                     key="cancel"
                     style={{ marginRight: '0.5rem' }}
-                    size="small"
+                    size="sm"
                     kind="tertiary"
                     onClick={() => {}}
                   >
                     Cancel
                   </Button>
-                  <Button key="save" size="small" onClick={() => {}}>
+                  <Button key="save" size="sm" onClick={() => {}}>
                     Save
                   </Button>
                 </React.Fragment>
@@ -244,7 +244,7 @@ describe('Table visual regression tests', () => {
     tableData[0].rowActions = [
       {
         id: 'drilldown',
-        renderIcon: ArrowRight16,
+        renderIcon: ArrowRight,
         iconDescription: 'Drill in',
         labelText: 'Drill in',
         isOverflow: false,
@@ -334,7 +334,7 @@ describe('Table visual regression tests', () => {
                   iconDescription: 'Delete Item',
                   id: 'delete',
                   labelText: 'Delete',
-                  renderIcon: TrashCan16,
+                  renderIcon: TrashCan,
                 },
               ],
               advancedFilterFlyoutOpen: false,

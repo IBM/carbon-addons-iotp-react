@@ -1,9 +1,12 @@
-@import '../../globals/vars';
-@import '../../globals/layout';
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '../../globals/vars' as *;
+@use '../../globals/layout' as *;
+@use '@carbon/react/scss/utilities/convert';
 
 .#{$iot-prefix}--composed-modal {
   .#{$prefix}--modal-container {
-    @media (min-height: carbon--rem(515px)) {
+    @media (min-height: convert.to-rem(515px)) {
       overflow-y: auto;
     }
   }
@@ -13,10 +16,10 @@
     z-index: 10000;
   }
 
-  .#{$prefix}--tooltip {
-    // TODO: Can remove once this issue is fixed: https://github.com/carbon-design-system/carbon/issues/6662
-    z-index: 10000;
-  }
+  // .#{$prefix}--tooltip {
+  //   // TODO: Can remove once this issue is fixed: https://github.com/carbon-design-system/carbon/issues/6662
+  //   z-index: 10000;
+  // }
 
   /* support large modals for ll the sizes */
   &.#{$iot-prefix}--composed-modal--large {
@@ -24,16 +27,16 @@
       margin-bottom: 0;
     }
     .#{$prefix}--modal-container {
-      min-height: carbon--rem(600px);
-      min-width: carbon--rem(800px);
+      min-height: convert.to-rem(600px);
+      min-width: convert.to-rem(800px);
       max-height: 80%;
-      @media (min-width: carbon--rem(600px)) {
+      @media (min-width: convert.to-rem(600px)) {
         height: auto;
       }
-      @media (min-width: carbon--rem(1024px)) {
+      @media (min-width: convert.to-rem(1024px)) {
         max-width: 80%;
       }
-      @media (min-width: carbon--rem(1200px)) {
+      @media (min-width: convert.to-rem(1200px)) {
         max-width: 60%;
       }
     }
@@ -45,10 +48,10 @@
       min-height: $min-width;
       min-width: $min-width;
       max-height: 80%;
-      @media (min-width: carbon--rem(1024px)) {
+      @media (min-width: convert.to-rem(1024px)) {
         min-width: $min-width;
       }
-      @media (min-width: carbon--rem(1200px)) {
+      @media (min-width: convert.to-rem(1200px)) {
         min-width: $min-width;
       }
 
@@ -65,7 +68,7 @@
   }
 
   .#{$prefix}--modal-content {
-    min-height: carbon--rem(200px);
+    min-height: convert.to-rem(200px);
   }
 }
 

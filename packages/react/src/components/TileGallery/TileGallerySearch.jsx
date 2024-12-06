@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Search } from 'carbon-components-react';
+import { Search } from '@carbon/react';
 import { white } from '@carbon/colors';
 
 const propTypes = {

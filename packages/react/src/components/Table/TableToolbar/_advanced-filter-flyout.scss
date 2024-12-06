@@ -1,3 +1,18 @@
+@use '../../../globals/vars' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/components/data-table' as *;
+
+.#{$iot-prefix}--table-toolbar__advanced-filters-button-wrapper {
+  .#{$iot-prefix}--flyout-menu--tooltip-anchor {
+    height: unset;
+    width: unset;
+  }
+  .#{$prefix}--popover-content .#{$prefix}--toggletip-actions > * {
+    flex-grow: 1;
+  }
+}
+
 .#{$iot-prefix}--advanced-filter__tab-container {
   width: clamp(30rem, 45rem, 100vw);
 }

@@ -1,20 +1,15 @@
 import React, { useMemo, useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import {
-  TrashCan16,
-  DocumentImport16,
-  DocumentExport16,
-  Maximize16,
-  Tablet16,
-  Laptop16,
-  Screen16,
-} from '@carbon/icons-react';
-import {
-  FileUploaderButton,
-  TooltipIcon,
-  ContentSwitcher,
-  TextInput,
-} from 'carbon-components-react';
+  TrashCan,
+  DocumentImport,
+  DocumentExport,
+  Maximize,
+  Tablet,
+  Laptop,
+  Screen,
+} from '@carbon/react/icons';
+import { FileUploaderButton, Tooltip, ContentSwitcher, TextInput } from '@carbon/react';
 import { isEmpty } from 'lodash-es';
 
 import { settings } from '../../../constants/Settings';
@@ -152,28 +147,28 @@ const DashboardEditorHeader = ({
             <IconSwitch
               name="fit-to-screen"
               text={mergedI18n.headerFitToScreenButton}
-              renderIcon={Maximize16}
+              renderIcon={Maximize}
               index={0}
               testId={`${testId}-fit-to-screen-switch`}
             />
             <IconSwitch
               name="large"
               text={mergedI18n.headerLargeButton}
-              renderIcon={Screen16}
+              renderIcon={Screen}
               index={1}
               testId={`${testId}-large-switch`}
             />
             <IconSwitch
               name="medium"
               text={mergedI18n.headerMediumButton}
-              renderIcon={Laptop16}
+              renderIcon={Laptop}
               index={2}
               testId={`${testId}-medium-switch`}
             />
             <IconSwitch
               name="small"
               text={mergedI18n.headerSmallButton}
-              renderIcon={Tablet16}
+              renderIcon={Tablet}
               index={3}
               testId={`${testId}-small-switch`}
             />
@@ -183,7 +178,7 @@ const DashboardEditorHeader = ({
         {
           // FileUploaderButton isn't a true button so extra styling is needed to make it look like a iconOnly button
           onImport && (
-            <TooltipIcon
+            <Tooltip
               align="center"
               direction="bottom"
               tooltipText={mergedI18n.headerImportButton}
@@ -191,26 +186,26 @@ const DashboardEditorHeader = ({
             >
               <FileUploaderButton
                 buttonKind="ghost"
-                size="field"
-                labelText={<DocumentImport16 fill="#161616" />}
+                size="md"
+                labelText={<DocumentImport fill="#161616" />}
                 onChange={onImport}
                 disableLabelChanges
                 accepts={['.json']}
                 multiple={false}
                 data-testid={`${testId}-file-uploader-button`}
               />
-            </TooltipIcon>
+            </Tooltip>
           )
         }
         {onExport && (
           <Button
             kind="ghost"
-            size="field"
+            size="md"
             iconDescription={mergedI18n.headerExportButton}
             tooltipPosition="bottom"
             tooltipAlignment="center"
             hasIconOnly
-            renderIcon={DocumentExport16}
+            renderIcon={DocumentExport}
             onClick={() => onExport(dashboardJson)}
             // TODO: pass testId in v3 to override defaults
             // testId={`${testId}-export-button`}
@@ -219,12 +214,12 @@ const DashboardEditorHeader = ({
         {onDelete && (
           <Button
             kind="ghost"
-            size="field"
+            size="md"
             iconDescription={mergedI18n.headerDeleteButton}
             tooltipPosition="bottom"
             tooltipAlignment="center"
             hasIconOnly
-            renderIcon={TrashCan16}
+            renderIcon={TrashCan}
             onClick={onDelete}
             // TODO: pass testId in v3 to override defaults
             // testId={`${testId}-delete-button`}
@@ -233,7 +228,7 @@ const DashboardEditorHeader = ({
         {onCancel && (
           <Button
             kind="secondary"
-            size="field"
+            size="md"
             onClick={onCancel}
             // TODO: pass testId in v3 to override defaults
             // testId={`${testId}-cancel-button`}
@@ -243,7 +238,7 @@ const DashboardEditorHeader = ({
         )}
         {onSubmit && (
           <Button
-            size="field"
+            size="md"
             disabled={isSubmitDisabled}
             onClick={() => onSubmit(dashboardJson)}
             loading={isSubmitLoading}
@@ -281,7 +276,7 @@ const DashboardEditorHeader = ({
         />
         <Button
           kind="ghost"
-          size="field"
+          size="md"
           title={mergedI18n.headerCancelButton}
           onClick={() => {
             setIsTitleEditMode(false);
@@ -293,7 +288,7 @@ const DashboardEditorHeader = ({
           {mergedI18n.headerCancelButton}
         </Button>
         <Button
-          size="field"
+          size="md"
           onClick={() => {
             onEditTitle(updatedTitle);
             setIsTitleEditMode(false);

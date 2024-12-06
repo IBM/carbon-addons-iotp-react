@@ -1,4 +1,7 @@
-@import '../../../globals/vars';
+@use '../../../globals/vars' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/components/data-table' as *;
 
 .#{$iot-prefix}--manage-views-modal .#{$prefix}--modal-content {
   padding-right: $spacing-05;

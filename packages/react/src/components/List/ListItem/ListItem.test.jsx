@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
-import { Add16, Edit16 } from '@carbon/icons-react';
+import { Add, Edit } from '@carbon/react/icons';
 import userEvent from '@testing-library/user-event';
 
 import { DragAndDrop } from '../../../utils/DragAndDropUtils';
@@ -149,7 +149,7 @@ describe('ListItem', () => {
       <UnconnectedListItem
         id="1"
         value="test"
-        icon={<Add16 title="iconTitle" onClick={onClick} />}
+        icon={<Add title="iconTitle" onClick={onClick} />}
         iconPosition="left"
         index={0}
         {...commonProps}
@@ -161,7 +161,7 @@ describe('ListItem', () => {
 
   it('ListItem with rowActions', () => {
     const rowActionOnClick = jest.fn();
-    const rowActions = [<Edit16 key="edit" title="iconTitle" onClick={rowActionOnClick} />];
+    const rowActions = [<Edit key="edit" title="iconTitle" onClick={rowActionOnClick} />];
     render(
       <UnconnectedListItem id="1" value="test" rowActions={rowActions} index={0} {...commonProps} />
     );
@@ -171,7 +171,7 @@ describe('ListItem', () => {
 
   it('ListItem with long value has visible rowActions', () => {
     const rowActionOnClick = jest.fn();
-    const rowActions = [<Edit16 key="edit" title="iconTitle" onClick={rowActionOnClick} />];
+    const rowActions = [<Edit key="edit" title="iconTitle" onClick={rowActionOnClick} />];
     render(
       <UnconnectedListItem
         id="1"

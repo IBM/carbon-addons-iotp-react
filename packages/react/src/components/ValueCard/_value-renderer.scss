@@ -1,5 +1,8 @@
-@import '../../globals/vars';
-
+@use '../../globals/vars' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/type' as *;
+@use '../../globals/mixins' as *;
 .#{$iot-prefix}--value-card__value-renderer {
   &--wrapper {
     text-overflow: ellipsis;
@@ -16,7 +19,7 @@
   }
 
   &--value {
-    @include type-style('productive-heading-06');
+    // @include type-style('productive-heading-06'); //    @include type-style('productive-heading-06');
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: var(--value-renderer-font-size);
@@ -37,7 +40,7 @@
       text-align: left;
     }
     &--measurement-unit {
-      @include type-style('productive-heading-03');
+      @include type-style('heading-03');
       margin-left: $spacing-04;
     }
   }

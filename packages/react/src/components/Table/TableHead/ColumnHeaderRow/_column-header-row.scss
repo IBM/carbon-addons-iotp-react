@@ -1,4 +1,7 @@
-@import '../../../../globals/vars';
+@use '../../../../globals/vars' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/components/data-table' as *;
+@use '@carbon/react/scss/components/data-table/sort/data-table-sort' as *;
 
 .#{$iot-prefix}--column-header-row--select-wrapper {
   display: flex;

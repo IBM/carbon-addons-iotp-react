@@ -1,4 +1,9 @@
-@import '../../../globals/vars';
+@use '../../../globals/vars' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/colors' as *;
+@use '@carbon/react/scss/components/data-table' as *;
 
 .#{$iot-prefix}--column-customization-modal {
   .#{$prefix}--modal-header__label {
@@ -13,7 +18,7 @@
     height: 100%;
     min-height: 60vh;
     // Can't use $ui-01 beacuse it becomes white in the modal
-    background-color: $carbon--gray-10;
+    background-color: $gray-10; //$carbon--gray-10
     padding: $spacing-05;
     padding-bottom: $spacing-09;
     margin-bottom: 0;
@@ -29,7 +34,7 @@
   .#{$iot-prefix}--list-builder__selected {
     height: 100%;
     max-height: 60vh;
-    background-color: $ui-01;
+    background-color: $layer-01;
     padding: 0;
   }
 

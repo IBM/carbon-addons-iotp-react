@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { ButtonKinds } from 'carbon-components-react/es/prop-types/types';
+import { ButtonKinds, Link } from '@carbon/react';
 
 import Button from '../Button';
-import { Link } from '../Link';
 import { settings } from '../../constants/Settings';
 import {
   EmptystateErrorIcon as ErrorImage,
@@ -148,11 +147,7 @@ const EmptyState = ({
             // TODO: remove deprecated testID in v3.
             data-testid={`${testID || testId}-action`}
           >
-            <Button
-              kind={action.kind}
-              onClick={action.onClick}
-              size={isSmall ? SMALL_SIZE : 'field'}
-            >
+            <Button kind={action.kind} onClick={action.onClick} size={isSmall ? 'sm' : 'md'}>
               {action.label}
             </Button>
           </div>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { select } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
-import { Bee32, Edit16 } from '@carbon/icons-react';
+import { Bee, Edit } from '@carbon/react/icons';
 
 import ResourceList from './ResourceList';
 
@@ -67,7 +67,7 @@ export const WithExtraContent = () => (
     extraContent={resourceData.map((i) => (
       <div>
         <h5>{i.id}</h5>
-        <Bee32 />
+        <Bee size={32} />
       </div>
     ))}
   />
@@ -82,7 +82,7 @@ export const WithAction = () => (
     customAction={{
       onClick: action('customAction.onClick'),
       label: 'Configure',
-      icon: Edit16,
+      icon: Edit,
     }}
   />
 );

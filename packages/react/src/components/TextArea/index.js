@@ -1,1 +1,1 @@
-export { TextArea, TextAreaSkeleton } from 'carbon-components-react';
+export { TextArea, TextAreaSkeleton } from '@carbon/react';

@@ -1,5 +1,14 @@
-@import '../../../../globals/vars';
-@import '../../../../globals/mixins';
+@use '../../../../globals/vars' as *;
+@use '../../../../globals/mixins' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/components/button' as *;
+@use '@carbon/react/scss/utilities' as *;
+@use '@carbon/react/scss/utilities/convert';
+@use '@carbon/react/scss/components/combo-box' as *;
+@use '../../../../globals/mixins' as *;
+@use '@carbon/react/scss/components/data-table' as *;
 
 $grouped-columns-filter-border-width: 2px;
 
@@ -56,8 +65,8 @@ $grouped-columns-filter-border-width: 2px;
 
   &.#{$iot-prefix}--filter-header-row--with-margin {
     .#{$prefix}--table-header-label {
-      min-width: rem(120px);
-      padding-right: rem(42px);
+      min-width: convert.to-rem(120px);
+      padding-right: convert.to-rem(42px);
 
       [dir='rtl'] & {
         padding-right: unset;
@@ -70,10 +79,10 @@ $grouped-columns-filter-border-width: 2px;
     position: absolute;
     right: 0;
     z-index: 1;
-    background-color: $ui-03;
+    background-color: $layer-accent-01;
 
     &:hover {
-      background-color: $hover-light-ui;
+      background-color: $layer-hover-02;
     }
 
     [dir='rtl'] & {
@@ -82,11 +91,11 @@ $grouped-columns-filter-border-width: 2px;
     }
 
     &.#{$iot-prefix}--filter-header-icon--with-border {
-      border-right: $spacing-01 solid $ui-background;
+      border-right: $spacing-01 solid $background;
 
       [dir='rtl'] & {
         border-right: none;
-        border-left: $spacing-01 solid $ui-background;
+        border-left: $spacing-01 solid $background;
       }
     }
 
@@ -95,7 +104,7 @@ $grouped-columns-filter-border-width: 2px;
 
       [dir='rtl'] & {
         right: unset;
-        left: rem(22px);
+        left: convert.to-rem(22px);
       }
     }
   }
@@ -105,12 +114,12 @@ $grouped-columns-filter-border-width: 2px;
     right: 0;
     width: $spacing-03;
     height: $spacing-08;
-    background-color: $ui-03;
+    background-color: $layer-accent-01;
 
     [dir='rtl'] & {
       right: unset;
       left: 0;
-      width: rem(22px);
+      width: convert.to-rem(22px);
     }
   }
 }
@@ -161,10 +170,10 @@ $grouped-columns-filter-border-width: 2px;
      were being overridden by other styles */
   .#{$iot-prefix}--filterheader-multiselect {
     .#{$prefix}--list-box__selection--multi {
-      background-color: $interactive-02;
+      background-color: $button-secondary;
     }
     .#{$prefix}--list-box__selection--multi > svg {
-      fill: $ui-background;
+      fill: $background;
     }
 
     &.#{$iot-prefix}--filterheader-multiselect__menu--fit-content {
@@ -181,7 +190,7 @@ $grouped-columns-filter-border-width: 2px;
 
   .#{$prefix}--tag--filter {
     &:focus {
-      outline: 2px solid $interactive-01;
+      outline: 2px solid $button-primary;
       outline-offset: -2px;
 
       svg {
@@ -190,7 +199,7 @@ $grouped-columns-filter-border-width: 2px;
     }
 
     & > svg {
-      fill: $ui-05;
+      fill: $layer-selected-inverse;
       border-radius: 0;
 
       &:hover {

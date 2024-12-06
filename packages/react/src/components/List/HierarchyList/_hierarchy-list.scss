@@ -1,5 +1,8 @@
-@import '../../../globals/vars';
-
+@use '../../../globals/vars' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/utilities/convert';
 .#{$iot-prefix}--hierarchy-list-bulk {
   &-header {
     width: 100%;
@@ -11,7 +14,7 @@
       padding-left: $spacing-05;
       margin: auto;
       flex-grow: 1;
-      color: $ui-background;
+      color: $background;
 
       html[dir='rtl'] & {
         padding-left: 0;
@@ -28,7 +31,7 @@
       height: $spacing-04;
       padding-right: $spacing-02;
       margin: auto 0 auto $spacing-02;
-      border-left: 1px solid $ui-background;
+      border-left: 1px solid $background;
     }
 
     &--button-no-icon,
@@ -60,24 +63,24 @@
       width: 100%;
 
       align-items: flex-start;
-      margin-top: rem(6px);
+      margin-top: convert.to-rem(6px);
       flex-direction: column;
 
       &-item {
         display: flex;
         position: relative;
         width: 100%;
-        background-color: $ui-background;
+        background-color: $background;
 
         &:hover {
-          background-color: $hover-ui;
+          background-color: $layer-hover-01;
         }
 
         &::after {
           height: 1px;
 
           content: '';
-          background: $ui-03;
+          background: $layer-accent-01;
           position: absolute;
           bottom: 0px;
           right: $spacing-08;

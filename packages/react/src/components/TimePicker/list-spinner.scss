@@ -1,4 +1,8 @@
-@import '../../globals/vars';
+@use '../../globals/vars' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/components/button' as *;
 
 .#{$iot-prefix}--list-spinner {
   &__section {
@@ -25,7 +29,7 @@
     bottom: 0;
     right: 0;
     overflow: hidden;
-    scrollbar-color: $ui-01;
+    scrollbar-color: $layer-01;
     scrollbar-width: none;
     /* stylelint-disable-next-line */
     &::scrollbar,
@@ -45,7 +49,7 @@
 
     .#{$iot-prefix}--list-spinner__list &--selected,
     .#{$iot-prefix}--list-spinner__list &--selected .#{$iot-prefix}--btn {
-      color: $ui-01;
+      color: $layer-01;
       &:hover {
         background: $button-primary-hover;
       }
@@ -54,7 +58,7 @@
 
   &__btn,
   &__list-item .#{$iot-prefix}--btn {
-    color: $icon-01;
+    color: $icon-primary;
     justify-content: center;
     margin: 0 auto;
     min-height: unset;
@@ -70,17 +74,17 @@
   &__btn {
     z-index: 1;
     &:first-child {
-      box-shadow: 0 1px 5px 4px $ui-01;
+      box-shadow: 0 1px 5px 4px $layer-01;
       border-width: 1.5px;
     }
 
     &:last-child {
-      box-shadow: 0 -1px 5px 4px $ui-01;
+      box-shadow: 0 -1px 5px 4px $layer-01;
       border-width: 1.5px;
     }
 
     &:hover {
-      color: $icon-01;
+      color: $icon-primary;
     }
   }
   /* stylelint-enable declaration-property-unit-blacklist */

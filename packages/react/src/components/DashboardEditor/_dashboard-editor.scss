@@ -1,3 +1,8 @@
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/colors' as *;
+@use '../../globals/vars' as *;
 .#{$iot-prefix}--dashboard-editor {
   display: flex;
   // need to reserve space for the suite header
@@ -43,7 +48,7 @@
           padding-top: 3px;
         }
         svg {
-          fill: $icon-01;
+          fill: $icon-primary;
         }
       }
 
@@ -74,7 +79,7 @@
     margin-right: $spacing-05;
 
     &__selected-breakpoint {
-      background-color: $text-03;
+      background-color: $text-placeholder; //$text-03
       overflow-x: auto; // allows a larger width
     }
 
@@ -96,18 +101,18 @@
     &__breakpoint-info {
       padding: $spacing-05;
       width: 100%;
-      background-color: $ui-03;
+      background-color: $layer-accent-01;
     }
 
     &__outline {
-      border: 2px dashed $ui-04;
+      border: 2px dashed $border-strong-01;
     }
 
     &__grid-container {
       // force a larger height so the background color will stretch the full height
       // 3rem for the navbar, 100px for the PageTitleBar header
       min-height: calc(100vh - 7rem - 100px);
-      background-color: $ui-background;
+      background-color: $background;
       padding-top: 1rem;
     }
   }

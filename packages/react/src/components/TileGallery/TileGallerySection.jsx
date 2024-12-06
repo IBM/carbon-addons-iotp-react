@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Accordion, AccordionItem } from 'carbon-components-react';
+import { Accordion, AccordionItem } from '@carbon/react';
 
 const propTypes = {
   /** Component children's to be rendered */

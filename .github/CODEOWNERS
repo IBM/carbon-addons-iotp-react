@@ -17,30 +17,27 @@
 # These users own any files in the following directory at the root of
 # the repository and any of its subdirectories.
 
-* @davidicus @jessieyan @sls-ca @herleraja
+* @davidicus @jessieyan @sls-ca @herleraja @abpaul1993
 
 #####
 # Core admin team should be notified of changes to build/test/deploy
 
 # Core dependencies
-/package.json  @davidicus @jessieyan @sls-ca @herleraja
-/yarn.lock     @davidicus @jessieyan @sls-ca @herleraja
+/package.json  @davidicus @jessieyan @sls-ca @herleraja @abpaul1993
+/yarn.lock     @davidicus @jessieyan @sls-ca @herleraja @abpaul1993
 
 # Configuration files
-**/*.config.js  @davidicus @jessieyan @sls-ca @herleraja
-**/config/      @davidicus @jessieyan @sls-ca @herleraja
-/.nvmrc         @davidicus @jessieyan @sls-ca @herleraja
+**/*.config.js  @davidicus @jessieyan @sls-ca @herleraja @abpaul1993
+**/config/      @davidicus @jessieyan @sls-ca @herleraja @abpaul1993
+/.nvmrc         @davidicus @jessieyan @sls-ca @herleraja @abpaul1993
 
 # Deploy configuration
-**/.storybook/       @davidicus @jessieyan @sls-ca @herleraja
-/.github/workflows/  @davidicus @jessieyan @sls-ca @herleraja
-/netlify.toml        @davidicus @jessieyan @sls-ca @herleraja
+**/.storybook/       @davidicus @jessieyan @sls-ca @herleraja @abpaul1993
+/.github/workflows/  @davidicus @jessieyan @sls-ca @herleraja @abpaul1993
+/netlify.toml        @davidicus @jessieyan @sls-ca @herleraja @abpaul1993
 
 #####
 # Release team should be notified of Public API changes in the system
 
-**/publicAPI.test.js       @davidicus @jessieyan @sls-ca @herleraja
-**/publicAPI.test.js.snap  @davidicus @jessieyan @sls-ca @herleraja
-
-# Angular team should be required for Angular changes
-/packages/angular/ @carbon-design-system/angular-maintainers
+**/publicAPI.test.js       @davidicus @jessieyan @sls-ca @herleraja @abpaul1993
+**/publicAPI.test.js.snap  @davidicus @jessieyan @sls-ca @herleraja @abpaul1993

@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from '@cypress/react';
-import { Edit16, Information16, SendAlt16 } from '@carbon/icons-react';
+import { Edit, Information, SendAlt } from '@carbon/react/icons';
 
 import Button from '../Button';
 
@@ -41,15 +41,15 @@ describe('SidePanel', () => {
   const actionItemButtons = [
     {
       buttonLabel: 'Edit',
-      buttonIcon: Edit16,
+      buttonIcon: Edit,
     },
     {
       buttonLabel: 'Info',
-      buttonIcon: Information16,
+      buttonIcon: Information,
     },
     {
       buttonLabel: 'Send',
-      buttonIcon: SendAlt16,
+      buttonIcon: SendAlt,
     },
   ];
   it('should go into condensed mode when content is scrolled', () => {

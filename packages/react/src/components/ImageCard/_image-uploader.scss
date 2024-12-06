@@ -1,10 +1,16 @@
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/type' as *;
+@use '../../globals/vars' as *;
+@use '@carbon/react/scss/components/button' as *;
 .#{$iot-prefix}--image-uploader {
-  background: $ui-02;
+  background: $layer-02;
   display: flex;
   height: calc(100% - 1rem);
   margin-top: $spacing-05;
   overflow: hidden;
-  padding: 9rem $spacing-05 $spacing-05; /* stylelint-disable-line declaration-property-unit-blacklist */
+  padding: 9rem $spacing-05 $spacing-05; /* stylelint-disable-line declaration-property-unit-disallowed-list */
   width: 100%;
 
   &-icon {
@@ -15,9 +21,9 @@
   }
 
   &-drop-label-text {
-    color: $interactive-01;
+    color: $button-primary;
     display: block;
-    @include carbon--type-style('productive-heading-02');
+    @include type-style('heading-compact-02');
     margin-bottom: $spacing-03;
   }
 
@@ -104,7 +110,7 @@
   }
 
   .#{$iot-prefix}--image-uploader-drop-label-text {
-    @include carbon--type-style('productive-heading-01');
+    @include type-style('heading-compact-01');
     margin-bottom: $spacing-05;
   }
 
@@ -137,7 +143,7 @@
   padding-top: $spacing-07;
 
   .#{$iot-prefix}--image-uploader-drop-description-text {
-    @include carbon--type-style('body-long-01');
+    @include type-style('body-01');
   }
 
   .#{$iot-prefix}--image-uploader-url-wrapper {

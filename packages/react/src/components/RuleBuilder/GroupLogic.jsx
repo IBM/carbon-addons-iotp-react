@@ -1,4 +1,4 @@
-import { Dropdown } from 'carbon-components-react';
+import { Dropdown } from '@carbon/react';
 import * as React from 'react';
 import PropTypes from 'prop-types';
 

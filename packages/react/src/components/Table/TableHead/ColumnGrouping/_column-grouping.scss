@@ -4,6 +4,12 @@
   all the different table sizes. Since Safari doesn't support position: relative;
   on 'tr' elements we have to manage the repositioning on the 'th' level.
 **/
+@use '../../../../globals/vars' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/components/data-table' as *;
+
 @mixin adjustPositionsAndHeights($group-height, $col-height) {
   .#{$iot-prefix}--table-head--with-column-groups {
     // Move column row down to the position of the group row
@@ -58,7 +64,7 @@
     // Basic border styling to simplify further border modifications
     // using color or width only.
     th {
-      border-color: $ui-02;
+      border-color: $layer-02;
       border-style: solid;
       border-width: 0;
     }

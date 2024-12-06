@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TableRow, TableCell } from 'carbon-components-react';
+import { TableRow, TableCell } from '@carbon/react';
 
 import { settings } from '../../../../constants/Settings';
 import Button from '../../../Button';

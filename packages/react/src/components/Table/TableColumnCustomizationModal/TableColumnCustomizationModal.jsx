@@ -1,7 +1,7 @@
 import React, { useCallback, useState, useMemo, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { isNil, uniqBy, cloneDeep, merge } from 'lodash-es';
-import { CloseOutline16 } from '@carbon/icons-react';
+import { CloseOutline } from '@carbon/react/icons';
 import warning from 'warning';
 import classNames from 'classnames';
 
@@ -570,7 +570,7 @@ const TableColumnCustomizationModal = ({
         onItemsSearchChange={(value) => {
           setSearchValue(value);
         }}
-        removeIcon={CloseOutline16}
+        removeIcon={CloseOutline}
         selectedItems={selectedItems}
         selectedDefaultExpandedIds={allGroupIds}
         selectedEditingStyle={EditingStyle.Single}

@@ -21,7 +21,6 @@ If you are reporting a bug or problem, please use the bug template instead.
 ### What package is this for?
 
 - [ ] React
-- [ ] Angular
 
 ### Summary
 

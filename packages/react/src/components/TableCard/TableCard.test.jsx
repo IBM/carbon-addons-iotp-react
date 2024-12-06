@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, within, screen, createEvent, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { Bee32 } from '@carbon/icons-react';
+import { Bee } from '@carbon/react/icons';
 import fileDownload from 'js-file-download';
 
 import { CARD_SIZES } from '../../constants/LayoutConstants';
@@ -877,7 +877,7 @@ describe('TableCard', () => {
                 {
                   id: 'custom-icon',
                   label: 'custom-icon',
-                  icon: () => <Bee32 data-testid="bee-icon" />,
+                  icon: () => <Bee size={32} data-testid="bee-icon" />,
                 },
               ]
             : undefined,

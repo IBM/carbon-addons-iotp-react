@@ -1,6 +1,9 @@
-@import '../../globals/vars';
-
-.#{$iot-prefix}--sparkline-chart--wrapper {
+@use '../../globals/vars' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/type' as *;
+type .#{$iot-prefix}--sparkline-chart--wrapper {
   width: 100%;
   height: calc(100% - (var(--card-list-height)));
   &--list {
@@ -11,7 +14,7 @@
       @include type-style('label-01');
     }
     > p {
-      color: $text-02;
+      color: $text-secondary;
       padding-right: $spacing-05;
     }
   }
@@ -21,10 +24,32 @@
   .#{$iot-prefix}--sparkline-chart--wrapper {
     &--list {
       > p {
-        color: $text-02;
+        color: $text-secondary;
         padding-left: $spacing-05;
         padding-right: 0;
       }
     }
   }
+}
+
+.#{$iot-prefix}--sparkline-chart--wrapper--list {
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+
+.#{$iot-prefix}--sparkline-chart--wrapper--list > p {
+  color: $text-secondary;
+  padding-right: 1rem;
+}
+
+.#{$iot-prefix}--sparkline-chart--wrapper--list > p,
+.#{$iot-prefix}--sparkline-chart--wrapper--list span {
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.33333;
+  letter-spacing: 0.32px;
+}
+
+.#{$iot-prefix}--sparkline-chart--wrapper .layout-child {
+  height: 100% !important;
 }

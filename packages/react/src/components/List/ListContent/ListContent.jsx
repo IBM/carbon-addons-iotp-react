@@ -1,12 +1,11 @@
 import React, { useMemo } from 'react';
-import { SkeletonText } from 'carbon-components-react';
+import { SkeletonText, Checkbox } from '@carbon/react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import { isEqual } from 'lodash-es';
 
 import { settings } from '../../../constants/Settings';
 import ListItem from '../ListItem/ListItem';
-import { Checkbox } from '../../Checkbox';
 import EmptyState from '../../EmptyState';
 import Button from '../../Button';
 import { EditingStyle, editingStyleIsMultiple } from '../../../utils/DragAndDropUtils';

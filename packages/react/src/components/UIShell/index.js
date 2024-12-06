@@ -1,7 +1,1 @@
-export {
-  Content,
-  Switcher,
-  SwitcherItem,
-  SwitcherDivider,
-  SkipToContent,
-} from 'carbon-components-react';
+export { Content, Switcher, SwitcherItem, SwitcherDivider, SkipToContent } from '@carbon/react';

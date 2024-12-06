@@ -3,8 +3,8 @@ import React from 'react';
 import { merge, pick, cloneDeep } from 'lodash-es';
 import { screen, render, fireEvent, act, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { Screen16, ViewOff16 } from '@carbon/icons-react';
-import { BreadcrumbItem } from 'carbon-components-react';
+import { Screen, ViewOff } from '@carbon/react/icons';
+import { BreadcrumbItem } from '@carbon/react';
 
 import { settings } from '../../constants/Settings';
 import { EMPTY_STRING_DISPLAY_VALUE } from '../../constants/Filters';
@@ -1614,7 +1614,7 @@ describe('stateful table with real reducer', () => {
         {
           id: 'in-toolbar',
           labelText: 'Do something',
-          renderIcon: Screen16,
+          renderIcon: Screen,
         },
         {
           id: 'edit',
@@ -1625,7 +1625,7 @@ describe('stateful table with real reducer', () => {
         {
           id: 'hide',
           labelText: 'Hide something',
-          renderIcon: ViewOff16,
+          renderIcon: ViewOff,
           hasDivider: true,
           isOverflow: true,
         },

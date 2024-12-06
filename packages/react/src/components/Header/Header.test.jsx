@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
-import { User20, Help20 } from '@carbon/icons-react';
+import { User, Help } from '@carbon/react/icons';
 
 import { settings } from '../../constants/Settings';
 import { keyboardKeys } from '../../constants/KeyCodeConstants';
@@ -26,7 +26,8 @@ describe('Header', () => {
         label: 'help',
         hasHeaderPanel: true,
         btnContent: (
-          <Help20
+          <Help
+            size={20}
             fill="white"
             description="Icon"
             className={`${prefix}--header__menu-item ${prefix}--header__menu-title`}
@@ -43,7 +44,7 @@ describe('Header', () => {
               <React.Fragment>
                 <span>
                   JohnDoe@ibm.com
-                  <User20 fill="white" description="Icon" />
+                  <User size={20} fill="white" description="Icon" />
                 </span>
               </React.Fragment>
             ),
@@ -52,7 +53,7 @@ describe('Header', () => {
       },
       {
         label: 'user',
-        btnContent: <User20 fill="white" description="Icon" />,
+        btnContent: <User size={20} fill="white" description="Icon" />,
         menuLinkName: 'a menu link name',
         childContent: [
           {
@@ -74,7 +75,7 @@ describe('Header', () => {
             content: (
               <span>
                 JohnDoe@ibm.com
-                <User20 fill="white" description="Icon" />
+                <User size={20} fill="white" description="Icon" />
               </span>
             ),
           },
@@ -94,7 +95,7 @@ describe('Header', () => {
       {
         label: 'user',
         onClick: undefined,
-        btnContent: <User20 fill="white" description="Icon" />,
+        btnContent: <User size={20} fill="white" description="Icon" />,
       },
     ],
   };

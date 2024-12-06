@@ -12,7 +12,7 @@ import { withKnobs, boolean, number, text, object, select } from '@storybook/add
 import { NumberInput, NumberInputSkeleton } from '.';
 
 const sizes = {
-  'Extra large size (xl)': 'xl',
+  'Extra large size (lg)': 'lg',
   'Default size': undefined,
   'Small size (sm)': 'sm',
 };

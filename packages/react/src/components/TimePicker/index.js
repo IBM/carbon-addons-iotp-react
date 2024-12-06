@@ -1,1 +1,1 @@
-export { TimePicker } from 'carbon-components-react';
+export { TimePicker } from '@carbon/react';

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { get, escapeRegExp } from 'lodash-es';
-import { ButtonKinds } from 'carbon-components-react/es/prop-types/types';
 
 import PageTitleBar from '../PageTitleBar';
 import Button from '../Button';
@@ -13,6 +12,7 @@ import TileGalleryItem from './TileGalleryItem';
 import TileGallerySearch from './TileGallerySearch';
 import TileGalleryViewSwitcher from './TileGalleryViewSwitcher';
 
+const ButtonKinds = ['primary', 'secondary', 'tertiary', 'ghost', 'danger'];
 const propTypes = {
   /** Title of the page  */
   title: PropTypes.string.isRequired,

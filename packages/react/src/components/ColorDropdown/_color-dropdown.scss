@@ -1,4 +1,6 @@
-@import '../../globals/vars';
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '../../globals/vars' as *;
 
 // We want to make sure the title attribute of the carbon option element
 // is not shown on hover, since that will be "[obj obj]" when we are
@@ -25,7 +27,7 @@
     align-items: center;
     height: 100%;
     width: 100%;
-    border-top: 1px solid $decorative-01;
+    // border-top: 1px solid $decorative-01; $decorative-01 deprecated need to check the exact token
   }
   // The new borders must be hidded on :hover, :active & .highlighted
   .#{$prefix}--list-box__menu-item:hover,

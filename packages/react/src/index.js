@@ -17,15 +17,12 @@ export { default as TableManageViewsModal } from './components/Table/TableManage
 export { default as TableSkeletonWithHeaders } from './components/Table/TableSkeletonWithHeaders/TableSkeletonWithHeaders';
 export { default as TableToolbar } from './components/Table/TableToolbar/TableToolbar';
 export { default as WizardModal } from './components/WizardModal';
-export { default as WizardInline } from './components/WizardInline/WizardInline';
-export { default as StatefulWizardInline } from './components/WizardInline/StatefulWizardInline';
 export { default as StatefulTable } from './components/Table/StatefulTable';
 export { default as TileCatalog } from './components/TileCatalog/TileCatalog';
 export { default as StatefulTileCatalog } from './components/TileCatalog/StatefulTileCatalog';
 export { default as CatalogContent } from './components/TileCatalog/CatalogContent';
 export { default as SimplePagination } from './components/SimplePagination/SimplePagination';
 export { default as ProgressIndicator } from './components/ProgressIndicator/ProgressIndicator';
-export { default as ComposedStructuredList } from './components/ComposedStructuredList/ComposedStructuredList';
 export { default as ResourceList } from './components/ResourceList/ResourceList';
 export { default as FileDrop } from './components/FileDrop/FileDrop';
 export { default as PageTitleBar } from './components/PageTitleBar/PageTitleBar';
@@ -42,6 +39,8 @@ export { default as TableViewDropdown } from './components/Table/TableViewDropdo
 export { default as IconDropdown } from './components/IconDropdown/IconDropdown';
 export { default as EmptyState } from './components/EmptyState/EmptyState';
 export { default as ImageGalleryModal } from './components/ImageGalleryModal/ImageGalleryModal';
+export { default as Tooltip } from './components/Tooltip';
+export { default as ToggleTip } from './components/ToggleTip';
 
 // reusable reducers
 export { baseTableReducer } from './components/Table/baseTableReducer';
@@ -50,9 +49,7 @@ export { tileCatalogReducer } from './components/TileCatalog/tileCatalogReducer'
 export * as tableActions from './components/Table/tableActionCreators';
 
 // Page related helpers
-export { default as PageHero } from './components/Page/PageHero';
 export { default as PageWorkArea } from './components/Page/PageWorkArea';
-export { default as EditPage } from './components/Page/EditPage';
 export { default as NavigationBar } from './components/NavigationBar/NavigationBar';
 export { default as Header } from './components/Header';
 export { default as SideNav } from './components/SideNav';
@@ -89,16 +86,20 @@ export { default as TimeSeriesCard } from './components/TimeSeriesCard/TimeSerie
 export { default as ImageCard } from './components/ImageCard/ImageCard';
 export { default as TableCard } from './components/TableCard/TableCard';
 export { default as GaugeCard } from './components/GaugeCard/GaugeCard';
-export { DragAndDrop } from './utils/DragAndDropUtils';
+export {
+  DragAndDrop,
+  DropLocation as DndUtilDropLocation,
+  EditingStyle as DndUtilEditingStyle,
+  editingStyleIsMultiple as DndUtilEditingStyleIsMultiple,
+  moveItemsInList as DndUtilMoveItemsInList,
+  handleEditModeSelect as DndUtilHandleEditModeSelect,
+  handleEditModeIndeterminateIds as DndUtilHandleEditModeIndeterminateIds,
+  mergeRefs as DndUtilMergeRefs,
+} from './utils/DragAndDropUtils';
 export { default as ValueContent } from './components/ValueCard/ValueContent';
 export { default as MeterChartCard } from './components/MeterChartCard/MeterChartCard';
 export { default as SparklineChartCard } from './components/SparklineChartCard/SparklineChartCard';
 export { default as StackedAreaChartCard } from './components/StackedAreaChartCard/StackedAreaChartCard';
-
-// Charts exported
-export { MeterChart } from './components/MeterChart';
-export { AreaChart } from './components/AreaChart';
-export { StackedAreaChart } from './components/StackedAreaChart';
 
 // Experimental
 export { default as ListCard } from './components/ListCard/ListCard';
@@ -135,7 +136,8 @@ export { default as TearSheetWrapper } from './components/TearSheet/TearSheetWra
 export { default as MapCard } from './components/MapCard/MapCard';
 export { default as RuleBuilder } from './components/RuleBuilder/RuleBuilder';
 export { default as ProgressBar } from './components/ProgressBar/ProgressBar';
-
+export { default as TooltipIcon } from './components/TooltipIcon/TooltipIcon';
+export { default as TooltipDefinition } from './components/TooltipDefinition/TooltipDefinition';
 // Hooks
 export { useDNDProviderElement } from './hooks/useDNDProviderElement';
 export {
@@ -144,6 +146,9 @@ export {
   hotspotEditorReducer,
   useHotspotEditorState,
 } from './components/HotspotEditorModal/hooks/hotspotStateHook';
+
+// Internal
+export { useResize } from './internal/UseResizeObserver';
 
 // Carbon proxy
 export {
@@ -207,10 +212,10 @@ export {
   FormItem,
   FormLabel,
   FluidForm,
+  FlexGrid,
   Grid,
   Row,
   Column,
-  Icon,
   InlineLoading,
   Link,
   ListItem,
@@ -222,7 +227,7 @@ export {
   InlineNotification,
   NotificationActionButton,
   NotificationButton,
-  NotificationTextDetails,
+  ActionableNotification,
   NumberInput,
   OrderedList,
   OverflowMenu,
@@ -237,8 +242,6 @@ export {
   RadioButton,
   RadioButtonGroup,
   Search,
-  SearchFilterButton,
-  SearchLayoutButton,
   SecondaryButton,
   Select,
   SelectItem,
@@ -254,6 +257,9 @@ export {
   Tab,
   TabContent,
   Tabs,
+  TabList,
+  TabPanels,
+  TabPanel,
   Tag,
   TextArea,
   TextInput,
@@ -268,16 +274,6 @@ export {
   TimePicker,
   TimePickerSelect,
   Toggle,
-  ToggleSmall,
-  Toolbar,
-  ToolbarItem,
-  ToolbarTitle,
-  ToolbarOption,
-  ToolbarDivider,
-  ToolbarSearch,
-  Tooltip,
-  TooltipDefinition,
-  TooltipIcon,
   UnorderedList,
   SkeletonText,
   SkeletonPlaceholder,
@@ -339,17 +335,7 @@ export {
   SideNavMenu,
   SideNavMenuItem,
   SideNavSwitcher,
-  // Experimental components from Carbon
-
-  // eslint-disable-next-line camelcase
-  unstable_Pagination,
-  // eslint-disable-next-line camelcase
-  unstable_PageSelector,
-  // eslint-disable-next-line camelcase
-  unstable_TreeNode,
-  // eslint-disable-next-line camelcase
-  unstable_TreeView,
-} from 'carbon-components-react';
+} from '@carbon/react';
 
 export {
   determineCardRange,

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { act, render, screen } from '@testing-library/react';
-import { Share16, Star16, TrashCan16 } from '@carbon/icons-react';
+import { Share, Star, TrashCan } from '@carbon/react/icons';
 import userEvent from '@testing-library/user-event';
 
 import RuleBuilder from './RuleBuilder';
@@ -44,19 +44,19 @@ describe('The RuleBuilder', () => {
           {
             actionId: 'favorite',
             actionLabel: 'Favorite',
-            actionIcon: Star16,
+            actionIcon: Star,
             actionCallback: handleFavorite,
           },
           {
             actionId: 'share',
             actionLabel: 'Share',
-            actionIcon: Share16,
+            actionIcon: Share,
             actionCallback: handleShare,
           },
           {
             actionId: 'delete',
             actionLabel: 'Delete',
-            actionIcon: TrashCan16,
+            actionIcon: TrashCan,
             actionCallback: handleDelete,
           },
         ]}
@@ -122,19 +122,19 @@ describe('The RuleBuilder', () => {
           {
             actionId: 'favorite',
             actionLabel: 'Favorite',
-            actionIcon: Star16,
+            actionIcon: Star,
             actionCallback: handleFavorite,
           },
           {
             actionId: 'share',
             actionLabel: 'Share',
-            actionIcon: Share16,
+            actionIcon: Share,
             actionCallback: handleShare,
           },
           {
             actionId: 'delete',
             actionLabel: 'Delete',
-            actionIcon: TrashCan16,
+            actionIcon: TrashCan,
             actionCallback: handleDelete,
           },
         ]}
@@ -228,19 +228,19 @@ describe('The RuleBuilder', () => {
             {
               actionId: 'favorite',
               actionLabel: 'Favorite',
-              actionIcon: Star16,
+              actionIcon: Star,
               actionCallback: handleFavorite,
             },
             {
               actionId: 'share',
               actionLabel: 'Share',
-              actionIcon: Share16,
+              actionIcon: Share,
               actionCallback: handleShare,
             },
             {
               actionId: 'delete',
               actionLabel: 'Delete',
-              actionIcon: TrashCan16,
+              actionIcon: TrashCan,
               actionCallback: handleDelete,
             },
           ]}

@@ -1,5 +1,5 @@
-@import '../../globals/vars';
-
+@use '../../globals/vars' as *;
+@use '@carbon/react/scss/spacing' as *;
 .#{$iot-prefix}--combo-chart-card__container {
   padding: 0 $spacing-05 $spacing-05;
   position: absolute;

@@ -1,5 +1,8 @@
-@import '../../globals/vars';
-
+@use '../../globals/vars' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/colors' as *;
 .#{$iot-prefix}--rule-builder-header {
   display: flex;
   flex-direction: row;

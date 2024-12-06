@@ -1,4 +1,11 @@
-@import '../../../globals/vars';
+@use '../../../globals/vars' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/components/button' as *;
+@use '@carbon/react/scss/utilities/convert';
+@use '@carbon/react/scss/components/data-table' as *;
+@use '@carbon/styles/scss/utilities/tooltip' as *;
 
 .#{$iot-prefix}--table-toolbar {
   &__search-wrapper {
@@ -12,7 +19,7 @@
     @include tooltip--content(); // Carbon mixin
 
     position: absolute;
-    bottom: rem(-12px);
+    bottom: convert.to-rem(-12px);
 
     display: flex;
     align-items: center;
@@ -31,9 +38,9 @@
       border-style: solid;
       content: '';
 
-      top: rem(-5px);
+      top: convert.to-rem(-5px);
       border-width: 0 0.25rem 0.3125rem 0.25rem;
-      border-color: transparent transparent $interactive-02 transparent;
+      border-color: transparent transparent $button-secondary transparent;
       transform: translateX(-50%);
     }
 

@@ -9,10 +9,6 @@ export default {
 
   parameters: {
     component: OrderedList,
-
-    subcomponents: {
-      ListItem,
-    },
   },
 };
 

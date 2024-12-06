@@ -6,9 +6,9 @@
  */
 
 import React from 'react';
-import { withKnobs, select, text } from '@storybook/addon-knobs';
+import { withKnobs, select, text, boolean } from '@storybook/addon-knobs';
 
-import { TooltipDefinition } from '.';
+import TooltipDefinition from './TooltipDefinition';
 
 const directions = {
   'Bottom (bottom)': 'bottom',
@@ -29,6 +29,7 @@ const props = () => ({
     'Tooltip content (tooltipText)',
     'Brief description of the dotted, underlined word above.'
   ),
+  openOnHover: boolean('Open on Hover', true),
 });
 
 export default {

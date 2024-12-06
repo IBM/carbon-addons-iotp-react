@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { mount } from '@cypress/react';
 import { onlyOn } from '@cypress/skip-test';
 import { omit } from 'lodash-es';
-import { Bee16, Close16 } from '@carbon/icons-react';
+import { Bee, Close } from '@carbon/react/icons';
 import PropTypes from 'prop-types';
 import { gray20 } from '@carbon/colors';
 import MockDate from 'mockdate';
@@ -755,9 +755,9 @@ const DashboardAllCardsAsResizable = ({ breakpoint, type }) => {
           breakpoint={breakpoint}
           renderIconByName={(name, theProps = {}) =>
             name === 'bee' ? (
-              <Bee16 {...theProps}>
+              <Bee {...theProps}>
                 <title>{theProps.title}</title>
-              </Bee16>
+              </Bee>
             ) : (
               <span>Unknown</span>
             )
@@ -788,9 +788,9 @@ const DashboardAllCardsAsResizable = ({ breakpoint, type }) => {
           breakpoint={breakpoint}
           renderIconByName={(name, theProps = {}) =>
             name === 'close' ? (
-              <Close16 {...theProps}>
+              <Close {...theProps}>
                 <title>{theProps.title}</title>
-              </Close16>
+              </Close>
             ) : (
               <span>Unknown</span>
             )
@@ -1003,9 +1003,9 @@ const DashboardAllCardsAsResizable = ({ breakpoint, type }) => {
             }
             renderIconByName={(name, theProps = {}) =>
               name === 'bee' ? (
-                <Bee16 {...theProps}>
+                <Bee {...theProps}>
                   <title>{theProps.title}</title>
-                </Bee16>
+                </Bee>
               ) : (
                 <span>Unknown</span>
               )

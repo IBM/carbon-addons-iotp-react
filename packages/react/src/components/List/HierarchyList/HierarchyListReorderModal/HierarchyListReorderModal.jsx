@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { BreadcrumbItem } from 'carbon-components-react';
+import { BreadcrumbItem } from '@carbon/react';
 
 import ComposedModal from '../../../ComposedModal/ComposedModal';
 import BreadCrumb from '../../../Breadcrumb/Breadcrumb';

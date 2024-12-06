@@ -1,11 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button as CarbonButton, Loading } from 'carbon-components-react';
-import { ButtonKinds } from 'carbon-components-react/es/prop-types/types';
+import { Button as CarbonButton, Loading } from '@carbon/react';
 import classnames from 'classnames';
 
 import { settings } from '../../constants/Settings';
 import deprecate from '../../internal/deprecate';
+
+const ButtonKinds = [
+  'primary',
+  'secondary',
+  'tertiary',
+  'ghost',
+  'danger',
+  'danger--primary',
+  'danger--ghost',
+  'danger--tertiary',
+];
 
 const { iotPrefix } = settings;
 const propTypes = {
@@ -26,7 +36,6 @@ const propTypes = {
   hasIconOnly: PropTypes.bool,
   /** Toggle selected styling for buttons of kind=icon-selection */
   selected: PropTypes.bool,
-
   // TODO: remove deprecated testID prop in v3
   // eslint-disable-next-line react/require-default-props
   testID: deprecate(
@@ -87,7 +96,6 @@ const Button = React.forwardRef((props, ref) => {
       {kind === 'icon-selection' && !disabled && recommended ? (
         <div className={`${iotPrefix}--btn-icon-selection--recommended_marker`} />
       ) : null}
-
       {children}
     </CarbonButton>
   );

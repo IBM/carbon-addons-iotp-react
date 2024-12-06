@@ -8,45 +8,45 @@
 
 import React from 'react';
 import { withKnobs, select, text, boolean } from '@storybook/addon-knobs';
-import { Carbon16, Compass16, Tag16 } from '@carbon/icons-react';
+import { Carbon, Compass, Tag as TagIcon } from '@carbon/icons-react';
 import { action } from '@storybook/addon-actions';
-import { types as typesList } from 'carbon-components-react/es/components/Tag';
 
 import { Tag, TagSkeleton } from '.';
 
-const icons = {
-  'Carbon (Carbon16 from `@carbon/icons-react`)': 'Carbon16',
-  'Compass (Compass16 from `@carbon/icons-react`)': 'Compass16',
-  'Tag (Tag16 from `@carbon/icons-react`)': 'Tag16',
-};
-
-const iconMap = {
-  Carbon16,
-  Compass16,
-  Tag16,
+const iconOptions = {
+  Carbon,
+  Compass,
+  TagIcon,
 };
 
 const sizes = {
-  'Default size': undefined,
+  'Default size (md)': 'md',
   'Small size (sm)': 'sm',
+  'Large size (lg)': 'lg',
 };
 
 const props = {
   regular: () => ({
     type: select(
       'Tag type (type)',
-      typesList.reduce(
-        (acc, type) => ({
-          ...acc,
-          [`${type} (${type})`]: type,
-        }),
-        {
-          Default: undefined,
-        }
-      )
+      [
+        'red',
+        'magenta',
+        'purple',
+        'blue',
+        'cyan',
+        'teal',
+        'green',
+        'gray',
+        'cool-gray',
+        'warm-gray',
+        'high-contrast',
+        'outline',
+      ],
+      'red'
     ),
     disabled: boolean('Disabled (disabled)', false),
-    size: select('Field size (size)', sizes, undefined) || undefined,
+    size: select('Field size (size)', sizes, 'md') || undefined,
     title: text('Title (title)', 'Clear Filter'),
   }),
   filter() {
@@ -59,7 +59,7 @@ const props = {
   icon() {
     return {
       ...this.regular(),
-      renderIcon: iconMap[select('Icon (icon)', icons, 'Tag16')],
+      renderIcon: iconOptions[select('Icon (icon)', Object.keys(iconOptions), 'TagIcon')],
     };
   },
 };

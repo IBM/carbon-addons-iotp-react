@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { Tabs, Tab } from 'carbon-components-react';
+import { styled } from 'styled-components';
+import { Tabs, Tab, TabList, TabPanels, TabPanel } from '@carbon/react';
 import { spacing09 } from '@carbon/layout';
 
 import { settings } from '../../constants/Settings';
@@ -15,12 +15,14 @@ const StyledNavigationContainer = styled.div`
   background-color: ${COLORS.white};
   padding-top: ${spacing09};
 
-  ul[role='tablist'] {
+  div[role='tablist'] {
     padding-left: ${PADDING.horizontalWrapPadding};
     padding-right: ${PADDING.horizontalWrapPadding};
     align-items: center;
     height: 100%;
-    li {
+    block-size: auto;
+    button.cds--tabs__nav-item {
+      width: 10rem;
       height: 100%;
       align-items: flex-end;
 
@@ -148,13 +150,22 @@ const NavigationBar = ({ tabs, hero, actions, onSelectionChange, workArea, testI
           {...others}
           onSelectionChange={(index) => onSelectionChange && onSelectionChange(tabs[index].id)}
         >
-          {tabs.map(({ children, id, ...other }) => (
-            <Tab key={id} {...other}>
-              <StyledTabContent>
-                <StyledTabChildren>{children}</StyledTabChildren>
-              </StyledTabContent>
-            </Tab>
-          ))}
+          <TabList>
+            {tabs.map(({ children, id, label, ...other }) => (
+              <Tab key={id} {...other}>
+                {label}
+              </Tab>
+            ))}
+          </TabList>
+          <TabPanels>
+            {tabs.map(({ children }) => (
+              <TabPanel>
+                <StyledTabContent>
+                  <StyledTabChildren>{children}</StyledTabChildren>
+                </StyledTabContent>
+              </TabPanel>
+            ))}
+          </TabPanels>
         </Tabs>
       </StyledTabToContent>
       {actions && actions.length > 0 ? (

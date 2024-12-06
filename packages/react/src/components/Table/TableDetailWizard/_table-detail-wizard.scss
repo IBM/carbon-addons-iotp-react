@@ -1,13 +1,18 @@
-@import '../../../globals/vars';
-@import 'TableDetailWizardHeader/table-detail-wizard-header';
-@import 'TableDetailWizardSidebar/table-detail-wizard-sidebar';
+@use '../../../globals/vars' as *;
+@use 'TableDetailWizardHeader/table-detail-wizard-header' as *;
+@use 'TableDetailWizardSidebar/table-detail-wizard-sidebar' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/utilities/convert';
+@use '@carbon/react/scss/components/data-table' as *;
 
 .#{$iot-prefix}--table-detail-wizard--wizard-wrapper {
-  background-color: $ui-background;
+  background-color: $background;
   display: flex;
   flex-flow: column;
   align-items: left;
-  border: rem(1px) solid #a2a2a28c;
+  border: convert.to-rem(1px) solid #a2a2a28c;
 
   .#{$prefix}--inline-notification {
     max-width: none;
@@ -26,7 +31,7 @@
 
       &--error {
         border-left: unset;
-        border-right: rem(3px) solid $inverse-support-01;
+        border-right: convert.to-rem(3px) solid $support-error-inverse; //$inverse-support-01;
       }
     }
   }
@@ -51,7 +56,7 @@
 }
 
 .#{$iot-prefix}--table-detail-wizard--content-container {
-  padding-top: rem(30px);
-  padding-right: rem(50px);
-  padding-left: rem(40px);
+  padding-top: convert.to-rem(30px);
+  padding-right: convert.to-rem(50px);
+  padding-left: convert.to-rem(40px);
 }

@@ -1,10 +1,13 @@
-@import '../../globals/vars';
-
-$size-sm: rem(32px);
-$size-md: rem(40px);
-$size-lg: rem(48px);
-$shadow-blocker-height: rem(8px);
-$shadow-blocker-border-width: rem(1px);
+@use '../../globals/vars' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/colors' as *;
+@use '@carbon/react/scss/utilities/convert';
+$size-sm: convert.to-rem(32px);
+$size-md: convert.to-rem(40px);
+$size-lg: convert.to-rem(48px);
+$shadow-blocker-height: convert.to-rem(8px);
+$shadow-blocker-border-width: convert.to-rem(1px);
 
 @mixin shadow-blocker-element {
   position: absolute;
@@ -20,8 +23,8 @@ $shadow-blocker-border-width: rem(1px);
     top: calc((-#{$shadow-blocker-height}) + #{$shadow-blocker-border-width});
     left: 0;
     width: $size-sm; // small is the default size
-    background-color: $ui-01;
-    border-bottom: $shadow-blocker-border-width solid $ui-01;
+    background-color: $layer-01;
+    border-bottom: $shadow-blocker-border-width solid $layer-01;
 
     &--flip-y {
       left: unset;
@@ -55,13 +58,13 @@ $shadow-blocker-border-width: rem(1px);
       width: $width;
       left: calc((#{$width}) * (-1));
       border-bottom: none;
-      border-right: $shadow-blocker-border-width solid $ui-01;
+      border-right: $shadow-blocker-border-width solid $layer-01;
 
       &.#{$iot-prefix}--menu__shadow-blocker--flip-y {
         right: calc((#{$width}) * (-1));
         left: unset;
         border-right: none;
-        border-left: $shadow-blocker-border-width solid $ui-01;
+        border-left: $shadow-blocker-border-width solid $layer-01;
       }
 
       &.#{$iot-prefix}--menu__shadow-blocker--md {
@@ -80,7 +83,7 @@ $shadow-blocker-border-width: rem(1px);
   &:focus .#{$iot-prefix}--menu__shadow-blocker {
     border-bottom: $shadow-blocker-border-width solid $focus;
     &--flip-x {
-      border-bottom-color: $ui-01;
+      border-bottom-color: $layer-01;
       border-top: $shadow-blocker-border-width solid $focus;
     }
     &--opens-horizontally {
@@ -171,6 +174,7 @@ $shadow-blocker-border-width: rem(1px);
     &.#{$iot-prefix}--menu-button--flip-y {
       .#{$prefix}--btn.#{$prefix}--btn--icon-only.#{$prefix}--btn--ghost:focus:not(:active) {
         @function calculate-negative-middle($size) {
+          /* stylelint-disable scss/operator-no-newline-after */
           @return calc(
             (((#{$size} - #{$shadow-blocker-height}) * 0.5) + #{$shadow-blocker-border-width}) *
               (-1)

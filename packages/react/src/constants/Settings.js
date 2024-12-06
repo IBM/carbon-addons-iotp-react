@@ -1,7 +1,5 @@
-import { settings as carbonSettings } from 'carbon-components';
-
 export const settings = {
-  ...carbonSettings,
+  prefix: 'cds',
   /**
    * Instead of extending existing carbon-classes we should create new ones when possible.
    * Use the iotPrefix instead of the carbon prefix to show that the class

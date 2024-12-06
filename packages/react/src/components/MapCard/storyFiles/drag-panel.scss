@@ -1,6 +1,8 @@
-@import '../../../globals/mixins';
-@import '../../../globals/vars';
-
+@use '../../../globals/mixins' as *;
+@use '../../../globals/vars' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/utilities/box-shadow' as *;
 .drag-panel {
   position: absolute;
   z-index: 3;
@@ -8,5 +10,5 @@
   @include box-shadow();
   cursor: move;
   padding: $spacing-05;
-  background: $ui-02;
+  background: $layer-02;
 }

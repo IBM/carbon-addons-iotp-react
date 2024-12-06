@@ -1,10 +1,7 @@
 import React from 'react';
 import { boolean, number, object, select, text } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
-import {
-  SettingsAdjust16 as SettingsAdjust,
-  ShareKnowledge16 as ShareKnowledge,
-} from '@carbon/icons-react';
+import { SettingsAdjust, ShareKnowledge } from '@carbon/react/icons';
 
 import Button from '../Button/Button';
 
@@ -171,7 +168,7 @@ export const AutoPositioningExample = () => {
             customFooter={CustomFooter}
             onCancel={action('On Cancel Clicked')}
             onApply={action('On Apply Clicked')}
-            direction={FlyoutMenuDirection.LeftEnd}
+            direction={FlyoutMenuDirection.RightStart}
             useAutoPositioning={boolean('Use Auto Position', true)}
           >
             <div>
@@ -210,7 +207,7 @@ export const AutoPositioningExample = () => {
             }}
             onCancel={action('On Cancel Clicked')}
             onApply={action('On Apply Clicked')}
-            direction={FlyoutMenuDirection.TopStart}
+            direction={FlyoutMenuDirection.BottomStart}
             useAutoPositioning={boolean('Use Auto Position', true)}
           >
             This is some flyout content
@@ -242,7 +239,7 @@ export const AutoPositioningExample = () => {
             }}
             onCancel={action('On Cancel Clicked')}
             onApply={action('On Apply Clicked')}
-            direction={FlyoutMenuDirection.RightStart}
+            direction={FlyoutMenuDirection.LeftStart}
             useAutoPositioning={boolean('Use Auto Position', true)}
           >
             This is some flyout content
@@ -276,7 +273,7 @@ export const AutoPositioningExample = () => {
             }}
             onCancel={action('On Cancel Clicked')}
             onApply={action('On Apply Clicked')}
-            direction={FlyoutMenuDirection.LeftStart}
+            direction={FlyoutMenuDirection.RightEnd}
             useAutoPositioning={boolean('Use Auto Position', true)}
           >
             This is some flyout content
@@ -340,7 +337,7 @@ export const AutoPositioningExample = () => {
             }}
             onCancel={action('On Cancel Clicked')}
             onApply={action('On Apply Clicked')}
-            direction={FlyoutMenuDirection.RightEnd}
+            direction={FlyoutMenuDirection.LeftEnd}
             useAutoPositioning={boolean('Use Auto Position', true)}
           >
             This is some flyout content
@@ -374,7 +371,7 @@ export const AutoPositioningExample = () => {
             }}
             onCancel={action('On Cancel Clicked')}
             onApply={action('On Apply Clicked')}
-            direction={FlyoutMenuDirection.BottomEnd}
+            direction={FlyoutMenuDirection.TopStart}
             useAutoPositioning={boolean('Use Auto Position', true)}
           >
             This is some flyout content
@@ -406,7 +403,7 @@ export const AutoPositioningExample = () => {
             }}
             onCancel={action('On Cancel Clicked')}
             onApply={action('On Apply Clicked')}
-            direction={FlyoutMenuDirection.BottomStart}
+            direction={FlyoutMenuDirection.TopStart}
             useAutoPositioning={boolean('Use Auto Position', true)}
           >
             This is some flyout content
@@ -438,7 +435,7 @@ export const AutoPositioningExample = () => {
             }}
             onCancel={action('On Cancel Clicked')}
             onApply={action('On Apply Clicked')}
-            direction={FlyoutMenuDirection.BottomStart}
+            direction={FlyoutMenuDirection.TopEnd}
             useAutoPositioning={boolean('Use Auto Position', true)}
           >
             This is some flyout content

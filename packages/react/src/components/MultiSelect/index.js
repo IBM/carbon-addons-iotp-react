@@ -1,1 +1,1 @@
-export { MultiSelect, FilterableMultiSelect } from 'carbon-components-react';
+export { MultiSelect, FilterableMultiSelect } from '@carbon/react';

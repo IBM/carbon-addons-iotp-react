@@ -1,7 +1,7 @@
 import React from 'react';
 import { boolean, text } from '@storybook/addon-knobs';
 import { useEffect, useState } from '@storybook/addons';
-import { Link, UnorderedList, ListItem } from 'carbon-components-react';
+import { Link, UnorderedList, ListItem } from '@carbon/react';
 
 import ReadOnlyValueREADME from './ReadOnlyValue.mdx';
 import ReadOnlyValue from './ReadOnlyValue';

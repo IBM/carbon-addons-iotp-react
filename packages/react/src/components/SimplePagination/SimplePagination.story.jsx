@@ -1,7 +1,7 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { number, text } from '@storybook/addon-knobs';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import SimplePagination from './SimplePagination';
 

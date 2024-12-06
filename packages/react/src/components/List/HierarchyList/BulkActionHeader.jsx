@@ -1,5 +1,5 @@
 import React from 'react';
-import { Move16 } from '@carbon/icons-react';
+import { Move } from '@carbon/react/icons';
 
 import Button from '../../Button';
 import { settings } from '../../../constants/Settings';
@@ -27,7 +27,7 @@ const BulkActionHeader = ({
     <div className={`${iotPrefix}--hierarchy-list-bulk-header--button-container`}>
       <Button
         className={`${iotPrefix}--hierarchy-list-bulk-header--button`}
-        renderIcon={Move16}
+        renderIcon={Move}
         onClick={() => {
           setShowModal(true);
         }}

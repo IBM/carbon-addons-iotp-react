@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { ClickableTile } from 'carbon-components-react';
+import { ClickableTile } from '@carbon/react';
 
 import { settings } from '../../constants/Settings';
 import { SvgPropType } from '../../constants/SharedPropTypes';

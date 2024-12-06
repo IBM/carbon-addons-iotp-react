@@ -1,8 +1,7 @@
 import React from 'react';
-import { TableCell } from 'carbon-components-react';
+import { TableCell, SkeletonText } from '@carbon/react';
 import PropTypes from 'prop-types';
 
-import { SkeletonText } from '../../SkeletonText';
 import { TableColumnsPropTypes } from '../TablePropTypes';
 import { HtmlElementRefProp } from '../../../constants/SharedPropTypes';
 

@@ -1,14 +1,13 @@
 import React, { useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Add16, TrashCan32 } from '@carbon/icons-react';
+import { Add, TrashCan } from '@carbon/react/icons';
 import { omit, isEmpty } from 'lodash-es';
 import { v4 as uuidv4 } from 'uuid';
 import { red60 } from '@carbon/colors';
-import { RadioButton, RadioButtonGroup, TextInput } from 'carbon-components-react';
+import { TextInput, NumberInput, RadioButton, RadioButtonGroup } from '@carbon/react';
 
 import { settings } from '../../../../constants/Settings';
 import Button from '../../../Button';
-import { NumberInput } from '../../../NumberInput';
 import { Dropdown } from '../../../Dropdown';
 import { validThresholdIcons, validThresholdColors } from '../../../DashboardEditor/editorUtils';
 import SimpleIconDropdown from '../../../SimpleIconDropdown/SimpleIconDropdown';
@@ -132,7 +131,7 @@ const ThresholdsFormItem = ({
   );
 
   const comparisonItems = useMemo(
-    () => (['BOOLEAN', 'LITERAL', 'TIMESTAMP'].includes(columnType) ? ['='] : ['>', '<', '=']),
+    () => (['BOOLEAN', 'LITERAL'].includes(columnType) ? ['='] : ['>', '<', '=']),
     [columnType]
   );
 
@@ -288,7 +287,7 @@ const ThresholdsFormItem = ({
               </div>
               <Button
                 hasIconOnly
-                renderIcon={TrashCan32}
+                renderIcon={(props) => <TrashCan size={24} {...props} />}
                 kind="ghost"
                 onClick={() => {
                   const thresholdIndex = thresholds.findIndex((item) => item.id === threshold.id);
@@ -308,8 +307,8 @@ const ThresholdsFormItem = ({
       })}
       <Button
         kind="ghost"
-        size="small"
-        renderIcon={Add16}
+        size="sm"
+        renderIcon={Add}
         onClick={() => {
           let newThreshold = ['BOOLEAN', 'LITERAL', 'TIMESTAMP'].includes(columnType)
             ? {

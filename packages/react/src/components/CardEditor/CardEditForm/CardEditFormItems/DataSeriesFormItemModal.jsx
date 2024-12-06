@@ -6,6 +6,7 @@ import {
   teal70,
   magenta70,
   red50,
+  red60,
   red90,
   green60,
   blue80,
@@ -14,15 +15,14 @@ import {
   teal50,
   cyan90,
 } from '@carbon/colors';
-import { Add16 } from '@carbon/icons-react';
-import { FormLabel } from 'carbon-components-react';
+import { WarningAlt, Add } from '@carbon/react/icons';
+import { FormLabel, TextInput } from '@carbon/react';
 import classnames from 'classnames';
 import { isEmpty, omit } from 'lodash-es';
 
 import { settings } from '../../../../constants/Settings';
 import { Dropdown } from '../../../Dropdown';
 import ComposedModal from '../../../ComposedModal';
-import { TextInput } from '../../../TextInput';
 import {
   handleDefaultDataItemEdit,
   DataItemsPropTypes,
@@ -385,7 +385,7 @@ const DataSeriesFormItemModal = ({
                   className={`${iotPrefix}--add-aggregation__btn`}
                   kind="ghost"
                   size="large"
-                  renderIcon={Add16}
+                  renderIcon={Add}
                   onClick={() => onAddAggregations(editDataItem)}
                   iconDescription={mergedI18n.dataItemEditorAddAggregationMethodDescription}
                   testId={`${testId}-aggregaton-button`}
@@ -612,6 +612,8 @@ const DataSeriesFormItemModal = ({
             dataSourceId={type !== CARD_TYPES.VALUE ? editDataItem.dataSourceId : null}
             thresholds={editDataItem.thresholds}
             translateWithId={handleTranslation}
+            selectedIcon={{ carbonIcon: <WarningAlt size={32} />, name: 'Warning alt' }}
+            selectedColor={{ carbonColor: red60, name: 'red60' }}
             onChange={(thresholds) => {
               setEditDataItem({
                 ...editDataItem,

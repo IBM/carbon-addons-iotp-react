@@ -4,8 +4,8 @@ import {
   unstable_MenuDivider as MenuDivider,
   unstable_MenuRadioGroup as MenuRadioGroup,
   unstable_MenuSelectableItem as MenuSelectableItem,
-} from 'carbon-components-react';
-import { ChevronDown16, ChevronUp16, Copy16, TrashCan16 } from '@carbon/icons-react';
+} from '@carbon/react';
+import { ChevronDown, ChevronUp, Copy, TrashCan } from '@carbon/react/icons';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
@@ -33,7 +33,7 @@ const menuItems = [
     onChange={callbacks.publish}
   />,
   <MenuDivider key="div-1" />,
-  <MenuItem key="duplicate" renderIcon={Copy16} label="Duplicate" onClick={callbacks.duplicate} />,
+  <MenuItem key="duplicate" renderIcon={Copy} label="Duplicate" onClick={callbacks.duplicate} />,
   <MenuDivider key="div-2" />,
   <MenuItem key="share" label="Share with">
     <MenuRadioGroup
@@ -57,7 +57,7 @@ const menuItems = [
   <MenuItem
     key="delete"
     label="Delete"
-    renderIcon={TrashCan16}
+    renderIcon={TrashCan}
     onClick={callbacks.delete}
     shortcut="⌘⌫"
     /** this is unavailable until we upgrade to Carbon 10.32/7.32 */
@@ -219,7 +219,7 @@ describe('MenuButton', () => {
     );
 
     // Icon only button
-    rerender(<MenuButton renderOpenIcon={ChevronDown16}>{menuItems}</MenuButton>);
+    rerender(<MenuButton renderOpenIcon={ChevronDown}>{menuItems}</MenuButton>);
     expect(screen.getByRole('button')).toHaveClass(`${prefix}--btn--ghost`);
   });
 
@@ -240,7 +240,7 @@ describe('MenuButton', () => {
     );
 
     // Icon only button is always ghost
-    rerender(<MenuButton renderOpenIcon={ChevronDown16}>{menuItems}</MenuButton>);
+    rerender(<MenuButton renderOpenIcon={ChevronDown}>{menuItems}</MenuButton>);
     expect(screen.getByRole('button')).toHaveClass(`${prefix}--btn--ghost`);
   });
 
@@ -266,7 +266,7 @@ describe('MenuButton', () => {
 
     // Icon only button is always ghost
     rerender(
-      <MenuButton kind="secondary" renderOpenIcon={ChevronDown16}>
+      <MenuButton kind="secondary" renderOpenIcon={ChevronDown}>
         {menuItems}
       </MenuButton>
     );
@@ -295,7 +295,7 @@ describe('MenuButton', () => {
 
     // Icon only button is always ghost
     rerender(
-      <MenuButton kind="tertiary" renderOpenIcon={ChevronDown16}>
+      <MenuButton kind="tertiary" renderOpenIcon={ChevronDown}>
         {menuItems}
       </MenuButton>
     );
@@ -313,7 +313,7 @@ describe('MenuButton', () => {
 
     // Icon only button is always ghost
     rerender(
-      <MenuButton kind="ghost" renderOpenIcon={ChevronDown16}>
+      <MenuButton kind="ghost" renderOpenIcon={ChevronDown}>
         {menuItems}
       </MenuButton>
     );
@@ -377,8 +377,8 @@ describe('MenuButton', () => {
       <MenuButton
         label="Create"
         onPrimaryActionClick={callbacks.primary}
-        renderOpenIcon={ChevronDown16}
-        renderCloseIcon={ChevronUp16}
+        renderOpenIcon={ChevronDown}
+        renderCloseIcon={ChevronUp}
         openIconDescription={null}
         closeIconDescription={null}
       >

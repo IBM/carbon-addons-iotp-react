@@ -1,7 +1,12 @@
-@import '../../../globals/vars';
+@use '../../../globals/vars' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/type' as *;
+@use '@carbon/react/scss/components/data-table' as *;
 
 .#{$iot-prefix}-table-foot {
-  border-top: 2px solid $ui-03;
+  border-top: 2px solid $layer-accent-01;
 
   .#{$prefix}--data-table--xs & tr {
     height: $spacing-06;
@@ -21,11 +26,11 @@
 }
 
 .#{$iot-prefix}-table-foot--label {
-  @include type-style('productive-heading-01');
+  @include type-style('heading-compact-01');
 }
 
 .#{$iot-prefix}-table-foot--value {
-  @include type-style('productive-heading-01');
+  @include type-style('heading-compact-01');
 }
 
 td.#{$iot-prefix}-table-foot--value__sortable {

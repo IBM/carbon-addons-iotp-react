@@ -1,10 +1,14 @@
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '../../globals/vars' as *;
 .#{$iot-prefix}--editor {
   .#{$prefix}--modal-content {
     padding-right: $spacing-05;
   }
 
   &-container {
-    background-color: $ui-background;
+    background-color: $background;
     height: 100%;
     overflow: hidden;
     min-height: 3.5rem;
@@ -21,7 +25,7 @@
   }
 
   &-copy {
-    background-color: $ui-background;
+    background-color: $background;
     position: absolute;
     right: 0;
     top: 0;

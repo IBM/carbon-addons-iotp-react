@@ -1,6 +1,14 @@
+@use '../../globals/vars' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/layer' as *;
+@use '@carbon/react/scss/type' as *;
+@use '@carbon/react/scss/components/button' as *;
+@use '@carbon/react/scss/utilities/convert';
 .#{$iot-prefix}--suite-header-profile {
-  background-color: $ui-05;
-  color: $inverse-01;
+  background-color: $layer-selected-inverse;
+  color: $text-inverse; //$inverse-01
   width: 100%;
   padding: $spacing-05;
 
@@ -17,8 +25,8 @@
       width: $spacing-07;
       height: $spacing-07;
       border-radius: $spacing-05;
-      background-color: $ui-03;
-      color: $text-01;
+      background-color: $layer-accent-01;
+      color: $text-primary;
       text-align: center;
       line-height: $spacing-07;
     }
@@ -39,12 +47,12 @@
 
     /* mimic tertiary button from grey-100 theme */
     .#{$prefix}--btn {
-      border: solid 1px $ui-02;
-      background-color: $ui-05;
+      border: solid 1px $layer-02;
+      background-color: $layer-selected-inverse;
 
       &:hover {
-        background-color: $ui-02;
-        color: $ui-05;
+        background-color: $layer-02;
+        color: $layer-selected-inverse;
       }
     }
     &--no-logout {
@@ -55,7 +63,7 @@
   &--loading {
     height: 120px;
     p {
-      background-color: $inverse-hover-ui;
+      background-color: $background-inverse-hover;
       height: $spacing-04;
       margin-bottom: $spacing-02;
     }
@@ -72,7 +80,7 @@
     }
     &--loading {
       div {
-        background-color: $inverse-hover-ui !important;
+        background-color: $background-inverse-hover !important;
       }
     }
   }
@@ -80,11 +88,12 @@
 
 .#{$iot-prefix}--suite-header-survey-toast {
   position: fixed;
-  top: $layout-04;
+  top: $spacing-09; //$layout-04
   right: 0;
-  max-width: rem(425px);
+  max-width: convert.to-rem(425px);
   width: auto;
   z-index: z('overlay');
+  margin: $spacing-05 $spacing-05 $spacing-03 0;
 
   .#{$prefix}--toast-notification__title {
     margin-top: $spacing-04;
@@ -115,13 +124,13 @@
       width: calc(100% - 32px);
       min-height: 40px;
     }
-    p {
-      @include type-style('productive-heading-01');
+    p:not(.#{$prefix}--skeleton__text) {
+      @include type-style('heading-compact-01');
       display: flex;
       align-items: center;
       padding: $spacing-05 $spacing-05 0;
       text-decoration: none;
-      color: $text-01;
+      color: $text-primary;
     }
   }
 
@@ -151,7 +160,7 @@
     &--separator {
       padding: 0;
       height: 0;
-      border-bottom: 1px solid $ui-03;
+      border-bottom: 1px solid $layer-accent-01;
       margin: 0 $spacing-05 0 $spacing-05;
     }
   }
@@ -159,21 +168,21 @@
   &--app-link {
     button,
     a {
-      @include type-style('productive-heading-01');
+      @include type-style('heading-compact-01');
       text-decoration: none;
-      color: $text-02;
+      color: $text-secondary;
     }
   }
 
   &--no-app {
-    padding: $layout-05 $spacing-07 $spacing-05;
+    padding: $spacing-10 $spacing-07 $spacing-05; // $layout-05
     .bee-icon-container {
       display: block;
       svg {
         display: inherit;
       }
       .bee-shadow {
-        background-color: $ui-03;
+        background-color: $layer-accent-01;
         height: $spacing-03;
         width: $spacing-07;
         border-radius: 50%;
@@ -181,12 +190,12 @@
       }
     }
     span {
-      @include type-style('body-short-01');
-      color: $text-01;
+      @include type-style('body-compact-01');
+      color: $text-primary;
       padding-top: $spacing-05;
     }
     a {
-      @include type-style('body-short-01');
+      @include type-style('body-compact-01');
       text-decoration: none;
       padding: 0;
       margin: $spacing-05 0;
@@ -196,38 +205,38 @@
 
 .#{$iot-prefix}--suite-header-app-switcher-multiworkspace {
   overflow-y: auto;
-  background-color: $ui-05;
+  background-color: $layer-selected-inverse;
   padding-top: 0;
 
   p {
-    @include type-style('body-short-01');
+    @include type-style('body-compact-01');
     display: flex;
     align-items: center;
     padding: $spacing-05 $spacing-05 $spacing-03;
 
     text-decoration: none;
-    color: $inverse-01;
+    color: $text-inverse; //$inverse-01;
   }
 
   &--divider {
     margin: $spacing-03 0 0 0;
-    background-color: $interactive-02;
+    background-color: $button-secondary;
   }
 
   &--app-link,
   a.#{$prefix}--side-nav__link {
     &.#{$prefix}--side-nav__link--current {
-      background-color: $inverse-02;
+      background-color: $background-inverse;
       > .#{$prefix}--side-nav__link-text {
         color: $field-01;
       }
     }
     > .#{$prefix}--side-nav__link-text {
       white-space: nowrap;
-      color: $inverse-01;
+      color: $text-inverse; //$inverse-01
     }
     svg {
-      fill: $icon-03;
+      fill: $icon-on-color;
     }
   }
   &--external {
@@ -242,12 +251,12 @@
   }
   .#{$prefix}--side-nav__item:not(.#{$prefix}--side-nav__item--active)
     > .#{$prefix}--side-nav__link:hover {
-    background-color: $hover-secondary;
+    background-color: $button-secondary-hover;
     .#{$prefix}--side-nav__link-text {
-      color: $inverse-01;
+      color: $text-inverse; //$inverse-01
     }
     svg {
-      fill: $icon-03;
+      fill: $icon-on-color;
     }
   }
 
@@ -265,10 +274,10 @@
       display: block;
       svg {
         display: inherit;
-        fill: $ui-03;
+        fill: $layer-accent-01;
       }
       .bee-shadow {
-        background-color: $active-ui;
+        background-color: $border-disabled;
         height: $spacing-03;
         width: $spacing-07;
         border-radius: 50%;
@@ -276,16 +285,16 @@
       }
     }
     span {
-      @include type-style('body-short-01');
-      color: $active-ui;
+      @include type-style('body-compact-01');
+      color: $layer-active-01;
       padding-top: $spacing-05;
     }
     a {
-      @include type-style('body-short-01');
+      @include type-style('body-compact-01');
       text-decoration: none;
       padding: 0;
       margin: $spacing-05 0;
-      color: $inverse-link;
+      color: $link-inverse; //$inverse-link;
     }
   }
 }
@@ -303,17 +312,18 @@
     }
   }
   a.admin-icon {
-    .#{$prefix}--tooltip__trigger svg {
-      fill: $ui-01;
+    svg {
+      display: flex;
+      fill: $layer-01; //$ui-0
     }
   }
   a.admin-icon__hidden {
     visibility: hidden !important;
   }
   a.admin-icon__selected {
-    background-color: $interactive-02;
+    background-color: $button-secondary;
     border: none;
-    border-bottom: $spacing-01 solid $ui-01;
+    border-bottom: $spacing-01 solid $layer-01;
     padding-top: $spacing-01;
   }
 
@@ -330,8 +340,13 @@
         background-color: unset;
       }
 
-      .#{$prefix}--header__menu-item span {
-        display: flex;
+      .#{$prefix}--header__menu-item {
+        &.#{$prefix}--btn--icon-only > :first-child {
+          margin-block-start: 0;
+        }
+        span {
+          display: flex;
+        }
       }
     }
   }
@@ -341,30 +356,32 @@
     min-height: unset;
   }
 
-  .#{$prefix}--header__menu {
-    div.#{$prefix}--header__menu-item {
-      padding: 0;
-      border: none;
-      color: $text-02;
-      background-color: $ui-background;
+  .#{$prefix}--header__submenu.#{$prefix}--header-action-btn {
+    &[aria-expanded='true'] > ul.#{$prefix}--header__menu {
+      div.#{$prefix}--header__menu-item {
+        padding: 0;
+        border: none;
+        color: $text-secondary;
+        background-color: $background;
 
-      &:hover {
-        background-color: inherit;
-        color: inherit;
+        &:hover {
+          background-color: inherit;
+          color: inherit;
+        }
+
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
       }
 
-      display: flex;
-      align-items: center;
-      width: 100%;
-      height: 100%;
-      justify-content: center;
-    }
+      a.#{$prefix}--header__menu-item {
+        padding: $spacing-05;
 
-    a.#{$prefix}--header__menu-item {
-      padding: $spacing-05;
-
-      &:hover {
-        color: $text-04;
+        &:hover {
+          color: $text-on-color;
+        }
       }
     }
   }
@@ -375,12 +392,12 @@
   }
 
   .#{$iot-prefix}--suite-header-help--loading {
-    background-color: $ui-05;
-    color: $inverse-01;
+    background-color: $layer-selected-inverse;
+    color: $text-inverse; //$inverse-01;
     width: 100%;
     padding: $spacing-05;
     p {
-      background-color: $inverse-hover-ui;
+      background-color: $background-inverse-hover;
       margin-bottom: $spacing-06;
     }
   }
@@ -388,22 +405,22 @@
   .#{$iot-prefix}--suite-header-help--separator {
     padding: 0;
     height: 0;
-    border-bottom: 1px solid $hover-secondary;
+    border-bottom: 1px solid $button-secondary-hover;
     margin: 0 $spacing-05 0 $spacing-05;
   }
 
   &--logout {
-    a {
-      background-color: $interactive-02;
-      color: $inverse-01;
+    a.#{$prefix}--header__menu-item {
+      background-color: $button-secondary;
+      color: $text-inverse; //$inverse-01
       &:hover {
-        background-color: $hover-secondary !important;
+        background-color: $button-secondary-hover !important;
       }
     }
   }
   &--logout--loading {
     div {
-      background-color: $inverse-hover-ui !important;
+      background-color: $background-inverse-hover !important;
       width: 256px !important;
     }
   }

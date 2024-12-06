@@ -1,3 +1,4 @@
+@use '../../globals/vars' as *;
 .#{$iot-prefix}--dashboard-grid {
   position: relative;
   .react-grid-item.cssTransforms {

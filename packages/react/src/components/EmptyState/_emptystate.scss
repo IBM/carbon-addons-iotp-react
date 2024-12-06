@@ -1,6 +1,10 @@
-@import '../../globals/vars';
-@import '../../globals/spacing';
-@import '../../globals/typography';
+@use '../../globals/vars' as *;
+@use '@carbon/react/scss/type' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/colors' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/type' as *;
+@use '@carbon/react/scss/components/button' as *;
 
 .#{$iot-prefix}--empty-state {
   $parent-container: &;
@@ -39,8 +43,8 @@
   }
 
   &--title {
-    @include type-style('productive-heading-03');
-    color: $text-01;
+    @include type-style('heading-03');
+    color: $text-primary;
     margin-bottom: $spacing-03;
     word-break: break-word;
 
@@ -50,13 +54,13 @@
   }
 
   &--title--sm {
-    @include type-style('productive-heading-02');
+    @include type-style('heading-compact-02');
     margin-bottom: $spacing-02;
   }
 
   &--text {
-    color: $text-01;
-    @include type-style('body-short-01');
+    color: $text-primary;
+    @include type-style('body-compact-01');
 
     #{$parent-container}--inline & {
       grid-column: 2/2;
@@ -73,8 +77,8 @@
 
   &--link {
     margin-top: $spacing-05;
-    @include type-style('body-short-01');
-    color: $interactive-01;
+    @include type-style('body-compact-01');
+    color: $button-primary;
 
     #{$parent-container}--inline & {
       grid-column: 2/2;

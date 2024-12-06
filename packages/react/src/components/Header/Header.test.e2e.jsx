@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from '@cypress/react';
-import { Checkbox16, Help20, User20 } from '@carbon/icons-react';
+import { Checkbox, Help, User } from '@carbon/react/icons';
 
 import { settings } from '../../constants/Settings';
 
@@ -20,25 +20,26 @@ const commonProps = {
   actionItems: [
     {
       label: 'Announcements',
-      btnContent: <Checkbox16 fill="white" description="Announcements" />,
+      btnContent: <Checkbox fill="white" description="Announcements" />,
     },
     {
       label: 'Custom icon 1',
-      btnContent: <Checkbox16 fill="white" description="icon" />,
+      btnContent: <Checkbox fill="white" description="icon" />,
     },
     {
       label: 'Custom icon 2',
-      btnContent: <Checkbox16 fill="white" description="icon" />,
+      btnContent: <Checkbox fill="white" description="icon" />,
     },
     {
       label: 'Custom icon 3',
-      btnContent: <Checkbox16 fill="white" description="icon" />,
+      btnContent: <Checkbox fill="white" description="icon" />,
     },
     {
       label: 'help',
       hasHeaderPanel: true,
       btnContent: (
-        <Help20
+        <Help
+          size={20}
           fill="white"
           description="Help icon"
           className={`${prefix}--header__menu-item ${prefix}--header__menu-title`}
@@ -53,7 +54,7 @@ const commonProps = {
             <React.Fragment>
               <span>
                 JohnDoe@ibm.com
-                <User20 fill="white" description="Icon" />
+                <User size={20} fill="white" description="Icon" />
               </span>
             </React.Fragment>
           ),
@@ -62,7 +63,7 @@ const commonProps = {
     },
     {
       label: 'user',
-      btnContent: <User20 fill="white" description="Icon" />,
+      btnContent: <User size={20} fill="white" description="Icon" />,
       menuLinkName: 'a menu link name',
       childContent: [
         {
@@ -83,7 +84,7 @@ const commonProps = {
           content: (
             <span>
               JohnDoe@ibm.com
-              <User20 fill="white" description="Icon" />
+              <User size={20} fill="white" description="Icon" />
             </span>
           ),
         },
@@ -91,7 +92,7 @@ const commonProps = {
     },
     {
       label: 'open custom panel',
-      btnContent: <User20 fill="white" description="Icon" />,
+      btnContent: <User size={20} fill="white" description="Icon" />,
       menuLinkName: 'a menu link name',
       hasHeaderPanel: true,
     },
@@ -173,7 +174,7 @@ describe(
               actionItems={[
                 {
                   label: 'HiddenButton',
-                  btnContent: <Checkbox16 fill="white" description="HiddenButton" />,
+                  btnContent: <Checkbox fill="white" description="HiddenButton" />,
                   className: 'isReallyHidden',
                 },
                 ...commonProps.actionItems,

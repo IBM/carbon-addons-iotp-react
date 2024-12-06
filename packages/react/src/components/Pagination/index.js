@@ -1,1 +1,1 @@
-export { Pagination } from 'carbon-components-react';
+export { Pagination } from '@carbon/react';

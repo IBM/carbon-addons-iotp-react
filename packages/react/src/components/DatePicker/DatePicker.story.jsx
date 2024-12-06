@@ -19,8 +19,8 @@ const patterns = {
 };
 
 const sizes = {
-  'Extra large size (xl)': 'xl',
-  'Default size': undefined,
+  'Extra large size (lg)': 'lg',
+  'Default size': 'md',
   'Small size (sm)': 'sm',
 };
 

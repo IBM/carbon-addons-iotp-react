@@ -1,1 +1,1 @@
-export { CopyButton } from 'carbon-components-react';
+export { CopyButton } from '@carbon/react';

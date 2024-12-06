@@ -1,1 +1,1 @@
-export { Dropdown, DropdownSkeleton } from 'carbon-components-react';
+export { Dropdown, DropdownSkeleton } from '@carbon/react';

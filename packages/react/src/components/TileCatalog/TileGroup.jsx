@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Tile } from 'carbon-components-react';
+import { Tile } from '@carbon/react';
 import classnames from 'classnames';
 
 import { settings } from '../../constants/Settings';

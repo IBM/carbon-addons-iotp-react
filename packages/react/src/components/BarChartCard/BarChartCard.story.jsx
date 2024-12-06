@@ -8,7 +8,7 @@ import { barChartData } from '../../utils/barChartDataSample';
 import { getIntervalChartData } from '../../utils/sample';
 
 import BarChartCard from './BarChartCard';
-import BarChartCardREADME from './BarChartCard.mdx';
+// import BarChartCardREADME from './BarChartCard.mdx'; carbon 11 need to check
 
 const COLORS = ['blue', 'red', 'green', 'yellow'];
 
@@ -19,12 +19,13 @@ const sizes = Object.keys(CARD_SIZES).filter(
 const layouts = Object.keys(BAR_CHART_LAYOUTS);
 
 export default {
-  title: __DEV__ ? '1 - Watson IoT/Card/⚠️ BarChartCard' : '1 - Watson IoT/Card/BarChartCard',
+  // title: __DEV__ ? '1 - Watson IoT/Card/⚠️ BarChartCard' : '1 - Watson IoT/Card/BarChartCard',
+  title: '1 - Watson IoT/Card/⚠️ BarChartCard',
   parameters: {
     component: BarChartCard,
-    docs: {
-      page: BarChartCardREADME,
-    },
+    // docs: {
+    //   page: BarChartCardREADME,
+    // }, //carbon 11
   },
 };
 

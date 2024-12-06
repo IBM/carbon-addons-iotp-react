@@ -27,7 +27,17 @@ const defaultProps = {
 /** This component calls out to our renderIconByName callback function with the icon name OR fails over to our legacy card icons from our legacy icon bundle */
 /* We test the implementation and do not want to trigger this console in our test logs */
 /* istanbul ignore next */
-const CardIcon = ({ icon, renderIconByName, title, color, width, height, className, testId }) => {
+const CardIcon = ({
+  icon,
+  renderIconByName,
+  title,
+  color,
+  width,
+  height,
+  className,
+  testId,
+  ...rest
+}) => {
   if (__DEV__ && !renderIconByName && !icons[icon]) {
     warning(
       false,
@@ -51,6 +61,7 @@ const CardIcon = ({ icon, renderIconByName, title, color, width, height, classNa
       })
     ) : (
       <Icon
+        {...rest}
         className={className}
         fill={color}
         width={width}

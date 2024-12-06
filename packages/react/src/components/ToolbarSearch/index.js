@@ -1,1 +1,1 @@
-export { ToolbarSearch } from 'carbon-components-react';
+export { ToolbarSearch } from '@carbon/react';

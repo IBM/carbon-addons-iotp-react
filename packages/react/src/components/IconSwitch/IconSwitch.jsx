@@ -8,16 +8,16 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
-import { Button as CarbonButton } from 'carbon-components-react';
+import { Button as CarbonButton } from '@carbon/react';
 
 import { settings } from '../../constants/Settings';
 
-const { iotPrefix } = settings;
+const { prefix, iotPrefix } = settings;
 
 export const ICON_SWITCH_SIZES = {
-  small: 'small',
-  default: 'default',
-  large: 'large',
+  small: 'sm',
+  default: 'md',
+  large: 'lg',
 };
 
 const IconSwitch = React.forwardRef((props, ref) => {
@@ -31,9 +31,9 @@ const IconSwitch = React.forwardRef((props, ref) => {
     selected,
     size,
     text,
-    light,
     testId,
     children,
+    disabled,
     ...other
   } = props;
 
@@ -52,18 +52,26 @@ const IconSwitch = React.forwardRef((props, ref) => {
 
   const classes = classnames(
     className,
+    `${prefix}--content-switcher-btn`, // Class from carbon
     `${iotPrefix}--icon-switch`,
-    `${iotPrefix}--icon-switch--${size}`,
-    { [`${iotPrefix}--icon-switch--selected`]: selected },
-    { [`${iotPrefix}--icon-switch--light`]: light },
-    { [`${iotPrefix}--icon-switch--unselected`]: !selected },
-    { [`${iotPrefix}--icon-switch--unselected--light`]: light && !selected }
+    {
+      [`${prefix}--content-switcher--selected`]: selected, // Class from carbon
+    }
+  );
+
+  const iconButtonClasses = classnames(
+    `${prefix}--content-switcher-popover__wrapper`, // Class from carbon
+    {
+      [`${prefix}--content-switcher-popover--selected`]: selected, // Class from carbon
+      [`${prefix}--content-switcher-popover--disabled`]: disabled, // Class from carbon
+    }
   );
 
   const commonProps = {
     onClick: handleClick,
     onKeyDown: handleKeyDown,
     className: classes,
+    disabled,
   };
 
   return (
@@ -75,11 +83,11 @@ const IconSwitch = React.forwardRef((props, ref) => {
       hasIconOnly
       tooltipPosition="top"
       data-testid={testId}
+      wrapperClasses={iconButtonClasses}
       {...other}
       {...commonProps}
     >
       {children}
-      <span className={`${iotPrefix}--icon-switch__divider`} />
     </CarbonButton>
   );
 });
@@ -124,16 +132,8 @@ IconSwitch.propTypes = {
   text: PropTypes.string.isRequired,
 
   /**
-   * Size of the IconSwitch. One of:
-   *  small: 32px
-   *  default: 40px
-   *  large (for touch screens): 48px
-   *
-   *
-   * Although it will scale the icon accordingly, for optimal rendering the following sizes are recommended:
-   *  small: 16px
-   *  default: 20px
-   *  large: 24px
+   * @deprecated The `size` prop for `IconSwitch` has been deprecated. This should now be set using the `size` prop
+   * in the ContentSwitcher component. The options are 'sm', 'md', 'lg'.
    */
   size: PropTypes.oneOf(Object.values(ICON_SWITCH_SIZES)),
 
@@ -142,14 +142,7 @@ IconSwitch.propTypes = {
    * Can be a React component class
    */
   renderIcon: PropTypes.oneOfType([PropTypes.func, PropTypes.object]).isRequired,
-
-  /**
-   *  Light version
-   */
-  light: PropTypes.bool,
-
   testId: PropTypes.string,
-
   /** The button should be disabled */
   disabled: PropTypes.bool,
 
@@ -161,12 +154,13 @@ IconSwitch.defaultProps = {
   selected: false,
   name: '',
   size: 'default',
-  light: false,
   onClick: undefined,
   onKeyDown: undefined,
   testId: 'icon-switch',
   disabled: false,
   children: undefined,
 };
+
+IconSwitch.displayName = 'IconSwitch';
 
 export default IconSwitch;

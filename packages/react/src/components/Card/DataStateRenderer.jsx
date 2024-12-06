@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import { ErrorFilled24, WarningFilled24 } from '@carbon/icons-react';
+import { ErrorFilled, WarningFilled } from '@carbon/react/icons';
 
 import { Tooltip } from '../Tooltip';
 import { settings } from '../../constants/Settings';
@@ -52,9 +52,9 @@ const DataStateRenderer = ({ dataState, size, id }) => {
     let { icon } = dataState;
     if (!icon) {
       if (type === CARD_DATA_STATE.ERROR) {
-        icon = <ErrorFilled24 className={`${dsPrefix}-default-error-icon`} />;
+        icon = <ErrorFilled size={24} className={`${dsPrefix}-default-error-icon`} />;
       } else if (type === CARD_DATA_STATE.NO_DATA) {
-        icon = <WarningFilled24 className={`${dsPrefix}-default-warning-icon`} />;
+        icon = <WarningFilled size={24} className={`${dsPrefix}-default-warning-icon`} />;
       }
     }
 

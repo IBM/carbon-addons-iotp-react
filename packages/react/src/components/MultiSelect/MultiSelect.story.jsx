@@ -196,41 +196,44 @@ _Filterable.parameters = {
 };
 
 export const WithChangeOnClose = () => {
-  const { listBoxMenuIconTranslationIds, selectionFeedback, ...multiSelectProps } = props();
+  const PageTitle = () => {
+    const { listBoxMenuIconTranslationIds, selectionFeedback, ...multiSelectProps } = props();
 
-  const [hasFocus, setHasFocus] = useState(false);
-  const [active, setActive] = useState(false);
-  const [selItems, setSelItems] = useState([items[0]]);
-  if (!hasFocus && active && selItems.length == 0) setActive(false);
+    const [hasFocus, setHasFocus] = useState(false);
+    const [active, setActive] = useState(false);
+    const [selItems, setSelItems] = useState([items[0]]);
+    if (!hasFocus && active && selItems.length == 0) setActive(false);
 
-  return (
-    <div style={{ width: 300 }}>
-      <Checkbox
-        id="active"
-        checked={active}
-        onChange={(a) => {
-          setActive(a);
-          if (a) setSelItems([items[0]]);
-        }}
-        labelText="Active"
-      />
-      <MultiSelect
-        {...multiSelectProps}
-        items={items}
-        itemToString={(item) => (item ? item.text : '')}
-        translateWithId={(id) => listBoxMenuIconTranslationIds[id]}
-        selectionFeedback={selectionFeedback}
-        key={active}
-        disabled={!active}
-        initialSelectedItems={selItems}
-        onMenuChange={(e) => {
-          multiSelectProps.onMenuChange(e);
-          setHasFocus(e);
-        }}
-        onChange={(e) => {
-          setSelItems(e.selectedItems);
-        }}
-      />
-    </div>
-  );
+    return (
+      <div style={{ width: 300 }}>
+        <Checkbox
+          id="active"
+          checked={active}
+          onChange={(a) => {
+            setActive(a);
+            if (a) setSelItems([items[0]]);
+          }}
+          labelText="Active"
+        />
+        <MultiSelect
+          {...multiSelectProps}
+          items={items}
+          itemToString={(item) => (item ? item.text : '')}
+          translateWithId={(id) => listBoxMenuIconTranslationIds[id]}
+          selectionFeedback={selectionFeedback}
+          key={active}
+          disabled={!active}
+          initialSelectedItems={selItems}
+          onMenuChange={(e) => {
+            multiSelectProps.onMenuChange(e);
+            setHasFocus(e);
+          }}
+          onChange={(e) => {
+            setSelItems(e.selectedItems);
+          }}
+        />
+      </div>
+    );
+  };
+  return <PageTitle />;
 };

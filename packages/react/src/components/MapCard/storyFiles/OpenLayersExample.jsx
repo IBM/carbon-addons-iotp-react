@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { Events32 } from '@carbon/icons-react';
-import { Accordion, AccordionItem } from 'carbon-components-react';
+import { Events } from '@carbon/react/icons';
+import { Accordion, AccordionItem } from '@carbon/react';
 import PropTypes from 'prop-types';
 // The OpenLayersExample is not exported and is only used by StoryBook
 /* eslint-disable import/no-extraneous-dependencies */
@@ -20,7 +20,7 @@ import { defaults } from 'ol/control';
 import MapCard from '../MapCard';
 
 import Optionsfield from './Optionsfield';
-import './open-layers-example.scss';
+// import './open-layers-example.scss'; Carbon 11
 
 mapboxgl.accessToken =
   'pk.eyJ1IjoiZGF2aWRpY3VzIiwiYSI6ImNrbTN4OWpsZTBjYm0ybnBsaWZkemV6MmgifQ.jpqC4rJzYG6CY3IXc9NLuw';
@@ -200,34 +200,34 @@ const OpenLayersExample = ({
     {
       group: [
         {
-          icon: Events32,
+          icon: Events,
           iconDescription: 'GDP',
           onClick: () => changeState(1),
         },
         {
-          icon: Events32,
+          icon: Events,
           iconDescription: 'Population',
           onClick: () => changeState(0),
         },
         {
-          icon: Events32,
+          icon: Events,
           iconDescription: 'Map control 3A',
           onClick: () => changeState(1),
         },
       ],
     },
     {
-      icon: Events32,
+      icon: Events,
       iconDescription: 'Map control 1',
       onClick: () => changeState(0),
     },
     {
-      icon: Events32,
+      icon: Events,
       iconDescription: 'Map control 2',
       onClick: () => changeState(1),
     },
     {
-      icon: Events32,
+      icon: Events,
       iconDescription: 'Map control 3',
       onClick: () => changeState(0),
     },
@@ -235,17 +235,17 @@ const OpenLayersExample = ({
 
   const layeredControls = [
     {
-      icon: Events32,
+      icon: Events,
       iconDescription: 'Map control 1',
       onClick: () => changeState(0),
     },
     {
-      icon: Events32,
+      icon: Events,
       iconDescription: 'Map control 2',
       onClick: () => changeState(1),
     },
     {
-      icon: Events32,
+      icon: Events,
       iconDescription: 'Map control 3',
       onClick: () => changeState(0),
     },

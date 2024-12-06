@@ -1,8 +1,8 @@
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { ChevronRight16 } from '@carbon/icons-react';
-import { TableCell } from 'carbon-components-react';
+import { ChevronRight } from '@carbon/react/icons';
+import { TableCell } from '@carbon/react';
 
 import Button from '../../../Button';
 import { settings } from '../../../../constants/Settings';
@@ -106,7 +106,7 @@ const TableExpandRow = ({
           )}
           onClick={onExpand}
           iconDescription={expandIconDescription}
-          renderIcon={ChevronRight16}
+          renderIcon={ChevronRight}
           size="sm"
           tooltipAlignment={langDir === 'ltr' ? 'start' : 'end'}
           tooltipPosition="top"

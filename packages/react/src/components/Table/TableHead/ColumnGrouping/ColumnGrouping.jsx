@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { uniqWith, isEqual } from 'lodash-es';
-import { TableRow } from 'carbon-components-react';
+import { TableRow } from '@carbon/react';
 import classNames from 'classnames';
 
 import { settings } from '../../../../constants/Settings';

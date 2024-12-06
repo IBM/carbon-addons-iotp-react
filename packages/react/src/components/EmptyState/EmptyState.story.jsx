@@ -1,9 +1,9 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { text, select, boolean } from '@storybook/addon-knobs';
+import { Tabs, Tab, TabList, TabPanels, TabPanel } from '@carbon/react';
 
 import { DashboardIcon } from '../../icons/components';
-import { Tabs, Tab } from '../Tabs';
 
 import EmptyState from './EmptyState';
 
@@ -173,27 +173,34 @@ export const WithCustomBody = () => (
 export const TabsWithEmptyState = () => {
   return (
     <Tabs selected={1} light={boolean('light', false)}>
-      <Tab>
-        <EmptyState
-          icon="no-result"
-          title="No results found"
-          body="We couldn't find anything. Sorry."
-        />
-      </Tab>
-      <Tab>
-        <EmptyState
-          icon="no-result"
-          title="No results found"
-          body="We couldn't find anything. Sorry."
-        />
-      </Tab>
-      <Tab>
-        <EmptyState
-          icon="no-result"
-          title="No results found"
-          body="We couldn't find anything. Sorry."
-        />
-      </Tab>
+      <TabList aria-label="List of tabs">
+        <Tab>provide a label</Tab>
+        <Tab>provide a label</Tab>
+        <Tab>provide a label</Tab>
+      </TabList>
+      <TabPanels>
+        <TabPanel>
+          <EmptyState
+            icon="no-result"
+            title="No results found"
+            body="We couldn't find anything. Sorry."
+          />
+        </TabPanel>
+        <TabPanel>
+          <EmptyState
+            icon="no-result"
+            title="No results found"
+            body="We couldn't find anything. Sorry."
+          />
+        </TabPanel>
+        <TabPanel>
+          <EmptyState
+            icon="no-result"
+            title="No results found"
+            body="We couldn't find anything. Sorry."
+          />
+        </TabPanel>
+      </TabPanels>
     </Tabs>
   );
 };

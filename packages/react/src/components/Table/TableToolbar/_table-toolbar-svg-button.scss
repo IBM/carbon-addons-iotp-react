@@ -1,13 +1,19 @@
-@import '../../../globals/vars';
+@use '../../../globals/vars' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/colors' as *;
+@use '../../../globals/mixins' as *;
+@use '@carbon/react/scss/components/data-table' as *;
 
 button.#{$iot-prefix}--tooltip-svg-wrapper,
 .#{$iot-prefix}--tooltip-svg-wrapper.#{$prefix}--btn--ghost:hover {
-  color: $carbon--gray-70;
+  color: $gray-70; //$carbon--gray-70
+  justify-content: center;
 }
 button.#{$prefix}--btn.#{$iot-prefix}--tooltip-svg-wrapper.#{$prefix}--btn--ghost {
   border: 0;
   &.#{$iot-prefix}--table-toolbar-button-active:not(:hover) {
-    background-color: $ui-02;
+    background-color: $layer-02;
   }
 }
 

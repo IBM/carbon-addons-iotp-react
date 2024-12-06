@@ -1,7 +1,11 @@
-@import '~carbon-components/scss/components/dropdown/dropdown';
-
-@import '../../globals/vars';
-
+@use '@carbon/react/scss/components/dropdown' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/utilities/box-shadow' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/colors' as *;
+@use '../../globals/vars' as *;
+@use '@carbon/react/scss/layer' as *;
 .#{$iot-prefix}--dropdown__image-button:hover {
   border-color: transparent;
 
@@ -15,7 +19,7 @@
   outline: 1px solid $focus;
   position: absolute;
 
-  background-color: $ui-01;
+  background-color: $layer-01;
   z-index: 5999; // dropdown z-index is 6000, this needs to render just below
   width: 100%;
 
@@ -73,7 +77,7 @@
         justify-items: center;
 
         &:hover {
-          background: $hover-ui;
+          background: $layer-hover-01;
         }
 
         > .#{$iot-prefix}--icon-dropdown__selected-icon-label {
@@ -88,8 +92,8 @@
           border-width: 1px;
           border-style: solid;
           border-top-color: transparent;
-          border-right-color: $ui-03;
-          border-bottom-color: $ui-03;
+          border-right-color: $layer-accent-01;
+          border-bottom-color: $layer-accent-01;
           border-left-color: transparent;
 
           color: transparent;
@@ -107,7 +111,7 @@
           }
 
           &--top {
-            border-top-color: $ui-03;
+            border-top-color: $layer-accent-01;
           }
 
           &:hover {
@@ -150,7 +154,22 @@
     text-overflow: ellipsis;
 
     &--open {
-      color: $active-ui;
+      color: $layer-active-01;
     }
   }
+}
+
+.#{$iot-prefix}--icon-dropdown__selection-buttons .#{$prefix}--list-box__menu-item {
+  display: inline-flex;
+  height: -webkit-min-content;
+  height: 48px;
+  width: 48px;
+  border-right: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.#{$iot-prefix}--icon-dropdown__selection-buttons
+  .#{$prefix}--list-box__menu-item
+  .#{$prefix}--list-box__menu-item__option {
+  border-top-color: transparent;
 }

@@ -1,8 +1,8 @@
 import React, { useMemo, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { omit, keyBy } from 'lodash-es';
-import { Close16, Popup16, Settings16 } from '@carbon/icons-react';
-import { OverflowMenu, OverflowMenuItem } from 'carbon-components-react';
+import { Close, Popup, Settings } from '@carbon/react/icons';
+import { OverflowMenu, OverflowMenuItem } from '@carbon/react';
 import classnames from 'classnames';
 import { useLangDirection } from 'use-lang-direction';
 
@@ -85,7 +85,7 @@ const propTypes = {
 const defaultProps = {
   isEditable: false,
   isExpanded: false,
-  renderExpandIcon: Popup16,
+  renderExpandIcon: Popup,
   className: null,
   locale: 'en',
   timeRangeOptions: null,
@@ -292,7 +292,7 @@ const CardToolbar = ({
           title={mergedI18n.settingsLabel}
           onClick={() => onCardAction(CARD_ACTIONS.ON_SETTINGS_CLICK)}
           iconDescription={mergedI18n.settingsLabel}
-          renderIcon={Settings16}
+          renderIcon={Settings}
           testId={`${testId}-settings-button`}
         />
       ) : null}
@@ -305,7 +305,7 @@ const CardToolbar = ({
                 title={mergedI18n.closeLabel}
                 onClick={() => onCardAction(CARD_ACTIONS.CLOSE_EXPANDED_CARD)}
                 iconDescription={mergedI18n.closeLabel}
-                renderIcon={Close16}
+                renderIcon={Close}
                 testId={`${testId}-close-button`}
               />
             </>

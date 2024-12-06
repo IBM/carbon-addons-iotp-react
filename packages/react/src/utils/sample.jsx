@@ -2523,6 +2523,7 @@ export const tableColumns = [
   {
     dataSourceId: 'count',
     label: 'Count',
+    tooltip: 'Counting tooltip',
     priority: 3,
     filter: { placeholderText: 'enter a string' },
   },

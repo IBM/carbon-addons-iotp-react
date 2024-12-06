@@ -1,4 +1,6 @@
-@import '../../../globals/vars';
+@use '../../../globals/vars' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/components/data-table' as *;
 
 // We need to override some List specific styles to
 // make the list behave correctly

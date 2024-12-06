@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { ArrowRight16, Subtract16 } from '@carbon/icons-react';
+import { ArrowRight, Subtract } from '@carbon/react/icons';
 import { isEmpty } from 'lodash-es';
 
 import ComposedModal from '../ComposedModal/ComposedModal';
@@ -201,10 +201,10 @@ const SelectUsersModal = ({
             style={{ color: 'black' }}
             role="button"
             aria-label={mergedI18n.addUser}
-            renderIcon={ArrowRight16}
+            renderIcon={ArrowRight}
             hasIconOnly
             kind="ghost"
-            size="small"
+            size="sm"
             onClick={() => handleAdd(user)}
             iconDescription={mergedI18n.addUser}
             // TODO: pass testId in v3
@@ -227,10 +227,10 @@ const SelectUsersModal = ({
               key={`${username}-list-item-button-${depth}`}
               style={{ color: 'black' }}
               aria-label={mergedI18n.removeUser}
-              renderIcon={Subtract16}
+              renderIcon={Subtract}
               hasIconOnly
               kind="ghost"
-              size="small"
+              size="sm"
               onClick={() => handleRemove(user)}
               iconDescription={mergedI18n.removeUser}
               // TODO: pass testId in v3

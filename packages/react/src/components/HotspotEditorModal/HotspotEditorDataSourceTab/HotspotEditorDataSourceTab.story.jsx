@@ -8,7 +8,7 @@ import { CARD_SIZES, CARD_TYPES } from '../../../constants/LayoutConstants';
 import { useHotspotEditorState } from '../hooks/hotspotStateHook';
 
 import HotspotEditorDataSourceTab from './HotspotEditorDataSourceTab';
-import HotspotEditorDataSourceTabREADME from './HotspotEditorDataSourceTabREADME.mdx';
+// import HotspotEditorDataSourceTabREADME from './HotspotEditorDataSourceTabREADME.mdx'; carbon 11
 
 const commonActions = {
   onEditDataItem: (cardConfig, dataItem) =>
@@ -31,9 +31,9 @@ export default {
   decorators: [withKnobs],
   parameters: {
     component: HotspotEditorDataSourceTab,
-    docs: {
-      page: HotspotEditorDataSourceTabREADME,
-    },
+    // docs: {
+    //   page: HotspotEditorDataSourceTabREADME,
+    // }, carbon 11
   },
 };
 

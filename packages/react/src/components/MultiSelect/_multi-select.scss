@@ -1,4 +1,7 @@
-@import '~carbon-components/scss/components/multi-select/multi-select';
+@use '../../globals/vars' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/components/multiselect' as *;
 
 html[dir='rtl'] .#{$prefix}--multi-select__wrapper {
   .#{$prefix}--tag--filter {

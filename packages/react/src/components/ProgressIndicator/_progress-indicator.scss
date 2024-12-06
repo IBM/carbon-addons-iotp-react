@@ -1,23 +1,30 @@
-@import '~carbon-components/scss/components/progress-indicator/progress-indicator';
-@import '../../globals/vars';
-
+@use '@carbon/react/scss/components/progress-indicator' as *;
+@use '../../globals/vars' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/type' as *;
+@use '@carbon/react/scss/motion' as *;
+@use '@carbon/react/scss/components/button' as *;
+@use '@carbon/react/scss/utilities/convert';
 .#{$iot-prefix}--progress-indicator {
   display: flex;
 
   .#{$iot-prefix}--progress-step {
     width: 8rem;
-    height: rem(68px);
+    height: convert.to-rem(68px);
     &-line {
       position: absolute;
       width: calc(100% - #{$spacing-06});
       height: $spacing-01;
-      background-color: $ui-03;
-      top: rem(11px);
+      background-color: $layer-accent-01;
+      top: convert.to-rem(11px);
       left: $spacing-06;
 
+      /* stylelint-disable scss/at-extend-no-missing-placeholder */
       &--complete {
         @extend .#{$iot-prefix}--progress-step-line;
-        background-color: $interactive-01;
+        background-color: $button-primary;
       }
 
       &--sub {
@@ -27,7 +34,7 @@
 
         &-complete {
           @extend .#{$iot-prefix}--progress-step-line--sub;
-          background-color: $interactive-03;
+          background-color: $button-tertiary;
         }
       }
     }
@@ -76,32 +83,32 @@
         }
 
         &-label {
-          @include type-style('body-short-01');
+          @include type-style('body-compact-01');
           position: relative;
-          color: $text-01;
+          color: $text-primary;
           cursor: default;
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap;
           width: auto;
 
-          transition: box-shadow $duration--fast-02 motion(standard, productive),
-            color $duration--fast-02 motion(standard, productive);
+          transition: box-shadow $duration-fast-02 motion(standard, productive),
+            color $duration-fast-02 motion(standard, productive);
 
           &:focus {
-            color: $interactive-01;
+            color: $button-primary;
           }
           &:hover {
-            box-shadow: 0 rem(1px) $link-01;
-            color: $interactive-01;
+            box-shadow: 0 convert.to-rem(1px) $link-primary;
+            color: $button-primary;
           }
           &:active {
-            box-shadow: 0 rem(3px) 0 0 $interactive-01;
+            box-shadow: 0 convert.to-rem(3px) 0 0 $button-primary;
           }
         }
 
         &-label--optional {
-          @include type-style('body-short-01');
+          @include type-style('body-compact-01');
           position: relative;
           cursor: default;
           overflow: hidden;
@@ -109,7 +116,7 @@
           white-space: nowrap;
           width: auto;
           font-size: $spacing-04;
-          color: $icon-02;
+          color: $icon-secondary;
           margin-top: $spacing-01;
         }
       }
@@ -126,22 +133,22 @@
       &:not(.#{$iot-prefix}--progress-step--invalid) {
         .#{$iot-prefix}--progress-step-button {
           &--main-step {
-            fill: $interactive-01;
+            fill: $button-primary;
 
             // force the correct color for the svg
             text {
-              fill: $text-04;
+              fill: $text-on-color;
             }
             circle {
-              fill: $interactive-01;
+              fill: $button-primary;
             }
             path {
-              fill: $interactive-01;
+              fill: $button-primary;
             }
           }
           &--sub-step {
             svg {
-              fill: $interactive-03;
+              fill: $button-tertiary;
             }
           }
         }
@@ -149,11 +156,11 @@
       .#{$iot-prefix}--progress-text-label {
         &:focus {
           box-shadow: unset;
-          color: $text-01;
+          color: $text-primary;
         }
         &:hover {
           box-shadow: unset;
-          color: $text-01;
+          color: $text-primary;
         }
         &:active {
           box-shadow: unset;
@@ -163,18 +170,18 @@
 
     &--complete {
       svg {
-        fill: $interactive-01;
+        fill: $button-primary;
       }
     }
 
     &--incomplete {
       .#{$iot-prefix}--progress-step-button--main-step {
-        fill: $text-01;
+        fill: $text-primary;
       }
 
       .#{$iot-prefix}--progress-step-button--sub-step {
         svg {
-          color: $text-01;
+          color: $text-primary;
         }
       }
     }
@@ -182,26 +189,26 @@
     &--disabled {
       &:not(.#{$iot-prefix}--progress-step--invalid) {
         .#{$iot-prefix}--progress-step-button--main-step {
-          fill: $disabled-02;
+          fill: $icon-disabled;
         }
 
         .#{$iot-prefix}--progress-step-button--sub-step {
           svg {
-            fill: $disabled-02;
+            fill: $icon-disabled;
           }
         }
       }
 
       &.#{$iot-prefix}--progress-step--invalid {
         svg {
-          fill: $disabled-02;
+          fill: $icon-disabled;
         }
       }
 
       .#{$iot-prefix}--progress-step-button .#{$iot-prefix}--progress-text {
         &-label,
         &-label--optional {
-          color: $disabled-02;
+          color: $layer-active-01;
           cursor: default;
           box-shadow: none;
         }
@@ -254,7 +261,7 @@
       &-button {
         .#{$iot-prefix}--progress-text {
           left: $spacing-07;
-          top: rem(3px);
+          top: convert.to-rem(3px);
         }
         &--sub-step {
           .#{$iot-prefix}--progress-text {
@@ -272,7 +279,7 @@
         width: $spacing-01;
         height: calc(100% - #{$spacing-06});
         top: $layout-02;
-        left: rem(11px);
+        left: convert.to-rem(11px);
 
         &--complete {
           @extend .#{$iot-prefix}--progress-step-line;
@@ -304,7 +311,7 @@
         }
         &-line {
           left: unset;
-          right: rem(11px);
+          right: convert.to-rem(11px);
           text-align: right;
         }
       }

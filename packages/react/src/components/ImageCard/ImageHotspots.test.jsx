@@ -4,7 +4,7 @@ import { act, isDOMComponent } from 'react-dom/test-utils';
 import { fireEvent, render, screen, within } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import userEvent from '@testing-library/user-event';
-import { Error32 } from '@carbon/icons-react';
+import { Error } from '@carbon/react/icons';
 
 import landscape from './landscape.jpg';
 import portrait from './portrait.jpg';
@@ -1364,7 +1364,7 @@ describe('ImageHotspots', () => {
         icons={[
           {
             id: 'CustomError',
-            icon: Error32,
+            icon: Error,
             text: 'CustomError',
           },
         ]}
@@ -1403,7 +1403,7 @@ describe('ImageHotspots', () => {
         icons={[
           {
             id: 'CustomError',
-            icon: Error32,
+            icon: Error,
             text: 'CustomError',
           },
         ]}

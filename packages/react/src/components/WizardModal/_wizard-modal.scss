@@ -1,5 +1,6 @@
-@import '../../globals/vars';
-
+@use '../../globals/vars' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
 .#{$iot-prefix}--wizard-modal {
   .#{$prefix}--modal-container {
     min-width: 410px;
@@ -24,7 +25,7 @@
   .#{$iot-prefix}--wizard-modal__content {
     padding-top: $spacing-05;
     padding-left: $spacing-05;
-    padding-bottom: $layout-06;
+    padding-bottom: $spacing-12; //$layout-06
   }
 }
 

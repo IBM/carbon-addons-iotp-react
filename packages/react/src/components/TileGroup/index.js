@@ -1,1 +1,1 @@
-export { TileGroup } from 'carbon-components-react';
+export { TileGroup } from '@carbon/react';

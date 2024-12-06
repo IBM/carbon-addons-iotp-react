@@ -1,1 +1,27 @@
-@import '~carbon-components/scss/components/tooltip/tooltip';
+@use '@carbon/react/scss/components/tooltip' as *;
+@use '@carbon/react/scss/components/popover' as *;
+@use '@carbon/react/scss/components/toggletip' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/type' as *;
+@use '@carbon/react/scss/colors' as *;
+@use '../../globals/vars' as *;
+
+.#{$iot-prefix}--tooltip {
+  display: inline-flex;
+  align-items: center;
+  @include type-style('legal-01');
+  color: $gray-80;
+  .#{$prefix}--tooltip-trigger__wrapper {
+    // Center tooltip trigger icon
+    & > div {
+      display: flex;
+      align-items: center;
+    }
+  }
+  &--with-label {
+    .#{$prefix}--tooltip {
+      margin-left: $spacing-03;
+    }
+  }
+}

@@ -5,4 +5,4 @@ export {
   ExpandableTile,
   TileAboveTheFoldContent,
   TileBelowTheFoldContent,
-} from 'carbon-components-react';
+} from '@carbon/react';

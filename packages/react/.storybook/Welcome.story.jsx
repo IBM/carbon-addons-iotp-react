@@ -1,8 +1,6 @@
 import React from 'react';
 import union from 'lodash/union';
 
-import styles from './welcome-story.css';
-
 import {
   Accordion,
   AccordionItem,
@@ -11,9 +9,9 @@ import {
   StructuredListBody,
   StructuredListRow,
   StructuredListCell,
-} from '../src/index';
+} from '@carbon/react';
 
-const carbonExports = Object.keys(require('carbon-components-react'));
+const carbonExports = Object.keys(require('@carbon/react'));
 const iotAddonsExports = Object.keys(require('../src/index'));
 
 export default {
@@ -68,14 +66,14 @@ export const AboutStorybook = () => (
     <Accordion>
       <AccordionItem title={'Exports table'} open={false}>
         <p>
-          The following table shows a comparison of exports from carbon-components-react and this
-          library. These are primarily used for snapshot purposes to track and ensure that as the
-          exports change upstream in Carbon we continue to provide parity with their package.
+          The following table shows a comparison of exports from @carbon/react and this library.
+          These are primarily used for snapshot purposes to track and ensure that as the exports
+          change upstream in Carbon we continue to provide parity with their package.
         </p>
         <StructuredListWrapper>
           <StructuredListHead>
             <StructuredListRow head>
-              <StructuredListCell head>carbon-components-react exports</StructuredListCell>
+              <StructuredListCell head>@carbon/react exports</StructuredListCell>
               <StructuredListCell head>carbon-addons-iot-react exports</StructuredListCell>
             </StructuredListRow>
           </StructuredListHead>

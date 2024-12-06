@@ -1,27 +1,27 @@
 import React from 'react';
 import { withKnobs, select, boolean, text } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
-import { Edit16, Information16, SendAlt16 } from '@carbon/icons-react';
+import { Edit, Information, SendAlt } from '@carbon/react/icons';
 
 import Button from '../Button';
 
 import SidePanel from './SidePanel';
-import SidePanelReadMe from './SidePanel.mdx';
+// import SidePanelReadMe from './SidePanel.mdx'; carbon  11
 
 const actionItemButtons = [
   {
     buttonLabel: 'Edit',
-    buttonIcon: Edit16,
+    buttonIcon: Edit,
     buttonCallback: action('Edit clicked'),
   },
   {
     buttonLabel: 'Info',
-    buttonIcon: Information16,
+    buttonIcon: Information,
     buttonCallback: action('Info clicked'),
   },
   {
     buttonLabel: 'Send',
-    buttonIcon: SendAlt16,
+    buttonIcon: SendAlt,
     buttonCallback: action('Send clicked'),
   },
 ];
@@ -148,9 +148,9 @@ export default {
 
   parameters: {
     component: SidePanel,
-    docs: {
-      page: SidePanelReadMe,
-    },
+    // docs: {
+    //   page: SidePanelReadMe,
+    // }, //carbon 11
   },
 };
 

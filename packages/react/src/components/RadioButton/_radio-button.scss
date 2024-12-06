@@ -1,5 +1,6 @@
-@import '~carbon-components/scss/components/radio-button/radio-button';
-@import '../../globals/vars';
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/components/radio-button' as *;
 
 html[dir='rtl'] {
   .#{$prefix}--radio-button-wrapper:not(:last-of-type) {

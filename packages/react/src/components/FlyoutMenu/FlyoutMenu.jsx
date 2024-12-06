@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState, useMemo } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import { SettingsAdjust16 as SettingsAdjust } from '@carbon/icons-react';
+import { SettingsAdjust } from '@carbon/react/icons';
 
 import Button from '../Button/Button';
-import { Tooltip } from '../Tooltip';
+import { ToggleTip } from '../ToggleTip';
 import { settings } from '../../constants/Settings';
 import { usePopoverPositioning } from '../../hooks/usePopoverPositioning';
 
@@ -34,6 +34,22 @@ const getTooltipDirection = (direction) => {
       return 'left';
     default:
       return 'bottom';
+  }
+};
+
+const getTooltipPosition = (menuDirection) => {
+  switch (menuDirection) {
+    case FlyoutMenuDirection.TopStart:
+    case FlyoutMenuDirection.TopEnd:
+      return 'bottom';
+    case FlyoutMenuDirection.RightStart:
+    case FlyoutMenuDirection.RightEnd:
+      return 'left';
+    case FlyoutMenuDirection.LeftStart:
+    case FlyoutMenuDirection.LeftEnd:
+      return 'right';
+    default:
+      return 'top';
   }
 };
 
@@ -92,18 +108,16 @@ const FlyoutMenu = ({
   renderIcon,
   testId,
   tooltipId,
-  triggerId,
   tabIndex,
+  className,
   tooltipClassName,
   tooltipContentClassName,
   passive,
-  tooltipFocusTrap,
   hideTooltip,
   customFooter: CustomFooter,
   onApply,
   onCancel,
   useAutoPositioning,
-  onChange,
   isOpen,
   renderInPortal,
   style,
@@ -213,7 +227,7 @@ const FlyoutMenu = ({
     [menuOffset]
   );
 
-  const [calculateMenuOffset, { adjustedDirection }] = usePopoverPositioning({
+  const [, { adjustedDirection }] = usePopoverPositioning({
     direction,
     menuOffset: getFlyoutMenuOffset,
     useAutoPositioning,
@@ -246,33 +260,17 @@ const FlyoutMenu = ({
         {
           [`${iotPrefix}--flyout-menu__light`]: light,
           [`${iotPrefix}--flyout-menu__open`]: isControlledOpen,
+          [`${iotPrefix}--flyout-menu__hide-icon-btn-tooltip`]: !iconDescription,
+          [className]: !!className,
         }
       )}
     >
-      <Button
-        {...buttonProps}
-        aria-label={iconDescription}
-        iconDescription={iconDescription}
-        className={classnames(`${iotPrefix}--flyout-menu--trigger-button`, buttonProps?.className)}
-        disabled={disabled}
-        hasIconOnly
-        kind="ghost"
-        testId={`${testId}-button`}
-        size={buttonSize}
-        renderIcon={renderIcon}
-        onClick={() => {
-          if (typeof buttonProps.onClick === 'function') {
-            buttonProps.onClick();
-          }
-          setIsOpen(!isControlledOpen);
-        }}
-      />
       {
         <div
           className={`${iotPrefix}--flyout-menu--tooltip-anchor`}
           {...(!renderInPortal ? { 'data-floating-menu-container': true } : {})}
         >
-          <Tooltip
+          <ToggleTip
             disabled={disabled}
             className={classnames(
               tooltipClassName,
@@ -287,30 +285,52 @@ const FlyoutMenu = ({
                 [`${iotPrefix}--flyout-menu--body__${buttonSize}`]: buttonSize !== 'default',
               }
             )}
+            align={useAutoPositioning ? direction : undefined}
             iconDescription={iconDescription}
             data-testid={testId}
-            showIcon={false}
-            focusTrap={tooltipFocusTrap}
             open={typeof isOpen === 'boolean' ? isOpen : isControlledOpen}
             direction={tooltipDirection}
-            menuOffset={calculateMenuOffset}
             tooltipId={tooltipId}
             id={tooltipId} // https://github.com/carbon-design-system/carbon/pull/6744
-            triggerId={triggerId}
             tabIndex={tabIndex}
-            useAutoPositioning={false}
-            onChange={onChange}
-          >
-            <div
-              className={classnames(`${iotPrefix}--flyout-menu--content`, tooltipContentClassName)}
-              style={updatedStyle}
-            >
-              {children}
-            </div>
-            {!passive && (
-              <div className={`${iotPrefix}--flyout-menu__bottom-container`}>{Footer}</div>
-            )}
-          </Tooltip>
+            useAutoPositioning={useAutoPositioning}
+            action={!passive ? Footer : null}
+            triggerBtn={
+              <Button
+                {...buttonProps}
+                aria-label={iconDescription}
+                iconDescription={iconDescription}
+                className={classnames(
+                  `${iotPrefix}--flyout-menu--trigger-button`,
+                  buttonProps?.className
+                )}
+                tooltipPosition={getTooltipPosition(direction)}
+                disabled={disabled}
+                hasIconOnly
+                kind="ghost"
+                testId={`${testId}-button`}
+                size={buttonSize}
+                renderIcon={renderIcon}
+                onClick={() => {
+                  if (typeof buttonProps.onClick === 'function') {
+                    buttonProps.onClick();
+                  }
+                  setIsOpen(!isControlledOpen);
+                }}
+              />
+            }
+            content={
+              <div
+                className={classnames(
+                  `${iotPrefix}--flyout-menu--content`,
+                  tooltipContentClassName
+                )}
+                style={updatedStyle}
+              >
+                {children}
+              </div>
+            }
+          />
         </div>
       }
     </div>
@@ -334,6 +354,11 @@ const propTypes = {
    * Contents to put into the flyout menu.
    */
   children: PropTypes.node,
+
+  /**
+   * Flyout menu wrapper className
+   */
+  className: PropTypes.node,
 
   /**
    * The CSS class names of the flyout menu.
@@ -463,6 +488,7 @@ const defaultProps = {
   triggerId: 'flyout-trigger-id',
   defaultOpen: false,
   children: undefined,
+  className: undefined,
   tooltipClassName: '',
   tooltipContentClassName: '',
   tooltipFocusTrap: true,

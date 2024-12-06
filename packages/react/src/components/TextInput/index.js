@@ -3,4 +3,4 @@ export {
   TextInputSkeleton,
   ControlledPasswordInput,
   PasswordInput,
-} from 'carbon-components-react';
+} from '@carbon/react';

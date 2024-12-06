@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { withKnobs } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
-import { DatePicker, DatePickerInput, NumberInput } from 'carbon-components-react';
+import { DatePicker, DatePickerInput, NumberInput } from '@carbon/react';
 
 import { settings } from '../../constants/Settings';
 

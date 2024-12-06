@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
-import { ChevronUp16, ChevronDown16 } from '@carbon/icons-react';
+import { ChevronUp, ChevronDown } from '@carbon/react/icons';
 import classnames from 'classnames';
 
 import { settings } from '../../constants/Settings';
@@ -374,7 +374,7 @@ const ListSpinner = React.forwardRef(
           onMouseDown={handleClick}
           iconDescription={previous}
           className={`${iotPrefix}--list-spinner__btn ${className}-spinner__btn`}
-          renderIcon={ChevronUp16}
+          renderIcon={ChevronUp}
           kind="ghost"
           onKeyDown={handleKeyPress}
         />
@@ -400,7 +400,7 @@ const ListSpinner = React.forwardRef(
           onMouseDown={handleClick}
           className={`${iotPrefix}--list-spinner__btn ${className}-spinner__btn`}
           iconDescription={next}
-          renderIcon={ChevronDown16}
+          renderIcon={ChevronDown}
           kind="ghost"
           onKeyDown={handleKeyPress}
         />

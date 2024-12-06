@@ -7,12 +7,13 @@ import {
   TableRow,
   TableExpandHeader,
   Checkbox,
-} from 'carbon-components-react';
+  OverflowMenuItem,
+} from '@carbon/react';
 import { isNil, isEmpty, isEqual, debounce } from 'lodash-es';
 import classnames from 'classnames';
 import warning from 'warning';
 import { useLangDirection } from 'use-lang-direction';
-import { FilterEdit16 } from '@carbon/icons-react';
+import { FilterEdit } from '@carbon/react/icons';
 
 import {
   TableColumnsPropTypes,
@@ -29,7 +30,6 @@ import { tableTranslateWithId } from '../../../utils/componentUtilityFunctions';
 import { settings } from '../../../constants/Settings';
 import { WrapCellTextPropTypes } from '../../../constants/SharedPropTypes';
 import { OverflowMenu } from '../../OverflowMenu';
-import { OverflowMenuItem } from '../../OverflowMenuItem';
 import { usePrevious } from '../../../hooks/usePrevious';
 import deprecate from '../../../internal/deprecate';
 import { pinColumnClassNames } from '../tableUtilities';
@@ -186,7 +186,7 @@ const defaultProps = {
   testId: '',
   showExpanderColumn: false,
   size: undefined,
-  filterRowIcon: FilterEdit16,
+  filterRowIcon: FilterEdit,
   filterRowIconDescription: 'Edit filters',
 };
 
@@ -705,14 +705,14 @@ const TableHead = ({
                 truncateCellText={truncateCellText}
                 allowTooltip={false}
                 tooltip={matchingColumnMeta.tooltip}
-                tooltipDirection={flipTooltipDirection ? 'end' : undefined}
+                tooltipDirection={flipTooltipDirection ? 'bottom-end' : undefined}
               >
                 {matchingColumnMeta.name}
               </TableCellRenderer>
 
               {hasOverflow || (hasMultiSort && matchingColumnMeta.isSortable && !isDisabled) ? (
                 <OverflowMenu
-                  size="lg"
+                  size="md"
                   className={`${iotPrefix}--table-head--overflow`}
                   direction="bottom"
                   data-testid="table-head--overflow"

@@ -1,6 +1,4 @@
-import Accordion from 'carbon-components-react/es/components/Accordion';
-import AccordionItem from 'carbon-components-react/es/components/AccordionItem';
-import AccordionSkeleton from 'carbon-components-react/es/components/Accordion/Accordion.Skeleton';
+import { Accordion, AccordionItem, AccordionSkeleton } from '@carbon/react';
 
 import AccordionItemDefer from './AccordionItemDefer';
 

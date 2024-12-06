@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Column20 } from '@carbon/icons-react';
+import { Column } from '@carbon/react/icons';
 import { action } from '@storybook/addon-actions';
 import { boolean, object, select } from '@storybook/addon-knobs';
 import { v4 as uuidv4 } from 'uuid';
@@ -162,7 +162,7 @@ export const Playground = () => {
               customToolbarContent: (
                 <Button
                   kind="ghost"
-                  renderIcon={Column20}
+                  renderIcon={(props) => <Column size={20} {...props} />}
                   iconDescription="Customize columns"
                   hasIconOnly
                   onClick={() => setShowModal(true)}

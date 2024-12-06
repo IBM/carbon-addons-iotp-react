@@ -1,3 +1,8 @@
+@use '../../globals/vars' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/type' as *;
 .#{$iot-prefix}--read-only-value {
   display: block;
   margin-bottom: $spacing-06;
@@ -12,12 +17,12 @@
   > label {
     display: inline-block;
     @include type-style('label-01');
-    color: $text-02;
+    color: $text-secondary;
     > textarea,
     div {
-      @include type-style('body-short-01');
+      @include type-style('body-compact-01');
       margin-top: $spacing-02;
-      color: $text-01;
+      color: $text-primary;
       border: 0;
       background: none;
       padding-top: 0;
@@ -29,16 +34,16 @@
   &__inline {
     margin-bottom: $spacing-03;
     label {
-      @include type-style('body-short-01');
+      @include type-style('body-compact-01');
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: $spacing-06;
-      color: $text-02;
+      color: $text-secondary;
       align-items: baseline;
       > textarea,
       div {
-        @include type-style('body-short-01');
-        color: $text-01;
+        @include type-style('body-compact-01');
+        color: $text-primary;
       }
     }
   }

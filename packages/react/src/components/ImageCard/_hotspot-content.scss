@@ -1,16 +1,26 @@
-@import '../../globals/vars';
-
+@use '../../globals/vars' as *;
+@use '@carbon/react/scss/config' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/colors' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/motion' as *;
+@use '@carbon/type' as *;
 .#{$iot-prefix}--hotspot-content {
   h4 {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: carbon--type-scale(5);
+    font-size: type-scale(5);
     padding-bottom: $spacing-03;
-    color: $ui-01;
+    color: $layer-01;
+    &.#{$iot-prefix}--hotspot-content-fixed-title {
+      display: flex;
+      justify-content: center;
+    }
   }
   &-description {
     padding-bottom: $spacing-03;
+    @include type-style('label-02');
   }
   &-attribute {
     display: flex;
@@ -23,7 +33,9 @@
     text-align: left;
   }
   &-label {
-    font-weight: bold;
+    @include type-style('heading-compact-02');
+    letter-spacing: 0.16px;
+    line-height: $spacing-01;
   }
   &-threshold-section {
     flex: 0;
@@ -32,8 +44,11 @@
     align-items: center;
   }
   &-threshold {
+    @include type-style('body-compact-02');
     padding-left: var(--threshold-padding);
     color: var(--threshold-color);
+    letter-spacing: 0.16px;
+    line-height: $spacing-01;
   }
   &-unit {
     padding-left: $spacing-01;

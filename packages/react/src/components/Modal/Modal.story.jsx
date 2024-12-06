@@ -9,19 +9,19 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, boolean, select, text } from '@storybook/addon-knobs';
-import { settings } from 'carbon-components';
 
+import { settings } from '../../constants/Settings';
 import Button from '../Button';
 import { TextInput } from '../TextInput';
 
-import ModalREADME from './Modal.mdx';
+// import ModalREADME from './Modal.mdx'; //carbon 11
 
 import { Modal } from '.';
 
 const { prefix } = settings;
 
 const sizes = {
-  Default: '',
+  'Default (md)': 'md',
   'Extra small (xs)': 'xs',
   'Small (sm)': 'sm',
   'Large (lg)': 'lg',
@@ -140,9 +140,9 @@ export default {
   decorators: [withKnobs],
   parameters: {
     component: Modal,
-    docs: {
-      page: ModalREADME,
-    },
+    // docs: {
+    //   page: ModalREADME,
+    // }, //carbon 11
   },
 };
 

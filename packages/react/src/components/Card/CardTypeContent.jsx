@@ -2,10 +2,8 @@ import React, { useMemo, useRef, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { defaultsDeep } from 'lodash-es';
+import { MeterChart, AreaChart, StackedAreaChart } from '@carbon/charts-react';
 
-import { MeterChart } from '../MeterChart';
-import { AreaChart } from '../AreaChart';
-import { StackedAreaChart } from '../StackedAreaChart';
 import { CARD_TYPES } from '../../constants/LayoutConstants';
 import { MeterChartPropTypes, SparklineChartPropTypes } from '../../constants/ChartPropTypes';
 import { settings } from '../../constants/Settings';

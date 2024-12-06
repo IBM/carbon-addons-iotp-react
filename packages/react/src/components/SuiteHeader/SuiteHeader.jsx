@@ -3,19 +3,21 @@
 
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { UserAvatar20, Settings20, Help20 } from '@carbon/icons-react';
-import { ButtonSkeleton } from 'carbon-components-react';
+import { UserAvatar, Settings, Help } from '@carbon/react/icons';
+import {
+  ButtonSkeleton,
+  HeaderContainer,
+  ActionableNotification,
+  Link,
+  SkeletonText,
+} from '@carbon/react';
 import classnames from 'classnames';
-import { HeaderContainer } from 'carbon-components-react/es/components/UIShell';
 import { get, set, cloneDeep } from 'lodash-es';
 
 import SideNav, { SideNavPropTypes } from '../SideNav/SideNav';
-import { ToastNotification } from '../Notification';
-import { Link } from '../Link';
 import Header from '../Header/Header';
 import { HeaderActionItemPropTypes, ChildContentPropTypes } from '../Header/HeaderPropTypes';
 import { settings } from '../../constants/Settings';
-import { SkeletonText } from '../SkeletonText';
 import Walkme from '../Walkme/Walkme';
 
 import SuiteHeaderProfile from './SuiteHeaderProfile/SuiteHeaderProfile';
@@ -96,7 +98,7 @@ const propTypes = {
   globalApplications: PropTypes.arrayOf(PropTypes.shape(SuiteHeaderApplicationPropTypes)),
   /** side navigation component */
   sideNavProps: PropTypes.shape(SideNavPropTypes),
-  /** If surveyData is present, show a ToastNotification */
+  /** If surveyData is present, show an ActionableNotification */
   surveyData: PropTypes.shape(SuiteHeaderSurveyDataPropTypes),
   /** If idleTimeoutData is present, instantiate IdleLogoutConfirmationModal */
   idleTimeoutData: PropTypes.shape(IdleLogoutConfirmationModalIdleTimeoutPropTypes),
@@ -317,7 +319,7 @@ const SuiteHeader = ({
     <>
       {walkmePath ? <Walkme path={walkmePath} lang={walkmeLang} /> : null}
       {showToast && surveyData ? (
-        <ToastNotification
+        <ActionableNotification
           data-testid={`${testId}-notification`}
           className={`${settings.iotPrefix}--suite-header-survey-toast`}
           kind="info"
@@ -326,38 +328,27 @@ const SuiteHeader = ({
               ? mergedI18N.surveyTitle(appName || suiteName)
               : translate(mergedI18N.surveyTitle, [['{solutionName}', appName || suiteName]])
           }
-          subtitle={
-            <>
-              <Link
-                href={surveyData.surveyLink}
-                rel="noopener noreferrer"
-                onClick={handleOnClick(
-                  SUITE_HEADER_ROUTE_TYPES.SURVEY,
-                  surveyData.surveyLink,
-                  true
-                )}
-              >
-                {mergedI18N.surveyText}
-              </Link>
-              <div className={`${settings.iotPrefix}--suite-header-survey-policy-link`}>
-                <Link
-                  href={surveyData.privacyLink}
-                  rel="noopener noreferrer"
-                  onClick={handleOnClick(
-                    SUITE_HEADER_ROUTE_TYPES.SURVEY,
-                    surveyData.privacyLink,
-                    true
-                  )}
-                >
-                  {mergedI18N.surveyPrivacyPolicy}
-                </Link>
-              </div>
-            </>
-          }
           lowContrast
           caption=""
           onCloseButtonClick={() => setShowToast(false)}
-        />
+        >
+          <Link
+            href={surveyData.surveyLink}
+            rel="noopener noreferrer"
+            onClick={handleOnClick(SUITE_HEADER_ROUTE_TYPES.SURVEY, surveyData.surveyLink, true)}
+          >
+            {mergedI18N.surveyText}
+          </Link>
+          <div className={`${settings.iotPrefix}--suite-header-survey-policy-link`}>
+            <Link
+              href={surveyData.privacyLink}
+              rel="noopener noreferrer"
+              onClick={handleOnClick(SUITE_HEADER_ROUTE_TYPES.SURVEY, surveyData.privacyLink, true)}
+            >
+              {mergedI18N.surveyPrivacyPolicy}
+            </Link>
+          </div>
+        </ActionableNotification>
       ) : null}
       {idleTimeoutData && routes?.domain !== null && routes?.domain !== undefined ? (
         <IdleLogoutConfirmationModal
@@ -493,7 +484,8 @@ const SuiteHeader = ({
                       .join(' '),
                     btnContent: (
                       <span id="suite-header-action-item-admin">
-                        <Settings20
+                        <Settings
+                          size="20"
                           fill="white"
                           data-testid="admin-icon"
                           description={mergedI18N.settingsIcon}
@@ -518,7 +510,7 @@ const SuiteHeader = ({
                     onClick: () => {},
                     btnContent: (
                       <span id="suite-header-action-item-help">
-                        <Help20 fill="white" description={mergedI18N.help} />
+                        <Help size="20" fill="white" description={mergedI18N.help} />
                       </span>
                     ),
                     childContent: routes
@@ -582,7 +574,8 @@ const SuiteHeader = ({
                     label: 'user',
                     btnContent: (
                       <span id="suite-header-action-item-profile">
-                        <UserAvatar20
+                        <UserAvatar
+                          size="20"
                           data-testid="user-icon"
                           fill="white"
                           description={mergedI18N.userIcon}

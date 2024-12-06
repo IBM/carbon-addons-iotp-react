@@ -1,5 +1,5 @@
 import React from 'react';
-import { Add20, ArrowRight16, Add16 } from '@carbon/icons-react';
+import { Add, ArrowRight } from '@carbon/react/icons';
 
 const getSentence = (index, words) => {
   const getWord = (i, step = 1) => words[(step * i) % words.length];
@@ -195,7 +195,7 @@ export const getTableData = (numberOfRows, words, selectData) =>
       id: `row-${idx}`,
       values: {
         string: getSentence(idx, words),
-        node: <Add20 />,
+        node: <Add size={20} />,
         date: new Date(100000000000 + 1000000000 * idx * idx).toISOString().split('T')[0],
         select: selectData[idx % 3].id,
         number: idx * idx,
@@ -211,14 +211,14 @@ export const addRowActions = (data) =>
     rowActions: [
       {
         id: 'drilldown',
-        renderIcon: ArrowRight16,
+        renderIcon: ArrowRight,
         iconDescription: 'Drill in',
         labelText: 'Drill in',
         isOverflow: true,
       },
       {
         id: 'Add',
-        renderIcon: Add16,
+        renderIcon: Add,
         iconDescription: 'Add',
         labelText: 'Add',
         isOverflow: true,

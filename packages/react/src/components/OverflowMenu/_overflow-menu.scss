@@ -1,4 +1,7 @@
-@import '~carbon-components/scss/components/overflow-menu/overflow-menu';
+@use '@carbon/react/scss/config' as *;
+@use '../../globals/vars' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/styles/scss/components/overflow-menu' as *;
 
 button.#{$prefix}--overflow-menu {
   background: none;
@@ -14,13 +17,13 @@ button.#{$iot-prefix}--overflow-menu-icon {
 
   &.#{$prefix}--btn--icon-only.#{$prefix}--tooltip__trigger {
     & svg {
-      fill: $ui-05;
+      fill: $layer-selected-inverse;
       margin-left: 0;
     }
 
     &:hover svg,
     &:focus svg {
-      fill: $ui-05;
+      fill: $layer-selected-inverse;
     }
   }
 }

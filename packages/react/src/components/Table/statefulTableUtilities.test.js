@@ -1,4 +1,4 @@
-import { Add16 } from '@carbon/icons-react';
+import { Add } from '@carbon/react/icons';
 
 import { getRowAction } from './tableUtilities';
 
@@ -20,7 +20,7 @@ describe('statefulTableUtilities', () => {
               rowActions: [
                 {
                   id: 'Add',
-                  renderIcon: Add16,
+                  renderIcon: Add,
                   iconDescription: 'Add',
                   labelText: 'Add',
                 },
@@ -55,7 +55,7 @@ describe('statefulTableUtilities', () => {
               rowActions: [
                 {
                   id: '',
-                  renderIcon: Add16,
+                  renderIcon: Add,
                   iconDescription: 'Add',
                   labelText: 'Add',
                 },

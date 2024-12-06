@@ -1,1 +1,1 @@
-export { NumberInput, NumberInputSkeleton } from 'carbon-components-react';
+export { NumberInput, NumberInputSkeleton } from '@carbon/react';

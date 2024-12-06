@@ -1,16 +1,16 @@
 import React, { useState, createElement, useEffect } from 'react';
 import { action } from '@storybook/addon-actions';
 import {
-  Switcher24,
-  Chip24,
-  Dashboard24,
-  Group24,
-  ParentChild24,
-  Home24,
-  RecentlyViewed24,
-  Apps24,
-} from '@carbon/icons-react';
-import { HeaderContainer } from 'carbon-components-react/es/components/UIShell';
+  Switcher,
+  Chip,
+  Dashboard,
+  Group,
+  ParentChild,
+  Home,
+  RecentlyViewed,
+  Apps,
+} from '@carbon/react/icons';
+import { HeaderContainer } from '@carbon/react';
 import { boolean } from '@storybook/addon-knobs';
 import { partition } from 'lodash-es';
 
@@ -18,7 +18,7 @@ import Header from '../Header';
 import PageTitleBar from '../PageTitleBar/PageTitleBar';
 import { settings } from '../../constants/Settings';
 import FullWidthWrapper from '../../internal/FullWidthWrapper';
-import './SideNav.story.scss';
+// import './SideNav.story.scss'; carbon 11
 import StatefulTable from '../Table/StatefulTable';
 import { getInitialState } from '../Table/Table.story.helpers';
 
@@ -33,7 +33,7 @@ const RouterComponent = ({ children, ...rest }) => <div {...rest}>{children}</di
 
 const mostRecentLinks = [
   {
-    icon: RecentlyViewed24,
+    icon: RecentlyViewed,
     isEnabled: true,
     metaData: {
       onClick: action('menu click'),
@@ -67,7 +67,7 @@ const mostRecentLinks = [
 
 const links = (isActive = false) => [
   {
-    icon: Switcher24,
+    icon: Switcher,
     isEnabled: true,
     metaData: {
       onClick: action('menu click'),
@@ -90,7 +90,7 @@ const links = (isActive = false) => [
   },
   {
     isEnabled: true,
-    icon: Chip24,
+    icon: Chip,
     metaData: {
       label: 'Devices',
       href: 'https://google.com',
@@ -101,7 +101,7 @@ const links = (isActive = false) => [
   },
   {
     isEnabled: true,
-    icon: Dashboard24,
+    icon: Dashboard,
     metaData: {
       label: 'Dashboards',
       href: 'https://google.com',
@@ -132,7 +132,7 @@ const links = (isActive = false) => [
   },
   {
     isEnabled: true,
-    icon: Group24,
+    icon: Group,
     metaData: {
       label: 'Members',
       element: 'button',
@@ -163,7 +163,8 @@ const HeaderProps = {
       label: 'user',
       onClick: action('click'),
       btnContent: (
-        <Group24
+        <Group
+          size={24}
           fill="white"
           description="Icon"
           className={`${prefix}--header__menu-item ${prefix}--header__menu-title`}
@@ -192,7 +193,7 @@ export const SideNavComponent = () => {
   const pinnedLinks = demoPinnedLink
     ? [
         {
-          icon: Home24,
+          icon: Home,
           isEnabled: true,
           isPinned: true,
           metaData: {
@@ -214,7 +215,7 @@ export const SideNavComponent = () => {
     ...pinnedLinks,
     {
       isEnabled: true,
-      icon: ParentChild24,
+      icon: ParentChild,
       metaData: {
         label: 'Nested Levels',
         element: 'button',
@@ -397,7 +398,7 @@ export const SideNavComponentWithState = () => {
   const pinnedLinks = demoPinnedLink
     ? [
         {
-          icon: Home24,
+          icon: Home,
           isEnabled: true,
           isPinned: true,
           metaData: {
@@ -469,7 +470,7 @@ export const SideNavComponentWithState = () => {
       ...pinnedLinks,
       {
         isEnabled: true,
-        icon: Dashboard24,
+        icon: Dashboard,
         metaData: {
           label: 'Dashboards',
           element: 'button',
@@ -497,7 +498,7 @@ export const SideNavComponentWithState = () => {
       },
       {
         isEnabled: true,
-        icon: Group24,
+        icon: Group,
         metaData: {
           label: 'Members',
           element: 'button',
@@ -528,7 +529,7 @@ export const SideNavComponentWithState = () => {
       },
       demoMostRecentLinks
         ? {
-            icon: Apps24,
+            icon: Apps,
             isEnabled: true,
             metaData: {
               onClick: action('menu click'),
@@ -572,7 +573,7 @@ export const SideNavComponentWithState = () => {
 
     setRecentLinksState([
       {
-        icon: RecentlyViewed24,
+        icon: RecentlyViewed,
         isEnabled: true,
         metaData: {
           onClick: action('menu click'),

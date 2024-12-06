@@ -10,7 +10,7 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, boolean, text, select } from '@storybook/addon-knobs';
-import { BreadcrumbSkeleton, BreadcrumbItem } from 'carbon-components-react';
+import { BreadcrumbSkeleton, BreadcrumbItem } from '@carbon/react';
 import { layout05, spacing05 } from '@carbon/layout';
 
 import Breadcrumb from './Breadcrumb';

@@ -1,4 +1,5 @@
-@import '../src/globals/vars';
+@use '../src/globals/vars' as *;
+@use '@carbon/react/scss/config' as *;
 
 .sb-show-main.sb-main-padded {
   padding: 0;

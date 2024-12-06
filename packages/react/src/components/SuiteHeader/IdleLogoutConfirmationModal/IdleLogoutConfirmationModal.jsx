@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import { Modal } from '@carbon/react';
 
 import { settings } from '../../../constants/Settings';
-import { Modal } from '../../Modal';
 import IdleTimer from '../util/IdleTimer';
 import { SUITE_HEADER_ROUTE_TYPES } from '../suiteHeaderConstants';
 

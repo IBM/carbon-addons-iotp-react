@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
-import { Close16, Scale32 } from '@carbon/icons-react';
+import { Close, Scale } from '@carbon/react/icons';
 import { omit } from 'lodash-es';
 
 import Button from '../../../../Button';
@@ -166,8 +166,8 @@ const ImageCardFormItems = ({
           {cardConfig.content?.id ? (
             <Button
               kind="ghost"
-              renderIcon={Close16}
-              size="field"
+              renderIcon={Close}
+              size="md"
               iconDescription={mergedI18n.close}
               className={`${baseClassName}--form-section ${baseClassName}--form-section-image-clear-button`}
               onClick={() =>
@@ -182,8 +182,8 @@ const ImageCardFormItems = ({
         {cardConfig.content?.id ? (
           <Button
             className={`${baseClassName}--form-section-image-btn`}
-            size="small"
-            renderIcon={Scale32}
+            size="sm"
+            renderIcon={(props) => <Scale size={32} {...props} />}
             onClick={handleShowHotspotEditor}
           >
             {mergedI18n.editImage}

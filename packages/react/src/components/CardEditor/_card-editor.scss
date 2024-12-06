@@ -1,24 +1,29 @@
+@use '../../globals/vars' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/type' as *;
+@use '@carbon/react/scss/config' as *;
 .#{$iot-prefix}--card-editor {
   height: 100%;
   width: 16rem;
   display: flex;
-  background: $ui-01;
+  background: $layer-01;
   flex-direction: column;
-  border-left: 1px solid $ui-03;
+  border-left: 1px solid $layer-accent-01;
   &--header {
     flex: 0 0 3.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 $spacing-02;
-    border-bottom: 1px solid $ui-03;
+    border-bottom: 1px solid $layer-accent-01;
     h5 {
       padding: 0 $spacing-03;
     }
   }
 
   &--footer {
-    border-top: solid 1px $ui-03;
+    border-top: solid 1px $layer-accent-01;
     & > button {
       justify-content: space-between;
       width: 100%;
@@ -36,7 +41,7 @@
   }
 
   &--header--title {
-    @include type-style('productive-heading-02');
+    @include type-style('heading-compact-02');
     padding-left: $spacing-03;
     width: 100%;
   }
@@ -45,4 +50,21 @@
 .#{$iot-prefix}--card-gallery-list__icon > svg {
   height: 34px;
   width: 40px;
+}
+
+.#{$iot-prefix}--card-edit-form--threshold-input-group
+  .#{$prefix}--tooltip-trigger__wrapper
+  .#{$prefix}--btn--icon-only {
+  padding: 0;
+}
+
+.#{$iot-prefix}--card-edit-form--threshold-input-group
+  .#{$prefix}--tooltip-trigger__wrapper
+  .#{$prefix}--btn--icon-only
+  svg {
+  right: 1rem;
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  margin: auto;
 }

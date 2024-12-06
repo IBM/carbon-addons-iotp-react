@@ -1,1 +1,1 @@
-export { DataTableSkeleton } from 'carbon-components-react';
+export { DataTableSkeleton } from '@carbon/react';
