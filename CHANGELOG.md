@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-v4-Carbon11.74](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.0-v4-Carbon11.73...v4.0.0-v4-Carbon11.74) (2024-12-06)
+
+
+### Reverts
+
+* hide the overflow in value card ([3b5692f](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/3b5692f9494e42f060ddc4ffb30b81c31d099be2))
+
+
+
+
+
 # [4.0.0-v4-Carbon11.73](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.0-v4-Carbon11.72...v4.0.0-v4-Carbon11.73) (2024-12-02)
 
 **Note:** Version bump only for package ibm-ai-applications
