@@ -30,6 +30,17 @@ if [[ $GITHUB_REF =~ "master" ]]; then
   fi
 fi
 
+if [[ $GITHUB_REF =~ "next" ]]; then
+  currentRef=$(git rev-parse next) # sha of the local branch
+  headRef=$(git rev-parse origin/next) # sha of the remote branch
+  if [[ $currentRef == $headRef ]]; then
+    echo "up to date"
+  else
+    echo "current branch ahead/behind origin exiting"
+    exit 0;
+  fi
+fi
+
 # if we're on the next branch, check if we're up to date, otherwise kill the build
 if [[ $GITHUB_REF =~ "v4-Carbon11" ]]; then
   currentRef=$(git rev-parse v4-Carbon11) # sha of the local branch
@@ -49,8 +60,16 @@ if [[ $GITHUB_REF =~ "master" ]]; then
   # graduate the relase with --conventional-graduate
   lerna version --conventional-commits --conventional-graduate --create-release github --yes
   # publish the packages that were just versioned
+  lerna publish from-git --dist-tag stable --yes
+fi
+
+if [[ $GITHUB_REF =~ "next" ]]; then
+  # graduate the relase with --conventional-graduate
+  lerna version --conventional-commits --conventional-graduate --create-release github --yes
+  # publish the packages that were just versioned
   lerna publish from-git --dist-tag latest --yes
 fi
+
 
 if [[ $GITHUB_REF =~ "v4-Carbon11" ]]; then
   # version a prerelease to the `next` dist-tag with the `next` preid
