@@ -224,6 +224,12 @@ describe('TableCard', () => {
         priority: 1,
         renderDataFunction: mockRenderFunc,
       },
+      {
+        dataSourceId: 'hour',
+        label: 'Hour',
+        priority: 2,
+        type: 'TIMESTAMP',
+      },
     ];
     const { container, rerender } = render(
       <TableCard

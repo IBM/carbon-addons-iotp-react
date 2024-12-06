@@ -99,7 +99,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* remove duplicate icon descriptions ([43c31cb](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/43c31cbdb7105d6d222c0b701b8c0a119135c0ef))
+* table card ([#3899](https://github.com/carbon-design-system/carbon-addons-iot-react/issues/3899)) ([fe741bd](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/fe741bdc9d0f6d4780a1e6af6e023356d3648829))
 
 
 
