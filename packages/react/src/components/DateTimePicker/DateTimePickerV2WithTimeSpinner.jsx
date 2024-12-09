@@ -1034,9 +1034,10 @@ const DateTimePicker = ({
           inputTop,
           inputBottom,
         }}
+        id={'datepicker-flyout'}
         testId={`${testId}-datepicker-flyout`}
         direction={direction}
-        customFooter={() => {}}
+        customFooter={null}
         tooltipFocusTrap={false}
         renderInPortal={renderInPortal}
         useAutoPositioning={false}

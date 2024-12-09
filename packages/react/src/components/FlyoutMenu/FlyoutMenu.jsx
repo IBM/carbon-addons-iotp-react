@@ -244,11 +244,13 @@ const FlyoutMenu = ({
   }, [adjustedDirection, direction, useAutoPositioning]);
 
   const Footer = CustomFooter ? (
-    <CustomFooter setIsOpen={setIsOpen} isOpen={isControlledOpen} />
+      <CustomFooter setIsOpen={setIsOpen} isOpen={isControlledOpen} /> 
   ) : (
-    <DefaultFooter setIsOpen={setIsOpen} onCancel={onCancel} onApply={onApply} i18n={i18n} />
+    testId?.endsWith('-datepicker-flyout') == true ? '' : <DefaultFooter setIsOpen={setIsOpen} onCancel={onCancel} onApply={onApply} i18n={i18n} />
   );
 
+
+  console.log(CustomFooter)
   return (
     <div
       data-testid={`${testId}-container`}
