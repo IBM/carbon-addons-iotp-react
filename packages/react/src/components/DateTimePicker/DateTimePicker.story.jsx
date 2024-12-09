@@ -62,6 +62,7 @@ export const Default = () => {
             value: RELATIVE_VALUES.YESTERDAY,
           },
         ]}
+        dateTimeMask={text('dateTimeMask', 'YYYY-MM-DD HH:mm')}
         hasTimeInput={boolean('hasTimeInput', true)}
         invalid={boolean('invalid', false)}
         disabled={boolean('disabled', false)}
