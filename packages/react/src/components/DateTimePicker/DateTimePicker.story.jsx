@@ -56,7 +56,6 @@ export const Default = () => {
     >
       <DateTimePicker
         id="datetimepicker"
-        dateTimeMask={text('dateTimeMask', 'YYYY-MM-DD HH:mm')}
         relatives={[
           {
             label: 'Yesterday',

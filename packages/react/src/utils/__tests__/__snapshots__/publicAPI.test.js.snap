@@ -7837,7 +7837,7 @@ Map {
         },
         "type": "SIMPLE",
       },
-      "defaultDateFormatPattern": "L HH:mm",
+      "defaultDateFormatPattern": "L HH:mm:ss",
       "domainRange": null,
       "i18n": Object {
         "defaultFilterStringPlaceholdText": "Filter",
@@ -9359,7 +9359,7 @@ Map {
   },
   "DateTimePicker" => Object {
     "defaultProps": Object {
-      "dateTimeMask": "YYYY-MM-DD HH:mm",
+      "dateTimeMask": "L HH:mm",
       "defaultValue": null,
       "disabled": false,
       "expanded": false,
@@ -9849,7 +9849,7 @@ Map {
   "DateTimePickerV2" => Object {
     "defaultProps": Object {
       "datePickerType": "range",
-      "dateTimeMask": "YYYY-MM-DD HH:mm",
+      "dateTimeMask": "L HH:mm",
       "defaultValue": null,
       "disabled": false,
       "expanded": false,
@@ -16134,7 +16134,7 @@ Map {
         "xs": 4,
       },
       "data": null,
-      "dateTimeMask": "YYYY-MM-DD HH:mm",
+      "dateTimeMask": "L HH:mm",
       "footerContent": undefined,
       "hasTitleWrap": false,
       "hideHeader": false,
@@ -19732,7 +19732,7 @@ Map {
           "type": "end_line",
         },
       },
-      "defaultDateFormatPattern": "L HH:mm",
+      "defaultDateFormatPattern": "L HH:mm:ss",
       "domainRange": null,
       "i18n": Object {
         "alertDetected": "Alert detected:",
@@ -22246,7 +22246,7 @@ Map {
   },
   "TableCard" => Object {
     "defaultProps": Object {
-      "defaultDateFormatPattern": "L HH:mm",
+      "defaultDateFormatPattern": "L HH:mm:ss",
       "filters": Array [],
       "i18n": Object {
         "cloneCardLabel": "Clone card",
@@ -32227,7 +32227,7 @@ Map {
         "includeZeroOnYaxis": false,
         "showLegend": true,
       },
-      "defaultDateFormatPattern": "L HH:mm",
+      "defaultDateFormatPattern": "L HH:mm:ss",
       "domainRange": null,
       "i18n": Object {
         "defaultFilterStringPlaceholdText": "type and hit enter to apply",

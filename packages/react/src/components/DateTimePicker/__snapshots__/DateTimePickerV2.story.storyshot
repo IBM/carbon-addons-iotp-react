@@ -779,7 +779,7 @@ exports[`Storybook Snapshot tests and console checks Storyshots 2 - Watson IoT E
               id="definition-tooltip-14"
               role="tooltip"
             >
-              2018-10-27 19:34 to Now
+              10/27/2018 19:34 to Now
             </span>
           </span>
         </div>
@@ -891,9 +891,9 @@ exports[`Storybook Snapshot tests and console checks Storyshots 2 - Watson IoT E
         >
           <span
             className=""
-            title="2018-10-28 13:10 to 2018-10-28 13:30"
+            title="10/28/2018 13:10 to 10/28/2018 13:30"
           >
-            2018-10-28 13:10 to 2018-10-28 13:30
+            10/28/2018 13:10 to 10/28/2018 13:30
           </span>
         </div>
         <div
@@ -1153,7 +1153,7 @@ exports[`Storybook Snapshot tests and console checks Storyshots 2 - Watson IoT E
               id="definition-tooltip-18"
               role="tooltip"
             >
-              2018-10-27 19:34 to Now
+              10/27/2018 19:34 to Now
             </span>
           </span>
         </div>
@@ -1282,7 +1282,7 @@ exports[`Storybook Snapshot tests and console checks Storyshots 2 - Watson IoT E
               id="definition-tooltip-16"
               role="tooltip"
             >
-              2018-10-27 19:34 to Now
+              10/27/2018 19:34 to Now
             </span>
           </span>
         </div>

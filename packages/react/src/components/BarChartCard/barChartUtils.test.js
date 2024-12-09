@@ -585,7 +585,7 @@ describe('barChartUtils', () => {
         values: {
           Emissions: 120,
           Particles: 447,
-          timestamp: '02/09/2020 10:23',
+          timestamp: '02/09/2020 10:23:45',
         },
       },
       {
@@ -594,7 +594,7 @@ describe('barChartUtils', () => {
         values: {
           Emissions: 150,
           Particles: 450,
-          timestamp: '02/10/2020 10:23',
+          timestamp: '02/10/2020 10:23:45',
         },
       },
       {
@@ -603,7 +603,7 @@ describe('barChartUtils', () => {
         values: {
           Emissions: 170,
           Particles: 512,
-          timestamp: '02/11/2020 10:23',
+          timestamp: '02/11/2020 10:23:45',
         },
       },
       {
@@ -612,7 +612,7 @@ describe('barChartUtils', () => {
         values: {
           Emissions: 200,
           Particles: 565,
-          timestamp: '02/12/2020 10:23',
+          timestamp: '02/12/2020 10:23:45',
         },
       },
     ]);

@@ -25,6 +25,7 @@ import { getUpdatedCardSize, useCardResizing } from '../../utils/cardUtilityFunc
 import { parseValue } from '../DateTimePicker/dateTimePickerUtils';
 import useSizeObserver from '../../hooks/useSizeObserver';
 import EmptyState from '../EmptyState/EmptyState';
+import { DAYJS_INPUT_FORMATS } from '../../utils/dayjs';
 
 import CardTypeContent from './CardTypeContent';
 import CardToolbar from './CardToolbar';
@@ -266,7 +267,7 @@ export const defaultProps = {
   tooltip: undefined,
   titleTextTooltip: undefined,
   footerContent: undefined,
-  dateTimeMask: 'YYYY-MM-DD HH:mm',
+  dateTimeMask: DAYJS_INPUT_FORMATS.RANGE,
   padding: 'default',
   overrides: undefined,
   type: null,
