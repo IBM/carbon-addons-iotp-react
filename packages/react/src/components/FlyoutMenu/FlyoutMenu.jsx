@@ -245,13 +245,12 @@ const FlyoutMenu = ({
 
   const Footer = CustomFooter ? (
     <CustomFooter setIsOpen={setIsOpen} isOpen={isControlledOpen} />
-  ) : testId?.endsWith('-datepicker-flyout') == true ? (
+  ) : testId?.endsWith('-datepicker-flyout') === true ? (
     ''
   ) : (
     <DefaultFooter setIsOpen={setIsOpen} onCancel={onCancel} onApply={onApply} i18n={i18n} />
   );
-
-  console.log(CustomFooter);
+  
   return (
     <div
       data-testid={`${testId}-container`}
