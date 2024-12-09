@@ -5,6 +5,7 @@ on:
     branches:
       - master
       - next
+      - '2.x.x'
 
 jobs:
   publish:
