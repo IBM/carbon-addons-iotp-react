@@ -173,8 +173,8 @@
   "dependencies": {
     "@babel/plugin-transform-optional-chaining": "^7.24.7",
     "@babel/runtime": "^7.25.6",
-    "@carbon/charts": "^1.22.7",
-    "@carbon/charts-react": "^1.22.7",
+    "@carbon/charts": "^1.22.0",
+    "@carbon/charts-react": "^1.22.0",
     "@carbon/colors": "^11.28.0",
     "@carbon/icons-react": "^11.53.0",
     "@carbon/layout": "^11.28.0",

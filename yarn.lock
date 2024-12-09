@@ -1938,7 +1938,7 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@carbon/charts-react@^1.22.7":
+"@carbon/charts-react@^1.22.0":
   version "1.22.7"
   resolved "https://registry.yarnpkg.com/@carbon/charts-react/-/charts-react-1.22.7.tgz#bd469c276d6eb01405123501fa2a1757323db812"
   integrity sha512-oSp1nCRgJDOlB9Yf0ZnGHoDrayE8ubtzsz6LnPpZ/ibfg4G+LfPHOBOFUP8wX63aHt3FGz7/lbQmg3vqH+7G/g==
@@ -1947,7 +1947,7 @@
     "@carbon/icons-react" "^11.53.0"
     "@ibm/telemetry-js" "^1.8.0"
 
-"@carbon/charts@1.22.7", "@carbon/charts@^1.22.7":
+"@carbon/charts@1.22.7", "@carbon/charts@^1.22.0":
   version "1.22.7"
   resolved "https://registry.yarnpkg.com/@carbon/charts/-/charts-1.22.7.tgz#6c0e2bd2c62e7bcb3055f64eed03b1923303f724"
   integrity sha512-xyxbSzmyf1xIPZObmkUkFFU+wNfPqKfRa5isNu94oJgcTlFLw6+TirUIUCgdrONVryxolbvB9KiMs4TbWMISSQ==
