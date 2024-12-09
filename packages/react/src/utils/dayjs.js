@@ -165,4 +165,9 @@ const loadLocales = () => {
 
 loadLocales();
 
+export const DAYJS_INPUT_FORMATS = {
+  SECONDS: 'L HH:mm:ss',
+  RANGE: 'L HH:mm',
+};
+
 export default dayjs;

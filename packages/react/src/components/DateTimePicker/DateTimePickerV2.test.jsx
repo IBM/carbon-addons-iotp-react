@@ -31,6 +31,7 @@ const dateTimePickerProps = {
   testId: 'date-time-picker',
   onCancel: jest.fn(),
   onApply: jest.fn(),
+  dateTimeMask: 'YYYY-MM-DD HH:mm',
 };
 
 const i18n = {
@@ -403,8 +404,8 @@ describe('DateTimePickerV2', () => {
     render(
       <DateTimePicker
         useNewTimeSpinner
-        dateTimeMask="YYYY-MM-DD hh:mm A"
         {...dateTimePickerProps}
+        dateTimeMask="YYYY-MM-DD hh:mm A"
         defaultValue={defaultAbsoluteValue}
       />
     );

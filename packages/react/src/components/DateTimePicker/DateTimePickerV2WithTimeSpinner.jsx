@@ -21,7 +21,7 @@ import { useLangDirection } from 'use-lang-direction';
 import TimePickerSpinner from '../TimePickerSpinner/TimePickerSpinner';
 import TimePickerDropdown from '../TimePicker/TimePickerDropdown';
 import { settings } from '../../constants/Settings';
-import dayjs from '../../utils/dayjs';
+import dayjs, { DAYJS_INPUT_FORMATS } from '../../utils/dayjs';
 import {
   PICKER_KINDS,
   PRESET_VALUES,
@@ -208,7 +208,7 @@ const dateTimePickerId = uuidv4();
 export const defaultProps = {
   testId: 'date-time-picker',
   defaultValue: null,
-  dateTimeMask: 'YYYY-MM-DD HH:mm',
+  dateTimeMask: DAYJS_INPUT_FORMATS.RANGE,
   presets: PRESET_VALUES,
   intervals: [
     {

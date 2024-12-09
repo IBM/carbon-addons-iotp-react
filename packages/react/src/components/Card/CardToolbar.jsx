@@ -14,6 +14,7 @@ import DateTimePicker, {
 } from '../DateTimePicker/DateTimePickerV2WithoutTimeSpinner';
 import Button from '../Button';
 import { PRESET_VALUES } from '../../constants/DateConstants';
+import { DAYJS_INPUT_FORMATS } from '../../utils/dayjs';
 
 import CardRangePicker, { CardRangePickerPropTypes } from './CardRangePicker';
 
@@ -109,7 +110,7 @@ const defaultProps = {
     extraActionLabel: 'Action Label',
   },
   testId: 'card-toolbar',
-  dateTimeMask: 'YYYY-MM-DD HH:mm',
+  dateTimeMask: DAYJS_INPUT_FORMATS.RANGE,
   renderDateDropdownInPortal: true,
 };
 

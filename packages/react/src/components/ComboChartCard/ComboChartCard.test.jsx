@@ -170,7 +170,7 @@ describe('ComboChartCard', () => {
     expect(container.querySelector('#mock-combo-chart')).toBeInTheDocument();
     userEvent.click(screen.getByLabelText('Download table content'));
     expect(fileDownload).toHaveBeenCalledWith(
-      `health,age,condition,rul,date\n83,77,95,92,12/15/2018 00:00\n85,78,97,93,12/01/2018 00:00\n`,
+      `health,age,condition,rul,date\n83,77,95,92,12/15/2018 00:00:00\n85,78,97,93,12/01/2018 00:00:00\n`,
       `Health.csv`
     );
   });

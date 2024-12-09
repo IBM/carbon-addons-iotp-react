@@ -56,13 +56,13 @@ export const Default = () => {
     >
       <DateTimePicker
         id="datetimepicker"
-        dateTimeMask={text('dateTimeMask', 'YYYY-MM-DD HH:mm')}
         relatives={[
           {
             label: 'Yesterday',
             value: RELATIVE_VALUES.YESTERDAY,
           },
         ]}
+        dateTimeMask={text('dateTimeMask', 'YYYY-MM-DD HH:mm')}
         hasTimeInput={boolean('hasTimeInput', true)}
         invalid={boolean('invalid', false)}
         disabled={boolean('disabled', false)}

@@ -20,7 +20,7 @@ import {
 } from '../../utils/cardUtilityFunctions';
 import StatefulTable from '../Table/StatefulTable';
 import { csvDownloadHandler } from '../../utils/componentUtilityFunctions';
-import dayjs from '../../utils/dayjs';
+import dayjs, { DAYJS_INPUT_FORMATS } from '../../utils/dayjs';
 import { formatGraphTick } from '../TimeSeriesCard/timeSeriesUtils';
 
 import {
@@ -59,9 +59,9 @@ const defaultProps = {
   },
   locale: 'en',
   showTimeInGMT: false,
-  tooltipDateFormatPattern: 'L HH:mm:ss',
+  tooltipDateFormatPattern: DAYJS_INPUT_FORMATS.SECONDS,
   values: null,
-  defaultDateFormatPattern: 'L HH:mm',
+  defaultDateFormatPattern: DAYJS_INPUT_FORMATS.SECONDS,
 };
 
 const BarChartCard = ({

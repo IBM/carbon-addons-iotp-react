@@ -247,7 +247,7 @@ describe('TableCard', () => {
       row: {
         alert: 'AHI005 Asset failure',
         count: 1.2039201932,
-        hour: '07/23/2019 05:26',
+        hour: '07/23/2019 05:26:10',
         long_description: 'long description for a given event payload',
         pressure: 0,
       },
@@ -1014,7 +1014,7 @@ describe('TableCard', () => {
 
     userEvent.click(screen.getByRole('button', { name: /download/i }));
     expect(fileDownload).toHaveBeenCalledWith(
-      `alert,count,hour,long_description,pressure\nAHI005 Asset failure,1.2039201932,07/23/2019 05:26,long description for a given event payload,0\nAHI003 process need to optimize adjust X variables,1.10329291,07/23/2019 04:26,long description for a given event payload,2\n`,
+      `alert,count,hour,long_description,pressure\nAHI005 Asset failure,1.2039201932,07/23/2019 05:26:10,long description for a given event payload,0\nAHI003 process need to optimize adjust X variables,1.10329291,07/23/2019 04:26:10,long description for a given event payload,2\n`,
       'Open Alerts.csv'
     );
   });
