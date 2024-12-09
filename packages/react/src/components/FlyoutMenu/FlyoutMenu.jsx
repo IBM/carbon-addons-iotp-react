@@ -250,7 +250,7 @@ const FlyoutMenu = ({
   ) : (
     <DefaultFooter setIsOpen={setIsOpen} onCancel={onCancel} onApply={onApply} i18n={i18n} />
   );
-  
+
   return (
     <div
       data-testid={`${testId}-container`}
