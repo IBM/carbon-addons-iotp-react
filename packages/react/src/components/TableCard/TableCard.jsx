@@ -1,11 +1,11 @@
 import React, { useMemo, useCallback } from 'react';
 import { OverflowMenu, OverflowMenuItem, Link } from '@carbon/react';
-import { isNil, uniqBy, cloneDeep, capitalize, isFinite } from 'lodash-es';
+import { isNil, uniqBy, cloneDeep, capitalize } from 'lodash-es';
 import { OverflowMenuVertical } from '@carbon/react/icons';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 
-import dayjs from '../../utils/dayjs';
+import dayjs, { DAYJS_INPUT_FORMATS } from '../../utils/dayjs';
 import { CardPropTypes, TableCardPropTypes } from '../../constants/CardPropTypes';
 import Card, { defaultProps as CardDefaultProps } from '../Card/Card';
 import { CARD_SIZES } from '../../constants/LayoutConstants';
@@ -70,7 +70,7 @@ const defaultProps = {
   },
   renderDateDropdownInPortal: true,
   withToolbarTooltips: false,
-  defaultDateFormatPattern: 'L HH:mm',
+  defaultDateFormatPattern: DAYJS_INPUT_FORMATS.SECONDS,
 };
 
 const TableCard = ({
@@ -305,7 +305,7 @@ const TableCard = ({
     return tableData.map((row) => {
       const values = { ...row.values };
       Object.keys(values).forEach((column) => {
-        if (!isEditable && isFinite(values[column]) && filteredTimestampColumns.includes(column)) {
+        if (!isEditable && filteredTimestampColumns.includes(column)) {
           values[column] = values[column]
             ? dayjs(values[column]).format(defaultDateFormatPattern)
             : '';

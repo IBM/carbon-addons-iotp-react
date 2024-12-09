@@ -18,6 +18,7 @@ const tooltipElement = <div>This is some other text</div>;
 const cardProps = {
   title: 'My Title',
   id: 'my card',
+  dateTimeMask: 'YYYY-MM-DD HH:mm',
 };
 
 describe('Card', () => {

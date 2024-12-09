@@ -14,6 +14,7 @@ import { CardPropTypes, ComboChartPropTypes } from '../../constants/CardPropType
 import { settings } from '../../constants/Settings';
 import StatefulTable from '../Table/StatefulTable';
 import { csvDownloadHandler } from '../../utils/componentUtilityFunctions';
+import { DAYJS_INPUT_FORMATS } from '../../utils/dayjs';
 
 import { useTableData, useTableColumns, useChartData, useChartOptions } from './comboChartHelpers';
 
@@ -42,8 +43,8 @@ const defaultProps = {
   },
   showTimeInGMT: false,
   domainRange: null,
-  tooltipDateFormatPattern: 'L HH:mm:ss',
-  defaultDateFormatPattern: 'L HH:mm',
+  tooltipDateFormatPattern: DAYJS_INPUT_FORMATS.SECONDS,
+  defaultDateFormatPattern: DAYJS_INPUT_FORMATS.SECONDS,
 };
 
 const ComboChartCard = ({

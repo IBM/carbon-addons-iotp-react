@@ -19,7 +19,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import TimePickerSpinner from '../TimePickerSpinner/TimePickerSpinner';
 import { settings } from '../../constants/Settings';
-import dayjs from '../../utils/dayjs';
+import dayjs, { DAYJS_INPUT_FORMATS } from '../../utils/dayjs';
 import { handleSpecificKeyDown, useOnClickOutside } from '../../utils/componentUtilityFunctions';
 import { Tooltip } from '../Tooltip';
 
@@ -207,7 +207,7 @@ const propTypes = {
 const defaultProps = {
   testId: 'date-time-picker',
   defaultValue: null,
-  dateTimeMask: 'YYYY-MM-DD HH:mm',
+  dateTimeMask: DAYJS_INPUT_FORMATS.RANGE,
   presets: PRESET_VALUES,
   intervals: [
     {
@@ -323,12 +323,7 @@ const DateTimePicker = ({
     ...i18n,
   };
 
-  // make sure locale is 2 letters
-  const newLocale = locale?.length === 2 ? locale : locale.slice(0, 2);
-  // initialize the dayjs locale
-  useEffect(() => {
-    dayjs.locale(newLocale);
-  }, [newLocale]);
+  dayjs.locale(locale);
 
   // State
   const [customRangeKind, setCustomRangeKind, onCustomRangeChange] =
@@ -906,7 +901,7 @@ const DateTimePicker = ({
                       ref={pickerRefCallback}
                       onChange={onDatePickerChange}
                       value={absoluteValue ? [absoluteValue.startDate, absoluteValue.endDate] : ''}
-                      locale={newLocale}
+                      locale={locale.split('-')[0]}
                     >
                       <DatePickerInput
                         labelText=""
