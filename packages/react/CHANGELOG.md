@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.155.2](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v2.155.1...v2.155.2) (2024-12-09)
+
+
+### Bug Fixes
+
+* locale format for cards ([#3903](https://github.com/carbon-design-system/carbon-addons-iot-react/issues/3903)) ([cddbe4b](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/cddbe4bfcccd3f52784cbb56f42de357db6f09a4))
+
+
+
+
+
 ## [2.155.1](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v2.154.0-next.41...v2.155.1) (2024-12-09)
 
 **Note:** Version bump only for package carbon-addons-iot-react
