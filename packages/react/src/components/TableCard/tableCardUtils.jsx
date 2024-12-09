@@ -3,7 +3,7 @@ import { isNil } from 'lodash-es';
 import { Link } from 'carbon-components-react';
 
 import { formatNumberWithPrecision, getVariables } from '../../utils/cardUtilityFunctions';
-import dayjs from '../../utils/dayjs';
+import dayjs, { DAYJS_INPUT_FORMATS } from '../../utils/dayjs';
 
 export const determinePrecisionAndValue = (precision = 0, value, locale) => {
   const precisionDefined = Number.isInteger(value) ? 0 : precision;
@@ -23,7 +23,10 @@ export const determinePrecisionAndValue = (precision = 0, value, locale) => {
  * @param {Array<Object>} columns - Array of TableCard columns
  * @return {array} array of columns with formatted links and updated variable values
  */
-export const createColumnsWithFormattedLinks = (columns, defaultDateFormatPattern = 'L HH:mm') => {
+export const createColumnsWithFormattedLinks = (
+  columns,
+  defaultDateFormatPattern = DAYJS_INPUT_FORMATS.SECONDS
+) => {
   return columns.map((column) => {
     const { linkTemplate } = column;
     if (linkTemplate) {
@@ -124,7 +127,7 @@ export const handleExpandedItemLinks = (row, expandedRow, cardVariables) => {
 export const determineFilterFunction = (
   column,
   defaultFilterStringPlaceholdText,
-  defaultDateFormatPattern = 'L HH:mm'
+  defaultDateFormatPattern = DAYJS_INPUT_FORMATS.SECONDS
 ) => {
   return {
     ...(column.type === 'TIMESTAMP'

@@ -4,7 +4,7 @@ import { isNil, mapValues } from 'lodash-es';
 
 import { CARD_SIZES } from '../constants/LayoutConstants';
 
-import dayjs from './dayjs';
+import dayjs, { DAYJS_INPUT_FORMATS } from './dayjs';
 import { convertStringsToDOMElement } from './componentUtilityFunctions';
 
 /**
@@ -497,7 +497,7 @@ export const handleTooltip = (
   alertRanges,
   alertDetected,
   showTimeInGMT,
-  tooltipDateFormatPattern = 'L HH:mm:ss',
+  tooltipDateFormatPattern = DAYJS_INPUT_FORMATS.SECONDS,
   locale
 ) => {
   dayjs.locale(locale);

@@ -244,7 +244,7 @@ describe('TimeSeriesCard', () => {
     expect(container.querySelector('#mock-line-chart')).toBeInTheDocument();
     userEvent.click(screen.getByLabelText('Download table content'));
     expect(fileDownload).toHaveBeenCalledWith(
-      `temperature,timestamp\n100,03/05/2021 15:30\n`,
+      `temperature,timestamp\n100,03/05/2021 15:30:00\n`,
       'Temperature.csv'
     );
   });

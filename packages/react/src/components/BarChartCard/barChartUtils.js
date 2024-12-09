@@ -1,6 +1,6 @@
 import { isNil, isEmpty, capitalize, omit } from 'lodash-es';
 
-import dayjs from '../../utils/dayjs';
+import dayjs, { DAYJS_INPUT_FORMATS } from '../../utils/dayjs';
 import { BAR_CHART_TYPES, BAR_CHART_LAYOUTS, CARD_SIZES } from '../../constants/LayoutConstants';
 import { CHART_COLORS } from '../../constants/CardPropTypes';
 import { convertStringsToDOMElement } from '../../utils/componentUtilityFunctions';
@@ -425,7 +425,7 @@ export const handleTooltip = (
   defaultTooltip,
   timeDataSourceId,
   showTimeInGMT,
-  tooltipDateFormatPattern = 'L HH:mm:ss',
+  tooltipDateFormatPattern = DAYJS_INPUT_FORMATS.SECONDS,
   locale
 ) => {
   dayjs.locale(locale);
@@ -527,7 +527,7 @@ export const formatTableData = (
   type,
   values,
   chartData,
-  defaultDateFormatPattern = 'L HH:mm'
+  defaultDateFormatPattern = DAYJS_INPUT_FORMATS.SECONDS
 ) => {
   const tableData = [];
   if (!isNil(values) && !isNil(chartData)) {

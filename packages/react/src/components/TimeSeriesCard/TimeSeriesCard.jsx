@@ -26,7 +26,7 @@ import {
   handleTooltip,
 } from '../../utils/cardUtilityFunctions';
 import deprecate from '../../internal/deprecate';
-import dayjs from '../../utils/dayjs';
+import dayjs, { DAYJS_INPUT_FORMATS } from '../../utils/dayjs';
 import { usePrevious } from '../../hooks/usePrevious';
 
 import {
@@ -201,9 +201,9 @@ const defaultProps = {
   interval: 'hour',
   showTimeInGMT: false,
   domainRange: null,
-  tooltipDateFormatPattern: 'L HH:mm:ss',
+  tooltipDateFormatPattern: DAYJS_INPUT_FORMATS.SECONDS,
   tooltipShowTotals: true,
-  defaultDateFormatPattern: 'L HH:mm',
+  defaultDateFormatPattern: DAYJS_INPUT_FORMATS.SECONDS,
 };
 
 const TimeSeriesCard = ({

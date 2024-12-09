@@ -5515,7 +5515,7 @@ exports[`Storybook Snapshot tests and console checks Storyshots 1 - Watson IoT/C
             className="iot--card--subtitle--text"
             data-testid="Card-subtitle"
           >
-            2018-10-28 13:10 to 2018-10-28 13:30
+            10/28/2018 13:10 to 10/28/2018 13:30
           </div>
         </span>
         <div
