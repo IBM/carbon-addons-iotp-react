@@ -52,7 +52,7 @@ exports[`Storybook Snapshot tests and console checks Storyshots 1 - Watson IoT/D
               id="definition-tooltip-2"
               role="tooltip"
             >
-              10/28/2018 07:04 to Now
+              2018-10-28 07:04 to Now
             </span>
           </span>
           <svg
@@ -94,7 +94,7 @@ exports[`Storybook Snapshot tests and console checks Storyshots 1 - Watson IoT/D
                 <li
                   className="bx--list__item iot--date-time-picker__listitem iot--date-time-picker__listitem--current"
                 >
-                  10/28/2018 07:04 to Now
+                  2018-10-28 07:04 to Now
                 </li>
                 <li
                   className="bx--list__item iot--date-time-picker__listitem iot--date-time-picker__listitem--custom"
