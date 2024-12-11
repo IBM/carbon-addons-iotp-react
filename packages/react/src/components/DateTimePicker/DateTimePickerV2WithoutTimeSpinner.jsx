@@ -1053,7 +1053,7 @@ const DateTimePicker = ({
                           value={
                             absoluteValue ? [absoluteValue.startDate, absoluteValue.endDate] : ''
                           }
-                          locale={locale}
+                          locale={locale?.split('-')[0]}
                         >
                           <DatePickerInput
                             labelText=""
