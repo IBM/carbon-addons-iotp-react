@@ -4,7 +4,7 @@ import { Edit, Subtract } from '@carbon/react/icons';
 import { isEmpty, omit } from 'lodash-es';
 import { v4 as uuidv4 } from 'uuid';
 import hash from 'object-hash';
-import { MultiSelect } from '@carbon/react';
+import { MultiSelect, ComboBox } from '@carbon/react';
 
 import { settings } from '../../../../../constants/Settings';
 import {
@@ -15,10 +15,10 @@ import {
 } from '../../../../DashboardEditor/editorUtils';
 import Button from '../../../../Button';
 import List from '../../../../List/List';
-import ComboBox from '../../../../ComboBox';
 import DataSeriesFormItemModal from '../DataSeriesFormItemModal';
 import ContentFormItemTitle from '../ContentFormItemTitle';
 import { CARD_SIZES, CARD_TYPES } from '../../../../../constants/LayoutConstants';
+import { formatDataItemsForDropdown } from '../DataSeriesFormItems/DataSeriesFormContent';
 
 const { iotPrefix } = settings;
 
@@ -194,18 +194,9 @@ const TableCardFormContent = ({
     ? getValidDataItems(cardConfig, selectedTimeRange)
     : dataItems;
 
-  const validDataItemsForDropdown = useMemo(
-    () =>
-      validDataItems?.map(({ dataSourceId, dataItemId }) => ({
-        id: dataItemId,
-        text: dataSourceId,
-      })),
-    [validDataItems]
-  );
-
-  const handleOnDataSeriesChange = (selectedItem) => {
+  const handleOnDataSeriesChange = ({ selectedItem }) => {
     // ignore the extra value added by the "enter" keypress
-    if (selectedItem && !selectedItem.id.includes('iot-input')) {
+    if (selectedItem && !isEmpty(selectedItem.id)) {
       const itemWithMetaData = validDataItems?.find(
         ({ dataItemId }) => dataItemId === selectedItem.id
       );
@@ -411,11 +402,9 @@ const TableCardFormContent = ({
       >
         <ComboBox
           // need to re-gen if selected card changes or if a dataItem is removed from the list
-          key={`data-item-select-${hash(validDataItemsForDropdown || {})}-selected_card-id-${
-            cardConfig.id
-          }`}
+          key={`data-item-select-${hash(validDataItems)}-selected_card-id-${cardConfig.id}`}
           id={`${cardConfig.id}_dataSourceIds-combobox`}
-          items={validDataItemsForDropdown}
+          items={formatDataItemsForDropdown(validDataItems)}
           itemToString={(item) => item?.text}
           titleText={mergedI18n.dataItem}
           addToList={false}
