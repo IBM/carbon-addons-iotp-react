@@ -416,6 +416,7 @@ export const formatColors = (series, datasetNames, isDashboardPreview, type) => 
  *
  * @param {object} data data object for this particular datapoint
  * @param {string} defaultTooltip Default HTML generated for this tooltip that needs to be marked up
+ * @param {object} _datum of the hovered element
  * @param {string} timeDatasourceId time-based attribute
  * @param {bool} showTimeInGMT
  * @param {string} tooltipDataFormatPattern
@@ -423,6 +424,7 @@ export const formatColors = (series, datasetNames, isDashboardPreview, type) => 
 export const handleTooltip = (
   dataOrHoveredElement,
   defaultTooltip,
+  _datum,
   timeDataSourceId,
   showTimeInGMT,
   tooltipDateFormatPattern = 'L HH:mm:ss',

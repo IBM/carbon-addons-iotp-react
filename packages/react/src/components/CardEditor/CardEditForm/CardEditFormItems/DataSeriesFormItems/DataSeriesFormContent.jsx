@@ -4,6 +4,7 @@ import { Edit, Subtract } from '@carbon/react/icons';
 import { omit, isEmpty } from 'lodash-es';
 import { v4 as uuidv4 } from 'uuid';
 import hash from 'object-hash';
+import { ComboBox } from '@carbon/react';
 
 import { settings } from '../../../../../constants/Settings';
 import {
@@ -14,7 +15,6 @@ import {
 } from '../../../../DashboardEditor/editorUtils';
 import Button from '../../../../Button';
 import List from '../../../../List/List';
-import ComboBox from '../../../../ComboBox';
 import { Dropdown } from '../../../../Dropdown';
 import DataSeriesFormItemModal from '../DataSeriesFormItemModal';
 import { CARD_TYPES, BAR_CHART_TYPES } from '../../../../../constants/LayoutConstants';
@@ -297,9 +297,9 @@ const DataSeriesFormItem = ({
   );
 
   const handleSimpleDataSeriesChange = useCallback(
-    (selectedItem) => {
+    ({ selectedItem }) => {
       // ignore the extra value added by the "enter" keypress
-      if (selectedItem && !selectedItem.id.includes('iot-input')) {
+      if (selectedItem && !isEmpty(selectedItem.id)) {
         const itemWithMetaData = validDataItems?.find(
           ({ dataItemId }) => dataItemId === selectedItem.id
         );

@@ -485,6 +485,7 @@ export const findMatchingAlertRange = (alertRanges, data) => {
  * Extends default tooltip with the additional date information, and optionally alert information
  * @param {object} dataOrHoveredElement data object for this particular datapoint should have a date field containing the timestamp
  * @param {string} defaultTooltip Default HTML generated for this tooltip that needs to be marked up
+ * @param {object} _datum of the hovered element
  * @param {array} alertRanges Array of alert range information to search
  * @param {string} alertDetected Translated string to indicate that the alert is detected
  * @param {bool} showTimeInGMT
@@ -494,6 +495,7 @@ export const findMatchingAlertRange = (alertRanges, data) => {
 export const handleTooltip = (
   dataOrHoveredElement,
   defaultTooltip,
+  _datum,
   alertRanges,
   alertDetected,
   showTimeInGMT,
