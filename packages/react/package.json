@@ -52,7 +52,7 @@
     "test:e2e:update": "cypress-image-diff -u",
     "test:e2e": "cross-env BABEL_ENV='e2e' NODE_ENV='e2e' cypress run-ct --browser=chrome --headed --config video=false,screenshotOnRunFailure=false",
     "test:e2e:interactive": "cross-env BABEL_ENV='e2e' NODE_ENV='e2e' cypress open-ct --browser=chrome --config video=false,screenshotOnRunFailure=false",
-    "test:e2e:ci": "cross-env HEIGHT=1680 WIDTH=1680 BABEL_ENV='e2e' NODE_ENV='e2e' cypress run-ct  --spec '**/TableCard.test.e2e.jsx' --browser=chrome --config watchForFileChanges=false --record false video=false,screenshotOnRunFailure=false",
+    "test:e2e:ci": "cross-env HEIGHT=1680 WIDTH=1680 BABEL_ENV='e2e' NODE_ENV='e2e' cypress run-ct --browser=chrome --config watchForFileChanges=false --record false video=false,screenshotOnRunFailure=false",
     "test:e2e:images": "cd ../.. && docker-compose run --no-deps --rm react-visual-regression-tests bash -c 'cd /@ai-apps/packages/react && pwd && yarn cypress install && yarn test:e2e:ci --record=false --config video=false,screenshotOnRunFailure=false'",
     "test:e2e:docker:build": "cd ../.. && docker-compose up --build",
     "test:e2e:docker:clean": "docker system prune",
