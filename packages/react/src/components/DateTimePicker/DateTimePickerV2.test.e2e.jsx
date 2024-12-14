@@ -263,7 +263,7 @@ describe('DateTimePickerV2', () => {
       />
     );
 
-    cy.findByText('2021-08-01 12:34 to 2021-08-06 10:49').should('be.visible').click();
+    cy.findByText('08/01/2021 12:34 to 08/06/2021 10:49').should('be.visible').click();
 
     cy.findByText('Custom range').should('be.visible');
     cy.findByText('August').should('be.visible');
@@ -286,8 +286,8 @@ describe('DateTimePickerV2', () => {
             start: Cypress.sinon.match.any,
             startDate: '08/06/2021',
             startTime: '13:34',
-            humanValue: '2021-08-06 13:34 to 2021-08-08 12:34',
-            tooltipValue: '2021-08-06 13:34 to 2021-08-08 12:34',
+            humanValue: '08/06/2021 13:34 to 08/08/2021 12:34',
+            tooltipValue: '08/06/2021 13:34 to 08/08/2021 12:34',
           },
         });
       });
@@ -312,7 +312,7 @@ describe('DateTimePickerV2', () => {
       />
     );
 
-    cy.findByText('2021-08-01 12:34 to 2021-08-06 10:49').should('be.visible').click();
+    cy.findByText('08/01/2021 12:34 to 08/06/2021 10:49').should('be.visible').click();
 
     cy.findByText('Custom range').should('be.visible');
     cy.findByText('August').should('be.visible');
@@ -336,8 +336,8 @@ describe('DateTimePickerV2', () => {
             start: Cypress.sinon.match.any,
             startDate: '08/08/2021',
             startTime: '12:34',
-            humanValue: '2021-08-08 12:34 to 2021-08-08 12:35',
-            tooltipValue: '2021-08-08 12:34 to 2021-08-08 12:35',
+            humanValue: '08/08/2021 12:34 to 08/08/2021 12:35',
+            tooltipValue: '08/08/2021 12:34 to 08/08/2021 12:35',
           },
         });
       });
@@ -508,7 +508,7 @@ describe('DateTimePickerV2', () => {
       />
     );
 
-    cy.findByText('2021-08-01 12:34 to 2021-08-06 10:49').should('be.visible').click();
+    cy.findByText('08/01/2021 12:34 to 08/06/2021 10:49').should('be.visible').click();
     cy.findByLabelText(i18n.startTimeLabel).type(
       '{backspace}{backspace}{backspace}{backspace}{backspace}91:35'
     );
@@ -763,10 +763,10 @@ describe('DateTimePickerV2', () => {
       />
     );
 
-    cy.findByText('2021-08-01 12:34 to 2021-08-06 10:49').should('be.visible');
+    cy.findByText('08/01/2021 12:34 to 08/06/2021 10:49').should('be.visible');
     cy.get('body').realPress('Tab');
     cy.findByRole('dialog').should('be.visible');
-    cy.findByRole('button', { name: /2021-08-01 12:34 to 2021-08-06 10:49/ })
+    cy.findByRole('button', { name: /08\/01\/2021 12:34 to 08\/06\/2021 10:49/ })
       .should('be.focused')
       .type('{enter}');
     cy.findByText('Custom range').should('be.visible');
@@ -815,11 +815,11 @@ describe('DateTimePickerV2', () => {
             end: Cypress.sinon.match.any,
             endDate: '08/13/2021',
             endTime: '12:39',
-            humanValue: '2021-08-06 11:35 to 2021-08-13 12:39',
+            humanValue: '08/06/2021 11:35 to 08/13/2021 12:39',
             start: Cypress.sinon.match.any,
             startDate: '08/06/2021',
             startTime: '11:35',
-            tooltipValue: '2021-08-06 11:35 to 2021-08-13 12:39',
+            tooltipValue: '08/06/2021 11:35 to 08/13/2021 12:39',
           },
         });
       });
@@ -846,10 +846,10 @@ describe('DateTimePickerV2', () => {
       />
     );
 
-    cy.findByText('2021-08-01 12:34 to 2021-08-06 10:49').should('be.visible').click();
+    cy.findByText('08/01/2021 12:34 to 08/06/2021 10:49').should('be.visible').click();
     cy.focused().type('{enter}');
     cy.findByRole('dialog').should('be.visible');
-    cy.findByRole('button', { name: /2021-08-01 12:34 to 2021-08-06 10:49/ })
+    cy.findByRole('button', { name: /08\/01\/2021 12:34 to 08\/06\/2021 10:49/ })
       .should('be.focused')
       .type('{enter}');
     cy.findByText('Custom range').should('be.visible');
@@ -897,11 +897,11 @@ describe('DateTimePickerV2', () => {
             end: Cypress.sinon.match.any,
             endDate: '08/13/2021',
             endTime: '12:49',
-            humanValue: '2021-08-06 02:34 to 2021-08-13 12:49',
+            humanValue: '08/06/2021 02:34 to 08/13/2021 12:49',
             start: Cypress.sinon.match.any,
             startDate: '08/06/2021',
             startTime: '02:34',
-            tooltipValue: '2021-08-06 02:34 to 2021-08-13 12:49',
+            tooltipValue: '08/06/2021 02:34 to 08/13/2021 12:49',
           },
           timeSingleValue: null,
         });
@@ -964,7 +964,7 @@ describe('DateTimePickerV2', () => {
             id: 'item-03',
             label: 'Last 6 hours',
             offset: 360,
-            tooltipValue: `${lastSixHours.format('YYYY-MM-DD HH:mm')} to Now`,
+            tooltipValue: `${lastSixHours.format('L HH:mm')} to Now`,
           },
         });
       });
@@ -1065,8 +1065,8 @@ describe('DateTimePickerV2', () => {
             start: Cypress.sinon.match.any,
             startDate: lastMonth.format(`MM/[20]/YYYY`),
             startTime: null,
-            humanValue: `${lastMonth.format('YYYY-MM-[20]')} to ${now.format('YYYY-MM-[12]')}`,
-            tooltipValue: `${lastMonth.format('YYYY-MM-[20]')} to ${now.format('YYYY-MM-[12]')}`,
+            humanValue: `${lastMonth.format(`MM/[20]/YYYY`)} to ${now.format(`MM/[12]/YYYY`)}`,
+            tooltipValue: `${lastMonth.format(`MM/[20]/YYYY`)} to ${now.format(`MM/[12]/YYYY`)}`,
           },
         });
       });
@@ -1114,8 +1114,8 @@ describe('DateTimePickerV2', () => {
             start: Cypress.sinon.match.any,
             startDate: lastMonth.format(`MM/[20]/YYYY`),
             startTime: null,
-            humanValue: `${lastMonth.format('YYYY-MM-[20]')} to ${now.format('YYYY-MM-[12]')}`,
-            tooltipValue: `${lastMonth.format('YYYY-MM-[20]')} to ${now.format('YYYY-MM-[12]')}`,
+            humanValue: `${lastMonth.format(`MM/[20]/YYYY`)} to ${now.format(`MM/[12]/YYYY`)}`,
+            tooltipValue: `${lastMonth.format(`MM/[20]/YYYY`)} to ${now.format(`MM/[12]/YYYY`)}`,
           },
           timeSingleValue: null,
         });
@@ -1231,11 +1231,11 @@ describe('DateTimePickerV2', () => {
       />
     );
 
-    cy.findByText('2021-08-01 12:34 to 2021-08-06 10:49').click();
+    cy.findByText('08/01/2021 12:34 to 08/06/2021 10:49').click();
     cy.findByText('Relative').should('be.visible').click();
     cy.get('body').click();
 
-    cy.findAllByRole('button').eq(0).contains('2021-08-01 12:34 to 2021-08-06 10:49');
+    cy.findAllByRole('button').eq(0).contains('08/01/2021 12:34 to 08/06/2021 10:49');
     expect(onApply).to.be.callCount(0);
     expect(onCancel).to.be.callCount(0);
   });
@@ -1260,11 +1260,11 @@ describe('DateTimePickerV2', () => {
       />
     );
 
-    cy.findByText('2021-08-01 12:34 to 2021-08-06 10:49').click();
+    cy.findByText('08/01/2021 12:34 to 08/06/2021 10:49').click();
     cy.findByText('Relative').should('be.visible').click();
     cy.get('body').click();
 
-    cy.findAllByRole('button').eq(0).contains('2021-08-01 12:34 to 2021-08-06 10:49');
+    cy.findAllByRole('button').eq(0).contains('08/01/2021 12:34 to 08/06/2021 10:49');
     expect(onApply).to.be.callCount(0);
     expect(onCancel).to.be.callCount(0);
   });
@@ -1289,11 +1289,11 @@ describe('DateTimePickerV2', () => {
       />
     );
 
-    cy.findByText('2020-04-01 12:34').click();
+    cy.findByText('04/01/2020 12:34').click();
     cy.findByText('Relative').should('be.visible').click();
     cy.get('body').click();
 
-    cy.findAllByRole('button').eq(0).contains('2020-04-01 12:34');
+    cy.findAllByRole('button').eq(0).contains('04/01/2020 12:34');
     expect(onApply).to.be.callCount(0);
     expect(onCancel).to.be.callCount(0);
   });
@@ -1405,7 +1405,7 @@ describe('DateTimePickerV2', () => {
       // Preserves only saved changes
       cy.findByTestId('date-time-picker__field').should(
         'have.text',
-        '2021-08-01 11:11 to 2021-08-06 10:49'
+        '08/01/2021 11:11 to 08/06/2021 10:49'
       );
     });
 
@@ -1438,7 +1438,7 @@ describe('DateTimePickerV2', () => {
       cy.findByLabelText('Start time').focus().clear();
       cy.get('body').click();
       // Preserves only saved changes
-      cy.findByTestId('date-time-picker__field').should('have.text', '2020-04-01 11:11');
+      cy.findByTestId('date-time-picker__field').should('have.text', '04/01/2020 11:11');
     });
 
     it('with default absolute value (new time spinner)', () => {
@@ -1473,7 +1473,7 @@ describe('DateTimePickerV2', () => {
       // Preserves only saved changes
       cy.findByTestId('date-time-picker__field').should(
         'have.text',
-        '2021-08-01 12:35 to 2021-08-06 10:49'
+        '08/01/2021 12:35 to 08/06/2021 10:49'
       );
     });
   });
