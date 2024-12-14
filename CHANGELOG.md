@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.155.3](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v2.155.2...v2.155.3) (2024-12-14)
+
+
+### Bug Fixes
+
+* date time picker & table card toolbar locale ([#3905](https://github.com/carbon-design-system/carbon-addons-iot-react/issues/3905)) ([444485f](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/444485f4b2b3c3b86ba9bde323e30ec45eda87f1))
+
+
+
+
+
 ## [2.155.2](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v2.155.1...v2.155.2) (2024-12-09)
 
 
