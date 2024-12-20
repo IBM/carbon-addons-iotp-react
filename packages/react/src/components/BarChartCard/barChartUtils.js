@@ -441,7 +441,7 @@ export const handleTooltip = (
   // If theres a time attribute, add an extra list item with the formatted date
   if (timeDataSourceId) {
     // generate the formatted label
-    const timestamp = typedData?.date?.getTime();
+    const timestamp = typedData?.date;
     const dateLabel = timestamp
       ? `<li class='datapoint-tooltip'>
             <p class='label'>
