@@ -31,7 +31,7 @@ describe('DateTimePicker', () => {
       />
     );
 
-    cy.findByText('2021-08-01 12:34 to 2021-08-06 10:49').should('be.visible').click();
+    cy.findByText('08/01/2021 12:34 to 08/06/2021 10:49').should('be.visible').click();
 
     cy.findByText('Custom range').should('be.visible');
     cy.findByText('August').should('be.visible');
@@ -76,7 +76,7 @@ describe('DateTimePicker', () => {
       />
     );
 
-    cy.findByText('2021-08-01 12:34 to 2021-08-06 10:49').should('be.visible').click();
+    cy.findByText('08/01/2021 12:34 to 08/06/2021 10:49').should('be.visible').click();
 
     cy.findByLabelText(i18n.startTimeLabel).type(
       '{backspace}{backspace}{backspace}{backspace}{backspace}91:35'
@@ -208,10 +208,10 @@ describe('DateTimePicker', () => {
       />
     );
 
-    cy.findByText('2021-08-01 12:34 to 2021-08-06 10:49').should('be.visible');
+    cy.findByText('08/01/2021 12:34 to 08/06/2021 10:49').should('be.visible');
     cy.get('body').realPress('Tab');
     cy.findByRole('dialog').should('be.visible');
-    cy.findByRole('button', { name: /2021-08-01 12:34 to 2021-08-06 10:49/ })
+    cy.findByRole('button', { name: /08\/01\/2021 12:34 to 08\/06\/2021 10:49/ })
       .should('be.focused')
       .type('{enter}');
     cy.findByText('Custom range').should('be.visible');
@@ -472,11 +472,11 @@ describe('DateTimePicker', () => {
       />
     );
 
-    cy.findByText('2021-08-01 12:34 to 2021-08-06 10:49').click();
+    cy.findByText('08/01/2021 12:34 to 08/06/2021 10:49').click();
     cy.findByText('Relative').should('be.visible').click();
     cy.get('body').click();
 
-    cy.findByRole('button').contains('2021-08-01 12:34 to 2021-08-06 10:49');
+    cy.findByRole('button').contains('08/01/2021 12:34 to 08/06/2021 10:49');
     expect(onApply).to.be.callCount(0);
     expect(onCancel).to.be.callCount(0);
   });
@@ -588,7 +588,7 @@ describe('DateTimePicker', () => {
       // Preserves only saved changes
       cy.findByTestId('date-time-picker__field').should(
         'have.text',
-        '2021-08-01 11:11 to 2021-08-06 10:49'
+        '08/01/2021 11:11 to 08/06/2021 10:49'
       );
     });
   });

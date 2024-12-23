@@ -1249,7 +1249,7 @@ const DateTimePicker = ({
                           ? [singleDateValue?.startDate]
                           : null
                       }
-                      locale={locale}
+                      locale={locale?.split('-')[0]}
                       closeOnSelect={false}
                     >
                       <DatePickerInput
