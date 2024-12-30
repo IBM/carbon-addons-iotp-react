@@ -86,6 +86,11 @@ export const ComposedModalPropTypes = {
   ),
   /** Id that can be used for testing */
   testId: PropTypes.string,
+  /**
+   * Specify a CSS selector that matches the DOM element that should be
+   * focused when the Modal opens
+   */
+  selectorPrimaryFocus: PropTypes.string,
 };
 
 const defaultProps = {
@@ -106,6 +111,7 @@ const defaultProps = {
   iconDescription: 'Close',
   passiveModal: false,
   testId: 'ComposedModal',
+  selectorPrimaryFocus: '.cds--modal-header',
 };
 
 /**
@@ -144,6 +150,7 @@ const ComposedModal = ({
   // TODO: remove deprecated testID in v3.
   testID,
   testId,
+  selectorPrimaryFocus,
   ...props
 }) => {
   useEffect(() => {
@@ -196,6 +203,7 @@ const ComposedModal = ({
   ) : (
     <CarbonComposedModal
       {...props}
+      selectorPrimaryFocus={selectorPrimaryFocus}
       forwardedRef={modalRef}
       // TODO: remove deprecated testID in v3.
       data-testid={testID || testId}

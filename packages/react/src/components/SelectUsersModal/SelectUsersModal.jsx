@@ -8,7 +8,7 @@ import Button from '../Button';
 import { settings } from '../../constants/Settings';
 import ListBuilder from '../ListBuilder/ListBuilder';
 
-const { iotPrefix } = settings;
+const { iotPrefix, prefix } = settings;
 
 export const UserShape = PropTypes.shape({
   id: PropTypes.string,
@@ -273,7 +273,7 @@ const SelectUsersModal = ({
           canSaveRef.current = false;
         }}
         data-testid={`${testId}--select-users-modal`}
-        selectorPrimaryFocus=".cds--modal-header"
+        selectorPrimaryFocus={`.${prefix}--modal-header`}
       >
         <ListBuilder
           items={usersList}

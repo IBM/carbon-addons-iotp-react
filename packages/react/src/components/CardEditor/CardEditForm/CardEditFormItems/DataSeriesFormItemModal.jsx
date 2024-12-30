@@ -34,7 +34,7 @@ import Button from '../../../Button';
 
 import ThresholdsFormItem from './ThresholdsFormItem';
 
-const { iotPrefix } = settings;
+const { iotPrefix, prefix } = settings;
 
 /* istanbul ignore next */
 const noop = () => {};
@@ -658,7 +658,7 @@ const DataSeriesFormItemModal = ({
       {showEditor && (
         <div className={`${baseClassName}--modal-wrapper`}>
           <ComposedModal
-            selectorPrimaryFocus=".cds--modal-header"
+            selectorPrimaryFocus={`.${prefix}--modal-header`}
             header={{
               label: editDataItem.dataItemId,
               title:

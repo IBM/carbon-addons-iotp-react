@@ -69,8 +69,8 @@ const ValueCardFormSettings = ({ cardConfig, onChange, i18n }) => {
           light
           label={mergedI18n.fontSize}
           value={fontSize || DEFAULT_FONT_SIZE}
-          onChange={(event) => {
-            const parsedValue = Number(event.imaginaryTarget.value);
+          onChange={(event, { value }) => {
+            const parsedValue = Number(value ?? event.imaginaryTarget.value);
             if (isNumberValidForMinMax(parsedValue, MIN_FONT_SIZE, MAX_FONT_SIZE)) {
               onChange({
                 ...cardConfig,

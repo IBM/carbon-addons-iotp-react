@@ -9,7 +9,7 @@ import {
   Laptop,
   Screen,
 } from '@carbon/react/icons';
-import { FileUploaderButton, Tooltip, ContentSwitcher, TextInput } from '@carbon/react';
+import { FileUploaderButton, ContentSwitcher, TextInput } from '@carbon/react';
 import { isEmpty } from 'lodash-es';
 
 import { settings } from '../../../constants/Settings';
@@ -150,6 +150,7 @@ const DashboardEditorHeader = ({
               renderIcon={Maximize}
               index={0}
               testId={`${testId}-fit-to-screen-switch`}
+              tooltipPosition="bottom"
             />
             <IconSwitch
               name="large"
@@ -157,6 +158,7 @@ const DashboardEditorHeader = ({
               renderIcon={Screen}
               index={1}
               testId={`${testId}-large-switch`}
+              tooltipPosition="bottom"
             />
             <IconSwitch
               name="medium"
@@ -164,6 +166,7 @@ const DashboardEditorHeader = ({
               renderIcon={Laptop}
               index={2}
               testId={`${testId}-medium-switch`}
+              tooltipPosition="bottom"
             />
             <IconSwitch
               name="small"
@@ -171,32 +174,34 @@ const DashboardEditorHeader = ({
               renderIcon={Tablet}
               index={3}
               testId={`${testId}-small-switch`}
+              tooltipPosition="bottom"
             />
           </ContentSwitcher>
         )}
 
-        {
-          // FileUploaderButton isn't a true button so extra styling is needed to make it look like a iconOnly button
-          onImport && (
-            <Tooltip
-              align="center"
-              direction="bottom"
-              tooltipText={mergedI18n.headerImportButton}
-              className={`${baseClassName}--bottom__import`}
-            >
-              <FileUploaderButton
-                buttonKind="ghost"
+        {onImport && (
+          <FileUploaderButton
+            buttonKind="ghost"
+            size="md"
+            hasIconOnly
+            labelText={
+              <Button
+                kind="ghost"
                 size="md"
-                labelText={<DocumentImport fill="#161616" />}
-                onChange={onImport}
-                disableLabelChanges
-                accepts={['.json']}
-                multiple={false}
-                data-testid={`${testId}-file-uploader-button`}
+                iconDescription={mergedI18n.headerImportButton}
+                tooltipPosition="bottom"
+                tooltipAlignment="center"
+                hasIconOnly
+                renderIcon={DocumentImport}
               />
-            </Tooltip>
-          )
-        }
+            }
+            onChange={onImport}
+            disableLabelChanges
+            accepts={['.json']}
+            multiple={false}
+            data-testid={`${testId}-file-uploader-button`}
+          />
+        )}
         {onExport && (
           <Button
             kind="ghost"
@@ -207,8 +212,7 @@ const DashboardEditorHeader = ({
             hasIconOnly
             renderIcon={DocumentExport}
             onClick={() => onExport(dashboardJson)}
-            // TODO: pass testId in v3 to override defaults
-            // testId={`${testId}-export-button`}
+            data-testid={`${testId}-export-button`}
           />
         )}
         {onDelete && (
@@ -221,8 +225,7 @@ const DashboardEditorHeader = ({
             hasIconOnly
             renderIcon={TrashCan}
             onClick={onDelete}
-            // TODO: pass testId in v3 to override defaults
-            // testId={`${testId}-delete-button`}
+            data-testid={`${testId}-delete-button`}
           />
         )}
         {onCancel && (
@@ -230,8 +233,7 @@ const DashboardEditorHeader = ({
             kind="secondary"
             size="md"
             onClick={onCancel}
-            // TODO: pass testId in v3 to override defaults
-            // testId={`${testId}-cancel-button`}
+            data-testid={`${testId}-cancel-button`}
           >
             {mergedI18n.headerCancelButton}
           </Button>
@@ -242,8 +244,7 @@ const DashboardEditorHeader = ({
             disabled={isSubmitDisabled}
             onClick={() => onSubmit(dashboardJson)}
             loading={isSubmitLoading}
-            // TODO: pass testId in v3 to override defaults
-            // testId={`${testId}-submit-button`}
+            data-testid={`${testId}-submit-button`}
           >
             {mergedI18n.headerSubmitButton}
           </Button>

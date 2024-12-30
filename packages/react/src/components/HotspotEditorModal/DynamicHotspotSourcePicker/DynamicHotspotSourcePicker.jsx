@@ -2,10 +2,10 @@ import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { Erase } from '@carbon/react/icons';
 import classnames from 'classnames';
+import { IconButton } from '@carbon/react';
 
 import { settings } from '../../../constants/Settings';
 import { Dropdown } from '../../Dropdown';
-import Button from '../../Button/Button';
 import deprecate from '../../../internal/deprecate';
 
 const { iotPrefix } = settings;
@@ -112,19 +112,17 @@ const DynamicHotspotSourcePicker = ({
           onYValueChange(change.selectedItem.dataSourceId);
         }}
       />
-      <Button
-        testId={`${testID || testId}-clear-dropdown`}
+      <IconButton
+        data-testid={`${testID || testId}-clear-dropdown`}
         className={classnames(`${classname}__clear-button`, {
           [`${classname}__clear-button--invisible`]: !selectedSourceIdX || !selectedSourceIdY,
         })}
         kind="ghost"
-        size="sm"
-        renderIcon={(props) => <Erase size={16} {...props} />}
-        iconDescription={clearIconDescription}
-        tooltipPosition="top"
-        tooltipAlignment="end"
+        size="md"
+        renderIcon={Erase}
+        label={clearIconDescription}
+        autoAlign
         onClick={onClear}
-        hasIconOnly
       />
     </div>
   );
