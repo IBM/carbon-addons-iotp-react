@@ -658,6 +658,7 @@ const DataSeriesFormItemModal = ({
       {showEditor && (
         <div className={`${baseClassName}--modal-wrapper`}>
           <ComposedModal
+            selectorPrimaryFocus=".cds--modal-header"
             header={{
               label: editDataItem.dataItemId,
               title:

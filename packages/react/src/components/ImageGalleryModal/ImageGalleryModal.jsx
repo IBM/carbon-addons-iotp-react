@@ -173,6 +173,7 @@ const ImageGalleryModal = ({
         />
       ) : null}
       <ComposedModal
+        selectorPrimaryFocus=".cds--modal-header"
         type="normal"
         className={classnames(className, baseClass)}
         footer={{
