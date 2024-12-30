@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import { Tooltip } from '@carbon/react';
+import { Toggletip, ToggletipButton, ToggletipContent } from '@carbon/react';
 import { g10 } from '@carbon/themes';
 
 import { settings } from '../../constants/Settings';
@@ -118,6 +118,7 @@ const Hotspot = ({
         '--y-pos': y,
         '--width': containerWidth,
         '--height': containerHeight,
+        '--svg-color': color,
       }}
       className={classnames(`${iotPrefix}--hotspot-container`, {
         [`${iotPrefix}--hotspot-container--selected`]: isSelected,
@@ -125,23 +126,23 @@ const Hotspot = ({
         [`${iotPrefix}--hotspot-container--is-text`]: isTextType,
         [`${iotPrefix}--hotspot-container--is-fixed`]: type === 'fixed',
         [`${iotPrefix}--hotspot-container--is-dynamic`]: type === 'dynamic',
+        [`${iotPrefix}--hotspot-container--toggletip-fill-color`]: !!color,
       })}
       icon={icon}
     >
       {type === 'fixed' || type === 'dynamic' ? (
-        <Tooltip
+        <Toggletip
           {...others}
           autoAlign
-          label={content}
-          align="bottom"
           onClick={(evt) => {
             if (evt.type === 'click' && onClick) {
               onClick(evt, { x, y });
             }
           }}
         >
-          {iconToRender}
-        </Tooltip>
+          <ToggletipButton>{iconToRender}</ToggletipButton>
+          <ToggletipContent>{content}</ToggletipContent>
+        </Toggletip>
       ) : isTextType ? (
         // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions
         <div
