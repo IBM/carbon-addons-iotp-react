@@ -10,7 +10,7 @@ import Button from '../Button';
 import deprecate from '../../internal/deprecate';
 import CodeEditor from '../CodeEditor/CodeEditor';
 
-const { iotPrefix } = settings;
+const { iotPrefix, prefix } = settings;
 
 const propTypes = {
   ...ComposedModal.propTypes, // eslint-disable-line react/forbid-foreign-prop-types
@@ -97,7 +97,7 @@ const CardCodeEditor = ({
   return (
     <ComposedModal
       data-testid={`${testId}--card-code-editor-modal`}
-      selectorPrimaryFocus=".cds--modal-header"
+      selectorPrimaryFocus={`.${prefix}--modal-header`}
       className={classnames(`${iotPrefix}--editor`, {
         [`${iotPrefix}--editor__expanded`]: isExpanded,
       })}

@@ -280,9 +280,7 @@ const PageTitleBar = ({
             data-testid={`${testId}-tooltip`}
             showIcon
             content={typeof description === 'string' ? <p>{description}</p> : <>{description}</>}
-          >
-            <Information />
-          </ToggleTip>
+          />
         ) : null}
         {editable ? (
           <Button

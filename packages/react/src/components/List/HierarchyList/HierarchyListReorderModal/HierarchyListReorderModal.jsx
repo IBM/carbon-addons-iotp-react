@@ -8,7 +8,7 @@ import { settings } from '../../../../constants/Settings';
 
 import RadioButtonGroup from './HierarchyReorderModalRadioGroup';
 
-const { iotPrefix } = settings;
+const { iotPrefix, prefix } = settings;
 
 const propTypes = {
   /** ListItems to be displayed */
@@ -168,7 +168,7 @@ const HierarchyListReorderModal = ({
 
   return (
     <ComposedModal
-      selectorPrimaryFocus=".cds--modal-header"
+      selectorPrimaryFocus={`.${prefix}--modal-header`}
       className={`${iotPrefix}--hierarchy-list-bulk-modal`}
       open={open}
       header={{
