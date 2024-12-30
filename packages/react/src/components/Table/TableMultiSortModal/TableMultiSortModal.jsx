@@ -269,6 +269,7 @@ const TableMultiSortModal = ({
 
   return (
     <ComposedModal
+      selectorPrimaryFocus=".cds--modal-header"
       testId={testId}
       className={`${iotPrefix}--table-multi-sort-modal`}
       header={{

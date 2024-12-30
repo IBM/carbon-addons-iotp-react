@@ -96,8 +96,8 @@ const CardCodeEditor = ({
 
   return (
     <ComposedModal
-      // TODO: remove deprecated testID in v3 and pass testId to override defaults
-      // testID={`${testID || testId}-modal`}
+      data-testid={`${testId}--card-code-editor-modal`}
+      selectorPrimaryFocus=".cds--modal-header"
       className={classnames(`${iotPrefix}--editor`, {
         [`${iotPrefix}--editor__expanded`]: isExpanded,
       })}

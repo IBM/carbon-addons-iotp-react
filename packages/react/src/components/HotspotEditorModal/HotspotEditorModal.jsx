@@ -598,8 +598,8 @@ const HotspotEditorModal = ({
 
   return (
     <ComposedModal
-      // TODO: pass testId in v3 to override defaults
-      // testId={testId}
+      data-testid={`${testId}--hotspot-editor-modal`}
+      selectorPrimaryFocus=".cds--modal-header"
       className={`${iotPrefix}--hotspot-editor-modal`}
       header={{
         label,

@@ -168,6 +168,7 @@ const HierarchyListReorderModal = ({
 
   return (
     <ComposedModal
+      selectorPrimaryFocus=".cds--modal-header"
       className={`${iotPrefix}--hierarchy-list-bulk-modal`}
       open={open}
       header={{
