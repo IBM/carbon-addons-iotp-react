@@ -65,6 +65,15 @@ $selected-border: solid $selected-border-width $border-interactive;
   border-style: dashed;
 }
 
+// Toggletip change the icon color, so we have to revert it by setting the color back on svg
+.#{$iot-prefix}--hotspot-container--toggletip-fill-color {
+  .#{$prefix}--toggletip-button svg,
+  .#{$prefix}--toggletip-button:hover svg,
+  .#{$prefix}--toggletip--open .#{$prefix}--toggletip-button svg {
+    fill: var(--svg-color);
+  }
+}
+
 // TEXT HOTSPOT
 // The custom properties --bold, --italic, --background-color etc are set
 // on the container by the react js code
