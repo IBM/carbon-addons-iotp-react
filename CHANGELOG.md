@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.10](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.9...v4.0.10) (2025-01-03)
+
+
+### Bug Fixes
+
+* overflow menu button svg color ([#3911](https://github.com/carbon-design-system/carbon-addons-iot-react/issues/3911)) ([6ed1bc3](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/6ed1bc346d43387219f7e7b03e031bb8781bfa64))
+
+
+
+
+
 ## [4.0.9](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.8...v4.0.9) (2024-12-23)
 
 
