@@ -127,9 +127,11 @@ $hoverBgColor: #2c2c2c;
         }
       }
     }
-
-    &__icon {
-      fill: $layer-01;
+    &.#{$prefix}--btn--ghost {
+      // Overflow 3 dots menu button
+      svg.#{$prefix}--overflow-menu__icon {
+        fill: $layer-01;
+      }
     }
 
     .#{$prefix}--header__submenu.#{$prefix}--header-action-btn {
