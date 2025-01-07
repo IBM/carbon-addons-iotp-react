@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.11](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.10...v4.0.11) (2025-01-07)
+
+
+### Bug Fixes
+
+* rollup interop for commonJs module ([cd9f3ef](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/cd9f3ef62ed52a3e29871bc822876582c287b48b))
+
+
+
+
+
 ## [4.0.10](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.9...v4.0.10) (2025-01-03)
 
 
