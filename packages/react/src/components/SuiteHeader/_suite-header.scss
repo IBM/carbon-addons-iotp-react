@@ -33,7 +33,7 @@
 
     &--detail {
       flex: 1;
-      padding-left: $spacing-05;
+      padding-inline-start: $spacing-05;
       overflow: hidden;
       div {
         overflow: hidden;
@@ -93,10 +93,19 @@
   max-width: convert.to-rem(425px);
   width: auto;
   z-index: z('overlay');
-  margin: $spacing-05 $spacing-05 $spacing-03 0;
+  margin-inline: 0 $spacing-05;
+  margin-block: $spacing-05 $spacing-03;
 
   .#{$prefix}--toast-notification__title {
     margin-top: $spacing-04;
+  }
+}
+
+html[dir='rtl'] {
+  .#{$iot-prefix}--suite-header-survey-toast {
+    right: unset;
+    left: 0;
+    margin-inline: 0 $spacing-05;
   }
 }
 
@@ -247,7 +256,7 @@
     }
   }
   &--no-icon .#{$prefix}--side-nav__link-text {
-    padding-left: $spacing-08;
+    padding-inline-start: $spacing-08;
   }
   .#{$prefix}--side-nav__item:not(.#{$prefix}--side-nav__item--active)
     > .#{$prefix}--side-nav__link:hover {
@@ -304,11 +313,11 @@
     display: none;
   }
   &-subtitle {
-    margin-left: $spacing-05;
+    margin-inline-start: $spacing-05;
     &-appname {
-      margin-left: $spacing-05;
-      padding-left: $spacing-05;
-      border-left: $text-secondary 1px solid;
+      margin-inline-start: $spacing-05;
+      padding-inline-start: $spacing-05;
+      border-inline-start: $text-secondary 1px solid;
     }
   }
   a.admin-icon {
@@ -352,7 +361,8 @@
   }
 
   .#{$iot-prefix}--header__subtitle {
-    padding: 0 $spacing-05;
+    padding-inline: $spacing-05;
+    padding-block: 0;
     min-height: unset;
   }
 
