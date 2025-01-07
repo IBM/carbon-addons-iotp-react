@@ -45,6 +45,7 @@ export default [
         format: 'cjs',
         preserveModulesRoot: 'src',
         exports: 'auto',
+        interop: 'auto'
       },
     ],
     external,
