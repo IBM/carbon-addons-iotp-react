@@ -39,7 +39,7 @@ $hoverBgColor: #2c2c2c;
   }
 
   & .#{$prefix}--header__name {
-    padding-left: $spacing-03;
+    padding-inline-start: $spacing-03;
     min-width: 150px;
     display: inline-flex;
     color: $layer-01; // Force dark mode in header even in gray-10 theme
@@ -139,8 +139,8 @@ $hoverBgColor: #2c2c2c;
 
       .#{$prefix}--header__menu-item.#{$prefix}--header__menu-title {
         justify-content: flex-start;
-        padding-left: $spacing-05;
-        padding-right: $spacing-05;
+        padding-inline-start: $spacing-05;
+        padding-inline-end: $spacing-05;
         text-decoration: none;
         // color: $shell-header-text-02; //$shell-header-text-02 carbon 11
       }
@@ -150,8 +150,8 @@ $hoverBgColor: #2c2c2c;
       height: 100%;
       width: 100%;
       justify-content: flex-start;
-      padding-left: $spacing-05;
-      padding-right: $spacing-05;
+      padding-inline-start: $spacing-05;
+      padding-inline-end: $spacing-05;
       text-decoration: none;
       // color: $shell-header-text-02;//$shell-header-text-02 carbon 11
     }
@@ -248,10 +248,10 @@ $hoverBgColor: #2c2c2c;
 
 .#{$iot-prefix}--header__subtitle {
   @include type-style('body-compact-01');
-  border-left: $icon-secondary 1px solid;
+  border-inline-start: $icon-secondary 1px solid;
   padding: $spacing-01 $spacing-05;
   color: $gray-30; // Force dark mode in header even in gray-10 theme
-  margin-left: $spacing-05;
+  margin-inline-start: $spacing-05;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -264,9 +264,9 @@ $hoverBgColor: #2c2c2c;
 
 .#{$prefix}--header__action {
   &--active {
-    border-right: 1px solid $gray-80; // Force dark mode in header even in gray-10 theme
+    border-inline-end: 1px solid $gray-80; // Force dark mode in header even in gray-10 theme
     border-bottom: 1px solid $gray-100; // Force dark mode in header even in gray-10 theme
-    border-left: 1px solid $gray-80; // Force dark mode in header even in gray-10 theme
+    border-inline-start: 1px solid $gray-80; // Force dark mode in header even in gray-10 theme
     background-color: $gray-100;
   }
   &:hover {
