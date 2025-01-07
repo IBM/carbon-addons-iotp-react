@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.12](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.11...v4.0.12) (2025-01-07)
+
+
+### Bug Fixes
+
+* display the hotspot content ([428d312](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/428d3120b78f8fa860c45d6aec8d2d5355739821))
+* focus on modal header instead of close button ([c88add1](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/c88add10081c89f51172cb0d3b7913531fa099dd))
+* update number input props ([c9fbb14](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/c9fbb141eceeb95dfacdef097aed29f36ef5fd85))
+
+
+
+
+
 ## [4.0.11](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.10...v4.0.11) (2025-01-07)
 
 
