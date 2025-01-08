@@ -34,7 +34,7 @@ import HotspotEditorDataSourceTab from './HotspotEditorDataSourceTab/HotspotEdit
 import { hotspotTypes, useHotspotEditorState } from './hooks/hotspotStateHook';
 import DynamicHotspotSourcePicker from './DynamicHotspotSourcePicker/DynamicHotspotSourcePicker';
 
-const { iotPrefix } = settings;
+const { iotPrefix, prefix } = settings;
 
 /* istanbul ignore next */
 const noop = () => {};
@@ -598,8 +598,8 @@ const HotspotEditorModal = ({
 
   return (
     <ComposedModal
-      // TODO: pass testId in v3 to override defaults
-      // testId={testId}
+      data-testid={`${testId}--hotspot-editor-modal`}
+      selectorPrimaryFocus={`.${prefix}--modal-header`}
       className={`${iotPrefix}--hotspot-editor-modal`}
       header={{
         label,

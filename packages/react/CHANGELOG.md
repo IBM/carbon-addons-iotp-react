@@ -3,6 +3,52 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.13](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.12...v4.0.13) (2025-01-08)
+
+
+### Bug Fixes
+
+* use data prop instead of event ([1c0807e](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/1c0807e19ee319b7698bb765d4989775c1720418))
+
+
+
+
+
+## [4.0.12](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.11...v4.0.12) (2025-01-07)
+
+
+### Bug Fixes
+
+* display the hotspot content ([428d312](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/428d3120b78f8fa860c45d6aec8d2d5355739821))
+* focus on modal header instead of close button ([c88add1](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/c88add10081c89f51172cb0d3b7913531fa099dd))
+* update number input props ([c9fbb14](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/c9fbb141eceeb95dfacdef097aed29f36ef5fd85))
+
+
+
+
+
+## [4.0.11](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.10...v4.0.11) (2025-01-07)
+
+
+### Bug Fixes
+
+* rollup interop for commonJs module ([cd9f3ef](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/cd9f3ef62ed52a3e29871bc822876582c287b48b))
+
+
+
+
+
+## [4.0.10](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.9...v4.0.10) (2025-01-03)
+
+
+### Bug Fixes
+
+* overflow menu button svg color ([#3911](https://github.com/carbon-design-system/carbon-addons-iot-react/issues/3911)) ([6ed1bc3](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/6ed1bc346d43387219f7e7b03e031bb8781bfa64))
+
+
+
+
+
 ## [4.0.9](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.8...v4.0.9) (2024-12-23)
 
 

@@ -108,7 +108,7 @@ const TableSaveViewForm = ({
           disabled={disabled}
           id="save-view-modal-default-checkbox-label"
           labelText={defaultCheckboxLabelText}
-          onChange={(checked) => onChange({ isDefault: checked })}
+          onChange={(event, { checked }) => onChange({ isDefault: checked })}
           wrapperClassName={`${iotPrefix}--save-view-modal__default-view-checkbox`}
           {...overrides?.defaultCheckbox?.props}
         />
@@ -120,7 +120,7 @@ const TableSaveViewForm = ({
           id="save-view-modal-public-checkbox-label"
           labelText={publicCheckboxLabelText}
           wrapperClassName={`${iotPrefix}--save-view-modal__public-checkbox`}
-          onChange={(checked) => onChange({ isPublic: checked })}
+          onChange={(event, { checked }) => onChange({ isPublic: checked })}
           {...overrides?.publicCheckbox?.props}
         />
       </fieldset>

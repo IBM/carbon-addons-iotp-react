@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { merge } from 'lodash-es';
-import { NumberInput } from '@carbon/react';
+import { NumberInput, IconSwitch } from '@carbon/react';
 import {
   TrashCan,
   InformationFilled,
@@ -11,7 +11,6 @@ import {
 } from '@carbon/react/icons';
 
 import { settings } from '../../../constants/Settings';
-import IconSwitch from '../../IconSwitch/IconSwitch';
 import ColorDropdown from '../../ColorDropdown/ColorDropdown';
 import Button from '../../Button/Button';
 import { isNumberValidForMinMax } from '../../../utils/componentUtilityFunctions';
@@ -233,10 +232,11 @@ const HotspotTextStyleTab = ({
                 data-testid="hotspot-bold"
                 selected={bold}
                 text={boldLabelText}
-                renderIcon={() => <TextBold size="16" />}
+                renderIcon={TextBold}
                 index={0}
                 light={light}
               />
+
               <IconSwitch
                 disabled={hasNonEditableContent}
                 name="italic"
@@ -244,7 +244,7 @@ const HotspotTextStyleTab = ({
                 data-testid="hotspot-italic"
                 selected={italic}
                 text={italicLabelText}
-                renderIcon={() => <TextItalic size="16" />}
+                renderIcon={TextItalic}
                 index={1}
                 light={light}
               />
@@ -255,7 +255,7 @@ const HotspotTextStyleTab = ({
                 data-testid="hotspot-underline"
                 selected={underline}
                 text={underlineLabelText}
-                renderIcon={() => <TextUnderline size="16" />}
+                renderIcon={TextUnderline}
                 index={2}
                 light={light}
               />
@@ -287,8 +287,8 @@ const HotspotTextStyleTab = ({
                 step={1}
                 label={fontSizeLabelText}
                 invalidText={fontSizeInvalidText}
-                onChange={(event) => {
-                  const parsedValue = Number(event.imaginaryTarget.value);
+                onChange={(event, { value }) => {
+                  const parsedValue = Number(value ?? event.imaginaryTarget.value);
                   if (isNumberValidForMinMax(parsedValue, minFontSize, maxFontSize)) {
                     onChange({
                       fontSize: parsedValue,
@@ -324,8 +324,8 @@ const HotspotTextStyleTab = ({
                 step={1}
                 light={light}
                 invalidText={fillOpacityInvalidText}
-                onChange={(event) => {
-                  const parsedValue = Number(event.imaginaryTarget.value);
+                onChange={(event, { value }) => {
+                  const parsedValue = Number(value ?? event.imaginaryTarget.value);
                   if (isNumberValidForMinMax(parsedValue, minOpacity, maxOpacity)) {
                     onChange({
                       backgroundOpacity: parsedValue,
@@ -359,8 +359,8 @@ const HotspotTextStyleTab = ({
                 step={1}
                 light={light}
                 invalidText={borderWidthInvalidText}
-                onChange={(event) => {
-                  const parsedValue = Number(event.imaginaryTarget.value);
+                onChange={(event, { value }) => {
+                  const parsedValue = Number(value ?? event.imaginaryTarget.value);
                   if (isNumberValidForMinMax(parsedValue, minBorderWidth, maxBorderWidth)) {
                     onChange({
                       borderWidth: parsedValue,
@@ -373,7 +373,7 @@ const HotspotTextStyleTab = ({
           <div className={`${iotPrefix}--hotspot-text-style-tab__delete-button-container`}>
             <Button
               kind="ghost"
-              renderIcon={(props) => <TrashCan size={32} {...props} />}
+              renderIcon={TrashCan}
               iconDescription={deleteButtonIconDescription}
               onClick={onDelete}
             >

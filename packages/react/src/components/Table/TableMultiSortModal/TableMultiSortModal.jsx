@@ -11,7 +11,7 @@ import { DragAndDrop } from '../../../utils/DragAndDropUtils';
 
 import { TableMultiSortRow } from './TableMultiSortRow';
 
-const { iotPrefix } = settings;
+const { iotPrefix, prefix } = settings;
 
 const propTypes = {
   columns: TableColumnsPropTypes.isRequired,
@@ -269,6 +269,7 @@ const TableMultiSortModal = ({
 
   return (
     <ComposedModal
+      selectorPrimaryFocus={`.${prefix}--modal-header`}
       testId={testId}
       className={`${iotPrefix}--table-multi-sort-modal`}
       header={{

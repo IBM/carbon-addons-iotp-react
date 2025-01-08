@@ -16,7 +16,7 @@ import ImageTile from './ImageTile';
 const GRID = 'grid';
 const LIST = 'list';
 
-const { iotPrefix } = settings;
+const { iotPrefix, prefix } = settings;
 
 export const ImagePropTypes = PropTypes.arrayOf(
   PropTypes.shape({
@@ -173,6 +173,7 @@ const ImageGalleryModal = ({
         />
       ) : null}
       <ComposedModal
+        selectorPrimaryFocus={`.${prefix}--modal-header`}
         type="normal"
         className={classnames(className, baseClass)}
         footer={{
