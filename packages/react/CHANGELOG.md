@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.13](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.12...v4.0.13) (2025-01-08)
+
+
+### Bug Fixes
+
+* use data prop instead of event ([1c0807e](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/1c0807e19ee319b7698bb765d4989775c1720418))
+
+
+
+
+
 ## [4.0.12](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.11...v4.0.12) (2025-01-07)
 
 
