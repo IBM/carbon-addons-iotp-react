@@ -277,7 +277,7 @@ export const HeaderComponentSubtitle = () => (
       subtitle={
         <div>
           Monitor
-          <span style={{ marginLeft: '1rem' }}>
+          <span style={{ marginInlineStart: '1rem' }}>
             <Tag>Admin Mode</Tag>
           </span>
         </div>
