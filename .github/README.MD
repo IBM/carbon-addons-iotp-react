@@ -13,13 +13,6 @@
 > and a vibrant community of contributors.
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/carbon-addons-iot-react">
-    <img src="https://img.shields.io/npm/v/carbon-addons-iot-react/latest" alt="@latest npm version release" />
-  </a>
-  <a href="https://www.npmjs.com/package/carbon-addons-iot-react">
-    <img src="https://img.shields.io/npm/v/carbon-addons-iot-react/next" alt="@next npm version release" />
-  </a>
-  <br/>
   <a href="https://carbon-design-system.github.io/carbon-addons-iot-react">
     <img src="https://img.shields.io/badge/view%20%40next-storybook-ff4785" alt="view @next storybook" />
   </a>
@@ -40,13 +33,13 @@
 
 </p>
 
-## Installation
+| Branch                                                                                  | Carbon version | Release                                                                                                                                                                           |
+| --------------------------------------------------------------------------------------- | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`next`](https://github.com/carbon-design-system/carbon-addons-iot-react/tree/next)     | v11            | <a href="https://www.npmjs.com/package/carbon-addons-iot-react"> <img src="https://img.shields.io/npm/v/carbon-addons-iot-react/latest" alt="@latest npm version release" /> </a> |
+| [`2.x.x`](https://github.com/carbon-design-system/carbon-addons-iot-react/tree/2.x.x)   | v10            | <a href="https://www.npmjs.com/package/carbon-addons-iot-react"> <img src="https://img.shields.io/npm/v/carbon-addons-iot-react/2.x.x" alt="@latest npm version 2.x.x" /> </a>    |
+| [`master`](https://github.com/carbon-design-system/carbon-addons-iot-react/tree/master) | v10            | --                                                                                                                                                                                |
 
-**@latest from
-[`master`](https://github.com/carbon-design-system/carbon-addons-iot-react/tree/master)**
-&nbsp; - &nbsp; <a href="https://carbon-design-system.github.io/carbon-addons-iot-react">
-<img valign=middle src="https://img.shields.io/badge/view%20%40latest-storybook-ff4785" alt="view @latest storybook" />
-</a>
+## Installation
 
 ```bash
 # with npm
@@ -56,25 +49,13 @@ npm install carbon-addons-iot-react d3@">=5.0.0 <=5.14.2"
 yarn add carbon-addons-iot-react d3@">=5.0.0 <=5.14.2"
 ```
 
-**@next pre-releases from
-[`next`](https://github.com/carbon-design-system/carbon-addons-iot-react/tree/next)**
-
-```bash
-# with npm
-npm install carbon-addons-iot-react@next d3@"^7.0.0"
-
-# with yarn
-yarn add carbon-addons-iot-react@next d3@"^7.0.0"
-```
+Note:
 
 > _`d3` is a peer dependency due to the usage of `@carbon/charts` in various
 > components. The required version range is specified in
 > [package.json](https://github.com/carbon-design-system/carbon-addons-iot-react/search?l=JSON&q=peerDependencies+d3)_
 
-### Subscribe to all pre-releases on `next`
-
-[Pre-release versions](https://semver.org/#spec-item-9) are available on
-`carbon-addons-iot-react@next`. The default version range that is automatically
+The default version range that is automatically
 added to your `package.json` on install/add will only follow pre-releases on the
 same `major.minor.patch` version. The version range can be modifed to follow all
 pre-releases:
