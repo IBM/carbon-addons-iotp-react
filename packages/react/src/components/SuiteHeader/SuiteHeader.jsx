@@ -463,7 +463,7 @@ const SuiteHeader = ({
                 appName={suiteName}
                 subtitle={
                   appNameComponent || currentWorkspaceComponent || extraContentComponent ? (
-                    <div>
+                    <div dir="auto">
                       {currentWorkspaceComponent}
                       {appNameComponent}
                       {extraContentComponent}
