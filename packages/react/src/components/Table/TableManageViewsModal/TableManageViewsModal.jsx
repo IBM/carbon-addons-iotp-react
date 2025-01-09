@@ -210,7 +210,7 @@ const TableManageViewsModal = ({
             id="manage-views-modal-public-checkbox-label"
             labelText={publicCheckboxLabelText}
             wrapperClassName={`${iotPrefix}--manage-views-modal__public-checkbox`}
-            onChange={(isPublic) => onDisplayPublicChange(isPublic)}
+            onChange={(event, { checked: isPublic }) => onDisplayPublicChange(isPublic)}
             {...overrides?.publicCheckbox?.props}
           />
         </div>
