@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.14](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.13...v4.0.14) (2025-01-09)
+
+
+### Bug Fixes
+
+* addressing review comments ([f486c73](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/f486c73a5fbee50ccff9513e7a2d5c672de54d35))
+* display public views in the list ([8a5f5b1](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/8a5f5b1da2efc003d214b6e6e47cd74f1a48c238))
+* header and suite header fixes to support rtl ([ac6bc74](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/ac6bc742ce39255085e718142634b5b38273c1b0))
+
+
+
+
+
 ## [4.0.13](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.12...v4.0.13) (2025-01-08)
 
 
