@@ -31,7 +31,6 @@ import {
 import Button from '../Button/Button';
 import FlyoutMenu, { FlyoutMenuDirection } from '../FlyoutMenu/FlyoutMenu';
 import { handleSpecificKeyDown, useOnClickOutside } from '../../utils/componentUtilityFunctions';
-import { Tooltip } from '../Tooltip';
 
 import {
   getIntervalValue,
@@ -1358,9 +1357,7 @@ const DateTimePicker = ({
         })}
         tabIndex={0}
       >
-        <Tooltip triggerText={tooltipField} showIcon={false}>
-          {tooltipValue}
-        </Tooltip>
+        {tooltipField}
       </div>
       {invalidState && !hasIconOnly ? (
         <p
