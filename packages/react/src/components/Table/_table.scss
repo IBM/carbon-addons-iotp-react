@@ -149,6 +149,16 @@ button.#{$prefix}--btn.#{$iot-prefix}--tooltip-svg-wrapper.#{$prefix}--btn--ghos
   width: $spacing-08;
 }
 
+.#{$prefix}--data-table td,
+.#{$prefix}--data-table tbody th {
+  padding-right: 1rem;
+  padding-left: 1rem;
+  border-top: 1px solid $icon-on-color;
+  border-bottom: 1px solid $layer-selected-01;
+  background: $icon-on-color;
+  color: $text-secondary;
+}
+
 .#{$iot-prefix}--table__row--selectable {
   .#{$prefix}--checkbox {
     cursor: pointer;
@@ -444,7 +454,7 @@ button.#{$prefix}--btn.#{$iot-prefix}--tooltip-svg-wrapper.#{$prefix}--btn--ghos
     position: sticky;
     z-index: 1;
     right: 0;
-    // filter: drop-shadow(-1px 0 0 $border-disabled);
+    filter: drop-shadow(-1px 0 0 rgba(0, 0, 0, 0.2));
 
     min-width: convert.to-rem(56px);
     width: convert.to-rem(56px); // Needed for fixed/resizable columns that don't respect min-width
@@ -452,7 +462,7 @@ button.#{$prefix}--btn.#{$iot-prefix}--tooltip-svg-wrapper.#{$prefix}--btn--ghos
     [dir='rtl'] & {
       right: unset;
       left: 0;
-      // filter: drop-shadow(1px 0 0 $border-disabled);
+      filter: drop-shadow(1px 0 0 rgba(0, 0, 0, 0.2));
     }
   }
 
