@@ -710,7 +710,8 @@ export const useDateTimePickerClickOutside = (closeDropdownCallback, containerRe
     evt?.target.classList?.contains(`${iotPrefix}--date-time-picker__menu-btn-back`) ||
     evt?.target.classList?.contains(`${iotPrefix}--date-time-picker__menu-btn-reset`) ||
     evt?.target.classList?.contains(`${iotPrefix}--date-time-picker__menu-btn-cancel`) ||
-    evt?.target.classList?.contains(`${iotPrefix}--date-time-picker__menu-btn-apply`)
+    evt?.target.classList?.contains(`${iotPrefix}--date-time-picker__menu-btn-apply`) ||
+    evt?.target?.offsetParent?.classList?.contains(`flatpickr-calendar`)
   ) {
     return;
   }

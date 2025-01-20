@@ -37,26 +37,6 @@
     width: 100%;
   }
 
-  .#{$prefix}--date-picker--range {
-    position: absolute;
-  }
-
-  .#{$prefix}--date-picker-container {
-    opacity: 0;
-  }
-
-  .flatpickr-calendar.open {
-    padding-bottom: 0;
-    position: unset !important;
-    top: unset !important;
-    left: unset !important;
-    box-shadow: none;
-    margin-left: auto;
-    margin-right: auto;
-    -webkit-animation: none;
-    animation: none;
-  }
-
   .#{$prefix}--number {
     .#{$prefix}--number__input-wrapper {
       input {
@@ -69,6 +49,17 @@
 
   .#{$prefix}--select-input {
     width: 8.5rem;
+  }
+
+  .#{$prefix}--date-picker--range {
+    .#{$prefix}--date-picker__input,
+    .#{$prefix}--date-picker-container {
+      inline-size: 8.5rem;
+    }
+
+    & > .#{$prefix}--date-picker-container:first-child {
+      margin-inline-end: $spacing-05;
+    }
   }
 
   .#{$iot-prefix}--time-picker__wrapper {
@@ -311,11 +302,6 @@
 
 .#{$iot-prefix}--date-time-picker__wrapper--disabled {
   cursor: not-allowed;
-}
-
-.#{$iot-prefix}--date-time-picker__datepicker {
-  //placeholder height, there is an issue in carbon that calender is rendered after the height calculation
-  min-height: 20.875rem;
 }
 
 html[dir='rtl'] {
