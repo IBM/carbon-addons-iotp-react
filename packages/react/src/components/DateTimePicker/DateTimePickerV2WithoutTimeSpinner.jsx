@@ -35,13 +35,10 @@ import {
   getIntervalValue,
   invalidEndDate,
   invalidStartDate,
-  onDatePickerClose,
   parseValue,
   useAbsoluteDateTimeValue,
-  useDateTimePickerFocus,
   useDateTimePickerKeyboardInteraction,
   useDateTimePickerRangeKind,
-  useDateTimePickerRef,
   useRelativeDateTimeValue,
   useDateTimePickerClickOutside,
   useCloseDropdown,
@@ -148,6 +145,8 @@ const propTypes = {
     invalidNumberLabel: PropTypes.string,
     relativeToLabel: PropTypes.string,
     absoluteLabel: PropTypes.string,
+    startDateLabel: PropTypes.string,
+    endDateLabel: PropTypes.string,
     startTimeLabel: PropTypes.string,
     endTimeLabel: PropTypes.string,
     applyBtnLabel: PropTypes.string,
@@ -243,6 +242,8 @@ const defaultProps = {
     absoluteLabel: 'Absolute',
     startTimeLabel: 'Start time',
     endTimeLabel: 'End time',
+    startDateLabel: 'Start Date',
+    endDateLabel: 'End Date',
     startAriaLabel: 'Date time start',
     endAriaLabel: 'Date time end',
     applyBtnLabel: 'Apply',
@@ -325,8 +326,6 @@ const DateTimePicker = ({
   const [lastAppliedValue, setLastAppliedValue] = useState(null);
   const [humanValue, setHumanValue] = useState(null);
   const [invalidState, setInvalidState] = useState(invalid);
-  const [datePickerElem, handleDatePickerRef] = useDateTimePickerRef({ id, v2: true });
-  const [focusOnFirstField, setFocusOnFirstField] = useDateTimePickerFocus(datePickerElem);
   const relativeSelect = useRef(null);
   const containerRef = useRef();
   const dropdownRef = useRef();
@@ -445,51 +444,12 @@ const DateTimePicker = ({
     [absoluteValue, relativeValue]
   );
 
-  const onDatePickerChange = ([start, end], _, flatpickr) => {
-    const calendarInFocus = document?.activeElement?.closest(
-      `.${iotPrefix}--date-time-picker__datepicker`
-    );
-
-    const daysDidntChange =
-      dayjs(absoluteValue.start).isSame(dayjs(start)) &&
-      dayjs(absoluteValue.end).isSame(dayjs(end));
-
-    if (daysDidntChange || !calendarInFocus) {
-      // jump back to start to fix bug where flatpickr will change the month to the start
-      // after it loses focus if you click outside the calendar
-      if (focusOnFirstField) {
-        flatpickr.jumpToDate(start);
-      } else {
-        flatpickr.jumpToDate(end);
-      }
-
-      // In some situations, when the calendar loses focus flatpickr is firing the onChange event
-      // again, but the dates reset to where both start and end are the same. This fixes that.
-      if (!calendarInFocus && dayjs(start).isSame(dayjs(end))) {
-        flatpickr.setDate([absoluteValue.start, absoluteValue.end]);
-      }
-      return;
-    }
-
+  const onDatePickerChange = ([start, end]) => {
     const newAbsolute = { ...absoluteValue };
     newAbsolute.start = start;
-    newAbsolute.startDate = dayjs(newAbsolute.start).format('MM/DD/YYYY');
-    const prevFocusOnFirstField = focusOnFirstField;
-    if (end) {
-      setFocusOnFirstField(!focusOnFirstField);
-      newAbsolute.start = start;
-      newAbsolute.startDate = dayjs(newAbsolute.start).format('MM/DD/YYYY');
-      newAbsolute.end = end;
-      newAbsolute.endDate = dayjs(newAbsolute.end).format('MM/DD/YYYY');
-      if (prevFocusOnFirstField) {
-        flatpickr.jumpToDate(newAbsolute.start, true);
-      } else {
-        flatpickr.jumpToDate(newAbsolute.end, true);
-      }
-    } else {
-      setFocusOnFirstField(false);
-      flatpickr.jumpToDate(newAbsolute.start, true);
-    }
+    newAbsolute.startDate = start ? dayjs(newAbsolute.start).format('MM/DD/YYYY') : '';
+    newAbsolute.end = end;
+    newAbsolute.endDate = end ? dayjs(newAbsolute.end).format('MM/DD/YYYY') : '';
 
     setAbsoluteValue(newAbsolute);
 
@@ -931,7 +891,12 @@ const DateTimePicker = ({
                     legendText={mergedI18n.relativeToLabel}
                     className={`${iotPrefix}--date-time-picker__menu-formgroup`}
                   >
-                    <div className={`${iotPrefix}--date-time-picker__fields-wrapper`}>
+                    <div
+                      className={classnames(
+                        `${iotPrefix}--date-time-picker__fields-wrapper`,
+                        `${iotPrefix}--date-time-picker__fields-wrapper--with-gap`
+                      )}
+                    >
                       <Select
                         {...others}
                         ref={relativeSelect}
@@ -968,33 +933,27 @@ const DateTimePicker = ({
                 </>
               ) : (
                 <div data-testid={`${testId}-datepicker`}>
-                  <div
-                    id={`${id}-${iotPrefix}--date-time-picker__datepicker`}
-                    className={`${iotPrefix}--date-time-picker__datepicker`}
-                  >
+                  <FormGroup className={`${iotPrefix}--date-time-picker__menu-formgroup`}>
                     <DatePicker
                       datePickerType="range"
                       dateFormat="m/d/Y"
-                      ref={handleDatePickerRef}
                       onChange={onDatePickerChange}
-                      onClose={onDatePickerClose}
                       value={absoluteValue ? [absoluteValue.startDate, absoluteValue.endDate] : ''}
                       locale={locale?.split('-')[0]}
+                      light
                     >
                       <DatePickerInput
-                        labelText=""
+                        labelText={mergedI18n.startDateLabel}
                         aria-label={mergedI18n.startAriaLabel}
                         id={`${id}-date-picker-input-start`}
-                        hideLabel
                       />
                       <DatePickerInput
-                        labelText=""
+                        labelText={mergedI18n.endDateLabel}
                         aria-label={mergedI18n.endAriaLabel}
                         id={`${id}-date-picker-input-end`}
-                        hideLabel
                       />
                     </DatePicker>
-                  </div>
+                  </FormGroup>
                   {hasTimeInput ? (
                     <FormGroup
                       legendText=""
