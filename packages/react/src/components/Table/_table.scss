@@ -43,6 +43,18 @@ td.#{$iot-prefix}--table__cell--sortable {
   padding-right: $spacing-07;
 }
 
+td.data-table-start {
+  text-align: start;
+}
+
+td.data-table-center {
+  text-align: center;
+}
+
+td.data-table-end {
+  text-align: end;
+}
+
 .#{$iot-prefix}--data-table--resize td {
   word-break: break-all;
 }
