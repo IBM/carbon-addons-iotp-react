@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.18](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.17...v4.0.18) (2025-01-21)
+
+
+### Bug Fixes
+
+* date time picker absolute range ([#3919](https://github.com/carbon-design-system/carbon-addons-iot-react/issues/3919)) ([de62a5f](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/de62a5f93ad755ddba27b3a40d0bf38f7c15c3d5))
+
+
+
+
+
 ## [4.0.17](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.16...v4.0.17) (2025-01-21)
 
 **Note:** Version bump only for package ibm-ai-applications
