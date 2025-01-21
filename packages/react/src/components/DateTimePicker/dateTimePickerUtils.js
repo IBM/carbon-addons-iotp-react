@@ -6,7 +6,7 @@ import { settings } from '../../constants/Settings';
 import { PICKER_KINDS, INTERVAL_VALUES, RELATIVE_VALUES } from '../../constants/DateConstants';
 import dayjs from '../../utils/dayjs';
 
-const { iotPrefix } = settings;
+const { iotPrefix, prefix } = settings;
 
 /** check if current time is 24 hours
  *
@@ -723,7 +723,13 @@ export const useDateTimePickerClickOutside = (closeDropdownCallback, containerRe
   // Composed path is needed in order to detect if event is bubbled from TimePickerSpinner which is a React Portal
   if (
     evt.composed &&
-    evt.composedPath().some((el) => el.classList?.contains(`${iotPrefix}--time-picker-spinner`))
+    evt
+      .composedPath()
+      .some(
+        (el) =>
+          el.classList?.contains(`${iotPrefix}--time-picker-spinner`) ||
+          el.classList?.contains(`${prefix}--date-picker__calendar`)
+      )
   ) {
     return;
   }

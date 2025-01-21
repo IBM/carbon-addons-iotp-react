@@ -142,6 +142,17 @@
     .#{$iot-prefix}--date-time-picker__box--disabled {
       border: none;
     }
+
+    .#{$prefix}--date-picker--range {
+      .#{$prefix}--date-picker__input,
+      .#{$prefix}--date-picker-container {
+        inline-size: 8.5rem;
+      }
+
+      & > .#{$prefix}--date-picker-container:first-child {
+        margin-inline-end: $spacing-05;
+      }
+    }
   }
 }
 
@@ -190,31 +201,8 @@
     }
   }
 
-  .flatpickr-calendar.open {
-    padding-bottom: 0;
-    position: unset !important;
-    top: unset !important;
-    left: unset !important;
-    box-shadow: none;
-    margin-left: auto;
-    margin-right: auto;
-    -webkit-animation: none;
-    animation: none;
-  }
-
   .#{$prefix}--select {
     width: 8.5rem;
-  }
-
-  // hide the date picker inputs
-  .#{$prefix}--date-picker--range {
-    position: absolute;
-  }
-  .#{$prefix}--date-picker--single {
-    position: absolute;
-  }
-  .#{$prefix}--date-picker-container {
-    opacity: 0;
   }
 
   .#{$prefix}--number {
@@ -247,6 +235,10 @@
     .#{$iot-prefix}--time-picker__controls {
       left: 6.7rem;
     }
+
+    .#{$prefix}--time-picker__error__icon {
+      inset-inline-end: 2rem;
+    }
   }
 
   .#{$iot-prefix}--date-time-picker__fields-wrapper {
@@ -255,6 +247,10 @@
 
     .#{$prefix}--label {
       margin-bottom: 0;
+    }
+
+    &--with-gap {
+      gap: $spacing-05;
     }
 
     .#{$prefix}--form-item + .#{$prefix}--form-item {
@@ -350,20 +346,6 @@
   // Preserve center alignment for the time picker spinner
   & .#{$prefix}--tooltip__content {
     text-align: unset;
-  }
-}
-
-.#{$iot-prefix}--date-time-picker__datepicker {
-  //placeholder height, there is an issue in carbon that calender is rendered after the height calculation
-  min-height: 20.875rem;
-  .#{$iot-prefix}--date-time-picker__datepicker--invalid {
-    display: flex;
-    align-items: center;
-    padding: 0 calc(#{$spacing-05} + #{$spacing-02}) $spacing-05 $spacing-07;
-    svg {
-      fill: $button-danger-primary;
-      margin-right: $spacing-03;
-    }
   }
 }
 
