@@ -310,7 +310,7 @@ export const WithEverything = () => (
       }
       content={
         <Tabs style={{ marginLeft: '-16px', marginRight: '-16px' }}>
-          <TabList>
+          <TabList aria-label="List of tabs">
             <Tab>Tab 1</Tab>
             <Tab>Tab 2</Tab>
             <Tab>Tab 3</Tab>
@@ -502,7 +502,7 @@ export const WithDynamicScrollingAndTabs = () => (
       }
       content={
         <Tabs>
-          <TabList>
+         <TabList aria-label="List of tabs">
             <Tab>Tab 1</Tab>
             <Tab>Tab 2</Tab>
             <Tab>Tab 3</Tab>

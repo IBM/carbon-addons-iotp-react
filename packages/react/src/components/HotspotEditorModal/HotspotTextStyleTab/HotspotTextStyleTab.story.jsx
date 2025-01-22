@@ -38,7 +38,7 @@ const commonActions = {
 };
 
 export default {
-  title: '2 - Watson IoT Experimental/☢️ HotSpotEditorModal/HotspotTextStyleTab',
+  title: '2 - Watson IoT Experimental/☢️ DashboardEditor/☢️ HotSpotEditorModal/HotspotTextStyleTab',
   decorators: [withKnobs],
 
   parameters: {

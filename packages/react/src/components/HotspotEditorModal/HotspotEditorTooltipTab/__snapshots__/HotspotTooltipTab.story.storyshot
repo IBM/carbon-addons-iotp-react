@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storybook Snapshot tests and console checks Storyshots Watson IoT Experimental/HotSpotEditorModal/HotspotTooltipTab Example with externaly managed state 1`] = `
+exports[`Storybook Snapshot tests and console checks Storyshots Watson IoT Experimental/☢️ DashboardEditor/HotSpotEditorModal/HotspotTooltipTab Example with externaly managed state 1`] = `
 <div
   className="storybook-container"
 >
@@ -292,7 +292,7 @@ exports[`Storybook Snapshot tests and console checks Storyshots Watson IoT Exper
 </div>
 `;
 
-exports[`Storybook Snapshot tests and console checks Storyshots Watson IoT Experimental/HotSpotEditorModal/HotspotTooltipTab With Info Message 1`] = `
+exports[`Storybook Snapshot tests and console checks Storyshots Watson IoT Experimental/☢️ DashboardEditor/HotSpotEditorModal/HotspotTooltipTab With Info Message 1`] = `
 <div
   className="storybook-container"
 >
@@ -331,7 +331,7 @@ exports[`Storybook Snapshot tests and console checks Storyshots Watson IoT Exper
             />
           </svg>
           <p>
-            Select an existing hotspot on the image to edit it or insert one 
+            Select an existing hotspot on the image to edit it or insert one
           by selecting an option from the toolbar.
           </p>
         </div>
@@ -364,7 +364,7 @@ exports[`Storybook Snapshot tests and console checks Storyshots Watson IoT Exper
 </div>
 `;
 
-exports[`Storybook Snapshot tests and console checks Storyshots Watson IoT Experimental/HotSpotEditorModal/HotspotTooltipTab With Preset Values And Custom Colors 1`] = `
+exports[`Storybook Snapshot tests and console checks Storyshots Watson IoT Experimental/☢️ DashboardEditor/HotSpotEditorModal/HotspotTooltipTab With Preset Values And Custom Colors 1`] = `
 <div
   className="storybook-container"
 >

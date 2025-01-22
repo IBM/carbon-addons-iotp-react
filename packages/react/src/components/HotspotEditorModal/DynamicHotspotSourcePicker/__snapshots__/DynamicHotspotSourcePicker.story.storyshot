@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storybook Snapshot tests and console checks Storyshots 2 - Watson IoT Experimental/☢️ HotSpotEditorModal/DynamicHotspotSourcePicker Example with externaly managed state 1`] = `
+exports[`Storybook Snapshot tests and console checks Storyshots 2 - Watson IoT Experimental/☢️ DashboardEditor/☢️ HotSpotEditorModal/DynamicHotspotSourcePicker Example with externaly managed state 1`] = `
 <div
   className="storybook-container"
 >

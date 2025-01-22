@@ -105,7 +105,7 @@ const getDemoHotspots = (reqObj) => {
 };
 
 export default {
-  title: '2 - Watson IoT Experimental/☢️ HotSpotEditorModal',
+  title: '2 - Watson IoT Experimental/☢️ DashboardEditor/☢️ HotSpotEditorModal',
   decorators: [withKnobs],
   parameters: {
     component: HotspotEditorModal,

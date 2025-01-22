@@ -300,7 +300,7 @@ const TableToolbarAdvancedFilterFlyout = ({
       }}
     >
       <Tabs className={`${iotPrefix}--advanced-filter__tab-container`}>
-        <TabList>
+          <TabList aria-label="advanced-filter-flyout-tab">
           <Tab title={simpleFiltersTabLabel}>{simpleFiltersTabLabel}</Tab>
           <Tab title={advancedFiltersTabLabel}>{advancedFiltersTabLabel}</Tab>
         </TabList>

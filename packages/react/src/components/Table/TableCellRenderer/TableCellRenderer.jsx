@@ -88,7 +88,7 @@ const TableCellRenderer = ({
     return tooltip ? (
       <DefinitionTooltip
         triggerClassName={`${iotPrefix}--table__cell-tooltip`}
-        tooltipText={tooltipForExtraInformation}
+        definition={tooltipForExtraInformation}
         id="table-header-tooltip"
         align={tooltipDirection}
         openOnHover

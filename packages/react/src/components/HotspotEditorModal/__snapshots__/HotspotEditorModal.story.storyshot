@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storybook Snapshot tests and console checks Storyshots 2 - Watson IoT Experimental/☢️ HotSpotEditorModal Empty 1`] = `
+exports[`Storybook Snapshot tests and console checks Storyshots 2 - Watson IoT Experimental/☢️ DashboardEditor/☢️ HotSpotEditorModal Empty 1`] = `
 <div
   className="storybook-container"
 >
@@ -599,7 +599,7 @@ exports[`Storybook Snapshot tests and console checks Storyshots 2 - Watson IoT E
 </div>
 `;
 
-exports[`Storybook Snapshot tests and console checks Storyshots 2 - Watson IoT Experimental/☢️ HotSpotEditorModal Empty with getValidDataItems callback 1`] = `
+exports[`Storybook Snapshot tests and console checks Storyshots 2 - Watson IoT Experimental/☢️ DashboardEditor/☢️ HotSpotEditorModal Empty with getValidDataItems callback 1`] = `
 <div
   className="storybook-container"
 >
@@ -1198,7 +1198,7 @@ exports[`Storybook Snapshot tests and console checks Storyshots 2 - Watson IoT E
 </div>
 `;
 
-exports[`Storybook Snapshot tests and console checks Storyshots 2 - Watson IoT Experimental/☢️ HotSpotEditorModal With Existing Dynamic Hotspots 1`] = `
+exports[`Storybook Snapshot tests and console checks Storyshots 2 - Watson IoT Experimental/☢️ DashboardEditor/☢️ HotSpotEditorModal With Existing Dynamic Hotspots 1`] = `
 <div
   className="storybook-container"
 >
@@ -1812,7 +1812,7 @@ exports[`Storybook Snapshot tests and console checks Storyshots 2 - Watson IoT E
 </div>
 `;
 
-exports[`Storybook Snapshot tests and console checks Storyshots 2 - Watson IoT Experimental/☢️ HotSpotEditorModal With Existing Hotspots 1`] = `
+exports[`Storybook Snapshot tests and console checks Storyshots 2 - Watson IoT Experimental/☢️ DashboardEditor/☢️ HotSpotEditorModal With Existing Hotspots 1`] = `
 <div
   className="storybook-container"
 >
@@ -2797,7 +2797,7 @@ exports[`Storybook Snapshot tests and console checks Storyshots 2 - Watson IoT E
 </div>
 `;
 
-exports[`Storybook Snapshot tests and console checks Storyshots 2 - Watson IoT Experimental/☢️ HotSpotEditorModal ️⚠️ Experimental Notice  1`] = `
+exports[`Storybook Snapshot tests and console checks Storyshots 2 - Watson IoT Experimental/☢️ DashboardEditor/☢️ HotSpotEditorModal ️⚠️ Experimental Notice  1`] = `
 <div
   className="storybook-container"
 >
@@ -2852,13 +2852,13 @@ exports[`Storybook Snapshot tests and console checks Storyshots 2 - Watson IoT E
         <span>
           ColorDropdown
            is an
-           
+
           <a
             href="https://github.com/carbon-design-system/carbon-addons-iot-react/blob/next/packages/react/docs/guides/experimental-components.md"
           >
             experimental component
           </a>
-           
+
           and may have changing APIs with no major version bump and/or insufficient test coverage. Use of this component in production is discouraged.
         </span>
       </div>
