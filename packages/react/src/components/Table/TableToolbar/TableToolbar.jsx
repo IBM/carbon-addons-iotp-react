@@ -451,7 +451,7 @@ const TableToolbar = ({
               }}
               description={i18n.downloadIconDescription}
               testId="download-button"
-              renderIcon={(props) => <Download size={16} {...props} />}
+              renderIcon={Download}
               disabled={isDisabled}
               langDir={langDir}
             />
@@ -462,7 +462,7 @@ const TableToolbar = ({
               onClick={onToggleColumnSelection}
               description={i18n.columnSelectionButtonAria}
               testId="column-selection-button"
-              renderIcon={(props) => <Column size={16} {...props} />}
+              renderIcon={Column}
               disabled={isDisabled}
               langDir={langDir}
             />
@@ -473,7 +473,7 @@ const TableToolbar = ({
               onClick={onToggleFilter}
               description={i18n.filterButtonAria}
               testId="filter-button"
-              renderIcon={(props) => <Filter size={16} {...props} />}
+              renderIcon={Filter}
               disabled={isDisabled}
               langDir={langDir}
             />

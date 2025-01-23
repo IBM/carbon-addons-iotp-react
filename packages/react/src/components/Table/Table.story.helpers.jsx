@@ -694,7 +694,7 @@ export const getBatchActions = () => {
 export const getCustomToolbarContentElement = () => (
   <div
     key="custom-content-1"
-    className=".bx--type-light"
+    className=".cds--type-light"
     style={{ alignItems: 'center', display: 'flex', padding: '0 1rem' }}
   >
     Custom content

@@ -502,7 +502,7 @@ export const WithDynamicScrollingAndTabs = () => (
       }
       content={
         <Tabs>
-         <TabList aria-label="List of tabs">
+          <TabList aria-label="List of tabs">
             <Tab>Tab 1</Tab>
             <Tab>Tab 2</Tab>
             <Tab>Tab 3</Tab>

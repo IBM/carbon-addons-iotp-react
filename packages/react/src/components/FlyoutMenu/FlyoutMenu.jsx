@@ -21,6 +21,24 @@ export const FlyoutMenuDirection = {
   RightEnd: 'right-end',
 };
 
+export const FlyoutMenuButtonSize = {
+  Default: 'default',
+  Field: 'field',
+  Small: 'small',
+};
+
+const getButtonSize = (size) => {
+  switch (size) {
+    case FlyoutMenuButtonSize.Field:
+      return 'xs';
+    case FlyoutMenuButtonSize.Default:
+      return 'md';
+    case FlyoutMenuButtonSize.Small:
+    default:
+      return 'sm';
+  }
+};
+
 const getTooltipDirection = (direction) => {
   switch (direction) {
     case FlyoutMenuDirection.TopStart:
@@ -311,7 +329,7 @@ const FlyoutMenu = ({
                 hasIconOnly
                 kind="ghost"
                 testId={`${testId}-button`}
-                size={buttonSize}
+                size={buttonProps.size ?? getButtonSize(buttonSize)}
                 renderIcon={renderIcon}
                 onClick={() => {
                   if (typeof buttonProps.onClick === 'function') {
@@ -470,6 +488,8 @@ const propTypes = {
 
   /** classes that can be passed to the button used for the flyout menu */
   buttonProps: PropTypes.shape({
+    tooltipPosition: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
+    size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
     className: PropTypes.string,
     onClick: PropTypes.func,
   }),

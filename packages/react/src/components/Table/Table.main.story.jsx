@@ -1649,7 +1649,7 @@ export const WithToolbar = () => {
       key="custom-content-2"
       direction={FlyoutMenuDirection.BottomEnd}
       iconDescription="Toggle flyout Menu"
-      buttonProps={{ size: 'default', renderIcon: SettingsAdjust }}
+      buttonProps={{ size: 'lg', renderIcon: SettingsAdjust }}
       onApply={action('Flyout Menu Apply Clicked')}
       onCancel={action('Flyout Menu Cancel Clicked')}
       hideTooltip={false}

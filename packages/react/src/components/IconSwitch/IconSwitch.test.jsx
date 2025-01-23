@@ -22,7 +22,7 @@ describe('IconSwitch', () => {
       render(
         <IconSwitch
           name="blah"
-          size="default"
+          size="sm"
           renderIcon={List}
           text="test"
           index={0}
@@ -33,32 +33,30 @@ describe('IconSwitch', () => {
     });
 
     it('should have the expected text', () => {
-      render(<IconSwitch name="blah" size="default" renderIcon={List} text="test" index={0} />);
+      render(<IconSwitch name="blah" size="sm" renderIcon={List} text="test" index={0} />);
       expect(screen.getByRole('button')).toBeVisible();
     });
 
     it('label should have the expected class', () => {
-      render(<IconSwitch name="blah" size="default" renderIcon={List} text="test" index={0} />);
+      render(<IconSwitch name="blah" size="sm" renderIcon={List} text="test" index={0} />);
       const className = `${prefix}--assistive-text`;
       expect(screen.getByText('test')).toHaveClass(className);
     });
 
     it('should have the expected class', () => {
-      render(<IconSwitch name="blah" size="default" renderIcon={List} text="test" index={0} />);
+      render(<IconSwitch name="blah" size="sm" renderIcon={List} text="test" index={0} />);
       const cls = `${iotPrefix}--icon-switch--default`;
       expect(screen.getByRole('button')).toHaveClass(cls);
     });
 
     it('should have unselected class', () => {
-      render(<IconSwitch name="blah" size="default" renderIcon={List} text="test" index={0} />);
+      render(<IconSwitch name="blah" size="sm" renderIcon={List} text="test" index={0} />);
       const unselectedClass = `${iotPrefix}--icon-switch--unselected`;
       expect(screen.getByRole('button')).toHaveClass(unselectedClass);
     });
 
     it('should NOT have unselected class when selected is set to true', () => {
-      render(
-        <IconSwitch name="blah" size="default" renderIcon={List} text="test" index={0} selected />
-      );
+      render(<IconSwitch name="blah" size="sm" renderIcon={List} text="test" index={0} selected />);
       const unselectedClass = `${iotPrefix}--icon-switch--unselected`;
       expect(screen.getByRole('button')).not.toHaveClass(unselectedClass);
     });
@@ -84,7 +82,7 @@ describe('IconSwitch', () => {
       render(
         <IconSwitch
           name={name}
-          size="default"
+          size="sm"
           renderIcon={List}
           onClick={buttonOnClick}
           onKeyDown={buttonOnKey}
@@ -100,7 +98,7 @@ describe('IconSwitch', () => {
       render(
         <IconSwitch
           name={name}
-          size="default"
+          size="sm"
           renderIcon={List}
           onClick={buttonOnClick}
           onKeyDown={buttonOnKey}
@@ -115,7 +113,7 @@ describe('IconSwitch', () => {
       render(
         <IconSwitch
           name={name}
-          size="default"
+          size="sm"
           renderIcon={List}
           onClick={buttonOnClick}
           onKeyDown={buttonOnKey}
@@ -130,7 +128,7 @@ describe('IconSwitch', () => {
       render(
         <IconSwitch
           name={name}
-          size="default"
+          size="sm"
           renderIcon={List}
           onClick={buttonOnClick}
           onKeyDown={buttonOnKey}

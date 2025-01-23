@@ -153,7 +153,7 @@ IconSwitch.defaultProps = {
   className: undefined,
   selected: false,
   name: '',
-  size: 'default',
+  size: 'sm',
   onClick: undefined,
   onKeyDown: undefined,
   testId: 'icon-switch',

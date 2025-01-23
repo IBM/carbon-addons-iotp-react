@@ -271,7 +271,7 @@ const TableToolbarAdvancedFilterFlyout = ({
       className={`${iotPrefix}--table-toolbar__advanced-filters-button-wrapper`}
       direction={FlyoutMenuDirection.BottomEnd}
       disabled={isDisabled}
-      renderIcon={(props) => <Filter size={16} {...props} />}
+      renderIcon={Filter}
       hideTooltip={false}
       light
       isOpen={advancedFilterFlyoutOpen}
@@ -283,6 +283,7 @@ const TableToolbarAdvancedFilterFlyout = ({
         onCancelAdvancedFilter();
       }}
       buttonProps={{
+        size: 'lg',
         className: classnames(
           `${prefix}--btn--icon-only`,
           `${iotPrefix}--tooltip-svg-wrapper`,
@@ -300,7 +301,7 @@ const TableToolbarAdvancedFilterFlyout = ({
       }}
     >
       <Tabs className={`${iotPrefix}--advanced-filter__tab-container`}>
-          <TabList aria-label="advanced-filter-flyout-tab">
+        <TabList aria-label="advanced-filter-flyout-tab">
           <Tab title={simpleFiltersTabLabel}>{simpleFiltersTabLabel}</Tab>
           <Tab title={advancedFiltersTabLabel}>{advancedFiltersTabLabel}</Tab>
         </TabList>

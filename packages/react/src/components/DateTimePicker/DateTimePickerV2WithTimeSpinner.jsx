@@ -29,7 +29,7 @@ import {
   RELATIVE_VALUES,
 } from '../../constants/DateConstants';
 import Button from '../Button/Button';
-import FlyoutMenu, { FlyoutMenuDirection } from '../FlyoutMenu/FlyoutMenu';
+import FlyoutMenu, { FlyoutMenuButtonSize, FlyoutMenuDirection } from '../FlyoutMenu/FlyoutMenu';
 import { handleSpecificKeyDown, useOnClickOutside } from '../../utils/componentUtilityFunctions';
 
 import {
@@ -970,7 +970,7 @@ const DateTimePicker = ({
 
       <FlyoutMenu
         isOpen={isExpanded}
-        buttonSize={hasIconOnly ? 'default' : 'small'}
+        buttonSize={hasIconOnly ? FlyoutMenuButtonSize.Default : FlyoutMenuButtonSize.Small}
         renderIcon={invalidState ? WarningFilled : Calendar}
         disabled={disabled}
         buttonProps={{
