@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.19](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.18...v4.0.19) (2025-01-27)
+
+
+### Bug Fixes
+
+* minor issues and invalid props ([52b2176](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/52b2176b6f6f2a3168b04aad4349dbfcc6368805))
+* update the flyout button size ([44a2aee](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/44a2aee18cac4f0f8dd3e2afc49e3e3dc20e2ff2))
+
+
+
+
+
 ## [4.0.18](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.17...v4.0.18) (2025-01-21)
 
 
