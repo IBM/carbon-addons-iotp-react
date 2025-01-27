@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storybook Snapshot tests and console checks Storyshots 2 - Watson IoT Experimental/☢️ HotSpotEditorModal/HotspotEditorDataSourceTab Example with state in story 1`] = `
+exports[`Storybook Snapshot tests and console checks Storyshots 2 - Watson IoT Experimental/☢️ DashboardEditor/☢️ HotSpotEditorModal/HotspotEditorDataSourceTab Example with state in story 1`] = `
 <div
   className="storybook-container"
 >
@@ -105,7 +105,7 @@ exports[`Storybook Snapshot tests and console checks Storyshots 2 - Watson IoT E
 </div>
 `;
 
-exports[`Storybook Snapshot tests and console checks Storyshots 2 - Watson IoT Experimental/☢️ HotSpotEditorModal/HotspotEditorDataSourceTab With preset values 1`] = `
+exports[`Storybook Snapshot tests and console checks Storyshots 2 - Watson IoT Experimental/☢️ DashboardEditor/☢️ HotSpotEditorModal/HotspotEditorDataSourceTab With preset values 1`] = `
 <div
   className="storybook-container"
 >
@@ -128,8 +128,8 @@ exports[`Storybook Snapshot tests and console checks Storyshots 2 - Watson IoT E
             <span
               className="bx--visually-hidden"
             >
-              Total items selected: 
-               
+              Total items selected:
+
               4
               ,
               To clear selection, press Delete or Backspace,

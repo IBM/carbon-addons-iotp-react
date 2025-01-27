@@ -879,8 +879,8 @@ export const useCustomHeight = ({
   // calculate max height for varies dropdown
   const presetMaxHeight = 315;
   const relativeMaxHeight = 200;
-  const absoluteMaxHeight = 446;
-  const singleMaxHeight = 442;
+  const absoluteMaxHeight = 200;
+  const singleMaxHeight = 200;
   const footerHeight = 40;
   const invalidDateWarningHeight = 38;
   const invalidTimeWarningHeight = 22;

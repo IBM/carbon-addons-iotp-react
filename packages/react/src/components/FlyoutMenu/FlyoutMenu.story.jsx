@@ -5,13 +5,7 @@ import { SettingsAdjust, ShareKnowledge } from '@carbon/react/icons';
 
 import Button from '../Button/Button';
 
-import FlyoutMenu, { FlyoutMenuDirection } from './FlyoutMenu';
-
-const buttonSizes = {
-  Default: 'default',
-  Field: 'field',
-  Small: 'small',
-};
+import FlyoutMenu, { FlyoutMenuDirection, FlyoutMenuButtonSize } from './FlyoutMenu';
 
 const CustomFooter = ({ setIsOpen, isOpen }) => {
   return (
@@ -43,7 +37,7 @@ export const DefaultExample = () => (
     }}
   >
     <FlyoutMenu
-      buttonSize={select('Button Size', buttonSizes, buttonSizes.Default)}
+      buttonSize={select('Button Size', FlyoutMenuButtonSize, FlyoutMenuButtonSize.Default)}
       renderIcon={ShareKnowledge}
       disabled={boolean('Disabled', false)}
       buttonProps={object('buttonProps', {
@@ -70,7 +64,7 @@ export const DefaultExample = () => (
 export const LargeFlyoutExample = () => (
   <div style={{ display: 'flex', justifyContent: 'center' }}>
     <FlyoutMenu
-      buttonSize={select('Button Size', buttonSizes, buttonSizes.Default)}
+      buttonSize={select('Button Size', FlyoutMenuButtonSize, FlyoutMenuButtonSize.Default)}
       renderIcon={ShareKnowledge}
       disabled={boolean('Disabled', false)}
       buttonProps={object('buttonProps', {
@@ -101,7 +95,7 @@ export const LargeFlyoutExample = () => (
 export const CustomFooterExample = () => (
   <div style={{ display: 'flex', justifyContent: 'center' }}>
     <FlyoutMenu
-      buttonSize={select('Button Size', buttonSizes, buttonSizes.Default)}
+      buttonSize={select('Button Size', FlyoutMenuButtonSize, FlyoutMenuButtonSize.Default)}
       renderIcon={SettingsAdjust}
       disabled={boolean('Disabled', false)}
       buttonProps={object('buttonProps', {
@@ -150,7 +144,7 @@ export const AutoPositioningExample = () => {
           }}
         >
           <FlyoutMenu
-            buttonSize={select('Button Size', buttonSizes, buttonSizes.Default)}
+            buttonSize={select('Button Size', FlyoutMenuButtonSize, FlyoutMenuButtonSize.Default)}
             renderIcon={ShareKnowledge}
             disabled={boolean('Disabled', false)}
             buttonProps={object('buttonProps', {
@@ -190,7 +184,7 @@ export const AutoPositioningExample = () => {
           }}
         >
           <FlyoutMenu
-            buttonSize={select('Button Size', buttonSizes, buttonSizes.Default)}
+            buttonSize={select('Button Size', FlyoutMenuButtonSize, FlyoutMenuButtonSize.Default)}
             renderIcon={ShareKnowledge}
             disabled={boolean('Disabled', false)}
             buttonProps={object('buttonProps', {
@@ -222,7 +216,7 @@ export const AutoPositioningExample = () => {
           }}
         >
           <FlyoutMenu
-            buttonSize={select('Button Size', buttonSizes, buttonSizes.Default)}
+            buttonSize={select('Button Size', FlyoutMenuButtonSize, FlyoutMenuButtonSize.Default)}
             renderIcon={ShareKnowledge}
             disabled={boolean('Disabled', false)}
             buttonProps={object('buttonProps', {
@@ -256,7 +250,7 @@ export const AutoPositioningExample = () => {
           }}
         >
           <FlyoutMenu
-            buttonSize={select('Button Size', buttonSizes, buttonSizes.Default)}
+            buttonSize={select('Button Size', FlyoutMenuButtonSize, FlyoutMenuButtonSize.Default)}
             renderIcon={ShareKnowledge}
             disabled={boolean('Disabled', false)}
             buttonProps={object('buttonProps', {
@@ -288,7 +282,7 @@ export const AutoPositioningExample = () => {
           }}
         >
           <FlyoutMenu
-            buttonSize={select('Button Size', buttonSizes, buttonSizes.Default)}
+            buttonSize={select('Button Size', FlyoutMenuButtonSize, FlyoutMenuButtonSize.Default)}
             renderIcon={ShareKnowledge}
             disabled={boolean('Disabled', false)}
             buttonProps={object('buttonProps', {
@@ -320,7 +314,7 @@ export const AutoPositioningExample = () => {
           }}
         >
           <FlyoutMenu
-            buttonSize={select('Button Size', buttonSizes, buttonSizes.Default)}
+            buttonSize={select('Button Size', FlyoutMenuButtonSize, FlyoutMenuButtonSize.Default)}
             renderIcon={ShareKnowledge}
             disabled={boolean('Disabled', false)}
             buttonProps={object('buttonProps', {
@@ -354,7 +348,7 @@ export const AutoPositioningExample = () => {
           }}
         >
           <FlyoutMenu
-            buttonSize={select('Button Size', buttonSizes, buttonSizes.Default)}
+            buttonSize={select('Button Size', FlyoutMenuButtonSize, FlyoutMenuButtonSize.Default)}
             renderIcon={ShareKnowledge}
             disabled={boolean('Disabled', false)}
             buttonProps={object('buttonProps', {
@@ -386,7 +380,7 @@ export const AutoPositioningExample = () => {
           }}
         >
           <FlyoutMenu
-            buttonSize={select('Button Size', buttonSizes, buttonSizes.Default)}
+            buttonSize={select('Button Size', FlyoutMenuButtonSize, FlyoutMenuButtonSize.Default)}
             renderIcon={ShareKnowledge}
             disabled={boolean('Disabled', false)}
             buttonProps={object('buttonProps', {
@@ -418,7 +412,7 @@ export const AutoPositioningExample = () => {
           }}
         >
           <FlyoutMenu
-            buttonSize={select('Button Size', buttonSizes, buttonSizes.Default)}
+            buttonSize={select('Button Size', FlyoutMenuButtonSize, FlyoutMenuButtonSize.Default)}
             renderIcon={ShareKnowledge}
             disabled={boolean('Disabled', false)}
             buttonProps={object('buttonProps', {

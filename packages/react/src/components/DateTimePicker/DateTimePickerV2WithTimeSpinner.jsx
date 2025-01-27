@@ -29,7 +29,7 @@ import {
   RELATIVE_VALUES,
 } from '../../constants/DateConstants';
 import Button from '../Button/Button';
-import FlyoutMenu, { FlyoutMenuDirection } from '../FlyoutMenu/FlyoutMenu';
+import FlyoutMenu, { FlyoutMenuButtonSize, FlyoutMenuDirection } from '../FlyoutMenu/FlyoutMenu';
 import { handleSpecificKeyDown, useOnClickOutside } from '../../utils/componentUtilityFunctions';
 
 import {
@@ -970,7 +970,7 @@ const DateTimePicker = ({
 
       <FlyoutMenu
         isOpen={isExpanded}
-        buttonSize={hasIconOnly ? 'default' : 'small'}
+        buttonSize={hasIconOnly ? FlyoutMenuButtonSize.Default : FlyoutMenuButtonSize.Small}
         renderIcon={invalidState ? WarningFilled : Calendar}
         disabled={disabled}
         buttonProps={{
@@ -1122,7 +1122,7 @@ const DateTimePicker = ({
                             ? `${i18n.decrement} ${i18n.number}`
                             : null
                         }
-                        light
+                        light={!light}
                       />
                       <Select
                         {...others}
@@ -1132,7 +1132,7 @@ const DateTimePicker = ({
                         }
                         onChange={onRelativeLastIntervalChange}
                         hideLabel
-                        light
+                        light={!light}
                       >
                         {intervals.map((interval, i) => {
                           return (
@@ -1163,7 +1163,7 @@ const DateTimePicker = ({
                         defaultValue={relativeValue ? relativeValue.relativeToWhen : ''}
                         onChange={onRelativeToWhenChange}
                         hideLabel
-                        light
+                        light={!light}
                       >
                         {relatives.map((relative, i) => {
                           return (
@@ -1184,7 +1184,7 @@ const DateTimePicker = ({
                           onChange={onRelativeToTimeChange}
                           spinner
                           autoComplete="off"
-                          light
+                          light={!light}
                         />
                       ) : null}
                     </div>
@@ -1208,7 +1208,7 @@ const DateTimePicker = ({
                       }
                       locale={locale?.split('-')[0]}
                       closeOnSelect={false}
-                      light={light}
+                      light={!light}
                     >
                       <DatePickerInput
                         labelText={mergedI18n.startDateLabel}
@@ -1242,37 +1242,43 @@ const DateTimePicker = ({
                     ) : null}
                   </FormGroup>
                   {hasTimeInput ? (
-                    <TimePickerDropdown
-                      className={`${iotPrefix}--time-picker-dropdown`}
-                      id={id}
-                      key={defaultTimeValueUpdate}
-                      value={
-                        isSingleSelect
-                          ? getLocalizedTimeValue(singleTimeValue)
-                          : getLocalizedTimeValue(rangeStartTimeValue)
-                      }
-                      secondaryValue={getLocalizedTimeValue(rangeEndTimeValue)}
-                      hideLabel={!mergedI18n.startTimeLabel}
-                      hideSecondaryLabel={!mergedI18n.endTimeLabel}
-                      onChange={(startState, endState) =>
-                        isSingleSelect
-                          ? handleSingleTimeValueChange(startState)
-                          : handleRangeTimeValueChange(startState, endState)
-                      }
-                      type={isSingleSelect ? 'single' : 'range'}
-                      invalid={[invalidRangeStartTime, invalidRangeEndTime]}
-                      i18n={{
-                        labelText: mergedI18n.startTimeLabel,
-                        secondaryLabelText: mergedI18n.endTimeLabel,
-                        invalidText: mergedI18n.timePickerInvalidText,
-                        amString: mergedI18n.amString,
-                        pmString: mergedI18n.pmString,
-                      }}
-                      size="sm"
-                      testId={`${testId}--time-picker-dropdown`}
-                      style={{ zIndex: `${(style.zIndex ?? 0) + 10000}` }}
-                      is24hours={is24hours}
-                    />
+                    <FormGroup
+                      legendText=""
+                      className={`${iotPrefix}--date-time-picker__menu-formgroup`}
+                    >
+                      <TimePickerDropdown
+                        className={`${iotPrefix}--time-picker-dropdown`}
+                        id={id}
+                        key={defaultTimeValueUpdate}
+                        value={
+                          isSingleSelect
+                            ? getLocalizedTimeValue(singleTimeValue)
+                            : getLocalizedTimeValue(rangeStartTimeValue)
+                        }
+                        secondaryValue={getLocalizedTimeValue(rangeEndTimeValue)}
+                        hideLabel={!mergedI18n.startTimeLabel}
+                        hideSecondaryLabel={!mergedI18n.endTimeLabel}
+                        onChange={(startState, endState) =>
+                          isSingleSelect
+                            ? handleSingleTimeValueChange(startState)
+                            : handleRangeTimeValueChange(startState, endState)
+                        }
+                        type={isSingleSelect ? 'single' : 'range'}
+                        invalid={[invalidRangeStartTime, invalidRangeEndTime]}
+                        i18n={{
+                          labelText: mergedI18n.startTimeLabel,
+                          secondaryLabelText: mergedI18n.endTimeLabel,
+                          invalidText: mergedI18n.timePickerInvalidText,
+                          amString: mergedI18n.amString,
+                          pmString: mergedI18n.pmString,
+                        }}
+                        size="sm"
+                        testId={`${testId}--time-picker-dropdown`}
+                        style={{ zIndex: `${(style.zIndex ?? 0) + 10000}` }}
+                        is24hours={is24hours}
+                        light={!light}
+                      />
+                    </FormGroup>
                   ) : (
                     <div className={`${iotPrefix}--date-time-picker__no-formgroup`} />
                   )}

@@ -27,7 +27,8 @@ const commonActions = {
 };
 
 export default {
-  title: '2 - Watson IoT Experimental/☢️ HotSpotEditorModal/HotspotEditorDataSourceTab',
+  title:
+    '2 - Watson IoT Experimental/☢️ DashboardEditor/☢️ HotSpotEditorModal/HotspotEditorDataSourceTab',
   decorators: [withKnobs],
   parameters: {
     component: HotspotEditorDataSourceTab,

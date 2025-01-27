@@ -769,7 +769,7 @@ const DateTimePicker = ({
                         invalidText={mergedI18n.invalidNumberLabel}
                         step={1}
                         min={0}
-                        light
+                        light={!light}
                         value={relativeValue ? relativeValue.lastNumber : 0}
                         onChange={onRelativeLastNumberChange}
                         translateWithId={(messageId) =>
@@ -783,7 +783,7 @@ const DateTimePicker = ({
                       <Select
                         {...others}
                         id={`${id}-last-interval`}
-                        light
+                        light={!light}
                         defaultValue={
                           relativeValue ? relativeValue.lastInterval : INTERVAL_VALUES.MINUTES
                         }
@@ -820,7 +820,7 @@ const DateTimePicker = ({
                         {...others}
                         ref={relativeSelect}
                         id={`${id}-relative-to-when`}
-                        light
+                        light={!light}
                         defaultValue={relativeValue ? relativeValue.relativeToWhen : ''}
                         onChange={onRelativeToWhenChange}
                         hideLabel
@@ -845,7 +845,7 @@ const DateTimePicker = ({
                           invalid={relativeToTimeInvalid}
                           value={relativeValue ? relativeValue.relativeToTime : ''}
                           i18n={i18n}
-                          light
+                          light={!light}
                           onChange={onRelativeToTimeChange}
                           spinner
                           autoComplete="off"
@@ -867,7 +867,7 @@ const DateTimePicker = ({
                       value={absoluteValue ? [absoluteValue.startDate, absoluteValue.endDate] : ''}
                       locale={locale?.split('-')[0]}
                       allowInput
-                      light
+                      light={!light}
                     >
                       <DatePickerInput
                         labelText={mergedI18n.startDateLabel}
@@ -893,7 +893,7 @@ const DateTimePicker = ({
                           i18n={i18n}
                           onChange={onAbsoluteStartTimeChange}
                           spinner
-                          light
+                          light={!light}
                           autoComplete="off"
                         />
                         <TimePickerSpinner
@@ -904,7 +904,7 @@ const DateTimePicker = ({
                           i18n={i18n}
                           onChange={onAbsoluteEndTimeChange}
                           spinner
-                          light
+                          light={!light}
                           autoComplete="off"
                         />
                       </div>

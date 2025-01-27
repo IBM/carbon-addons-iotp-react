@@ -508,7 +508,7 @@ const HotspotEditorModal = ({
           />
         ) : (
           <Tabs selected={0}>
-            <TabList>
+            <TabList aria-label={testId}>
               <Tab>{fixedTypeTooltipTabLabelText}</Tab>
               <Tab disabled={hasNonEditableContent}>{fixedTypeDataSourceTabLabelText}</Tab>
             </TabList>
@@ -550,7 +550,7 @@ const HotspotEditorModal = ({
   const renderTextHotspotPage = () => {
     return (
       <Tabs selected={0} data-testid={`${testId}-hotspot-text-tabs`}>
-        <TabList>
+        <TabList aria-label={`${testId}-hotspot-text-tabs`}>
           <Tab>{textStyleLabelText}</Tab>
           <Tab disabled={hasNonEditableContent}>{textTypeDataSourceTabLabelText}</Tab>
         </TabList>

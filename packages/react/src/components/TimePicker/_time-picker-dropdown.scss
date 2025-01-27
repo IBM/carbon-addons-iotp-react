@@ -152,6 +152,7 @@
     width: 100%;
     display: grid;
     gap: 0.15rem;
+    column-gap: $spacing-05;
     grid-template-columns: 1fr 1fr;
 
     legend {

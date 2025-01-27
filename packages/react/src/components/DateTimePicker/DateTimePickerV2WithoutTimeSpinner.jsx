@@ -28,7 +28,7 @@ import {
   RELATIVE_VALUES,
 } from '../../constants/DateConstants';
 import Button from '../Button/Button';
-import FlyoutMenu, { FlyoutMenuDirection } from '../FlyoutMenu/FlyoutMenu';
+import FlyoutMenu, { FlyoutMenuButtonSize, FlyoutMenuDirection } from '../FlyoutMenu/FlyoutMenu';
 import { handleSpecificKeyDown, useOnClickOutside } from '../../utils/componentUtilityFunctions';
 
 import {
@@ -715,8 +715,9 @@ const DateTimePicker = ({
 
       <FlyoutMenu
         isOpen={isExpanded}
-        buttonSize={hasIconOnly ? 'default' : 'small'}
+        buttonSize={hasIconOnly ? FlyoutMenuButtonSize.Default : FlyoutMenuButtonSize.Small}
         renderIcon={invalidState ? WarningFilled : Calendar}
+        iconDescription={(invalidState ? i18n.invalidText : i18n.calendarLabel) ?? ''}
         disabled={disabled}
         buttonProps={{
           tooltipPosition: 'top',
@@ -863,7 +864,7 @@ const DateTimePicker = ({
                             ? `${i18n.decrement} ${i18n.number}`
                             : null
                         }
-                        light
+                        light={!light}
                       />
                       <Select
                         {...others}
@@ -873,7 +874,7 @@ const DateTimePicker = ({
                         }
                         onChange={onRelativeLastIntervalChange}
                         hideLabel
-                        light
+                        light={!light}
                       >
                         {intervals.map((interval, i) => {
                           return (
@@ -904,7 +905,7 @@ const DateTimePicker = ({
                         defaultValue={relativeValue ? relativeValue.relativeToWhen : ''}
                         onChange={onRelativeToWhenChange}
                         hideLabel
-                        light
+                        light={!light}
                       >
                         {relatives.map((relative, i) => {
                           return (
@@ -925,7 +926,7 @@ const DateTimePicker = ({
                           onChange={onRelativeToTimeChange}
                           spinner
                           autoComplete="off"
-                          light
+                          light={!light}
                         />
                       ) : null}
                     </div>
@@ -940,7 +941,7 @@ const DateTimePicker = ({
                       onChange={onDatePickerChange}
                       value={absoluteValue ? [absoluteValue.startDate, absoluteValue.endDate] : ''}
                       locale={locale?.split('-')[0]}
-                      light
+                      light={!light}
                     >
                       <DatePickerInput
                         labelText={mergedI18n.startDateLabel}
@@ -969,7 +970,7 @@ const DateTimePicker = ({
                           onChange={onAbsoluteStartTimeChange}
                           spinner
                           autoComplete="off"
-                          light
+                          light={!light}
                         />
                         <TimePickerSpinner
                           id={`${id}-end-time`}
@@ -980,7 +981,7 @@ const DateTimePicker = ({
                           onChange={onAbsoluteEndTimeChange}
                           spinner
                           autoComplete="off"
-                          light
+                          light={!light}
                         />
                       </div>
                     </FormGroup>

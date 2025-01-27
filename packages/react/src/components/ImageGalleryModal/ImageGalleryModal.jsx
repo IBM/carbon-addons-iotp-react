@@ -219,7 +219,7 @@ const ImageGalleryModal = ({
             >
               <IconSwitch
                 name={GRID}
-                size="large"
+                size="lg"
                 text={gridButtonText}
                 renderIcon={(props) => <Grid size={20} {...props} />}
                 index={0}
@@ -227,7 +227,7 @@ const ImageGalleryModal = ({
               />
               <IconSwitch
                 name={LIST}
-                size="large"
+                size="lg"
                 text={listButtonText}
                 renderIcon={(props) => <List size={20} {...props} />}
                 index={1}

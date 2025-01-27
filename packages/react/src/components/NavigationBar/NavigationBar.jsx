@@ -150,7 +150,7 @@ const NavigationBar = ({ tabs, hero, actions, onSelectionChange, workArea, testI
           {...others}
           onSelectionChange={(index) => onSelectionChange && onSelectionChange(tabs[index].id)}
         >
-          <TabList>
+          <TabList aria-label={testId}>
             {tabs.map(({ children, id, label, ...other }) => (
               <Tab key={id} {...other}>
                 {label}
