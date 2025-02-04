@@ -174,6 +174,9 @@ const propTypes = {
   /** Auto reposition if flyout menu offscreen */
   useAutoPositioning: PropTypes.bool,
   style: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
+  buttonProps: PropTypes.shape({
+    className: PropTypes.string,
+  }),
 };
 
 const defaultProps = {
@@ -264,9 +267,8 @@ const defaultProps = {
   renderInPortal: true,
   useAutoPositioning: false,
   style: {},
+  buttonProps: {},
 };
-
-const dateTimePickerId = uuidv4();
 
 const DateTimePicker = ({
   testId,
@@ -287,14 +289,15 @@ const DateTimePicker = ({
   i18n,
   light,
   locale,
-  id = dateTimePickerId,
   hasIconOnly,
   menuOffset,
   renderInPortal,
   useAutoPositioning,
   style,
+  buttonProps,
   ...others
 }) => {
+  const id = useRef(others.id || uuidv4()).current;
   React.useEffect(() => {
     if (__DEV__) {
       warning(
@@ -722,10 +725,13 @@ const DateTimePicker = ({
         buttonProps={{
           tooltipPosition: 'top',
           tabIndex: -1,
-          className: classnames(`${iotPrefix}--date-time-picker--trigger-button`, {
-            [`${iotPrefix}--date-time-picker--trigger-button--invalid`]: invalid,
-            [`${iotPrefix}--date-time-picker--trigger-button--disabled`]: disabled,
-          }),
+          className: classnames(
+            [`${iotPrefix}--date-time-picker--trigger-button`, buttonProps.className ?? ''],
+            {
+              [`${iotPrefix}--date-time-picker--trigger-button--invalid`]: invalid,
+              [`${iotPrefix}--date-time-picker--trigger-button--disabled`]: disabled,
+            }
+          ),
         }}
         hideTooltip
         passive={false}
@@ -741,7 +747,7 @@ const DateTimePicker = ({
         direction={direction}
         tooltipFocusTrap={false}
         renderInPortal={renderInPortal}
-        useAutoPositioning={false}
+        useAutoPositioning={useAutoPositioning}
         tooltipClassName={classnames(`${iotPrefix}--date-time-picker--tooltip`, {
           [`${iotPrefix}--date-time-picker--tooltip--icon`]: hasIconOnly,
         })}

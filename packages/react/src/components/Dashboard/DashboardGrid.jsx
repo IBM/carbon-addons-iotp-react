@@ -60,6 +60,7 @@ export const DashboardGridPropTypes = {
   onCardSizeChange: PropTypes.func,
 
   testId: PropTypes.string,
+  useCSSTransforms: PropTypes.bool,
 };
 
 const defaultProps = {
@@ -72,6 +73,7 @@ const defaultProps = {
   onResizeStop: null,
   onCardSizeChange: null,
   testId: 'dashboard-grid',
+  useCSSTransforms: true,
 };
 
 const getClosestMatchingSizes = ({ sortedSizes, value, dimension }) => {
@@ -204,6 +206,7 @@ const DashboardGrid = ({
   onCardSizeChange,
   onResizeStop: onResizeStopCallback,
   testId,
+  useCSSTransforms,
   ...others
 }) => {
   const gridRef = useResize(useRef(null));
@@ -335,6 +338,7 @@ const DashboardGrid = ({
         onResizeStop={onResizeStop}
         isResizable={false}
         isDraggable={isEditable}
+        useCSSTransforms={useCSSTransforms}
         {...others}
       >
         {cards}

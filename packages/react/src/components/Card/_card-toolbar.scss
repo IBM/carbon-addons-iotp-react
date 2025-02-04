@@ -9,6 +9,10 @@
   flex-flow: row nowrap;
   align-items: center;
 
+  .#{$iot-prefix}--date-time-pickerv2 {
+    height: 3rem;
+  }
+
   // shrink the default text of the date-time-picker
   .#{$iot-prefix}--date-time-picker__field {
     font-size: 0.875rem;
