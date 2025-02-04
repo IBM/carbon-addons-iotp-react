@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.20](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.19...v4.0.20) (2025-02-04)
+
+
+### Bug Fixes
+
+* card datetime picker with custom css ([#3923](https://github.com/carbon-design-system/carbon-addons-iot-react/issues/3923)) ([a3130ab](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/a3130abcaf6a3b8477e24522a1ad652772fc09fa))
+* use layer instead of depricated light prop ([#3922](https://github.com/carbon-design-system/carbon-addons-iot-react/issues/3922)) ([2bd063c](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/2bd063cfd2335972072ed7294e667112e465d30a))
+
+
+
+
+
 ## [4.0.19](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.18...v4.0.19) (2025-01-27)
 
 
