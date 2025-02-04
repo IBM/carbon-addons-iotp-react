@@ -158,8 +158,8 @@ const NavigationBar = ({ tabs, hero, actions, onSelectionChange, workArea, testI
             ))}
           </TabList>
           <TabPanels>
-            {tabs.map(({ children }) => (
-              <TabPanel>
+            {tabs.map(({ children, id }) => (
+              <TabPanel key={id}>
                 <StyledTabContent>
                   <StyledTabChildren>{children}</StyledTabChildren>
                 </StyledTabContent>
