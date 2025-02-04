@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.22](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.21...v4.0.22) (2025-02-04)
+
+
+### Bug Fixes
+
+* pass card id to card toolbar ([#3925](https://github.com/carbon-design-system/carbon-addons-iot-react/issues/3925)) ([ea7fac4](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/ea7fac46d51a935c2e586036ab53d8078d037da9))
+
+
+
+
+
 ## [4.0.21](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.20...v4.0.21) (2025-02-04)
 
 
