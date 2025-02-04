@@ -557,6 +557,7 @@ const TableCard = ({
       timeRangeOptions={timeRangeOptions}
       renderDateDropdownInPortal={renderDateDropdownInPortal}
       locale={locale}
+      id={id}
     />
   );
 

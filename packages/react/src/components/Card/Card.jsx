@@ -462,6 +462,7 @@ const Card = (props) => {
       testId={`${testID || testId}-toolbar`}
       dateTimeMask={dateTimeMask}
       extraActions={extraActions}
+      id={id}
     />
   ) : null;
 

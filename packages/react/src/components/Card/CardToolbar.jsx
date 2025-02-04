@@ -85,6 +85,7 @@ const propTypes = {
   dateTimeMask: PropTypes.string,
   /** If set to true it will render outside of the current DOM in a portal, otherwise render as a child */
   renderDateDropdownInPortal: PropTypes.bool,
+  id: PropTypes.string,
 };
 
 const defaultProps = {
@@ -116,6 +117,7 @@ const defaultProps = {
   testId: 'card-toolbar',
   dateTimeMask: DAYJS_INPUT_FORMATS.RANGE,
   renderDateDropdownInPortal: true,
+  id: null,
 };
 
 const CardToolbar = ({
@@ -134,6 +136,7 @@ const CardToolbar = ({
   dateTimeMask,
   extraActions,
   renderDateDropdownInPortal,
+  id,
 }) => {
   const mergedI18n = { ...defaultProps.i18n, ...i18n };
   const langDir = useLangDirection();
@@ -272,6 +275,7 @@ const CardToolbar = ({
           <FeatureFlags enableV12DynamicFloatingStyles>
             <DateTimePicker
               testId={testId}
+              id={id}
               i18n={mergedI18n}
               dateTimeMask={dateTimeMask}
               locale={locale}
