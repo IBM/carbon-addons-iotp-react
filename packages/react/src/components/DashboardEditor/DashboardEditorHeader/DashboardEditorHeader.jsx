@@ -9,7 +9,7 @@ import {
   Laptop,
   Screen,
 } from '@carbon/react/icons';
-import { FileUploaderButton, ContentSwitcher, TextInput } from '@carbon/react';
+import { FileUploaderButton, ContentSwitcher, TextInput, Tooltip } from '@carbon/react';
 import { isEmpty } from 'lodash-es';
 
 import { settings } from '../../../constants/Settings';
@@ -179,29 +179,25 @@ const DashboardEditorHeader = ({
           </ContentSwitcher>
         )}
 
-        {onImport && (
-          <FileUploaderButton
-            buttonKind="ghost"
-            size="md"
-            hasIconOnly
-            labelText={
-              <Button
-                kind="ghost"
-                size="md"
-                iconDescription={mergedI18n.headerImportButton}
-                tooltipPosition="bottom"
-                tooltipAlignment="center"
-                hasIconOnly
-                renderIcon={DocumentImport}
-              />
-            }
-            onChange={onImport}
-            disableLabelChanges
-            accepts={['.json']}
-            multiple={false}
-            data-testid={`${testId}-file-uploader-button`}
-          />
-        )}
+        {
+          // FileUploaderButton isn't a true button so extra styling is needed to make it look like a iconOnly button
+          onImport && (
+            <FileUploaderButton
+              buttonKind="ghost"
+              size="md"
+              labelText={
+                <Tooltip label={mergedI18n.headerImportButton} align="bottom">
+                  <DocumentImport />
+                </Tooltip>
+              }
+              onChange={onImport}
+              disableLabelChanges
+              accepts={['.json']}
+              multiple={false}
+              data-testid={`${testId}-file-uploader-button`}
+            />
+          )
+        }
         {onExport && (
           <Button
             kind="ghost"
