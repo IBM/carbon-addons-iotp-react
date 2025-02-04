@@ -2,7 +2,11 @@ import React, { useMemo, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { omit, keyBy } from 'lodash-es';
 import { Close, Popup, Settings } from '@carbon/react/icons';
-import { OverflowMenu, OverflowMenuItem } from '@carbon/react';
+import {
+  OverflowMenu,
+  OverflowMenuItem,
+  unstable_FeatureFlags as FeatureFlags,
+} from '@carbon/react';
 import classnames from 'classnames';
 import { useLangDirection } from 'use-lang-direction';
 
@@ -265,27 +269,37 @@ const CardToolbar = ({
           />
         ) : (
           // string values mean use the new picker
-          <DateTimePicker
-            id={testId}
-            i18n={mergedI18n}
-            dateTimeMask={dateTimeMask}
-            locale={locale}
-            hasIconOnly
-            presets={Object.entries(timeRangeOptions).reduce(
-              (acc, [timeRangeOptionKey, timeRangeOption]) => {
-                acc.push({
-                  id: timeRangeOptionKey,
-                  label: timeRangeOption.label || mergedI18n.timeRange,
-                  offset: timeRangeOption.offset,
-                });
-                return acc;
-              },
-              []
-            )}
-            defaultValue={timeRange}
-            onApply={handleDateTimePickerChange}
-            renderInPortal={renderDateDropdownInPortal}
-          />
+          <FeatureFlags enableV12DynamicFloatingStyles>
+            <DateTimePicker
+              testId={testId}
+              i18n={mergedI18n}
+              dateTimeMask={dateTimeMask}
+              locale={locale}
+              hasIconOnly
+              presets={Object.entries(timeRangeOptions).reduce(
+                (acc, [timeRangeOptionKey, timeRangeOption]) => {
+                  acc.push({
+                    id: timeRangeOptionKey,
+                    label: timeRangeOption.label || mergedI18n.timeRange,
+                    offset: timeRangeOption.offset,
+                  });
+                  return acc;
+                },
+                []
+              )}
+              defaultValue={timeRange}
+              onApply={handleDateTimePickerChange}
+              renderInPortal={renderDateDropdownInPortal}
+              useAutoPositioning
+              buttonProps={{
+                className: classnames(
+                  `${iotPrefix}--card--toolbar-action`,
+                  `${iotPrefix}--card--toolbar-svg-wrapper`,
+                  `${prefix}--btn--icon-only`
+                ),
+              }}
+            />
+          </FeatureFlags>
         )
       ) : null}
       {availableActions.settings ? (
