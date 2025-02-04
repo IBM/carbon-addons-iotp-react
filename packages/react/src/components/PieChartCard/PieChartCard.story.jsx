@@ -282,7 +282,7 @@ export const AdvancedCustomisationUsingOverrides = () => {
                   <FlyoutMenu
                     direction={FlyoutMenuDirection.BottomEnd}
                     buttonProps={{
-                      size: 'default',
+                      size: 'lg',
                       renderIcon: SettingsAdjust,
                     }}
                     triggerId="test-flyout-id"

@@ -734,7 +734,7 @@ export const DashboardAllCardsAsResizable = () => {
       size={currentSizes.imageCard}
       content={{
         alt: 'Sample image',
-        src: 'static/media/landscape.013ce39d.jpg',
+        src: 'static/media/src/components/ImageCard/landscape.jpg',
         zoomMax: 10,
       }}
       values={imageCardValues}

@@ -28,11 +28,7 @@ const ContentFormItemTitle = ({ title, tooltip }) => {
       {title ? <div>{title}</div> : null}
       <div>
         {tooltip ? (
-          <FeatureFlags
-            flags={{
-              'enable-v12-dynamic-floating-styles': true,
-            }}
-          >
+          <FeatureFlags enableV12DynamicFloatingStyles>
             <Tooltip
               align="left"
               triggerId={`card-edit-form-${title}`}
