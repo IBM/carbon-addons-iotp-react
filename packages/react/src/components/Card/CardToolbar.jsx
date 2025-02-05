@@ -274,7 +274,6 @@ const CardToolbar = ({
           // string values mean use the new picker
           <FeatureFlags enableV12DynamicFloatingStyles>
             <DateTimePicker
-              testId={testId}
               id={id}
               i18n={mergedI18n}
               dateTimeMask={dateTimeMask}
