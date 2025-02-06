@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.24](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.23...v4.0.24) (2025-02-06)
+
+
+### Bug Fixes
+
+* **pagewizard:** add margin padding ([#3927](https://github.com/carbon-design-system/carbon-addons-iot-react/issues/3927)) ([f99f60b](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/f99f60b489e33a0aefa3567eb042c61b4dd24ddf))
+
+
+
+
+
 ## [4.0.23](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.22...v4.0.23) (2025-02-05)
 
 **Note:** Version bump only for package carbon-addons-iot-react
