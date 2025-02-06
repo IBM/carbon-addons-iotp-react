@@ -200,6 +200,8 @@ export const propTypes = {
   /** Auto reposition if flyout menu offscreen */
   useAutoPositioning: PropTypes.bool,
   style: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
+  /** If is set to true Datepicker will close after date select */
+  closeOnSelect: PropTypes.bool,
 };
 
 export const defaultProps = {
@@ -298,6 +300,7 @@ export const defaultProps = {
   renderInPortal: true,
   useAutoPositioning: false,
   style: {},
+  closeOnSelect: true,
 };
 
 const DateTimePicker = ({
@@ -327,6 +330,7 @@ const DateTimePicker = ({
   renderInPortal,
   useAutoPositioning,
   style,
+  closeOnSelect,
   ...others
 }) => {
   const id = useRef(others.id || uuidv4()).current;
@@ -1220,7 +1224,7 @@ const DateTimePicker = ({
                             : null
                         }
                         locale={locale?.split('-')[0]}
-                        closeOnSelect={false}
+                        closeOnSelect={closeOnSelect}
                       >
                         <DatePickerInput
                           labelText={mergedI18n.startDateLabel}
