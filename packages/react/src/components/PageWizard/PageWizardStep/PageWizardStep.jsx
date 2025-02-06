@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { InlineNotification } from '@carbon/react';
 import classnames from 'classnames';
+import { v4 as uuidv4 } from 'uuid';
 
 import { settings } from '../../../constants/Settings';
 import { childrenPropType } from '../PageWizard';
@@ -93,12 +94,14 @@ const PageWizardStep = ({
   <div className={`${iotPrefix}--page-wizard--step`} id={id}>
     {error ? (
       <InlineNotification
+        key={uuidv4()}
         lowContrast
         title={error}
         subtitle=""
         kind="error"
         onCloseButtonClick={onClearError}
         iconDescription={i18n.close}
+        className={`${iotPrefix}--page-wizard--inline-notificaton`}
       />
     ) : null}
     {children}
