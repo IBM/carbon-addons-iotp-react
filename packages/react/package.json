@@ -345,7 +345,7 @@
     "whatwg-fetch": "^3.0.0"
   },
   "sideEffects": false,
-  "version": "4.0.23",
+  "version": "4.0.24",
   "resolutions": {
     "chokidar": "3.3.1",
     "react-grid-layout": "1.2.2",
