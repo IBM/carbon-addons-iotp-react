@@ -95,7 +95,6 @@ const DateTimePicker = ({
       renderInPortal={renderInPortal}
       useAutoPositioning={useAutoPositioning}
       style={style}
-      closeOnSelect={closeOnSelect}
       others={others}
     />
   );
