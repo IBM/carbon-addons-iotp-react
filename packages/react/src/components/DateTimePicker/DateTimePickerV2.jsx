@@ -33,6 +33,7 @@ const DateTimePicker = ({
   renderInPortal,
   useAutoPositioning,
   style,
+  closeOnSelect,
   ...others
 }) => {
   return useNewTimeSpinner ? (
@@ -64,6 +65,7 @@ const DateTimePicker = ({
       renderInPortal={renderInPortal}
       useAutoPositioning={useAutoPositioning}
       style={style}
+      closeOnSelect={closeOnSelect}
       others={others}
     />
   ) : (
