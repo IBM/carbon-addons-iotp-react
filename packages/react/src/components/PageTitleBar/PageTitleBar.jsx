@@ -276,6 +276,7 @@ const PageTitleBar = ({
         {description && (collapsed || condensed) ? (
           <ToggleTip
             tabIndex={0}
+            useAutoPositioning
             iconDescription={tooltipIconDescription}
             data-testid={`${testId}-tooltip`}
             showIcon
@@ -381,6 +382,7 @@ const PageTitleBar = ({
                           <ToggleTip
                             tabIndex={0}
                             showIcon
+                            useAutoPositioning
                             iconDescription={tooltipIconDescription}
                             data-testid={`${testId}-tooltip`}
                             content={
