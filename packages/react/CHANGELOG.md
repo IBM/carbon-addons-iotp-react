@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.155.4](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v2.155.3...v2.155.4) (2025-02-20)
+
+
+### Bug Fixes
+
+* allow card size ([#3931](https://github.com/carbon-design-system/carbon-addons-iot-react/issues/3931)) ([5027b4c](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/5027b4cc08736ae616dfb3421141033d3894d123))
+
+
+
+
+
 ## [2.155.3](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v2.155.2...v2.155.3) (2024-12-14)
 
 
