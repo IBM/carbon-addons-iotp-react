@@ -2,7 +2,13 @@ import PropTypes from 'prop-types';
 import React, { useEffect, useState, useMemo, useRef, useCallback } from 'react';
 import classnames from 'classnames';
 import { Information, Edit } from '@carbon/react/icons';
-import { Breadcrumb, BreadcrumbItem, SkeletonText, Tabs } from '@carbon/react';
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  SkeletonText,
+  Tabs,
+  unstable_FeatureFlags as FeatureFlags,
+} from '@carbon/react';
 import { throttle } from 'lodash-es';
 
 import { ToggleTip } from '../ToggleTip';
@@ -274,13 +280,15 @@ const PageTitleBar = ({
     () => (
       <>
         {description && (collapsed || condensed) ? (
-          <ToggleTip
-            tabIndex={0}
-            iconDescription={tooltipIconDescription}
-            data-testid={`${testId}-tooltip`}
-            showIcon
-            content={typeof description === 'string' ? <p>{description}</p> : <>{description}</>}
-          />
+          <FeatureFlags enableV12DynamicFloatingStyles>
+            <ToggleTip
+              tabIndex={0}
+              iconDescription={tooltipIconDescription}
+              data-testid={`${testId}-tooltip`}
+              showIcon
+              content={typeof description === 'string' ? <p>{description}</p> : <>{description}</>}
+            />
+          </FeatureFlags>
         ) : null}
         {editable ? (
           <Button
@@ -378,21 +386,23 @@ const PageTitleBar = ({
                       <>
                         {title}
                         {description ? (
-                          <ToggleTip
-                            tabIndex={0}
-                            showIcon
-                            iconDescription={tooltipIconDescription}
-                            data-testid={`${testId}-tooltip`}
-                            content={
-                              typeof description === 'string' ? (
-                                <p>{description}</p>
-                              ) : (
-                                <>{description}</>
-                              )
-                            }
-                          >
-                            <Information />
-                          </ToggleTip>
+                          <FeatureFlags enableV12DynamicFloatingStyles>
+                            <ToggleTip
+                              tabIndex={0}
+                              showIcon
+                              iconDescription={tooltipIconDescription}
+                              data-testid={`${testId}-tooltip`}
+                              content={
+                                typeof description === 'string' ? (
+                                  <p>{description}</p>
+                                ) : (
+                                  <>{description}</>
+                                )
+                              }
+                            >
+                              <Information />
+                            </ToggleTip>
+                          </FeatureFlags>
                         ) : null}
                       </>
                     </BreadcrumbItem>
