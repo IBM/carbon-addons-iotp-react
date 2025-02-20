@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.26](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.25...v4.0.26) (2025-02-20)
+
+
+### Bug Fixes
+
+* allow card size ([f50c928](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/f50c9287ee91087635260ca034af198356285af5))
+
+
+
+
+
 ## [4.0.25](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.24...v4.0.25) (2025-02-14)
 
 **Note:** Version bump only for package ibm-ai-applications
