@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.27](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.26...v4.0.27) (2025-02-20)
+
+
+### Bug Fixes
+
+* display the pagetitle tooltip ([#3932](https://github.com/carbon-design-system/carbon-addons-iot-react/issues/3932)) ([5a5266f](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/5a5266fc53b80bb8e6bcb8d682684fde65557f5e))
+
+
+
+
+
 ## [4.0.26](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.25...v4.0.26) (2025-02-20)
 
 
