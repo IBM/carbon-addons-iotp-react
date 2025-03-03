@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NumberInput, Toggle } from '@carbon/react';
+import { NumberInput, Toggle, Layer } from '@carbon/react';
 
 import { settings } from '../../../../../constants/Settings';
 import { Tooltip } from '../../../../Tooltip';
@@ -61,24 +61,25 @@ const ValueCardFormSettings = ({ cardConfig, onChange, i18n }) => {
   return (
     <>
       <div className={`${baseClassName}--input`}>
-        <NumberInput
-          id={`${id}_value-card-font-size`}
-          step={1}
-          min={MIN_FONT_SIZE}
-          max={MAX_FONT_SIZE}
-          light
-          label={mergedI18n.fontSize}
-          value={fontSize || DEFAULT_FONT_SIZE}
-          onChange={(event, { value }) => {
-            const parsedValue = Number(value ?? event.imaginaryTarget.value);
-            if (isNumberValidForMinMax(parsedValue, MIN_FONT_SIZE, MAX_FONT_SIZE)) {
-              onChange({
-                ...cardConfig,
-                fontSize: parsedValue,
-              });
-            }
-          }}
-        />
+        <Layer>
+          <NumberInput
+            id={`${id}_value-card-font-size`}
+            step={1}
+            min={MIN_FONT_SIZE}
+            max={MAX_FONT_SIZE}
+            label={mergedI18n.fontSize}
+            value={fontSize || DEFAULT_FONT_SIZE}
+            onChange={(event, { value }) => {
+              const parsedValue = Number(value ?? event.imaginaryTarget.value);
+              if (isNumberValidForMinMax(parsedValue, MIN_FONT_SIZE, MAX_FONT_SIZE)) {
+                onChange({
+                  ...cardConfig,
+                  fontSize: parsedValue,
+                });
+              }
+            }}
+          />
+        </Layer>
       </div>
       <div className={`${baseClassName}--input`}>
         <div className={`${baseClassName}--input--toggle-field`}>
@@ -87,8 +88,9 @@ const ValueCardFormSettings = ({ cardConfig, onChange, i18n }) => {
             direction="left"
             triggerText={null}
             triggerId={`${id}-abbreviate-numbers-tooltip`}
+            useAutoPositioning
           >
-            <p>{mergedI18n.abbreviateNumbersTooltip}</p>
+            {mergedI18n.abbreviateNumbersTooltip}
           </Tooltip>
           <Toggle
             size="sm"

@@ -2,7 +2,7 @@ import React, { useMemo, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { isEmpty } from 'lodash-es';
 import update from 'immutability-helper';
-import { RadioButton, RadioButtonGroup, Toggle, TextInput } from '@carbon/react';
+import { RadioButton, RadioButtonGroup, Toggle, NumberInput, Layer } from '@carbon/react';
 
 import { settings } from '../../../../../constants/Settings';
 import { Dropdown } from '../../../../Dropdown';
@@ -202,21 +202,22 @@ const TableCardFormSettings = ({ cardConfig, onChange, i18n, translateWithId }) 
         </>
       ) : null}
       <div className={`${baseClassName}--input`}>
-        <TextInput
-          id={`${id}_maximum_data_points`}
-          labelText={mergedI18n.maximumDataPoints}
-          light
-          type="number"
-          onChange={(evt) => {
-            const maximumDataPointsString = evt.target.value;
-            const maximumDataPoints = Number.parseInt(maximumDataPointsString, 10);
-            onChange({
-              ...cardConfig,
-              content: { ...cardConfig.content, maximumDataPoints },
-            });
-          }}
-          value={content?.maximumDataPoints}
-        />
+        <Layer>
+          <NumberInput
+            id={`${id}_maximum_data_points`}
+            label={mergedI18n.maximumDataPoints}
+            step={10}
+            min={0}
+            onChange={(event, { value }) => {
+              const maximumDataPoints = Number.parseInt(value, 10);
+              onChange({
+                ...cardConfig,
+                content: { ...cardConfig.content, maximumDataPoints },
+              });
+            }}
+            value={content?.maximumDataPoints}
+          />
+        </Layer>
       </div>
       <div className={`${baseClassName}--input`}>
         <div className={`${baseClassName}--input--toggle-field`}>

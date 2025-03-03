@@ -1,6 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { RadioButtonGroup, RadioButton, FormGroup, TextInput } from '@carbon/react';
+import {
+  RadioButtonGroup,
+  RadioButton,
+  FormGroup,
+  TextInput,
+  NumberInput,
+  Layer,
+} from '@carbon/react';
 
 import { settings } from '../../../../../constants/Settings';
 
@@ -22,7 +29,7 @@ const propTypes = {
         })
       ),
       layout: PropTypes.string,
-      precision: PropTypes.number,
+      decimalPrecision: PropTypes.number,
       xLabel: PropTypes.string,
       yLabel: PropTypes.string,
       unit: PropTypes.string,
@@ -58,7 +65,7 @@ const defaultProps = {
     xAxisLabel: 'X-axis label',
     yAxisLabel: 'Y-axis label',
     unitLabel: 'Unit',
-    decimalPlacesLabel: 'Decimal places',
+    decimalPrecisionLabel: 'Decimal precision',
     showLegendLabel: 'Show legend',
     fontSize: 'Font size',
     precisionLabel: 'Precision',
@@ -139,36 +146,39 @@ const BarChartCardFormSettings = ({ cardConfig, onChange, i18n }) => {
         />
       </div>
       <div className={`${baseClassName}--input`}>
-        <TextInput
-          id={`${id}_decimal-places`}
-          labelText={mergedI18n.decimalPlacesLabel}
-          light
-          placeholder={mergedI18n.autoLabel}
-          onChange={(evt) =>
-            onChange({
-              ...cardConfig,
-              content: { ...cardConfig.content, precision: evt.target.value },
-            })
-          }
-          value={content?.precision}
-        />
+        <Layer>
+          <NumberInput
+            id={`${id}_decimal-precision`}
+            label={mergedI18n.decimalPrecisionLabel}
+            min={0}
+            onChange={(event, { value }) => {
+              const decimalPrecision = Number.parseInt(value, 10);
+              onChange({
+                ...cardConfig,
+                content: { ...cardConfig.content, decimalPrecision },
+              });
+            }}
+            value={content?.decimalPrecision}
+          />
+        </Layer>
       </div>
       <div className={`${baseClassName}--input`}>
-        <TextInput
-          id={`${id}_maximum_data_points`}
-          labelText={mergedI18n.maximumDataPoints}
-          light
-          type="number"
-          onChange={(evt) => {
-            const maximumDataPointsString = evt.target.value;
-            const maximumDataPoints = Number.parseInt(maximumDataPointsString, 10);
-            onChange({
-              ...cardConfig,
-              content: { ...cardConfig.content, maximumDataPoints },
-            });
-          }}
-          value={content?.maximumDataPoints}
-        />
+        <Layer>
+          <NumberInput
+            id={`${id}_maximum_data_points`}
+            label={mergedI18n.maximumDataPoints}
+            step={10}
+            min={0}
+            onChange={(event, { value }) => {
+              const maximumDataPoints = Number.parseInt(value, 10);
+              onChange({
+                ...cardConfig,
+                content: { ...cardConfig.content, maximumDataPoints },
+              });
+            }}
+            value={content?.maximumDataPoints}
+          />
+        </Layer>
       </div>
     </>
   );
