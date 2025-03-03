@@ -9,12 +9,12 @@ import List from '../../List/List';
 import Button from '../../Button/Button';
 import { settings } from '../../../constants/Settings';
 import deprecate from '../../../internal/deprecate';
-import { DashboardEditorActionsPropTypes } from '../../DashboardEditor/editorUtils';
+import {
+  DashboardEditorActionsPropTypes,
+  defaultDashboardEditorActionsProps,
+} from '../../DashboardEditor/editorUtils';
 
 const { iotPrefix } = settings;
-
-/* istanbul ignore next */
-const noop = () => {};
 
 const propTypes = {
   /** The hotspot for which the data source settings should be changed. */
@@ -98,14 +98,7 @@ const defaultProps = {
   dataItems: [],
   availableDimensions: {},
   testId: 'HotspotEditorDataSourceTab',
-  actions: {
-    onEditDataItem: noop,
-    dataSeriesFormActions: {
-      hasAggregationsDropDown: noop,
-      hasDataFilterDropdown: noop,
-      onAddAggregations: noop,
-    },
-  },
+  actions: defaultDashboardEditorActionsProps,
 };
 
 export const formatDataItemsForDropdown = (dataItems) =>

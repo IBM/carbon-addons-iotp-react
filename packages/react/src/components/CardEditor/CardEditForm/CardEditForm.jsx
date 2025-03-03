@@ -7,15 +7,13 @@ import { settings } from '../../../constants/Settings';
 import {
   DashboardEditorActionsPropTypes,
   DataItemsPropTypes,
+  defaultDashboardEditorActionsProps,
 } from '../../DashboardEditor/editorUtils';
 
 import CardEditFormContent from './CardEditFormContent';
 import CardEditFormSettings from './CardEditFormSettings';
 
 const { iotPrefix } = settings;
-
-/* istanbul ignore next */
-const noop = () => {};
 
 const propTypes = {
   /** card data value */
@@ -119,14 +117,7 @@ const defaultProps = {
   currentBreakpoint: 'xl',
   isSummaryDashboard: false,
   dataSeriesItemLinks: null,
-  actions: {
-    onEditDataItem: noop,
-    dataSeriesFormActions: {
-      hasAggregationsDropDown: noop,
-      hasDataFilterDropdown: noop,
-      onAddAggregations: noop,
-    },
-  },
+  actions: defaultDashboardEditorActionsProps,
 };
 
 /**

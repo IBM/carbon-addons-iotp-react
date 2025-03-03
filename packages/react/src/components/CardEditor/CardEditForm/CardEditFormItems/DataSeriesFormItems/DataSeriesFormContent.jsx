@@ -12,6 +12,7 @@ import {
   handleDataSeriesChange,
   DataItemsPropTypes,
   DashboardEditorActionsPropTypes,
+  defaultDashboardEditorActionsProps,
 } from '../../../../DashboardEditor/editorUtils';
 import Button from '../../../../Button';
 import List from '../../../../List/List';
@@ -23,9 +24,6 @@ import ContentFormItemTitle from '../ContentFormItemTitle';
 import BarChartDataSeriesContent from './BarChartDataSeriesContent';
 
 const { iotPrefix } = settings;
-
-/* istanbul ignore next */
-const noop = () => {};
 
 const propTypes = {
   /* card value */
@@ -156,14 +154,7 @@ const defaultProps = {
   availableDimensions: {},
   isSummaryDashboard: false,
   dataSeriesItemLinks: null,
-  actions: {
-    onEditDataItem: noop,
-    dataSeriesFormActions: {
-      hasAggregationsDropDown: noop,
-      hasDataFilterDropdown: noop,
-      onAddAggregations: noop,
-    },
-  },
+  actions: defaultDashboardEditorActionsProps,
 };
 
 export const formatDataItemsForDropdown = (dataItems) =>

@@ -5,6 +5,7 @@ import { InformationSquareFilled, InformationFilled } from '@carbon/react/icons'
 import userEvent from '@testing-library/user-event';
 
 import { CARD_SIZES, CARD_TYPES } from '../../constants/LayoutConstants';
+import { dashboardEditorActions as commonActions } from '../DashboardEditor/dashboardEditorMockData';
 
 import landscape from './landscape.jpg';
 import HotspotEditorModal from './HotspotEditorModal';
@@ -113,20 +114,6 @@ const getDemoDynamicHotspots = () => [
     y: 60,
   },
 ];
-
-const commonActions = {
-  actions: {
-    onEditDataItem: jest.fn().mockImplementation(() => []),
-    dataSeriesFormActions: {
-      hasAggregationsDropDown: jest.fn(
-        (editDataItem) =>
-          editDataItem?.dataItemType !== 'DIMENSION' && editDataItem?.type !== 'TIMESTAMP'
-      ),
-      hasDataFilterDropdown: jest.fn(),
-      onAddAggregations: jest.fn(),
-    },
-  },
-};
 
 const loading = HotspotEditorModal.defaultProps.i18n.loadingDynamicHotspotsText;
 

@@ -3,6 +3,10 @@ import { render, screen, within, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { CARD_TYPES } from '../../../constants/LayoutConstants';
+import {
+  dashboardEditorActions as commonActions,
+  dataSeriesFormActions,
+} from '../../DashboardEditor/dashboardEditorMockData';
 
 import HotspotEditorDataSourceTab from './HotspotEditorDataSourceTab';
 
@@ -55,19 +59,7 @@ const dataItemsV2 = [
     hasStreamingMetricEnabled: true,
   },
 ];
-const commonActions = {
-  actions: {
-    onEditDataItem: jest.fn().mockImplementation(() => []),
-    dataSeriesFormActions: {
-      hasAggregationsDropDown: jest.fn(
-        (editDataItem) =>
-          editDataItem?.dataItemType !== 'DIMENSION' && editDataItem?.type !== 'TIMESTAMP'
-      ),
-      hasDataFilterDropdown: jest.fn(),
-      onAddAggregations: jest.fn(),
-    },
-  },
-};
+
 let cardConfigWithPresets;
 
 describe('HotspotEditorDataSourceTab', () => {
@@ -186,14 +178,7 @@ describe('HotspotEditorDataSourceTab', () => {
           { id: 'max', text: 'Maximum' },
           { id: 'min', text: 'Minimum' },
         ]),
-        dataSeriesFormActions: {
-          hasAggregationsDropDown: jest.fn(
-            (editDataItem) =>
-              editDataItem?.dataItemType !== 'DIMENSION' && editDataItem?.type !== 'TIMESTAMP'
-          ),
-          hasDataFilterDropdown: jest.fn(),
-          onAddAggregations: jest.fn(),
-        },
+        dataSeriesFormActions,
       },
     };
     render(

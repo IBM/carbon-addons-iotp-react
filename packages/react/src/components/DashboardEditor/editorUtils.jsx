@@ -408,43 +408,20 @@ export const renderBreakpointInfo = (breakpoint, i18n) => {
  */
 export const formatSeries = (selectedItems, cardConfig, removedItemsCountRef = { current: 0 }) => {
   const cardSeries = cardConfig?.content?.series;
-  const series = selectedItems.map(
-    (
-      {
-        label: unEditedLabel,
-        dataItemId,
-        dataSourceId,
-        aggregationMethod,
-        eventName,
-        dataItemType,
-        columnType,
-        uuid,
-        kpiFunctionDto,
-        hasStreamingMetricEnabled,
-      },
-      i
-    ) => {
-      const colorIndex = (removedItemsCountRef.current + i) % DATAITEM_COLORS_OPTIONS.length;
-      const currentItem = cardSeries?.find((dataItem) => dataItem.dataSourceId === dataSourceId);
-      const color = currentItem?.color ?? DATAITEM_COLORS_OPTIONS[colorIndex];
-      const label = currentItem?.label || unEditedLabel || dataSourceId;
+  const series = selectedItems.map((selectedItem, i) => {
+    const { label: unEditedLabel, dataSourceId } = selectedItem;
+    const colorIndex = (removedItemsCountRef.current + i) % DATAITEM_COLORS_OPTIONS.length;
+    const currentItem = cardSeries?.find((dataItem) => dataItem.dataSourceId === dataSourceId);
+    const color = currentItem?.color ?? DATAITEM_COLORS_OPTIONS[colorIndex];
+    const label = currentItem?.label || unEditedLabel || dataSourceId;
 
-      return {
-        ...currentItem,
-        dataItemId,
-        dataSourceId,
-        label,
-        aggregationMethod,
-        color,
-        eventName,
-        dataItemType,
-        columnType,
-        uuid,
-        kpiFunctionDto,
-        hasStreamingMetricEnabled,
-      };
-    }
-  );
+    return {
+      ...currentItem,
+      ...selectedItem,
+      label,
+      color,
+    };
+  });
   return series;
 };
 
@@ -455,40 +432,21 @@ export const formatSeries = (selectedItems, cardConfig, removedItemsCountRef = {
  */
 export const formatAttributes = (selectedItems, cardConfig) => {
   const currentCardAttributes = cardConfig?.content?.attributes;
-  const attributes = selectedItems.map(
-    ({
-      label: unEditedLabel,
-      dataItemId,
-      dataSourceId,
-      aggregationMethod,
-      eventName,
-      dataItemType,
-      columnType,
-      uuid,
-      kpiFunctionDto,
-      hasStreamingMetricEnabled,
-    }) => {
-      const currentItem = currentCardAttributes?.find(
-        (dataItem) => dataItem.dataSourceId === dataSourceId
-      );
-      // Need to default the label to reflect the default aggregator if there isn't one set
-      const label = currentItem?.label || unEditedLabel || dataSourceId;
+  const attributes = selectedItems.map((selectedItem) => {
+    const { label: unEditedLabel, dataSourceId } = selectedItem;
 
-      return {
-        ...currentItem,
-        dataItemId,
-        dataSourceId,
-        label,
-        aggregationMethod,
-        eventName,
-        dataItemType,
-        columnType,
-        uuid,
-        kpiFunctionDto,
-        hasStreamingMetricEnabled,
-      };
-    }
-  );
+    const currentItem = currentCardAttributes?.find(
+      (dataItem) => dataItem.dataSourceId === dataSourceId
+    );
+    // Need to default the label to reflect the default aggregator if there isn't one set
+    const label = currentItem?.label || unEditedLabel || dataSourceId;
+
+    return {
+      ...currentItem,
+      ...selectedItem,
+      label,
+    };
+  });
   return attributes;
 };
 
@@ -744,14 +702,27 @@ export const DashboardEditorActionsPropTypes = PropTypes.shape({
      * return {boolean} : true or false
      */
     hasAggregationsDropDown: PropTypes.func,
+    /** callback function to determine grain dropdown visibility
+     * hasGrainsDropDown(cardProps: card properties, editDataItem: selected dataSource)
+     * return {boolean} : true or false
+     */
+    hasGrainsDropDown: PropTypes.func,
     /** callback function to determine dataFilter dropdown visibility
      * hasDataFilterDropdown(cardProps: card properties)
      * return {boolean} : true or false
      */
     hasDataFilterDropdown: PropTypes.func,
-    /** callback function on click of Add aggregation method label
-     * onAddAggregations(editDataItem: selected dataSource)
-     */
-    onAddAggregations: PropTypes.func,
   }),
 });
+
+/* istanbul ignore next */
+const noop = () => {};
+
+export const defaultDashboardEditorActionsProps = {
+  onEditDataItem: noop,
+  dataSeriesFormActions: {
+    hasAggregationsDropDown: noop,
+    hasGrainsDropDown: noop,
+    hasDataFilterDropdown: noop,
+  },
+};

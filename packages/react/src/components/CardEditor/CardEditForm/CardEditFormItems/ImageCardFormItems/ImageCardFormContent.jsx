@@ -7,6 +7,7 @@ import Button from '../../../../Button';
 import {
   DashboardEditorActionsPropTypes,
   DataItemsPropTypes,
+  defaultDashboardEditorActionsProps,
 } from '../../../../DashboardEditor/editorUtils';
 import HotspotEditorModal from '../../../../HotspotEditorModal/HotspotEditorModal';
 import { settings } from '../../../../../constants/Settings';
@@ -14,9 +15,6 @@ import ContentFormItemTitle from '../ContentFormItemTitle';
 import { ImageCardValuesPropType } from '../../../../../constants/CardPropTypes';
 
 const { iotPrefix, prefix } = settings;
-
-/* istanbul ignore next */
-const noop = () => {};
 
 const propTypes = {
   /* card value */
@@ -80,14 +78,7 @@ const defaultProps = {
   getValidDataItems: null,
   availableDimensions: {},
   onFetchDynamicDemoHotspots: null,
-  actions: {
-    onEditDataItem: noop,
-    dataSeriesFormActions: {
-      hasAggregationsDropDown: noop,
-      hasDataFilterDropdown: noop,
-      onAddAggregations: noop,
-    },
-  },
+  actions: defaultDashboardEditorActionsProps,
 };
 
 const ImageCardFormItems = ({

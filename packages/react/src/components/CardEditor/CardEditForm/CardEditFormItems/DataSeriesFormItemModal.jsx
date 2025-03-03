@@ -15,7 +15,7 @@ import {
   teal50,
   cyan90,
 } from '@carbon/colors';
-import { WarningAlt, Add } from '@carbon/react/icons';
+import { WarningAlt } from '@carbon/react/icons';
 import { FormLabel, TextInput } from '@carbon/react';
 import classnames from 'classnames';
 import { isEmpty, omit } from 'lodash-es';
@@ -27,17 +27,15 @@ import {
   handleDefaultDataItemEdit,
   DataItemsPropTypes,
   DashboardEditorActionsPropTypes,
+  defaultDashboardEditorActionsProps,
 } from '../../../DashboardEditor/editorUtils';
 import ColorDropdown from '../../../ColorDropdown/ColorDropdown';
-import { BAR_CHART_TYPES, CARD_TYPES } from '../../../../constants/LayoutConstants';
-import Button from '../../../Button';
+import { CARD_TYPES } from '../../../../constants/LayoutConstants';
+import { isTimeBasedCard as isTimeBasedCardUtil } from '../../../../utils/cardUtilityFunctions';
 
 import ThresholdsFormItem from './ThresholdsFormItem';
 
 const { iotPrefix, prefix } = settings;
-
-/* istanbul ignore next */
-const noop = () => {};
 
 const propTypes = {
   /* card value */
@@ -123,7 +121,6 @@ const propTypes = {
   validDataItems: DataItemsPropTypes,
   isSummaryDashboard: PropTypes.bool,
   isLarge: PropTypes.bool,
-  testId: PropTypes.string,
   i18n: PropTypes.shape({
     dataItemEditorDataItemTitle: PropTypes.string,
     dataItemEditorDataItemLabel: PropTypes.string,
@@ -210,15 +207,7 @@ const defaultProps = {
   isSummaryDashboard: false,
   isLarge: false,
   validDataItems: [],
-  testId: 'aggregation-methods',
-  actions: {
-    onEditDataItem: noop,
-    dataSeriesFormActions: {
-      hasAggregationsDropDown: noop,
-      hasDataFilterDropdown: noop,
-      onAddAggregations: noop,
-    },
-  },
+  actions: defaultDashboardEditorActionsProps,
   handleDataItemEdit: handleDefaultDataItemEdit,
   options: {
     hasColorDropdown: false,
@@ -257,25 +246,19 @@ const DataSeriesFormItemModal = ({
   onChange,
   i18n,
   isLarge,
-  testId,
   actions: {
-    dataSeriesFormActions: { hasAggregationsDropDown, onAddAggregations, hasDataFilterDropdown },
+    dataSeriesFormActions: { hasAggregationsDropDown, hasGrainsDropDown, hasDataFilterDropdown },
   },
   handleDataItemEdit,
   options,
 }) => {
   const mergedI18n = { ...defaultProps.i18n, ...i18n };
-  const { id, type, content } = cardConfig;
+  const { id, type } = cardConfig;
   const baseClassName = `${iotPrefix}--card-edit-form`;
   const { hasColorDropdown, hasUnit, hasDecimalPlacesDropdown, hasThresholds, hasTooltip } =
     options;
 
-  const isTimeBasedCard =
-    type === CARD_TYPES.TIMESERIES ||
-    (type === CARD_TYPES.TABLE &&
-      content?.columns?.find((column) => column.type === 'TIMESTAMP')) ||
-    (content?.type === BAR_CHART_TYPES.SIMPLE && content?.timeDataSourceId) ||
-    (content?.type === BAR_CHART_TYPES.STACKED && content?.timeDataSourceId);
+  const isTimeBasedCard = isTimeBasedCardUtil(cardConfig);
 
   const handleTranslation = useCallback(
     (idToTranslate) => {
@@ -315,13 +298,11 @@ const DataSeriesFormItemModal = ({
     { id: 'yearly', text: mergedI18n.yearlyLabel },
   ];
 
-  const initialAggregation = validDataItems?.find(
+  const matchedDataItem = validDataItems?.find(
     ({ dataSourceId }) => dataSourceId === editDataItem.dataSourceId
-  )?.aggregationMethod;
-
-  const initialGrain = validDataItems?.find(
-    ({ dataSourceId }) => dataSourceId === editDataItem.dataSourceId
-  )?.grain;
+  );
+  const initialAggregation = matchedDataItem?.aggregationMethod;
+  const initialGrain = matchedDataItem?.grain;
 
   const selectedDimensionFilter = editDataItem.dataFilter
     ? Object.keys(editDataItem.dataFilter)[0]
@@ -379,53 +360,37 @@ const DataSeriesFormItemModal = ({
                 </span>
               </div>
             )}
-            {editDataItem?.hasStreamingMetricEnabled && onAddAggregations && (
-              <div className={`${iotPrefix}--add-aggregation`}>
-                <Button
-                  className={`${iotPrefix}--add-aggregation__btn`}
-                  kind="ghost"
-                  size="large"
-                  renderIcon={Add}
-                  onClick={() => onAddAggregations(editDataItem)}
-                  iconDescription={mergedI18n.dataItemEditorAddAggregationMethodDescription}
-                  testId={`${testId}-aggregaton-button`}
-                >
-                  {mergedI18n.dataItemEditorAddAggregationMethodLabel}
-                </Button>
+            {hasGrainsDropDown && hasGrainsDropDown(cardConfig, editDataItem) ? (
+              <div className={`${baseClassName}--input-group--item-half`}>
+                <Dropdown
+                  id={`${id}_grain-selector`}
+                  label=""
+                  direction="bottom"
+                  itemToString={(item) => item.text}
+                  items={
+                    isSummaryDashboard && initialAggregation // limit options for aggregated metrics in a summary dash
+                      ? availableGrains.slice(
+                          availableGrains.findIndex((grain) => grain.id === initialGrain)
+                        )
+                      : availableGrains
+                  }
+                  selectedItem={
+                    availableGrains.find((grain) => grain.id === editDataItem.grain) ||
+                    availableGrains[0]
+                  }
+                  titleText={mergedI18n.grain}
+                  light
+                  onChange={({ selectedItem }) => {
+                    setEditDataItem({
+                      ...editDataItem,
+                      grain: selectedItem.id,
+                    });
+                  }}
+                />
               </div>
+            ) : (
+              <div className={`${baseClassName}--input-group--item-half`} />
             )}
-            {isTimeBasedCard &&
-              editDataItem.aggregationMethod &&
-              editDataItem.aggregationMethod !== 'none' &&
-              !editDataItem?.hasStreamingMetricEnabled && (
-                <div className={`${baseClassName}--input-group--item-half`}>
-                  <Dropdown
-                    id={`${id}_grain-selector`}
-                    label=""
-                    direction="bottom"
-                    itemToString={(item) => item.text}
-                    items={
-                      isSummaryDashboard && initialAggregation // limit options for aggregated metrics in a summary dash
-                        ? availableGrains.slice(
-                            availableGrains.findIndex((grain) => grain.id === initialGrain)
-                          )
-                        : availableGrains
-                    }
-                    selectedItem={
-                      availableGrains.find((grain) => grain.id === editDataItem.grain) ||
-                      availableGrains[0]
-                    }
-                    titleText={mergedI18n.grain}
-                    light
-                    onChange={({ selectedItem }) => {
-                      setEditDataItem({
-                        ...editDataItem,
-                        grain: selectedItem.id,
-                      });
-                    }}
-                  />
-                </div>
-              )}
           </div>
         )}
 
@@ -636,6 +601,7 @@ const DataSeriesFormItemModal = ({
       hasColorDropdown,
       hasDataFilterDropdown,
       hasDecimalPlacesDropdown,
+      hasGrainsDropDown,
       hasThresholds,
       hasTooltip,
       hasUnit,
@@ -645,10 +611,8 @@ const DataSeriesFormItemModal = ({
       isSummaryDashboard,
       isTimeBasedCard,
       mergedI18n,
-      onAddAggregations,
       selectedDimensionFilter,
       setEditDataItem,
-      testId,
       type,
     ]
   );

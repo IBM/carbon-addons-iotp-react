@@ -19,12 +19,10 @@ import {
   DataItemsPropTypes,
   renderDefaultIconByName,
   DashboardEditorActionsPropTypes,
+  defaultDashboardEditorActionsProps,
 } from './editorUtils';
 
 const { iotPrefix } = settings;
-
-/* istanbul ignore next */
-const noop = () => {};
 
 const propTypes = {
   /** Dashboard title */
@@ -389,14 +387,7 @@ const defaultProps = {
   onFetchDynamicDemoHotspots: () => Promise.resolve([{ x: 50, y: 50, type: 'fixed' }]),
   onEditDataItems: null,
   testId: 'dashboard-editor',
-  actions: {
-    onEditDataItem: noop,
-    dataSeriesFormActions: {
-      hasAggregationsDropDown: noop,
-      hasDataFilterDropdown: noop,
-      onAddAggregations: noop,
-    },
-  },
+  actions: defaultDashboardEditorActionsProps,
 };
 
 const LAYOUTS = {

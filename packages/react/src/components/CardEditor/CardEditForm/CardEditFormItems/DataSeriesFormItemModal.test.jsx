@@ -163,12 +163,13 @@ describe('DataSeriesFormItemModal', () => {
     setEditDataItem: mockSetEditDataItem,
     setEditDataSeries: mockSetEditDataSeries,
     availableDimensions,
+    // TODO: May be we can use dashboardEditorActions from the mock data.
     actions: {
       onEditDataItem: jest.fn().mockImplementation(() => []),
       dataSeriesFormActions: {
         hasAggregationsDropDown: jest.fn(() => true),
+        hasGrainsDropDown: jest.fn(() => true),
         hasDataFilterDropdown: jest.fn(() => true),
-        onAddAggregations: jest.fn(),
       },
     },
     options: {
