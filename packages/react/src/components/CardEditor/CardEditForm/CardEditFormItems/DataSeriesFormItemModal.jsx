@@ -17,7 +17,6 @@ import {
 } from '@carbon/colors';
 import { WarningAlt } from '@carbon/react/icons';
 import { FormLabel, TextInput } from '@carbon/react';
-import classnames from 'classnames';
 import { isEmpty, omit } from 'lodash-es';
 
 import { settings } from '../../../../constants/Settings';
@@ -474,8 +473,9 @@ const DataSeriesFormItemModal = ({
                 />
               </div>
             )}
-            {hasDecimalPlacesDropdown && (
-              <div className={`${baseClassName}--input-group--item-end`}>
+
+            <div className={`${baseClassName}--input-group--item`}>
+              {hasDecimalPlacesDropdown && (
                 <Dropdown
                   id={`${id}_value-card-decimal-place`}
                   titleText={mergedI18n.decimalPlacesLabel}
@@ -496,23 +496,15 @@ const DataSeriesFormItemModal = ({
                     }
                   }}
                 />
-              </div>
-            )}
+              )}
+            </div>
           </div>
         )}
 
         {hasDataFilterDropdown &&
           hasDataFilterDropdown(cardConfig) && ( // only show data filter in summary dashboards or instance dashboard for DEVICE_TYPE
             <div className={`${baseClassName}--input-group ${baseClassName}--input-group--bottom `}>
-              <div
-                className={classnames({
-                  [`${baseClassName}--input-group--item`]: !isEmpty(editDataItem.dataFilter),
-                  [`${baseClassName}--input-group--item-half`]:
-                    isEmpty(editDataItem.dataFilter) ||
-                    (!isEmpty(editDataItem.dataFilter) &&
-                      !availableDimensions[selectedDimensionFilter]),
-                })}
-              >
+              <div className={`${baseClassName}--input-group--item`}>
                 <Dropdown
                   id={`${id}_data-filter-key`}
                   label=""
@@ -539,9 +531,10 @@ const DataSeriesFormItemModal = ({
                   titleText={mergedI18n.dataItemEditorDataItemFilter}
                 />
               </div>
-              {!isEmpty(editDataItem.dataFilter) &&
-                availableDimensions[selectedDimensionFilter] && (
-                  <div className={`${baseClassName}--input-group--item-end`}>
+
+              <div className={`${baseClassName}--input-group--item`}>
+                {!isEmpty(editDataItem.dataFilter) &&
+                  availableDimensions[selectedDimensionFilter] && (
                     <Dropdown
                       id={`${id}_data-filter-value`}
                       label=""
@@ -564,8 +557,8 @@ const DataSeriesFormItemModal = ({
                         });
                       }}
                     />
-                  </div>
-                )}
+                  )}
+              </div>
             </div>
           )}
 

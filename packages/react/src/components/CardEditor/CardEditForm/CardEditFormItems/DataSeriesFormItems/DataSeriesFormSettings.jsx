@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TextInput, Toggle } from '@carbon/react';
+import { TextInput, Toggle, NumberInput, Layer } from '@carbon/react';
 
 import { settings } from '../../../../../constants/Settings';
 
@@ -113,39 +113,42 @@ const DataSeriesFormSettings = ({ cardConfig, onChange, i18n }) => {
         />
       </div>
       <div className={`${baseClassName}--input`}>
-        <TextInput
-          id={`${id}_decimal-precision`}
-          labelText={mergedI18n.decimalPrecisionLabel}
-          light
-          type="number"
-          onChange={(evt) =>
-            onChange({
-              ...cardConfig,
-              content: {
-                ...cardConfig.content,
-                decimalPrecision: evt.target.value,
-              },
-            })
-          }
-          value={content?.decimalPrecision}
-        />
+        <Layer>
+          <NumberInput
+            id={`${id}_decimal-precision`}
+            label={mergedI18n.decimalPrecisionLabel}
+            min={0}
+            onChange={(event, { value }) => {
+              const decimalPrecision = Number.parseInt(value, 10);
+              onChange({
+                ...cardConfig,
+                content: {
+                  ...cardConfig.content,
+                  decimalPrecision,
+                },
+              });
+            }}
+            value={content?.decimalPrecision}
+          />
+        </Layer>
       </div>
       <div className={`${baseClassName}--input`}>
-        <TextInput
-          id={`${id}_maximum_data_points`}
-          labelText={mergedI18n.maximumDataPoints}
-          light
-          type="number"
-          onChange={(evt) => {
-            const maximumDataPointsString = evt.target.value;
-            const maximumDataPoints = Number.parseInt(maximumDataPointsString, 10);
-            onChange({
-              ...cardConfig,
-              content: { ...cardConfig.content, maximumDataPoints },
-            });
-          }}
-          value={content?.maximumDataPoints}
-        />
+        <Layer>
+          <NumberInput
+            id={`${id}_maximum_data_points`}
+            label={mergedI18n.maximumDataPoints}
+            step={10}
+            min={0}
+            onChange={(event, { value }) => {
+              const maximumDataPoints = Number.parseInt(value, 10);
+              onChange({
+                ...cardConfig,
+                content: { ...cardConfig.content, maximumDataPoints },
+              });
+            }}
+            value={content?.maximumDataPoints}
+          />
+        </Layer>
       </div>
       <div className={`${baseClassName}--input--toggle-field ${baseClassName}--input`}>
         <span>{mergedI18n.includeZeroOnXaxis}</span>

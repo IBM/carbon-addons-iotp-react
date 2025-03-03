@@ -24,6 +24,7 @@ import large from '../ImageGalleryModal/images/large.png';
 import large_portrait from '../ImageGalleryModal/images/large_portrait.png'; // eslint-disable-line camelcase
 import StoryNotice, { experimentalStoryTitle } from '../../internal/StoryNotice';
 import SimpleList from '../List/SimpleList/SimpleList';
+import { CARD_TYPES } from '../../constants/LayoutConstants';
 
 import DashboardEditorDefaultCardRenderer from './DashboardEditorDefaultCardRenderer';
 import DashboardEditor from './DashboardEditor';
@@ -43,6 +44,8 @@ const commonActions = {
     hasAggregationsDropDown: (editDataItem) =>
       editDataItem?.dataItemType !== 'DIMENSION' && editDataItem?.type !== 'TIMESTAMP',
     onAddAggregations: action('onAddAggregations'),
+    hasDataFilterDropdown: (card) =>
+      card.type !== CARD_TYPES.TABLE && card.type !== CARD_TYPES.IMAGE,
   },
 };
 
