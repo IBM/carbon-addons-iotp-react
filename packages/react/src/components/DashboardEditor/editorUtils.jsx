@@ -86,11 +86,8 @@ export const DataItemsPropTypes = PropTypes.arrayOf(
     aggregationMethods: PropTypes.arrayOf(
       PropTypes.shape({ id: PropTypes.string, text: PropTypes.string })
     ),
-
     /** Grain is needed in summary dashboard editors */
     grain: PropTypes.string,
-    // Used for streming dataItems
-    hasStreamingMetricEnabled: PropTypes.bool,
   })
 );
 

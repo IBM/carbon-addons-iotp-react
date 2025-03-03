@@ -80,7 +80,6 @@ const propTypes = {
     type: PropTypes.string,
     /** Maps to data item type */
     dataItemType: PropTypes.string,
-    hasStreamingMetricEnabled: PropTypes.bool,
     aggregationMethods: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.string,
@@ -199,7 +198,6 @@ const defaultProps = {
   setShowEditor: null,
   availableDimensions: {},
   editDataItem: {
-    hasStreamingMetricEnabled: false,
     columnType: undefined,
   },
   setEditDataItem: null,

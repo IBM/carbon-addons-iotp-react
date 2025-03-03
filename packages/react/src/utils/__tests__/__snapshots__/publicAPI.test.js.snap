@@ -14784,9 +14784,6 @@ Map {
                 "grain": Object {
                   "type": "string",
                 },
-                "hasStreamingMetricEnabled": Object {
-                  "type": "bool",
-                },
                 "label": Object {
                   "type": "string",
                 },
