@@ -7,6 +7,7 @@ import { settings } from '../../constants/Settings';
 import { CARD_TYPES } from '../../constants/LayoutConstants';
 
 import DashboardEditor from './DashboardEditor';
+import { dashboardEditorActions } from './dashboardEditorMockData';
 
 const { iotPrefix } = settings;
 const mockOnImport = jest.fn();
@@ -37,17 +38,7 @@ const commonProps = {
     'TABLE',
     'CUSTOM',
   ],
-  actions: {
-    onEditDataItem: jest.fn().mockImplementation(() => []),
-    dataSeriesFormActions: {
-      hasAggregationsDropDown: jest.fn(
-        (editDataItem) =>
-          editDataItem?.dataItemType !== 'DIMENSION' && editDataItem?.type !== 'TIMESTAMP'
-      ),
-      hasDataFilterDropdown: jest.fn(),
-      onAddAggregations: jest.fn(),
-    },
-  },
+  ...dashboardEditorActions,
 };
 
 describe('DashboardEditor', () => {

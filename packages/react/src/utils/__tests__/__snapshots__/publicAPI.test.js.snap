@@ -14586,7 +14586,7 @@ Map {
         "dataSeriesFormActions": Object {
           "hasAggregationsDropDown": [Function],
           "hasDataFilterDropdown": [Function],
-          "onAddAggregations": [Function],
+          "hasGrainsDropDown": [Function],
         },
         "onEditDataItem": [Function],
       },
@@ -14685,7 +14685,7 @@ Map {
                   "hasDataFilterDropdown": Object {
                     "type": "func",
                   },
-                  "onAddAggregations": Object {
+                  "hasGrainsDropDown": Object {
                     "type": "func",
                   },
                 },
@@ -15374,7 +15374,7 @@ Map {
         "dataSeriesFormActions": Object {
           "hasAggregationsDropDown": [Function],
           "hasDataFilterDropdown": [Function],
-          "onAddAggregations": [Function],
+          "hasGrainsDropDown": [Function],
         },
         "onEditDataItem": [Function],
       },
@@ -15431,7 +15431,7 @@ Map {
                   "hasDataFilterDropdown": Object {
                     "type": "func",
                   },
-                  "onAddAggregations": Object {
+                  "hasGrainsDropDown": Object {
                     "type": "func",
                   },
                 },

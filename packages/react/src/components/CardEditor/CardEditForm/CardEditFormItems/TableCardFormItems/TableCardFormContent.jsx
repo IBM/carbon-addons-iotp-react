@@ -12,6 +12,7 @@ import {
   DataItemsPropTypes,
   DashboardEditorActionsPropTypes,
   dimensionFilterFunction,
+  defaultDashboardEditorActionsProps,
 } from '../../../../DashboardEditor/editorUtils';
 import Button from '../../../../Button';
 import List from '../../../../List/List';
@@ -21,9 +22,6 @@ import { CARD_SIZES, CARD_TYPES } from '../../../../../constants/LayoutConstants
 import { formatDataItemsForDropdown } from '../DataSeriesFormItems/DataSeriesFormContent';
 
 const { iotPrefix } = settings;
-
-/* istanbul ignore next */
-const noop = () => {};
 
 const propTypes = {
   cardConfig: PropTypes.shape({
@@ -120,14 +118,7 @@ const defaultProps = {
   selectedDataItems: [],
   availableDimensions: {},
   dataSeriesItemLinks: null,
-  actions: {
-    onEditDataItem: noop,
-    dataSeriesFormActions: {
-      hasAggregationsDropDown: noop,
-      hasDataFilterDropdown: noop,
-      onAddAggregations: noop,
-    },
-  },
+  actions: defaultDashboardEditorActionsProps,
 };
 
 const TableCardFormContent = ({

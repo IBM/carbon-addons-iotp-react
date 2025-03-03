@@ -25,6 +25,7 @@ import {
   validThresholdColors,
   validHotspotIcons,
   DashboardEditorActionsPropTypes,
+  defaultDashboardEditorActionsProps,
 } from '../DashboardEditor/editorUtils';
 import useSizeObserver from '../../hooks/useSizeObserver';
 
@@ -35,9 +36,6 @@ import { hotspotTypes, useHotspotEditorState } from './hooks/hotspotStateHook';
 import DynamicHotspotSourcePicker from './DynamicHotspotSourcePicker/DynamicHotspotSourcePicker';
 
 const { iotPrefix, prefix } = settings;
-
-/* istanbul ignore next */
-const noop = () => {};
 
 const selectableColors = [
   { carbonColor: gray50, name: 'gray' },
@@ -231,14 +229,7 @@ const defaultProps = {
     }
   },
   testId: 'hotspot-editor-modal',
-  actions: {
-    onEditDataItem: noop,
-    dataSeriesFormActions: {
-      hasAggregationsDropDown: noop,
-      hasDataFilterDropdown: noop,
-      onAddAggregations: noop,
-    },
-  },
+  actions: defaultDashboardEditorActionsProps,
 };
 
 const getSelectedHotspotsList = (selectedHotspot, hotspots) => {

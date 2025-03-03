@@ -5,6 +5,7 @@ import { CARD_TYPES } from '../../../constants/LayoutConstants';
 import {
   DashboardEditorActionsPropTypes,
   DataItemsPropTypes,
+  defaultDashboardEditorActionsProps,
 } from '../../DashboardEditor/editorUtils';
 import { settings } from '../../../constants/Settings';
 
@@ -15,9 +16,6 @@ import TableCardFormContent from './CardEditFormItems/TableCardFormItems/TableCa
 import ContentFormItemTitle from './CardEditFormItems/ContentFormItemTitle';
 
 const { iotPrefix } = settings;
-
-/* istanbul ignore next */
-const noop = () => {};
 
 const propTypes = {
   /** card data value */
@@ -126,14 +124,7 @@ const defaultProps = {
   availableDimensions: {},
   isSummaryDashboard: false,
   dataSeriesItemLinks: null,
-  actions: {
-    onEditDataItem: noop,
-    dataSeriesFormActions: {
-      hasAggregationsDropDown: noop,
-      hasDataFilterDropdown: noop,
-      onAddAggregations: noop,
-    },
-  },
+  actions: defaultDashboardEditorActionsProps,
 };
 
 export const handleTranslationCallback = (idToTranslate, mergedI18n) => {

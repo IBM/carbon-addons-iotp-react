@@ -3,6 +3,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { CARD_TYPES, BAR_CHART_TYPES } from '../../../../../constants/LayoutConstants';
+import { dashboardEditorActions as commonActions } from '../../../../DashboardEditor/dashboardEditorMockData';
 
 import DataSeriesFormItem, {
   formatDataItemsForDropdown,
@@ -100,19 +101,7 @@ const dataItems = [
 const mockOnChange = jest.fn();
 const mockGetValidDataItems = jest.fn(() => dataItems);
 const mockSetSelectedDataItems = jest.fn();
-const commonActions = {
-  actions: {
-    onEditDataItem: jest.fn().mockImplementation(() => []),
-    dataSeriesFormActions: {
-      hasAggregationsDropDown: jest.fn(
-        (editDataItem) =>
-          editDataItem?.dataItemType !== 'DIMENSION' && editDataItem?.type !== 'TIMESTAMP'
-      ),
-      hasDataFilterDropdown: jest.fn(),
-      onAddAggregations: jest.fn(),
-    },
-  },
-};
+
 afterEach(() => {
   jest.clearAllMocks();
 });

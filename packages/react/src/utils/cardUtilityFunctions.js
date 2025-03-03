@@ -2,7 +2,7 @@ import React, { useMemo, useState } from 'react';
 import warning from 'warning';
 import { isNil, mapValues } from 'lodash-es';
 
-import { CARD_SIZES } from '../constants/LayoutConstants';
+import { BAR_CHART_TYPES, CARD_SIZES, CARD_TYPES } from '../constants/LayoutConstants';
 
 import dayjs, { DAYJS_INPUT_FORMATS } from './dayjs';
 import { convertStringsToDOMElement } from './componentUtilityFunctions';
@@ -546,3 +546,11 @@ export const handleTooltip = (
 
   return defaultTooltipDOM.innerHTML;
 };
+
+/** Determind whether a card displays time based data */
+export const isTimeBasedCard = (card) =>
+  card.type === CARD_TYPES.TIMESERIES ||
+  (card.type === CARD_TYPES.TABLE &&
+    card.content?.columns?.find((column) => column.type === 'TIMESTAMP')) ||
+  (card.content?.type === BAR_CHART_TYPES.SIMPLE && card.content?.timeDataSourceId) ||
+  (card.content?.type === BAR_CHART_TYPES.STACKED && card.content?.timeDataSourceId);

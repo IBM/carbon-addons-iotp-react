@@ -3,6 +3,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { CARD_SIZES, CARD_TYPES } from '../../../../../constants/LayoutConstants';
+import { dashboardEditorActions } from '../../../../DashboardEditor/dashboardEditorMockData';
 
 import TableCardFormContent from './TableCardFormContent';
 
@@ -42,17 +43,7 @@ const commonProps = {
         return 'Clear selection';
     }
   }),
-  actions: {
-    onEditDataItem: jest.fn().mockImplementation(() => []),
-    dataSeriesFormActions: {
-      hasAggregationsDropDown: jest.fn(
-        (editDataItem) =>
-          editDataItem?.dataItemType !== 'DIMENSION' && editDataItem?.type !== 'TIMESTAMP'
-      ),
-      hasDataFilterDropdown: jest.fn(),
-      onAddAggregations: jest.fn(),
-    },
-  },
+  ...dashboardEditorActions,
 };
 
 describe('TableCardFormContent', () => {

@@ -8,15 +8,15 @@ import { CARD_TYPES, DASHBOARD_EDITOR_CARD_TYPES } from '../../constants/LayoutC
 import CardCodeEditor from '../CardCodeEditor/CardCodeEditor';
 import Button from '../Button';
 import { settings } from '../../constants/Settings';
-import { DashboardEditorActionsPropTypes } from '../DashboardEditor/editorUtils';
+import {
+  DashboardEditorActionsPropTypes,
+  defaultDashboardEditorActionsProps,
+} from '../DashboardEditor/editorUtils';
 
 import CardGalleryList from './CardGalleryList/CardGalleryList';
 import CardEditForm from './CardEditForm/CardEditForm';
 
 const { iotPrefix } = settings;
-
-/* istanbul ignore next */
-const noop = () => {};
 
 const propTypes = {
   /** card data being edited */
@@ -178,14 +178,7 @@ const defaultProps = {
   testId: 'card-editor',
   dataSeriesItemLinks: null,
   onEditDataItems: null,
-  actions: {
-    onEditDataItem: noop,
-    dataSeriesFormActions: {
-      hasAggregationsDropDown: noop,
-      hasDataFilterDropdown: noop,
-      onAddAggregations: noop,
-    },
-  },
+  actions: defaultDashboardEditorActionsProps,
 };
 
 const baseClassName = `${iotPrefix}--card-editor`;
