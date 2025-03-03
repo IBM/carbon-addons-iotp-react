@@ -14,7 +14,6 @@ $border-radius: 0.25rem;
   }
   &.#{$iot-prefix}--composed-modal.#{$iot-prefix}--composed-modal--large {
     .#{$prefix}--modal-container {
-      background-color: $layer-02;
       overflow: hidden;
       height: 80%;
       $min-width: calc(100% - #{$spacing-06}); //$layout-02 to $spacing-06
@@ -33,10 +32,6 @@ $border-radius: 0.25rem;
         min-width: $min-width;
       }
     }
-  }
-
-  .#{$prefix}--search-input {
-    background-color: $field-01;
   }
 
   .#{$prefix}--modal-content {

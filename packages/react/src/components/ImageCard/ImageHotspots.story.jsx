@@ -112,7 +112,7 @@ const componentDescription =
   '/ panned, in which it will follow the overlaying panned position.';
 
 export default {
-  title: '1 - Watson IoT/ImageHotspots',
+  title: '1 - Watson IoT/Card/ImageCard/ImageHotspots',
 
   parameters: {
     component: ImageHotspots,

@@ -64,7 +64,6 @@ const ImageTile = ({
       id={id}
       selected={isSelected}
       onChange={toggleImageSelection}
-      light
       data-testid={testId}
     >
       <div data-testid={`${testId}-title`} className={`${iotPrefix}--image-tile__title`}>

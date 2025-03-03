@@ -38,7 +38,7 @@ const content = [
 ];
 
 export default {
-  title: '1 - Watson IoT/Modal/ImageGalleryModal',
+  title: '1 - Watson IoT/Card/ImageCard/ImageGalleryModal',
 
   parameters: {
     component: ImageGalleryModal,
