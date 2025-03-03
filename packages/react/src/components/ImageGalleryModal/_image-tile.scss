@@ -62,7 +62,7 @@ $title-height: 3rem;
   }
 
   .#{$iot-prefix}--image-tile__image-container {
-    // @include image-container($image-max-height, $image-max-width);
+    @include image-container($image-max-height, $image-max-width);
   }
 
   .#{$iot-prefix}--image-tile__title {
