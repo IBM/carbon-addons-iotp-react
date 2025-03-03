@@ -49,14 +49,12 @@ const dataItemsV2 = [
     dataSourceId: 'temp_last',
     label: '{high} temp',
     unit: '{unitVar}',
-    hasStreamingMetricEnabled: true,
   },
   {
     dataItemId: 'elevators',
     dataSourceId: 'elevators',
     label: 'Elevators',
     unit: 'floor',
-    hasStreamingMetricEnabled: true,
   },
 ];
 

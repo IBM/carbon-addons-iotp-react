@@ -146,7 +146,6 @@ describe('DataSeriesFormItemModal', () => {
   const editTimeseriesDataItemAggregationMethodsV2 = {
     label: 'Temperature',
     dataSourceId: 'temperature',
-    hasStreamingMetricEnabled: true,
     dataItemType: 'METRIC',
     color: 'red',
     aggregationMethods: [
@@ -586,7 +585,6 @@ describe('DataSeriesFormItemModal', () => {
 
     const aggregatedBarChartDataItem = {
       label: 'Temperature Max',
-      hasStreamingMetricEnabled: false,
       dataSourceId: 'torque_565ba583-dc00-4ee2-a480-5ed7d3e47ab1',
       color: 'red',
       aggregationMethods: [
@@ -1184,7 +1182,7 @@ describe('DataSeriesFormItemModal', () => {
     );
 
     userEvent.type(screen.getByPlaceholderText('Example: %'), '℉');
-    expect(setEditDataItem).toHaveBeenCalledWith({ hasStreamingMetricEnabled: false, unit: '℉' });
+    expect(setEditDataItem).toHaveBeenCalledWith({ unit: '℉' });
   });
 
   it('should call setEditDataItem when changing precision on an IMAGE card.', () => {
@@ -1213,7 +1211,6 @@ describe('DataSeriesFormItemModal', () => {
     userEvent.click(screen.getByText('3'));
     expect(setEditDataItem).toHaveBeenCalledWith({
       precision: 3,
-      hasStreamingMetricEnabled: false,
     });
   });
 
@@ -1236,7 +1233,6 @@ describe('DataSeriesFormItemModal', () => {
           },
         }}
         editDataItem={{
-          hasStreamingMetricEnabled: false,
           precision: 3,
         }}
         setEditDataItem={setEditDataItem}
@@ -1245,7 +1241,7 @@ describe('DataSeriesFormItemModal', () => {
 
     userEvent.click(screen.getByText('3'));
     userEvent.click(screen.getByText('Not set'));
-    expect(setEditDataItem).toHaveBeenCalledWith({ hasStreamingMetricEnabled: false });
+    expect(setEditDataItem).toHaveBeenCalled();
   });
 
   it("should fallback to 'Not set' on a VALUE card when no precision given", () => {
