@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.1.0](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.27...v4.1.0) (2025-03-04)
+
+
+### Bug Fixes
+
+* remove reference to hasStreamingMetricEnabled prop ([39b9a86](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/39b9a86e59e775f8c4d238aa77d83d8e79c37dba))
+* use decimalPrecision instead of precision ([5567524](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/55675240d7acb55ea8f82f217640c400a6c5c246))
+
+
+### Features
+
+* display grain based on callback function ([c1689c7](https://github.com/carbon-design-system/carbon-addons-iot-react/commit/c1689c755f6fb95378308258ee526a3bbfa00176))
+
+
+
+
+
 ## [4.0.27](https://github.com/carbon-design-system/carbon-addons-iot-react/compare/v4.0.26...v4.0.27) (2025-02-20)
 
 
