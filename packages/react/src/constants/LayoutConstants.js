@@ -9,6 +9,7 @@ export const COLORS = {
 };
 
 export const CARD_SIZES = {
+  XSMALL: 'XSMALL',
   SMALL: 'SMALL',
   SMALLWIDE: 'SMALLWIDE',
   SMALLFULL: 'SMALLFULL',
@@ -24,7 +25,6 @@ export const CARD_SIZES = {
 };
 
 export const LEGACY_CARD_SIZES = {
-  XSMALL: 'XSMALL',
   XSMALLWIDE: 'XSMALLWIDE',
   TALL: 'TALL',
   WIDE: 'WIDE',
