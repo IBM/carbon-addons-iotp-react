@@ -92,9 +92,7 @@ export const compareGrains = (grain1, grain2) => {
 
 export const getUpdatedCardSize = (oldSize) => {
   const changedSize =
-    oldSize === 'XSMALL'
-      ? 'SMALL'
-      : oldSize === 'XSMALLWIDE'
+    oldSize === 'XSMALLWIDE'
       ? 'SMALLWIDE'
       : oldSize === 'WIDE'
       ? 'MEDIUMWIDE'
